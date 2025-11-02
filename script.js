@@ -6,10 +6,15 @@ const currentTheme = localStorage.getItem('theme') || 'light';
 body.setAttribute('data-theme', currentTheme);
 
 function updateToggleButton(theme) {
+    const themeIcon = themeToggle.querySelector('.theme-icon');
+    const themeText = themeToggle.querySelector('.theme-text');
+    
     if (theme === 'dark') {
-        themeToggle.innerHTML = '☀️';
+        themeIcon.textContent = '☀️';
+        themeText.textContent = 'Light';
     } else {
-        themeToggle.innerHTML = '🌙 ';
+        themeIcon.textContent = '🌙';
+        themeText.textContent = 'Dark';
     }
 }
 
@@ -50,4 +55,29 @@ const observer = new IntersectionObserver((entries) => {
 
 animatedSections.forEach(section => {
     observer.observe(section);
+});
+
+// Mobile menu toggle
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const navLinks = document.querySelector('.nav-links');
+
+mobileMenuBtn.addEventListener('click', function() {
+    navLinks.classList.toggle('active');
+});
+
+// Close mobile menu when a nav link is clicked
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+    });
+});
+
+// Newsletter form submission
+document.querySelectorAll('.newsletter-form').forEach(form => {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const emailInput = this.querySelector('input[type="email"]');
+        alert(`Thank you for subscribing with ${emailInput.value}! You'll receive our latest updates soon.`);
+        emailInput.value = '';
+    });
 });
