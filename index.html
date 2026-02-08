@@ -1,403 +1,247 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ignitron - Inovasi Teknologi untuk Semua Platform</title>
+    <title>Ignitron - Innovation for All Platforms</title>
     
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Ignitron provides integrated software and hardware solutions for multi-platform technology needs. Specializing in innovative solutions including ShipRadar tracking system for maritime industry.">
-    <meta name="keywords" content="Ignitron, technology solutions, software development, hardware solutions, ShipRadar, maritime tracking, multi-platform solutions, AI technology, innovation">
-    <meta name="author" content="Ignitron">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#3b82f6">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="language" content="English">
-    <meta name="revisit-after" content="7 days">
-    <meta name="distribution" content="global">
-    <meta name="rating" content="general">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ignitrondev.github.io/org/">
-    <meta property="og:title" content="Ignitron - Technology Innovation for All Platforms">
-    <meta property="og:description" content="Integrated software and hardware solutions for multi-platform technology needs. Specializing in innovative solutions for maritime tracking and beyond.">
-    <meta property="og:image" content="https://ignitrondev.github.io/org/images/ignitron-og-image.jpg">
-    <meta property="og:image:alt" content="Ignitron Technology Solutions">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="Ignitron">
-    <meta property="og:locale" content="en_US">
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@ignitron">
-    <meta name="twitter:creator" content="@ignitron">
-    <meta name="twitter:title" content="Ignitron - Technology Innovation for All Platforms">
-    <meta name="twitter:description" content="Integrated software and hardware solutions for multi-platform technology needs.">
-    <meta name="twitter:image" content="https://ignitrondev.github.io/org/images/ignitron-twitter-image.jpg">
-    <meta name="twitter:image:alt" content="Ignitron Technology Solutions">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://ignitrondev.github.io/org/">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="./favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Ignitron",
-        "url": "https://ignitrondev.github.io/org/",
-        "logo": "https://ignitrondev.github.io/org/images/logo.png",
-        "description": "Ignitron provides integrated software and hardware solutions for multi-platform technology needs.",
-        "foundingDate": "2022",
-        "founders": [
-            {
-                "@type": "Person",
-                "name": "Bima Adam Nugraha"
-            }
-        ],
-        "knowsAbout": [
-            "Software Development",
-            "Hardware Solutions",
-            "Maritime Technology",
-            "AI & Innovation",
-            "Multi-Platform Solutions"
-        ],
-        "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "Indonesia"
-        },
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "email": "contact@ignitron.dev",
-            "contactType": "customer service"
-        },
-        "sameAs": [
-            "https://www.linkedin.com/company/ignitrondev",
-            "https://twitter.com/ignitron"
-        ],
-        "areaServed": [
-            {
-                "@type": "Country",
-                "name": "Indonesia"
-            },
-            {
-                "@type": "Country",
-                "name": "Global"
-            }
-        ],
-        "makesOffer": [
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "ShipRadar Maritime Tracking System"
-                }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Multi-platform Software Solutions"
-                }
-            },
-            {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Hardware Integration Services"
-                }
-            }
-        ]
-    }
-    </script>
-    
-    <!-- Additional Structured Data for ShipRadar Product -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "name": "ShipRadar",
-        "description": "Advanced tracking and monitoring system for the maritime industry",
-        "brand": {
-            "@type": "Organization",
-            "name": "Ignitron"
-        },
-        "offers": {
-            "@type": "Offer",
-            "price": "Contact for pricing",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock",
-            "seller": {
-                "@type": "Organization",
-                "name": "Ignitron"
-            }
-        },
-        "category": "Maritime Technology",
-        "featureList": [
-            "Real-time Tracking",
-            "Analytics Dashboard",
-            "Multi-platform Access"
-        ],
-        "image": "https://ignitrondev.github.io/org/images/shipradar-product.jpg"
-    }
-    </script>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <!-- Fonts: Inter (Shadcn Standard) & JetBrains Mono (Code) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
-<body itemscope itemtype="http://schema.org/WebPage">
-    <!-- Header -->
-    <header role="banner">
-        <nav>
-            <a href="#" class="logo">
-                <div class="logo-icon">
-                    <div class="lightning-logo">
-                        <div class="lightning-bolt"></div>
-                    </div>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <div class="logo-icon"></div>
+                    Ignitron
+                </a>
+                
+                <div class="nav-desktop items-center">
+                    <a href="#about" class="text-sm font-medium hover:text-primary">About</a>
+                    <a href="#products" class="text-sm font-medium hover:text-primary">Products</a>
+                    <a href="#team" class="text-sm font-medium hover:text-primary">Team</a>
+                    <a href="blog.html" class="text-sm font-medium hover:text-primary">Blog</a>
+                    <button onclick="toggleTheme()" class="btn btn-outline" style="height: 2rem; padding: 0 0.75rem;">
+                        <span id="theme-text">Dark</span>
+                    </button>
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
                 </div>
-                Ignitron
-            </a>
-            <div class="nav-links">
-                <a href="#products">Products</a>
-                <a href="blog.html">Blog</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M3 12h18M3 6h18M3 18h18"></path>
-                </svg>
-            </button>
-            <button class="theme-toggle" id="themeToggle">
-                <span class="theme-icon">🌙</span>
-                <span class="theme-text">Dark</span>
-            </button>
-        </nav>
+
+                <div class="mobile-menu">
+                    <button onclick="alert('Menu clicked')" class="btn btn-ghost">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>
+                    </button>
+                </div>
+            </nav>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" itemscope itemtype="http://schema.org/IntroductorySection">
-        <div class="hero-content">
-            <h1 itemprop="headline">Technological Innovation for All Platforms</h1>
-            <p class="subtitle" itemprop="description">Integrated Software and Hardware Solutions for Any Platform</p>
-            <div class="cta-buttons">
-                <a href="#products" class="btn btn-primary">Explore Our Solutions</a>
-                <a href="#contact" class="btn btn-secondary">Contact Our Team</a>
-            </div>
-        </div>
-        <div class="hero-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-        </div>
-    </section>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="grid hero-grid">
+                    <!-- Left: Content -->
+                    <div class="flex flex-col gap-4">
+                        <div class="badge badge-outline" style="width: fit-content;">
+                            v2.0 Now Available
+                        </div>
+                        <h1>Technological Innovation for <br><span style="color: hsl(var(--primary));">All Platforms</span></h1>
+                        <p class="text-muted" style="font-size: 1.25rem; max-width: 600px;">
+                            Ignitron provides integrated software and hardware solutions. Built for the future of maritime, AI, and multi-platform infrastructure.
+                        </p>
+                        <div class="flex gap-4" style="margin-top: 1rem;">
+                            <a href="#products" class="btn btn-primary" style="height: 3rem; padding: 0 2rem;">Explore Products</a>
+                            <a href="https://github.com/ignitrondev" class="btn btn-outline" style="height: 3rem; padding: 0 2rem;">Documentation</a>
+                        </div>
+                        
+                        <!-- Social Proof / Mini Stats -->
+                        <div class="flex gap-6" style="margin-top: 3rem; border-top: 1px solid hsl(var(--border)); padding-top: 1.5rem;">
+                            <div>
+                                <div class="font-mono font-bold text-lg">99.9%</div>
+                                <div class="text-sm text-muted">Uptime</div>
+                            </div>
+                            <div>
+                                <div class="font-mono font-bold text-lg">100+</div>
+                                <div class="text-sm text-muted">Clients</div>
+                            </div>
+                            <div>
+                                <div class="font-mono font-bold text-lg">24/7</div>
+                                <div class="text-sm text-muted">Support</div>
+                            </div>
+                        </div>
+                    </div>
 
-    <!-- About Section -->
-    <section class="about section section-animated" id="about">
-        <h2 class="section-title">About Ignitron</h2>
-        <div class="about-content">
-            <p>Founded in 2022, Ignitron was born from a vision to become a leader in innovative and accessible integrated technology solutions across multiple platforms. With over 3 years of experience in the technology industry, we are committed to developing reliable software and hardware.</p>
-            <br>
-            <p>Our core values are:</p>
-            <div class="core-values">
-                <span class="value-item">Innovation</span>
-                <span class="value-item">Trust</span>
-                <span class="value-item">Accessibility</span>
-                <span class="value-item">Quality</span>
-            </div>
-        </div>
-    </section>
+                    <!-- Right: Status Card (The Feature) -->
+                    <div class="flex justify-center">
+                        <div class="card status-card-wrapper" style="width: 100%; max-width: 400px;">
+                            <div class="card-header">
+                                <div class="flex justify-between items-center w-full">
+                                    <div>
+                                        <h3 class="text-sm font-bold text-muted uppercase tracking-wider">VPS Node 01</h3>
+                                        <div class="text-xs text-muted">Founder: Bima Adam N.</div>
+                                    </div>
+                                    <div class="badge badge-primary font-mono text-xs">LIVE</div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div class="latency-display">
+                                    <span id="statusIndicator" class="status-dot"></span>
+                                    <span id="latencyValue" class="latency-number">--</span>
+                                    <div class="text-xs font-medium text-muted">LATENCY (MS)</div>
+                                </div>
 
-    <!-- Milestone Section -->
-    <section class="history section section-animated" id="milestones">
-        <h2 class="section-title">Our Milestones</h2>
-        <div class="history-content">
-            <p>Our journey in delivering technological innovation.</p>
-            <div class="history-timeline">
-                <div class="timeline-item">
-                    <div class="timeline-year">2022</div>
-                    <div class="timeline-text">
-                        Ignitron was founded with a mission to bring technological innovation to various platforms.
+                                <div class="terminal-grid">
+                                    <div>
+                                        <div class="terminal-key">REGION</div>
+                                        <div class="terminal-val">Tailscale</div>
+                                    </div>
+                                    <div>
+                                        <div class="terminal-key">PROTOCOL</div>
+                                        <div class="terminal-val">Rust/TCP</div>
+                                    </div>
+                                    <div style="grid-column: span 2;">
+                                        <div class="terminal-key">IP ADDRESS</div>
+                                        <div class="terminal-val" id="ipValue">100.x.x.x</div>
+                                    </div>
+                                </div>
+
+                                <button id="pingBtn" class="btn btn-outline w-full mt-6" style="width: 100%; margin-top: 1.5rem;">
+                                    <span id="btnText">Ping Server</span>
+                                    <span id="btnLoader" class="loader" style="display:none; margin-left: 0.5rem; width: 14px; height: 14px; border: 2px solid currentColor; border-bottom-color: transparent; border-radius: 50%; animation: spin 1s linear infinite;"></span>
+                                </button>
+                                <style>@keyframes spin { 100% { transform: rotate(360deg); } }</style>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">2023</div>
-                    <div class="timeline-text">
-                        Launch of our flagship product, <strong>ShipRadar</strong>, an advanced tracking and monitoring system.
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">2024</div>
-                    <div class="timeline-text">
-                        Expansion of the ShipRadar platform and addition of new features to reach more industries.
-                    </div>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Products & Solusi Section -->
-    <section class="section section-animated" id="products" itemscope itemtype="http://schema.org/ItemPageSection">
-        <h2 class="section-title">Products & Solutions</h2>
-        <div class="products-grid">
-            <a href="https://shipradar.my.id" target="_blank" class="product-link" itemprop="mainEntity" itemscope itemtype="http://schema.org/Product">
-                <div class="product-card">
-                    <div class="product-visual" itemprop="image">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-                    </div>
-                    <div class="product-info">
-                        <h3 itemprop="name">ShipRadar</h3>
-                        <p itemprop="description">Intelligent monitoring and tracking solution for logistics optimization in the maritime industry. Monitor your entire operations in real-time, from web to mobile.</p>
-                        <ul class="features-list" itemprop="featureList">
-                            <li class="feature-tag">Real-time Tracking</li>
-                            <li class="feature-tag">Analytics Dashboard</li>
-                            <li class="feature-tag">Multi-platform</li>
-                        </ul>
-                    </div>
+        <!-- About / Values Section -->
+        <section class="section" id="about" style="background-color: hsl(var(--secondary) / 0.3);">
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 4rem;">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Why Ignitron?</h2>
+                    <p class="text-muted" style="max-width: 600px; margin: 0 auto;">We build the infrastructure for the next generation of digital experiences.</p>
                 </div>
-            </a>
-        </div>
-    </section>
 
-    <!-- Keunggulan Kompetitif Section -->
-    <section class="section section-animated" id="advantage">
-        <h2 class="section-title">Competitive Advantage</h2>
-        <div class="advantage-grid">
-            <div class="advantage-item">
-                <div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 1 0-8.49-15.1"/><path d="M12 2a10 10 0 1 0 8.49 15.1"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-                <h4>Multi-Platform</h4>
-                <p>One solution, accessible anywhere (Web, Mobile, Desktop).</p>
-            </div>
-            <div class="advantage-item">
-                <div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8-5.9.8 4.2 4.1-1 5.8 5.2-2.8 5.2 2.8-1-5.8 4.2-4.1-5.9-.8z"/><path d="m12 15-5.2 2.8 1-5.8-4.2-4.1 5.9-.8L12 3l1.9 5.8 5.9.8-4.2 4.1 1 5.8z"/></svg></div>
-                <h4>Continuous Innovation</h4>
-                <p>Dedicated R&D team for product development.</p>
-            </div>
-            <div class="advantage-item">
-                <div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                <h4>Customer-Centric</h4>
-                <p>Solutions designed based on real client needs.</p>
-            </div>
-            <div class="advantage-item">
-                <div class="advantage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="m19 12-7-7 7-7"/></svg></div>
-                <h4>Seamless Integration</h4>
-                <p>Seamless integration of hardware and software.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section class="team section section-animated" id="team" itemscope itemtype="http://schema.org/TeamSection">
-        <h2 class="section-title">Our Team</h2>
-        <div class="team-grid">
-            <div class="team-member" itemscope itemtype="http://schema.org/Person">
-                <div class="member-avatar" itemprop="image">BA</div>
-                <div class="member-name" itemprop="name">Bima Adam Nugraha</div>
-                <div class="member-role" itemprop="jobTitle">Founder & CEO</div>
-            </div>
-            <div class="team-member" itemscope itemtype="http://schema.org/Person">
-                <div class="member-avatar" itemprop="image">HT</div>
-                <div class="member-name" itemprop="name">Hikari Takahashi</div>
-                <div class="member-role" itemprop="jobTitle">Head of Engineering</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section class="section section-animated" id="blog">
-        <h2 class="section-title">Latest from Our Blog</h2>
-        <div class="blog-grid">
-            <a href="blog.html" class="blog-card">
-                <div class="blog-image" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIyNSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjM2I4MmY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPlRlY2hub2xvZ3kgVHJlbmRzIDIwMjU8L3RleHQ+PC9zdmc+');"></div>
-                <div class="blog-content">
-                    <span class="blog-date">October 15, 2024</span>
-                    <h3>Top Technology Trends Shaping 2025</h3>
-                    <p>Explore the emerging technologies that will revolutionize industries in the coming year and how Ignitron is preparing for these changes.</p>
-                    <div class="blog-meta">
-                        <span class="blog-category">Technology</span>
-                        <span class="read-time">5 min read</span>
+                <div class="bento-grid">
+                    <div class="card bento-item">
+                        <div class="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        </div>
+                        <h3 class="card-title text-lg">Integrated Stack</h3>
+                        <p class="card-desc text-sm">Software and Hardware solutions working in perfect harmony.</p>
+                    </div>
+                    <div class="card bento-item">
+                        <div class="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        </div>
+                        <h3 class="card-title text-lg">High Performance</h3>
+                        <p class="card-desc text-sm">Built with Rust for maximum speed and reliability.</p>
+                    </div>
+                    <div class="card bento-item">
+                        <div class="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h3 class="card-title text-lg">Secure by Design</h3>
+                        <p class="card-desc text-sm">Enterprise-grade security for your critical data.</p>
                     </div>
                 </div>
-            </a>
-            <a href="blog.html" class="blog-card">
-                <div class="blog-image" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIyNSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjOGI1Y2Y2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkFJRiBUcmFuc2Zvcm1hdGlvbjwvdGV4dD48L3N2Zz4=');"></div>
-                <div class="blog-content">
-                    <span class="blog-date">September 28, 2024</span>
-                    <h3>How AI is Transforming Our Solutions</h3>
-                    <p>Discover how artificial intelligence is being integrated into our products to deliver more efficient and intelligent solutions for our clients.</p>
-                    <div class="blog-meta">
-                        <span class="blog-category">AI & Innovation</span>
-                        <span class="read-time">7 min read</span>
-                    </div>
-                </div>
-            </a>
-            <a href="blog.html" class="blog-card">
-                <div class="blog-image" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIyNSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmI4YjI0Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPlN1c3RhaW5hYmlsaXR5IFNvbHV0aW9uczwvdGV4dD48L3N2Zz4=');"></div>
-                <div class="blog-content">
-                    <span class="blog-date">August 30, 2024</span>
-                    <h3>Sustainable Technology Solutions</h3>
-                    <p>Our commitment to developing environmentally conscious technology solutions that don't compromise on performance or innovation.</p>
-                    <div class="blog-meta">
-                        <span class="blog-category">Sustainability</span>
-                        <span class="read-time">4 min read</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="view-all-blogs">
-            <a href="blog.html" class="btn btn-secondary">View All Articles</a>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="newsletter-section" itemscope itemtype="http://schema.org/SubscribeAction">
-        <div class="container">
-            <div class="newsletter-content">
-                <div class="newsletter-text">
-                    <h2>Stay Updated</h2>
-                    <p>Subscribe to our newsletter to receive the latest technology insights, product updates, and industry trends directly in your inbox.</p>
-                </div>
-                <form class="newsletter-form" itemprop="object" itemscope itemtype="http://schema.org/SubscribeAction">
-                    <input type="email" placeholder="Enter your email address" required itemprop="email">
-                    <button type="submit" class="btn btn-primary">Subscribe</button>
-                </form>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Final CTA Section -->
-    <section class="final-cta section-animated" id="contact">
-        <h2>Start Your Digital Transformation Today</h2>
-        <p>Contact us for a free demo or consultation regarding your business needs.</p>
-        <div class="cta-buttons">
-            <a href="#" class="btn btn-primary">Start Free Trial</a>
-            <a href="#" class="btn btn-secondary">Contact Us for a Demo</a>
-        </div>
-    </section>
+        <!-- Product Feature (ShipRadar) -->
+        <section class="section" id="products">
+            <div class="container">
+                <div class="card" style="border-radius: 1rem;">
+                    <div class="grid" style="grid-template-columns: 1fr;">
+                        <div class="card-content" style="display: flex; flex-direction: column; justify-content: center; padding: 3rem;">
+                            <div class="badge badge-primary" style="width: fit-content; margin-bottom: 1rem;">Flagship Product</div>
+                            <h2 class="card-title" style="font-size: 2.25rem; margin-bottom: 1rem;">ShipRadar</h2>
+                            <p class="card-desc" style="font-size: 1.1rem; max-width: 600px; margin-bottom: 2rem;">
+                                Intelligent monitoring and tracking solution for the maritime industry. Monitor your entire operations in real-time.
+                            </p>
+                            <ul class="text-sm text-muted space-y-2" style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem;">
+                                <li class="flex items-center gap-2"><span style="color: #10b981;">✓</span> Real-time AIS Tracking</li>
+                                <li class="flex items-center gap-2"><span style="color: #10b981;">✓</span> Predictive Analytics</li>
+                                <li class="flex items-center gap-2"><span style="color: #10b981;">✓</span> Multi-platform Dashboard</li>
+                            </ul>
+                            <div class="flex gap-4" style="margin-top: 2rem;">
+                                <a href="https://shipradar.my.id" target="_blank" class="btn btn-primary">View Live Demo</a>
+                                <a href="#" class="btn btn-outline">Documentation</a>
+                            </div>
+                        </div>
+                        <!-- Visual placeholder -->
+                        <div style="background-color: hsl(var(--secondary)); min-height: 300px; display: flex; align-items: center; justify-content: center; border-top: 1px solid hsl(var(--border));">
+                            <span class="font-mono text-muted text-xl">[ DASHBOARD PREVIEW ]</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="section" id="team">
+            <div class="container">
+                <h2 class="text-center" style="margin-bottom: 3rem; font-size: 2rem;">The Team</h2>
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                    <div class="card">
+                        <div class="card-content items-center text-center">
+                            <div style="width: 80px; height: 80px; background: hsl(var(--secondary)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.5rem; margin-bottom: 1rem;">
+                                BA
+                            </div>
+                            <h3 class="card-title text-lg">Bima Adam Nugraha</h3>
+                            <p class="card-desc font-medium" style="color: hsl(var(--primary));">Founder & CEO</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content items-center text-center">
+                            <div style="width: 80px; height: 80px; background: hsl(var(--secondary)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.5rem; margin-bottom: 1rem;">
+                                HT
+                            </div>
+                            <h3 class="card-title text-lg">Hikari Takahashi</h3>
+                            <p class="card-desc font-medium" style="color: hsl(var(--primary));">Head of Engineering</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section">
+            <div class="container">
+                <div class="card" style="background-color: hsl(var(--foreground)); color: hsl(var(--background)); border: none; text-align: center; padding: 4rem 2rem;">
+                    <h2 style="color: hsl(var(--background)); font-size: 2.5rem; margin-bottom: 1rem;">Ready to innovate?</h2>
+                    <p style="color: hsl(var(--background) / 0.7); max-width: 600px; margin: 0 auto 2rem;">Join us in building the future of technology. Contact our team for a demo.</p>
+                    <a href="#contact" class="btn" style="background-color: hsl(var(--background)); color: hsl(var(--foreground)); border: none; height: 3rem; padding: 0 2rem;">Contact Sales</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="#about">About Us</a>
-                <a href="#products">Products</a>
-                <a href="blog.html">Blog</a>
-                <a href="#milestones">Milestones</a>
-                <a href="mailto:contact@ignitron.dev">Email</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
+        <div class="container flex flex-col items-center justify-between" style="gap: 2rem;">
+            <div class="flex items-center gap-2 font-bold text-lg">
+                Ignitron
             </div>
-            <p class="footer-text">© 2025 Ignitron - Technological Innovation for All Platforms</p>
+            <div class="flex gap-6 text-sm text-muted">
+                <a href="#">About</a>
+                <a href="#">Products</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+            <div class="text-sm text-muted">
+                © 2025 Ignitron. All rights reserved.
+            </div>
         </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
