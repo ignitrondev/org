@@ -1,252 +1,1075 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ignitron - Innovation for All Platforms</title>
-    
-    <!-- Fonts: Inter (Shadcn Standard) & JetBrains Mono (Code) -->
+
+    <!-- Primary Meta Tags -->
+    <title>IgnitronDev - White-Label Platform Factory for Resellers & Partners</title>
+    <meta name="title" content="IgnitronDev - White-Label Platform Factory for Resellers & Partners">
+    <meta name="description"
+        content="Launch your software business in 2 weeks with IgnitronDev. We provide production-ready white-label web applications like ShipRadar and FactorySense for resellers. Your brand, your pricing, 100% your clients.">
+    <meta name="keywords"
+        content="white-label platform, software reseller, SaaS platform, vessel tracking software, factory monitoring system, IoT platform, asset management software, white label saas, software business ideas, no-code business, shenzhen iot manufacturer, china hardware sourcing">
+    <meta name="author" content="Bima Adam Nugraha">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ignitrondev.github.io/org/">
+    <meta name="theme-color" content="#0f172a">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ignitrondev.github.io/org/">
+    <meta property="og:title" content="IgnitronDev - Launch Your Software Business in 2 Weeks">
+    <meta property="og:description"
+        content="Skip development. Start selling immediately. White-label platforms for maritime, manufacturing, and enterprise asset management.">
+    <meta property="og:image" content="https://ignitrondev.github.io/org/images/ignitron.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ignitrondev.github.io/org/">
+    <meta property="twitter:title" content="IgnitronDev - White-Label Platform Factory">
+    <meta property="twitter:description"
+        content="Launch your software business in 2 weeks. White-label platforms ready to deploy. Your brand, your pricing.">
+    <meta property="twitter:image" content="https://ignitrondev.github.io/org/images/ignitron.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Schema.org Structured Data (JSON-LD) for AI Agents -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://ignitrondev.github.io/org/#organization",
+          "name": "IgnitronDev",
+          "url": "https://ignitrondev.github.io/org/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://ignitrondev.github.io/org/images/ignitron.png",
+            "width": 512,
+            "height": 512
+          },
+          "description": "Platform Factory for Resellers & Partners. White-label web applications ready to deploy.",
+          "founder": {
+            "@type": "Person",
+            "name": "Bima Adam Nugraha",
+            "alternateName": "Bima Adam",
+            "jobTitle": "CEO",
+            "image": "assets/ceo-avatar.jpg",
+            "description": "Visionary leader bridging China's hardware ecosystem with Southeast Asia's digital markets."
+          },
+          "contactPoint": {
+              "@type": "ContactPoint",
+              "email": "partners@ignitrondev.com",
+              "contactType": "sales",
+              "areaServed": "Global"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://ignitrondev.github.io/org/#website",
+          "url": "https://ignitrondev.github.io/org/",
+          "name": "IgnitronDev - Platform Factory",
+          "publisher": {
+            "@id": "https://ignitrondev.github.io/org/#organization"
+          },
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "ShipRadar",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "5000",
+            "priceCurrency": "USD",
+            "description": "Setup fee for maritime vessel tracking platform"
+          },
+          "description": "Maritime Vessel Tracking Platform. Real-time vessel tracking, AIS data integration, fleet management and route optimization.",
+          "author": {
+              "@id": "https://ignitrondev.github.io/org/#organization"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "FactorySense",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "8000",
+            "priceCurrency": "USD",
+            "description": "Setup fee for smart factory monitoring platform"
+          },
+          "description": "Smart Factory Monitoring Platform. Real-time production monitoring, IoT sensor integration, predictive maintenance.",
+          "author": {
+              "@id": "https://ignitrondev.github.io/org/#organization"
+          }
+        }
+      ]
+    }
+    </script>
 </head>
+
 <body>
-
-    <!-- Navbar -->
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">
-                    <div class="logo-icon">
-                        <img src="images/ignitron.png" alt="Ignitron Logo" style="height: 24px; width: 24px;">
-                    </div>
-                    Ignitron
-                </a>
-                
-                <div class="nav-desktop items-center">
-                    <a href="#about" class="text-sm font-medium hover:text-primary">About</a>
-                    <a href="#products" class="text-sm font-medium hover:text-primary">Products</a>
-                    <a href="#team" class="text-sm font-medium hover:text-primary">Team</a>
-                    <a href="blog.html" class="text-sm font-medium hover:text-primary">Blog</a>
-                    <button onclick="toggleTheme()" class="btn btn-outline" style="height: 2rem; padding: 0 0.75rem;">
-                        <span id="theme-text">Dark</span>
-                    </button>
-                    <a href="#contact" class="btn btn-primary">Get Started</a>
+    <!-- ============================================
+         NAVIGATION
+    ============================================= -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <div class="nav-logo-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                        <path
+                            d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                        <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+                        <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                    </svg>
                 </div>
-
-                <div class="mobile-menu">
-                    <button onclick="alert('Menu clicked')" class="btn btn-ghost">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>
-                    </button>
+                <div class="nav-logo-text">
+                    <span class="nav-logo-name">Ignitron<span>Dev</span></span>
+                    <span class="nav-logo-tagline">PLATFORM FACTORY</span>
                 </div>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <div class="grid hero-grid">
-                    <!-- Left: Content -->
-                    <div class="flex flex-col gap-4">
-                        <div class="badge badge-outline" style="width: fit-content;">
-                            v2.0 Now Available
-                        </div>
-                        <h1>Technological Innovation for <br><span style="color: hsl(var(--primary));">All Platforms</span></h1>
-                        <p class="text-muted" style="font-size: 1.25rem; max-width: 600px;">
-                            Ignitron provides integrated software and hardware solutions. Built for the future of maritime, AI, and multi-platform infrastructure.
-                        </p>
-                        <div class="flex gap-4" style="margin-top: 1rem;">
-                            <a href="#products" class="btn btn-primary" style="height: 3rem; padding: 0 2rem;">Explore Products</a>
-                            <a href="https://github.com/ignitrondev" class="btn btn-outline" style="height: 3rem; padding: 0 2rem;">Documentation</a>
-                        </div>
-                        
-                        <!-- Social Proof / Mini Stats -->
-                        <div class="flex gap-6" style="margin-top: 3rem; border-top: 1px solid hsl(var(--border)); padding-top: 1.5rem;">
-                            <div>
-                                <div class="font-mono font-bold text-lg">99.9%</div>
-                                <div class="text-sm text-muted">Uptime</div>
-                            </div>
-                            <div>
-                                <div class="font-mono font-bold text-lg">100+</div>
-                                <div class="text-sm text-muted">Clients</div>
-                            </div>
-                            <div>
-                                <div class="font-mono font-bold text-lg">24/7</div>
-                                <div class="text-sm text-muted">Support</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Right: Status Card (The Feature) -->
-                    <div class="flex justify-center">
-                        <div class="card status-card-wrapper" style="width: 100%; max-width: 400px;">
-                            <div class="card-header">
-                                <div class="flex justify-between items-center w-full">
-                                    <div>
-                                        <h3 class="text-sm font-bold text-muted uppercase tracking-wider">VPS Node 01</h3>
-                                        <div class="text-xs text-muted">Founder: Bima Adam N.</div>
-                                    </div>
-                                    <div class="badge badge-primary font-mono text-xs">LIVE</div>
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <div class="latency-display">
-                                    <span id="statusIndicator" class="status-dot"></span>
-                                    <span id="latencyValue" class="latency-number">--</span>
-                                    <div class="text-xs font-medium text-muted">LATENCY (MS)</div>
-                                </div>
-
-                                <div class="terminal-grid">
-                                    <div>
-                                        <div class="terminal-key">REGION</div>
-                                        <div class="terminal-val">Tailscale</div>
-                                    </div>
-                                    <div>
-                                        <div class="terminal-key">PROTOCOL</div>
-                                        <div class="terminal-val">Rust/TCP</div>
-                                    </div>
-                                    <div style="grid-column: span 2;">
-                                        <div class="terminal-key">IP ADDRESS</div>
-                                        <div class="terminal-val" id="ipValue">100.x.x.x</div>
-                                    </div>
-                                </div>
-
-                                <button id="pingBtn" class="btn btn-outline w-full mt-6" style="width: 100%; margin-top: 1.5rem;">
-                                    <span id="btnText">Ping Server</span>
-                                    <span id="btnLoader" class="loader" style="display:none; margin-left: 0.5rem; width: 14px; height: 14px; border: 2px solid currentColor; border-bottom-color: transparent; border-radius: 50%; animation: spin 1s linear infinite;"></span>
-                                </button>
-                                <style>@keyframes spin { 100% { transform: rotate(360deg); } }</style>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About / Values Section -->
-        <section class="section" id="about" style="background-color: hsl(var(--secondary) / 0.3);">
-            <div class="container">
-                <div class="text-center" style="margin-bottom: 4rem;">
-                    <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Why Ignitron?</h2>
-                    <p class="text-muted" style="max-width: 600px; margin: 0 auto;">We build the infrastructure for the next generation of digital experiences.</p>
-                </div>
-
-                <div class="bento-grid">
-                    <div class="card bento-item">
-                        <div class="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-2">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                        </div>
-                        <h3 class="card-title text-lg">Integrated Stack</h3>
-                        <p class="card-desc text-sm">Software and Hardware solutions working in perfect harmony.</p>
-                    </div>
-                    <div class="card bento-item">
-                        <div class="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-2">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                        </div>
-                        <h3 class="card-title text-lg">High Performance</h3>
-                        <p class="card-desc text-sm">Built with Rust for maximum speed and reliability.</p>
-                    </div>
-                    <div class="card bento-item">
-                        <div class="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-2">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                        </div>
-                        <h3 class="card-title text-lg">Secure by Design</h3>
-                        <p class="card-desc text-sm">Enterprise-grade security for your critical data.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Product Feature (ShipRadar) -->
-        <section class="section" id="products">
-            <div class="container">
-                <div class="card" style="border-radius: 1rem;">
-                    <div class="grid" style="grid-template-columns: 1fr;">
-                        <div class="card-content" style="display: flex; flex-direction: column; justify-content: center; padding: 3rem;">
-                            <div class="badge badge-primary" style="width: fit-content; margin-bottom: 1rem;">Flagship Product</div>
-                            <h2 class="card-title" style="font-size: 2.25rem; margin-bottom: 1rem;">ShipRadar</h2>
-                            <p class="card-desc" style="font-size: 1.1rem; max-width: 600px; margin-bottom: 2rem;">
-                                Intelligent monitoring and tracking solution for the maritime industry. Monitor your entire operations in real-time.
-                            </p>
-                            <ul class="text-sm text-muted space-y-2" style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem;">
-                                <li class="flex items-center gap-2"><span style="color: #10b981;">✓</span> Real-time AIS Tracking</li>
-                                <li class="flex items-center gap-2"><span style="color: #10b981;">✓</span> Predictive Analytics</li>
-                                <li class="flex items-center gap-2"><span style="color: #10b981;">✓</span> Multi-platform Dashboard</li>
-                            </ul>
-                            <div class="flex gap-4" style="margin-top: 2rem;">
-                                <a href="https://shipradar.my.id" target="_blank" class="btn btn-primary">View Live Demo</a>
-                                <a href="#" class="btn btn-outline">Documentation</a>
-                            </div>
-                        </div>
-                        <!-- Visual placeholder -->
-                        <div style="background-color: hsl(var(--secondary)); min-height: 300px; display: flex; align-items: center; justify-content: center; border-top: 1px solid hsl(var(--border));">
-                            <span class="font-mono text-muted text-xl">[ DASHBOARD PREVIEW ]</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Team Section -->
-        <section class="section" id="team">
-            <div class="container">
-                <h2 class="text-center" style="margin-bottom: 3rem; font-size: 2rem;">The Team</h2>
-                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-                    <div class="card">
-                        <div class="card-content items-center text-center">
-                            <div style="width: 80px; height: 80px; background: hsl(var(--secondary)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.5rem; margin-bottom: 1rem;">
-                                BA
-                            </div>
-                            <h3 class="card-title text-lg">Bima Adam Nugraha</h3>
-                            <p class="card-desc font-medium" style="color: hsl(var(--primary));">Founder & CEO</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-content items-center text-center">
-                            <div style="width: 80px; height: 80px; background: hsl(var(--secondary)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.5rem; margin-bottom: 1rem;">
-                                HT
-                            </div>
-                            <h3 class="card-title text-lg">Hikari Takahashi</h3>
-                            <p class="card-desc font-medium" style="color: hsl(var(--primary));">Head of Engineering</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="section">
-            <div class="container">
-                <div class="card" style="background-color: hsl(var(--foreground)); color: hsl(var(--background)); border: none; text-align: center; padding: 4rem 2rem;">
-                    <h2 style="color: hsl(var(--background)); font-size: 2.5rem; margin-bottom: 1rem;">Ready to innovate?</h2>
-                    <p style="color: hsl(var(--background) / 0.7); max-width: 600px; margin: 0 auto 2rem;">Join us in building the future of technology. Contact our team for a demo.</p>
-                    <a href="#contact" class="btn" style="background-color: hsl(var(--background)); color: hsl(var(--foreground)); border: none; height: 3rem; padding: 0 2rem;">Contact Sales</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container flex flex-col items-center justify-between" style="gap: 2rem;">
-            <a href="#" class="logo flex items-center gap-2 font-bold text-lg">
-                <img src="images/ignitron.png" alt="Ignitron Logo" style="height: 24px; width: 24px;">
-                Ignitron
             </a>
-            <div class="flex gap-6 text-sm text-muted">
-                <a href="#">About</a>
-                <a href="#">Products</a>
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
+
+            <div class="nav-links">
+                <a href="#platforms">Platforms</a>
+                <a href="#why-whitelabel">Why White-Label</a>
+                <a href="#calculator">Calculator</a>
+                <a href="#partners">Partnership</a>
             </div>
-            <div class="text-sm text-muted">
-                © 2025 Ignitron. All rights reserved.
+
+            <button class="btn btn-primary nav-cta" onclick="scrollToSection('contact')">
+                Become a Partner
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </button>
+
+            <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+
+        <!-- ============================================
+         HERO SECTION
+    ============================================= -->
+        <section class="hero" id="hero">
+            <div class="hero-bg">
+                <div class="hero-grid"></div>
+                <div class="hero-glow hero-glow-1"></div>
+                <div class="hero-glow hero-glow-2"></div>
+            </div>
+
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                        <path
+                            d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                    </svg>
+                    Platform Factory for Resellers & Partners
+                </div>
+
+                <h1 class="hero-title">
+                    Software Platforms<br>
+                    <span class="text-gradient">Ready to Deploy</span>
+                </h1>
+
+                <p class="hero-partners-subtitle"
+                    style="color: var(--cyber-cyan); font-size: 14px; margin-bottom: 16px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase;">
+                    <span style="opacity: 0.8">Strategic R&D Alliance:</span> Jakarta 🇮🇩 &nbsp;•&nbsp; Shenzhen 🇨🇳
+                </p>
+
+                <p class="hero-subtitle">
+                    White-label web applications for system integrators & resellers.
+                </p>
+
+                <p class="hero-highlight">
+                    Your brand. Your pricing. Your clients. We stay invisible.
+                </p>
+
+                <div class="hero-cta">
+                    <button class="btn btn-primary btn-lg" onclick="scrollToSection('platforms')">
+                        Browse Platforms
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="m9 18 6-6-6-6" />
+                        </svg>
+                    </button>
+                    <button class="btn btn-outline btn-lg" onclick="scrollToSection('calculator')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="4" y="2" width="16" height="20" rx="2" />
+                            <line x1="8" x2="16" y1="6" y2="6" />
+                            <line x1="16" x2="16" y1="14" y2="18" />
+                            <line x1="8" x2="8" y1="10" y2="10" />
+                            <line x1="12" x2="12" y1="10" y2="10" />
+                            <line x1="8" x2="8" y1="14" y2="14" />
+                            <line x1="12" x2="12" y1="14" y2="14" />
+                            <line x1="8" x2="8" y1="18" y2="18" />
+                            <line x1="12" x2="12" y1="18" y2="18" />
+                        </svg>
+                        Calculate Revenue
+                    </button>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">3</div>
+                        <div class="hero-stat-label">Ready Platforms</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">50%+</div>
+                        <div class="hero-stat-label">Partner Revenue</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">2 Weeks</div>
+                        <div class="hero-stat-label">Deploy Time</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">24/7</div>
+                        <div class="hero-stat-label">Support</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-scroll">
+                <span>Scroll to explore</span>
+                <div class="hero-scroll-mouse">
+                    <div class="hero-scroll-dot"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             STRATEGIC PARTNERS STRIP
+        ============================================= -->
+        <div class="partners-strip"
+            style="background: rgba(11, 27, 46, 0.8); border-bottom: 1px solid var(--border-color); padding: 24px 0; overflow: hidden; margin-bottom: 40px;">
+            <div class="container">
+                <p
+                    style="text-align: center; font-size: 12px; color: var(--steel-silver); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px;">
+                    Trusted Hardware Ecosystem Partners in China</p>
+                <div
+                    style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; opacity: 0.7; align-items: center;">
+                    <div
+                        style="font-weight: 700; font-size: 18px; color: var(--steel-silver); display: flex; align-items: center; gap: 8px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                        SHENZHEN <span style="font-weight: 400;">IoT LABS</span>
+                    </div>
+                    <div
+                        style="font-weight: 700; font-size: 18px; color: var(--steel-silver); display: flex; align-items: center; gap: 8px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                        </svg>
+                        GUANGDONG <span style="font-weight: 400;">SMART MFG</span>
+                    </div>
+                    <div
+                        style="font-weight: 700; font-size: 18px; color: var(--steel-silver); display: flex; align-items: center; gap: 8px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path
+                                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                            </path>
+                        </svg>
+                        FOSHAN <span style="font-weight: 400;">SENSORS</span>
+                    </div>
+                </div>
             </div>
         </div>
-        <script src="script.js"></script>
+
+        <!-- ============================================
+         PLATFORMS SECTION
+    ============================================= -->
+        <section class="section platforms" id="platforms">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Platform Catalog</span>
+                    <h2 class="section-title">Choose Your <span class="text-gradient">Platform</span></h2>
+                    <p class="section-subtitle">Production-ready web applications. White-label. Deploy in 2 weeks.</p>
+                </div>
+
+                <div class="platforms-grid">
+                    <!-- ShipRadar -->
+                    <div class="platform-card" data-platform="shipradar">
+                        <div class="platform-card-header">
+                            <div class="platform-icon" style="--platform-color: #00D4FF;">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 .6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" />
+                                    <path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76" />
+                                    <path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6" />
+                                    <path d="M12 10v4" />
+                                    <path d="M12 2v3" />
+                                </svg>
+                            </div>
+                            <span class="platform-status platform-status-live">● Live</span>
+                        </div>
+                        <h3 class="platform-name">
+                            ShipRadar
+                            <a href="https://shipradar.my.id" target="_blank" rel="noopener" class="platform-demo-link">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polygon points="5 3 19 12 5 21 5 3" />
+                                </svg>
+                            </a>
+                        </h3>
+                        <p class="platform-tagline">Maritime Vessel Tracking Platform</p>
+                        <p class="platform-description">Real-time vessel tracking, AIS data integration, fleet
+                            management, and route optimization for maritime industry.</p>
+
+                        <div class="platform-features">
+                            <span class="platform-feature">Real-time Tracking</span>
+                            <span class="platform-feature">AIS Integration</span>
+                            <span class="platform-feature">Fleet Management</span>
+                            <span class="platform-feature">Route Optimization</span>
+                            <span class="platform-feature">+2 more</span>
+                        </div>
+
+                        <div class="platform-markets">
+                            <strong>Markets:</strong> Maritime, Logistics, Port Authority, Shipping
+                        </div>
+
+                        <div class="platform-pricing">
+                            <div class="platform-price">
+                                <span class="platform-price-value">$5,000</span>
+                                <span class="platform-price-label">setup</span>
+                            </div>
+                            <div class="platform-price-monthly">
+                                + $500/month
+                            </div>
+                            <button class="btn btn-primary btn-sm">Get Started</button>
+                        </div>
+                    </div>
+
+                    <!-- FactorySense -->
+                    <div class="platform-card" data-platform="factorysense">
+                        <div class="platform-card-header">
+                            <div class="platform-icon" style="--platform-color: #00FF88;">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+                                    <path d="M17 18h1" />
+                                    <path d="M12 18h1" />
+                                    <path d="M7 18h1" />
+                                </svg>
+                            </div>
+                            <span class="platform-status platform-status-soon">Coming Soon</span>
+                        </div>
+                        <h3 class="platform-name">FactorySense</h3>
+                        <p class="platform-tagline">Smart Factory Monitoring Platform</p>
+                        <p class="platform-description">Real-time production monitoring with direct integration to
+                            Shenzhen-manufactured IoT sensors. Predictive maintenance and energy optimization.</p>
+
+                        <div class="platform-features">
+                            <span class="platform-feature">Production Monitoring</span>
+                            <span class="platform-feature">IoT Sensors</span>
+                            <span class="platform-feature">Shenzhen Certified</span>
+                            <span class="platform-feature">+3 more</span>
+                        </div>
+
+                        <div class="platform-markets">
+                            <strong>Markets:</strong> Manufacturing, Industrial, Automotive
+                        </div>
+
+                        <div class="platform-pricing">
+                            <div class="platform-price">
+                                <span class="platform-price-value">$8,000</span>
+                                <span class="platform-price-label">setup</span>
+                            </div>
+                            <div class="platform-price-monthly">
+                                + $800/month
+                            </div>
+                            <button class="btn btn-secondary btn-sm" disabled>Notify Me</button>
+                        </div>
+                    </div>
+
+                    <!-- AssetTrack -->
+                    <div class="platform-card" data-platform="assettrack">
+                        <div class="platform-card-header">
+                            <div class="platform-icon" style="--platform-color: #FF6B35;">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
+                                    <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
+                                    <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
+                                    <path d="M10 6h4" />
+                                    <path d="M10 10h4" />
+                                    <path d="M10 14h4" />
+                                    <path d="M10 18h4" />
+                                </svg>
+                            </div>
+                            <span class="platform-status platform-status-soon">Coming Soon</span>
+                        </div>
+                        <h3 class="platform-name">AssetTrack</h3>
+                        <p class="platform-tagline">Enterprise Asset Management Platform</p>
+                        <p class="platform-description">Complete asset lifecycle management, inventory tracking,
+                            maintenance scheduling, and depreciation analytics.</p>
+
+                        <div class="platform-features">
+                            <span class="platform-feature">Asset Lifecycle</span>
+                            <span class="platform-feature">Inventory Tracking</span>
+                            <span class="platform-feature">Maintenance Scheduling</span>
+                            <span class="platform-feature">+3 more</span>
+                        </div>
+
+                        <div class="platform-markets">
+                            <strong>Markets:</strong> Enterprise, Real Estate, Healthcare
+                        </div>
+
+                        <div class="platform-pricing">
+                            <div class="platform-price">
+                                <span class="platform-price-value">$6,000</span>
+                                <span class="platform-price-label">setup</span>
+                            </div>
+                            <div class="platform-price-monthly">
+                                + $600/month
+                            </div>
+                            <button class="btn btn-secondary btn-sm" disabled>Notify Me</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Platform CTA -->
+                <div class="custom-platform">
+                    <div class="custom-platform-content">
+                        <div class="custom-platform-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="16 18 22 12 16 6" />
+                                <polyline points="8 6 2 12 8 18" />
+                            </svg>
+                        </div>
+                        <div class="custom-platform-text">
+                            <h3>Need a Custom Platform?</h3>
+                            <p>We build custom platforms for specific industries. Starting from $20,000.</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary">Discuss Your Project →</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+         WHY WHITE-LABEL SECTION
+    ============================================= -->
+        <section class="section why-whitelabel" id="why-whitelabel">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Why White-Label?</span>
+                    <h2 class="section-title">Build <span class="text-gradient">Software Business</span><br>Without
+                        Building Software</h2>
+                    <p class="section-subtitle">Skip the development. Skip the hiring. Skip the risk. Start selling
+                        immediately.</p>
+                </div>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                                <path
+                                    d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Launch in 2 Weeks</h3>
+                        <p class="benefit-description">Skip 12-18 months of development. Our platforms are
+                            production-ready and battle-tested in Asian markets.</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <line x1="12" x2="12" y1="2" y2="22" />
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Keep Your Margins</h3>
+                        <p class="benefit-description">No need to hire developers. Sell high-value software with 50-60%
+                            revenue share.</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
+                                <path d="m9 12 2 2 4-4" />
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Your Brand, Your Clients</h3>
+                        <p class="benefit-description">White-label means your logo, your domain, your pricing. We stay
+                            invisible.</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                                <polyline points="16 7 22 7 22 13" />
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Recurring Revenue</h3>
+                        <p class="benefit-description">Monthly subscription model creates predictable, scalable income
+                            stream.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Direct Hardware Sourcing</h3>
+                        <p class="benefit-description">Access our Shenzhen supply chain for compatible IoT hardware at
+                            factory-direct pricing.</p>
+                    </div>
+                </div>
+
+                <!-- Comparison -->
+                <div class="comparison-grid">
+                    <div class="comparison-card comparison-bad">
+                        <div class="comparison-label">❌ Build Yourself</div>
+                        <div class="comparison-value">12-18 Months</div>
+                        <div class="comparison-detail">Development time</div>
+                        <div class="comparison-detail comparison-cost">$100K+ investment</div>
+                    </div>
+                    <div class="comparison-card comparison-best">
+                        <div class="comparison-badge">WHITE-LABEL</div>
+                        <div class="comparison-label">✓ White-Label Partner</div>
+                        <div class="comparison-value">2 Weeks</div>
+                        <div class="comparison-detail">Deployment time</div>
+                        <div class="comparison-detail comparison-cost highlight">$5K starting</div>
+                    </div>
+                    <div class="comparison-card comparison-mid">
+                        <div class="comparison-label">⚠️ Hire Agency</div>
+                        <div class="comparison-value">3-6 Months</div>
+                        <div class="comparison-detail">Development time</div>
+                        <div class="comparison-detail comparison-cost">$30K-80K typical</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+         REVENUE CALCULATOR SECTION
+    ================================================= -->
+        <section class="section calculator" id="calculator">
+            <div class="container container-sm">
+                <div class="section-header">
+                    <span class="section-badge">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="4" y="2" width="16" height="20" rx="2" />
+                            <line x1="8" x2="16" y1="6" y2="6" />
+                        </svg>
+                        Revenue Calculator
+                    </span>
+                    <h2 class="section-title">Calculate Your <span class="text-gradient">Earnings</span></h2>
+                </div>
+
+                <div class="calculator-card">
+                    <div class="calculator-input">
+                        <div class="calculator-label">
+                            <span>Clients per Month</span>
+                            <span class="calculator-value" id="clientsValue">3</span>
+                        </div>
+                        <input type="range" class="calculator-slider" id="clientsSlider" min="1" max="20" value="3">
+                        <div class="calculator-slider-labels">
+                            <span>1</span>
+                            <span>20</span>
+                        </div>
+                    </div>
+
+                    <div class="calculator-input">
+                        <div class="calculator-label">
+                            <span>Average Deal Size</span>
+                            <span class="calculator-value">$<span id="dealValue">10,000</span></span>
+                        </div>
+                        <input type="range" class="calculator-slider" id="dealSlider" min="5000" max="50000"
+                            value="10000" step="1000">
+                        <div class="calculator-slider-labels">
+                            <span>$5,000</span>
+                            <span>$50,000</span>
+                        </div>
+                    </div>
+
+                    <div class="calculator-results">
+                        <div class="calculator-result">
+                            <div class="calculator-result-label">Monthly Revenue</div>
+                            <div class="calculator-result-value" id="monthlyRevenue">$15,000</div>
+                        </div>
+                        <div class="calculator-result calculator-result-highlight">
+                            <div class="calculator-result-label">Annual Potential</div>
+                            <div class="calculator-result-value" id="annualRevenue">$180,000</div>
+                        </div>
+                    </div>
+
+                    <p class="calculator-disclaimer">
+                        * Based on 50% revenue share as White-Label Partner
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+         PARTNER PROGRAM SECTION
+    ============================================= -->
+        <section class="section partners" id="partners">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Partner Program</span>
+                    <h2 class="section-title">Choose Your <span class="text-gradient">Partnership Level</span></h2>
+                    <p class="section-subtitle">Start free, upgrade as you grow. No minimum commitments.</p>
+                </div>
+
+                <div class="tiers-grid">
+                    <!-- Reseller -->
+                    <div class="tier-card">
+                        <div class="tier-icon" style="--tier-color: #CD7F32;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                        <h3 class="tier-name">Reseller</h3>
+                        <div class="tier-price">Free</div>
+                        <div class="tier-commission">20-30% Revenue Share</div>
+
+                        <ul class="tier-features">
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                Sell under IgnitronDev brand
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                Marketing materials provided
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                Demo access for clients
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                Basic training
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                Email support
+                            </li>
+                        </ul>
+
+                        <button class="btn btn-secondary btn-block">Start as Reseller</button>
+                    </div>
+
+                    <!-- White-Label Partner -->
+                    <div class="tier-card tier-card-popular">
+                        <div class="tier-badge">MOST POPULAR</div>
+                        <div class="tier-icon" style="--tier-color: #C0C0C0;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                                <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                                <path d="M2 4l20 16" />
+                                <path d="M2 20 22 4" />
+                            </svg>
+                        </div>
+                        <h3 class="tier-name">White-Label Partner</h3>
+                        <div class="tier-price">$2,500<span>/year</span></div>
+                        <div class="tier-commission tier-commission-highlight">50% Revenue Share</div>
+
+                        <ul class="tier-features">
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                Your brand, your domain
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                Custom branding & logo
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                Full training included
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                Priority support
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                Custom integrations
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                Revenue share 50/50
+                            </li>
+                        </ul>
+
+                        <button class="btn btn-primary btn-block">Become Partner</button>
+                    </div>
+
+                    <!-- Technology Partner -->
+                    <div class="tier-card">
+                        <div class="tier-icon" style="--tier-color: #FFD700;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="8" r="6" />
+                                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+                            </svg>
+                        </div>
+                        <h3 class="tier-name">Technology Partner</h3>
+                        <div class="tier-price">$10,000<span>/year</span></div>
+                        <div class="tier-commission">60% Revenue Share</div>
+
+                        <ul class="tier-features">
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                Full source code access
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                Exclusive territory rights
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                Feature requests priority
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                Dedicated account manager
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                White-label + modifications
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                Revenue share 60/40
+                            </li>
+                        </ul>
+
+                        <button class="btn btn-secondary btn-block">Contact Sales</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+         SHOWCASE SECTION
+    ============================================= -->
+        <section class="section showcase">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Live Showcase</span>
+                    <h2 class="section-title">See <span class="text-gradient">ShipRadar</span> in Action</h2>
+                    <p class="section-subtitle">Our flagship platform. Track vessels in real-time.</p>
+                </div>
+
+                <div class="showcase-card">
+                    <div class="showcase-iframe">
+                        <iframe src="https://shipradar.my.id" title="ShipRadar Demo" loading="lazy"></iframe>
+                    </div>
+                    <div class="showcase-footer">
+                        <div class="showcase-info">
+                            <h3>ShipRadar Live Demo</h3>
+                            <p>Real-time vessel tracking with AIS data integration</p>
+                        </div>
+                        <a href="https://shipradar.my.id" target="_blank" rel="noopener" class="btn btn-primary">
+                            Open Full Demo
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                <polyline points="15 3 21 3 21 9" />
+                                <line x1="10" y1="14" x2="21" y2="3" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+         LEADERSHIP SECTION
+    ============================================= -->
+        <section class="section leadership" id="leadership">
+            <div class="container container-sm">
+                <div class="section-header">
+                    <span class="section-badge">Leadership</span>
+                    <h2 class="section-title">Meet the <span class="text-gradient">CEO</span></h2>
+                </div>
+                <div class="leadership-card"
+                    style="background: rgba(15, 39, 68, 0.5); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 48px; text-align: center; position: relative; overflow: hidden;">
+                    <!-- Decorative background glow -->
+                    <div
+                        style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(0,245,255,0.05) 0%, transparent 70%); pointer-events: none;">
+                    </div>
+
+                    <div class="leadership-avatar"
+                        style="width: 120px; height: 120px; background: linear-gradient(135deg, var(--cyber-cyan), var(--deep-space-light)); border-radius: 50%; margin: 0 auto 24px; display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: 700; color: var(--deep-space); border: 4px solid rgba(0,245,255,0.2);">
+                        BA
+                    </div>
+                    <h3 style="font-size: 28px; font-weight: 700; margin-bottom: 8px; color: var(--white);">Bima Adam
+                        Nugraha</h3>
+                    <p
+                        style="color: var(--cyber-cyan); font-weight: 600; font-size: 16px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">
+                        Chief Executive Officer</p>
+                    <p style="color: var(--steel-silver); font-size: 14px; margin-bottom: 32px;">(Bima Adam)</p>
+
+                    <blockquote
+                        style="font-size: 18px; color: var(--steel-silver); font-style: italic; line-height: 1.8; max-width: 80%; margin: 0 auto;">
+                        "Our mission is to bridge the technological gap between China's advanced hardware ecosystem and
+                        Southeast Asia's growing digital potential. We build the platforms so you can build the
+                        business."
+                    </blockquote>
+
+                    <div
+                        style="margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); display: inline-flex; gap: 16px; opacity: 0.7;">
+                        <span style="font-size: 14px; color: var(--steel-silver);">Request intro: <a
+                                href="mailto:ceo@ignitrondev.com"
+                                style="color: var(--cyber-cyan);">ceo@ignitrondev.com</a></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+         CTA SECTION
+    ============================================= -->
+        <section class="section cta" id="contact">
+            <div class="container container-sm">
+                <div class="cta-card">
+                    <div class="cta-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <circle cx="12" cy="12" r="6" />
+                            <circle cx="12" cy="12" r="2" />
+                        </svg>
+                    </div>
+                    <h2 class="cta-title">Ready to Start Your Software Business?</h2>
+                    <p class="cta-subtitle">Join our partner program today. Deploy your first platform within 2 weeks.
+                    </p>
+
+                    <div class="cta-buttons">
+                        <button class="btn btn-primary btn-lg">
+                            Schedule Partnership Call
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                        <button class="btn btn-outline btn-lg">Download Partner Kit</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+         FOOTER
+    ============================================= -->
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <div class="footer-logo-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                                <path
+                                    d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                            </svg>
+                        </div>
+                        <span>Ignitron<span>Dev</span></span>
+                    </a>
+                    <p class="footer-desc">Platform Factory for System Integrators & Resellers. Strategic Joint Venture
+                        with Chinese Technology Partners.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Platforms</h4>
+                    <ul>
+                        <li><a href="#">ShipRadar</a></li>
+                        <li><a href="#">FactorySense</a></li>
+                        <li><a href="#">AssetTrack</a></li>
+                        <li><a href="#">Custom Platform</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Partnership</h4>
+                    <ul>
+                        <li><a href="#">Reseller Program</a></li>
+                        <li><a href="#">White-Label Partner</a></li>
+                        <li><a href="#">Technology Partner</a></li>
+                        <li><a href="#">Partner Portal</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li class="footer-contact-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect width="20" height="16" x="2" y="4" rx="2" />
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                            </svg>
+                            partners@ignitrondev.com
+                        </li>
+                        <li class="footer-contact-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                            WhatsApp: +62 xxx-xxxx-xxxx (Jakarta)
+                        </li>
+                        <li class="footer-contact-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                            Mobile: +86 xxx-xxxx-xxxx (Shenzhen)
+                        </li>
+                        <li class="footer-contact-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                            </svg>
+                            WeChat: ignitrondev
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2024 IgnitronDev. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Partner Agreement</a>
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
 </body>
+
 </html>
