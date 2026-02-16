@@ -1,0 +1,22 @@
+{
+  "name": "org",
+  "version": "1.0.0",
+  "description": "This is the landing page for Ignitron, a technology organization focused on developing multi-platform software and hardware solutions.",
+  "main": "script.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "bugs": {
+    "url": "https://github.com/ignitrondev/org/issues"
+  },
+  "homepage": "https://github.com/ignitrondev/org#readme",
+  "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "vite": "^7.3.1"
+  }
+}
