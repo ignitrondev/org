@@ -3,7 +3,7 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";function g(){return`
         <div class="nav-container">
             <a href="#" class="nav-logo">
                 <div class="nav-logo-icon">
-                    <img src="images/ignitron.png" alt="IgnitronDev">
+                    <img src="../images/ignitron.png" alt="IgnitronDev">
                 </div>
                 <div class="nav-logo-text">
                     <span class="nav-logo-name">Ignitron<span>Dev</span></span>
