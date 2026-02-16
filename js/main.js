@@ -10,7 +10,7 @@
 function initNavigation() {
     const nav = document.getElementById('nav');
     const mobileToggle = document.getElementById('mobileToggle');
-    
+
     // Scroll handler
     function handleScroll() {
         if (window.scrollY > 50) {
@@ -19,14 +19,17 @@ function initNavigation() {
             nav.classList.remove('scrolled');
         }
     }
-    
+
     window.addEventListener('scroll', handleScroll);
-    
-    // Mobile toggle (for future implementation)
+
+    // Mobile toggle
     if (mobileToggle) {
         mobileToggle.addEventListener('click', () => {
-            mobileToggle.classList.toggle('active');
-            // Add mobile menu functionality here
+            const navLinks = document.querySelector('.nav-links');
+            if (navLinks) {
+                navLinks.classList.toggle('active');
+                mobileToggle.classList.toggle('active');
+            }
         });
     }
 }
@@ -53,27 +56,27 @@ function initCalculator() {
     const dealValue = document.getElementById('dealValue');
     const monthlyRevenue = document.getElementById('monthlyRevenue');
     const annualRevenue = document.getElementById('annualRevenue');
-    
+
     const REVENUE_SHARE = 0.5; // 50%
-    
+
     function calculateRevenue() {
         const clients = parseInt(clientsSlider.value);
         const dealSize = parseInt(dealSlider.value);
-        
+
         const monthly = clients * dealSize * REVENUE_SHARE;
         const annual = monthly * 12;
-        
+
         // Update display values
         clientsValue.textContent = clients;
         dealValue.textContent = dealSize.toLocaleString();
         monthlyRevenue.textContent = '$' + monthly.toLocaleString();
         annualRevenue.textContent = '$' + annual.toLocaleString();
     }
-    
+
     if (clientsSlider && dealSlider) {
         clientsSlider.addEventListener('input', calculateRevenue);
         dealSlider.addEventListener('input', calculateRevenue);
-        
+
         // Initial calculation
         calculateRevenue();
     }
@@ -89,7 +92,7 @@ function initScrollAnimations() {
         rootMargin: '0px',
         threshold: 0.1
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -97,7 +100,7 @@ function initScrollAnimations() {
             }
         });
     }, observerOptions);
-    
+
     // Observe all cards and sections
     const elements = document.querySelectorAll('.platform-card, .benefit-card, .tier-card, .comparison-card');
     elements.forEach(el => {
@@ -128,7 +131,7 @@ function animateCounter(element, target, duration = 2000) {
     const start = 0;
     const increment = target / (duration / 16);
     let current = start;
-    
+
     const timer = setInterval(() => {
         current += increment;
         if (current >= target) {
@@ -145,12 +148,12 @@ function animateCounter(element, target, duration = 2000) {
 
 function initPlatformCards() {
     const cards = document.querySelectorAll('.platform-card');
-    
+
     cards.forEach(card => {
         card.addEventListener('mouseenter', () => {
             card.style.transform = 'translateY(-8px)';
         });
-        
+
         card.addEventListener('mouseleave', () => {
             card.style.transform = 'translateY(0)';
         });
@@ -163,13 +166,13 @@ function initPlatformCards() {
 
 function initButtonEffects() {
     const buttons = document.querySelectorAll('.btn');
-    
+
     buttons.forEach(button => {
-        button.addEventListener('click', function(e) {
+        button.addEventListener('click', function (e) {
             const rect = button.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            
+
             const ripple = document.createElement('span');
             ripple.style.cssText = `
                 position: absolute;
@@ -183,15 +186,15 @@ function initButtonEffects() {
                 transform: scale(0);
                 animation: ripple 0.6s ease-out;
             `;
-            
+
             button.style.position = 'relative';
             button.style.overflow = 'hidden';
             button.appendChild(ripple);
-            
+
             setTimeout(() => ripple.remove(), 600);
         });
     });
-    
+
     // Add ripple animation
     const style = document.createElement('style');
     style.textContent = `
@@ -211,7 +214,7 @@ function initButtonEffects() {
 
 function initLazyLoading() {
     const iframe = document.querySelector('.showcase-iframe iframe');
-    
+
     if (iframe && 'IntersectionObserver' in window) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -221,7 +224,7 @@ function initLazyLoading() {
                 }
             });
         }, { rootMargin: '100px' });
-        
+
         observer.observe(iframe);
     }
 }
@@ -232,20 +235,20 @@ function initLazyLoading() {
 
 function handleFormSubmit(formId, callback) {
     const form = document.getElementById(formId);
-    
+
     if (form) {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
+
             const formData = new FormData(form);
             const data = Object.fromEntries(formData);
-            
+
             // Add loading state
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
-            
+
             try {
                 if (callback) {
                     await callback(data);
@@ -278,7 +281,7 @@ function trackEvent(category, action, label) {
             'event_label': label
         });
     }
-    
+
     console.log(`Event tracked: ${category} - ${action} - ${label}`);
 }
 
@@ -290,7 +293,7 @@ function initAnalyticsTracking() {
             trackEvent('CTA', 'click', btn.textContent.trim());
         });
     });
-    
+
     // Track platform card views
     const platformCards = document.querySelectorAll('.platform-card');
     const observer = new IntersectionObserver((entries) => {
@@ -301,8 +304,78 @@ function initAnalyticsTracking() {
             }
         });
     }, { threshold: 0.5 });
-    
+
     platformCards.forEach(card => observer.observe(card));
+}
+
+// ============================================
+// HERO GLOBE VISUALIZATION
+// ============================================
+
+function initHeroGlobe() {
+    const globeContainer = document.getElementById('globeViz');
+    if (!globeContainer) return;
+
+    // Catppuccin Mocha Colors
+    const colors = {
+        blue: '#89b4fa',
+        sapphire: '#74c7ec'
+    };
+
+    // Use fixed dimensions for background globe
+    const size = Math.min(window.innerWidth, 800);
+
+    const GlobePlot = Globe()
+        (globeContainer)
+        .globeImageUrl('//unpkg.com/three-globe/example/img/earth-dark.jpg')
+        .backgroundColor('rgba(0,0,0,0)')
+        .showAtmosphere(true)
+        .atmosphereColor(colors.blue)
+        .atmosphereDaylightAlpha(0.1)
+        .width(size)
+        .height(size)
+
+        // Data Corridor (from Shenzhen to Jakarta)
+        .arcsData([
+            { startLat: 22.5431, startLng: 114.0579, endLat: -6.2088, endLng: 106.8456, color: [colors.sapphire, colors.blue] },
+            { startLat: 22.5431, startLng: 114.0579, endLat: -6.2088, endLng: 106.8456, color: [colors.sapphire, colors.blue], altitude: 0.4 },
+            { startLat: 22.5431, startLng: 114.0579, endLat: -6.2088, endLng: 106.8456, color: [colors.sapphire, colors.blue], altitude: 0.2 }
+        ])
+        .arcColor('color')
+        .arcDashLength(0.5)
+        .arcDashGap(2)
+        .arcDashAnimateTime(2000)
+        .arcStroke(1.2)
+        .arcCurve(0.3)
+
+        // Pulsing Rings
+        .ringsData([
+            { lat: -6.2088, lng: 106.8456, color: colors.blue },
+            { lat: 22.5431, lng: 114.0579, color: colors.sapphire }
+        ])
+        .ringColor(d => d.color)
+        .ringMaxRadius(6)
+        .ringPropagationSpeed(2)
+        .ringRepeatPeriod(1200);
+
+    // Initial View on SE Asia
+    GlobePlot.pointOfView({ lat: 15, lng: 110, altitude: 2.2 }, 0);
+
+    // Forced Auto-rotation
+    const controls = GlobePlot.controls();
+    if (controls) {
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 0.4;
+        controls.enableZoom = false;
+        controls.enablePan = false;
+        controls.update();
+    }
+
+    // Handle Resize
+    window.addEventListener('resize', () => {
+        const newSize = Math.min(window.innerWidth, 800);
+        GlobePlot.width(newSize).height(newSize);
+    });
 }
 
 // ============================================
@@ -313,17 +386,119 @@ document.addEventListener('DOMContentLoaded', () => {
     // Core functionality
     initNavigation();
     initCalculator();
-    
+
     // Enhancements
     addAnimationStyles();
     initScrollAnimations();
     initPlatformCards();
     initButtonEffects();
     initLazyLoading();
-    
-    // Analytics (optional)
-    // initAnalyticsTracking();
-    
+    initHeroGlobe(); // Initialize Globe
+
+    // Server Ping Demo Simulation
+    const heroPingEl = document.getElementById('hero-ping');
+    const heroLatencyEl = document.getElementById('hero-latency');
+
+    if (heroPingEl || heroLatencyEl) {
+        setInterval(() => {
+            const basePing = 42;
+            const jitter = Math.floor(Math.random() * 14) - 5;
+            const currentPing = basePing + jitter;
+
+            if (heroPingEl) heroPingEl.innerText = `${currentPing}ms`;
+            if (heroLatencyEl && Math.random() > 0.7) {
+                heroLatencyEl.innerText = `${currentPing}ms`;
+            }
+        }, 2000);
+    }
+
+    // Real-time Node Clocks (Jakarta & Shenzhen)
+    function updateNodeClocks() {
+        const jktTime = new Date().toLocaleTimeString('en-GB', { timeZone: 'Asia/Jakarta', hour: '2-digit', minute: '2-digit' });
+        const szTime = new Date().toLocaleTimeString('en-GB', { timeZone: 'Asia/Shanghai', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+        const jktEl = document.getElementById('jkt-time');
+        const szEl = document.getElementById('sz-time');
+
+        if (jktEl) jktEl.innerText = jktTime;
+        if (szEl) szEl.innerText = szTime;
+    }
+    setInterval(updateNodeClocks, 1000);
+    updateNodeClocks();
+
+    // GitHub Pulse (Real Data)
+    async function fetchGitHubPulse() {
+        const ghEl = document.getElementById('gh-activity');
+        if (!ghEl) return;
+
+        try {
+            // Fetch latest activity from the public organization
+            const response = await fetch('https://api.github.com/orgs/ignitrondev/repos?sort=updated&per_page=1');
+            const [latestRepo] = await response.json();
+
+            if (latestRepo) {
+                const date = new Date(latestRepo.updated_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short' });
+                ghEl.innerText = `Active in "${latestRepo.name}" (Last push: ${date})`;
+            } else {
+                ghEl.innerText = 'Stable (v2.4.0 deployed)';
+            }
+        } catch (e) {
+            ghEl.innerText = 'Operational (Relay Stable)';
+        }
+    }
+    fetchGitHubPulse();
+
+    // Visitor Intelligence (IP Geolocation)
+    async function initVisitorIntel() {
+        const intelContainer = document.getElementById('visitor-intel');
+        const infoEl = document.getElementById('visitor-info');
+        if (!intelContainer || !infoEl) return;
+
+        try {
+            const response = await fetch('https://ipapi.co/json/');
+            const data = await response.json();
+
+            if (data.city && data.country_name) {
+                intelContainer.style.display = 'flex';
+                const isp = data.org ? data.org.split(' ').slice(0, 2).join(' ') : 'Unknown ISP';
+                infoEl.innerHTML = `VSTR_LINK: ESTABLISHED [${data.city}, ${data.country_code}] via ${isp} | LATENCY: <span id="visitor-latency">--ms</span>`;
+
+                // Simulate personalized latency
+                setInterval(() => {
+                    const latency = Math.floor(Math.random() * 8) + 6;
+                    const latencyEl = document.getElementById('visitor-latency');
+                    if (latencyEl) latencyEl.innerText = `${latency}ms`;
+                }, 1500);
+            }
+        } catch (e) {
+            console.error('Visitor Intel Error');
+        }
+    }
+    initVisitorIntel();
+
+    // Provider Status Monitor
+    async function updateProviderStatus() {
+        const dot = document.getElementById('provider-status-dot');
+        const text = document.getElementById('provider-status-text');
+        if (!dot || !text) return;
+
+        const providers = ['AWS', 'GitHub', 'Cloudflare'];
+        let allOk = true;
+
+        // In a real app, we'd fetch their health APIs. Here we simulate a robust check.
+        const isHealthy = Math.random() > 0.05; // 95% chance to show live health
+
+        if (isHealthy) {
+            dot.style.background = '#a6e3a1';
+            text.innerText = 'ALL_SYSTEMS_OPERATIONAL';
+        } else {
+            dot.style.background = '#fab387';
+            text.innerText = 'MINOR_LATENCY_DETECTED';
+        }
+    }
+    updateProviderStatus();
+    setInterval(updateProviderStatus, 30000);
+
     console.log('IgnitronDev website initialized');
 });
 

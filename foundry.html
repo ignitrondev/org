@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Foundry | IgnitronDev Production Lab</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --foundry-bg: #0b0e14;
+            --terminal-bg: #11141b;
+            --foundry-accent: #f5e0dc;
+            /* Rosewater from Catppuccin */
+            --foundry-warn: #fab387;
+        }
+
+        body {
+            background-color: var(--foundry-bg);
+            color: #cdd6f4;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .foundry-header {
+            padding: 120px 0 60px;
+            background: linear-gradient(180deg, rgba(245, 224, 220, 0.05) 0%, transparent 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .foundry-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        /* Build Terminal */
+        .terminal-window {
+            background: var(--terminal-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            height: 500px;
+        }
+
+        .terminal-header {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot-red {
+            background: #f38ba8;
+        }
+
+        .dot-yellow {
+            background: #f9e2af;
+        }
+
+        .dot-green {
+            background: #a6e3a1;
+        }
+
+        .terminal-body {
+            padding: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            overflow-y: auto;
+            flex-grow: 1;
+            line-height: 1.6;
+            color: #a6adc8;
+        }
+
+        .log-time {
+            color: #89b4fa;
+            margin-right: 12px;
+        }
+
+        .log-msg-info {
+            color: #a6e3a1;
+        }
+
+        .log-msg-warn {
+            color: #f9e2af;
+        }
+
+        .log-msg-build {
+            color: #cba6f7;
+        }
+
+        /* Hardware Lab */
+        .lab-card {
+            background: rgba(30, 30, 46, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .hw-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: background 0.3s;
+        }
+
+        .hw-item:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .hw-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(137, 180, 250, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cyber-cyan);
+        }
+
+        .hw-info h4 {
+            font-size: 14px;
+            margin-bottom: 4px;
+            color: var(--white);
+        }
+
+        .hw-info p {
+            font-size: 12px;
+            color: var(--steel-silver);
+        }
+
+        /* Heatmap */
+        .heatmap-container {
+            margin-top: 40px;
+        }
+
+        .heatmap-grid {
+            display: grid;
+            grid-template-columns: repeat(20, 1fr);
+            gap: 4px;
+        }
+
+        .heat-cell {
+            aspect-ratio: 1;
+            border-radius: 2px;
+            background: #313244;
+            transition: background 0.5s;
+        }
+
+        .heat-low {
+            background: #313244;
+        }
+
+        .heat-med {
+            background: #89b4fa;
+            opacity: 0.6;
+        }
+
+        .heat-high {
+            background: #89b4fa;
+        }
+
+        .nav-link-btn {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            display: flex;
+            gap: 12px;
+            z-index: 1000;
+        }
+
+        @media (max-width: 900px) {
+            .foundry-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="nav-link-btn">
+        <a href="index.html" class="btn btn-outline btn-sm">Home</a>
+        <a href="products.html" class="btn btn-primary btn-sm">Control Center</a>
+    </div>
+
+    <header class="foundry-header text-center">
+        <div class="container">
+            <span class="section-badge">R&D Lab: Shenzhen x Jakarta</span>
+            <h1 class="hero-title">The <span class="text-gradient">Foundry</span></h1>
+            <p class="section-subtitle">Forging resilient code and industrial-grade hardware at the edge of innovation.
+            </p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="foundry-grid">
+            <!-- Build Server Logs -->
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="dot dot-red"></div>
+                    <div class="dot dot-yellow"></div>
+                    <div class="dot dot-green"></div>
+                    <span
+                        style="margin-left: 10px; font-family: 'JetBrains Mono'; font-size: 12px; color: #6c7086;">root@ignitron-builder-jkt-01:
+                        ~</span>
+                </div>
+                <div class="terminal-body" id="terminal-logs">
+                    <!-- Logs populated via JS -->
+                </div>
+            </div>
+
+            <!-- Hardware Lab -->
+            <div class="lab-card">
+                <h3 class="roadmap-label" style="margin-bottom: 24px;">Hardware R&D Inventory</h3>
+
+                <div class="hw-item">
+                    <div class="hw-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="2" ry="2" />
+                            <path d="M7 2v4" />
+                            <path d="M17 2v4" />
+                            <path d="M2 10h20" />
+                        </svg>
+                    </div>
+                    <div class="hw-info">
+                        <h4>LoRa-XT Gateway</h4>
+                        <p>Status: Field Testing (Jakarta Port)</p>
+                    </div>
+                </div>
+
+                <div class="hw-item">
+                    <div class="hw-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                            <path d="M2 12h20" />
+                        </svg>
+                    </div>
+                    <div class="hw-info">
+                        <h4>NavCore GPS-L5</h4>
+                        <p>Status: Prototype V3 (Shenzhen Lab)</p>
+                    </div>
+                </div>
+
+                <div class="hw-item">
+                    <div class="hw-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                            <path d="M2 17l10 5 10-5" />
+                            <path d="M2 12l10 5 10-5" />
+                        </svg>
+                    </div>
+                    <div class="hw-info">
+                        <h4>LiDAR Scanning Node</h4>
+                        <p>Status: Calibration Phase</p>
+                    </div>
+                </div>
+
+                <div class="heatmap-container">
+                    <h4
+                        style="font-size: 12px; color: var(--steel-silver); margin-bottom: 12px; text-transform: uppercase;">
+                        Compute Load Distribution</h4>
+                    <div class="heatmap-grid" id="heatmap">
+                        <!-- 100 cells created via JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Build Request -->
+        <section class="section text-center"
+            style="background: rgba(49, 50, 68, 0.2); border-radius: 20px; border: 1px solid var(--border-color);">
+            <div class="container-sm">
+                <h3 class="roadmap-label">Deploy New Instance</h3>
+                <p class="section-subtitle">Enter your project code to trigger an automated foundry build.</p>
+                <div style="margin-top: 24px; display: flex; gap: 12px; justify-content: center;">
+                    <input type="text" placeholder="e.g. SHIPRADAR-CUSTOM-01" class="btn btn-outline"
+                        style="background: var(--terminal-bg); text-align: left; width: 300px; cursor: text;">
+                    <button class="btn btn-primary" onclick="triggerBuild()">Initiate Build</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // 1. Terminal Simulation
+        const terminalBody = document.getElementById('terminal-logs');
+        const logLines = [
+            { type: 'info', msg: 'System check complete. Foundry 1.0 initialized.' },
+            { type: 'build', msg: 'Compiling core-engine-v4.rs (Target: WebAssembly)...' },
+            { type: 'info', msg: 'Optimizing LTO: Full binary size reduced by 14%.' },
+            { type: 'warn', msg: 'Deprecation warning in lora-driver-legacy. Fix scheduled.' },
+            { type: 'build', msg: 'Building Docker container for Jakarta Node (JKT-01)...' },
+            { type: 'info', msg: 'Container pushed to registry.hk.ignitrondev.io' },
+            { type: 'info', msg: 'Syncing Shenzhen Hardware Telemetry Link...' },
+            { type: 'build', msg: 'Deploying hotfix to FactorySense production cluster.' },
+            { type: 'info', msg: 'Monitoring traffic on port 8080. Zero packet loss.' }
+        ];
+
+        let lineIdx = 0;
+        function addLogLine() {
+            const time = new Date().toLocaleTimeString('en-GB', { hour12: false });
+            const log = logLines[lineIdx % logLines.length];
+            const div = document.createElement('div');
+            div.innerHTML = `<span class="log-time">${time}</span><span class="log-msg-${log.type}">[${log.type.toUpperCase()}]</span> ${log.msg}`;
+            terminalBody.appendChild(div);
+            terminalBody.scrollTop = terminalBody.scrollHeight;
+            lineIdx++;
+
+            // Limit lines
+            if (terminalBody.children.length > 50) terminalBody.removeChild(terminalBody.firstChild);
+        }
+
+        setInterval(addLogLine, 2000);
+        for (let i = 0; i < 8; i++) addLogLine(); // Initial logs
+
+        // 2. Heatmap Simulation
+        const heatmap = document.getElementById('heatmap');
+        for (let i = 0; i < 100; i++) {
+            const cell = document.createElement('div');
+            cell.className = 'heat-cell';
+            heatmap.appendChild(cell);
+        }
+
+        function updateHeatmap() {
+            const cells = document.querySelectorAll('.heat-cell');
+            cells.forEach(cell => {
+                const rand = Math.random();
+                cell.className = 'heat-cell ' + (rand > 0.8 ? 'heat-high' : rand > 0.4 ? 'heat-med' : 'heat-low');
+            });
+        }
+        setInterval(updateHeatmap, 1000);
+        updateHeatmap();
+
+        function triggerBuild() {
+            const time = new Date().toLocaleTimeString('en-GB', { hour12: false });
+            const div = document.createElement('div');
+            div.innerHTML = `<span class="log-time">${time}</span><span class="log-msg-build">[REQUEST]</span> Custom Instance Build Triggered. Analyzing branch...`;
+            terminalBody.appendChild(div);
+            terminalBody.scrollTop = terminalBody.scrollHeight;
+        }
+    </script>
+</body>
+
+</html>

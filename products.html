@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Intelligence Dashboard | IgnitronDev</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f172a;
+            --card-bg: rgba(30, 30, 46, 0.7);
+            --mono-font: 'JetBrains Mono', monospace;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .dashboard-header {
+            padding: 100px 0 40px;
+            background: radial-gradient(circle at top right, rgba(137, 180, 250, 0.1), transparent);
+        }
+
+        .live-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            background: rgba(166, 227, 161, 0.1);
+            color: #a6e3a1;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: #a6e3a1;
+            border-radius: 50%;
+            animation: pulse-green 1.5s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(2.5);
+                opacity: 0;
+            }
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .product-live-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            backdrop-filter: blur(12px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-live-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: var(--cyber-cyan);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 24px;
+        }
+
+        .product-tag {
+            font-family: var(--mono-font);
+            font-size: 11px;
+            color: var(--steel-silver);
+            opacity: 0.6;
+        }
+
+        .data-stream {
+            font-family: var(--mono-font);
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            margin-top: 16px;
+            max-height: 200px;
+            overflow-y: hidden;
+        }
+
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            padding: 4px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .data-row:last-child {
+            border: none;
+        }
+
+        .data-label {
+            color: var(--steel-silver);
+        }
+
+        .data-value {
+            color: var(--cyber-cyan);
+            font-weight: 700;
+        }
+
+        .data-value.trend-up {
+            color: #a6e3a1;
+        }
+
+        .data-value.trend-down {
+            color: #f38ba8;
+        }
+
+        .loading-shimmer {
+            height: 20px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        .back-nav {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 100;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="back-nav">
+        <a href="index.html" class="btn btn-outline btn-sm">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m15 18-6-6 6-6" />
+            </svg>
+            Back to Factory
+        </a>
+    </div>
+
+    <header class="dashboard-header">
+        <div class="container text-center">
+            <div class="live-indicator">
+                <div class="live-dot"></div>
+                Live Data Stream Active
+            </div>
+            <h1 class="hero-title" style="font-size: 48px;">Intelligence <span class="text-gradient">Control
+                    Center</span></h1>
+            <p class="section-subtitle">Real-time telemetry and market data powering our partner-facing platforms.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="dashboard-grid">
+
+            <!-- ShipRadar Live (SpaceX API for Satellite Telemetry) -->
+            <div class="product-live-card">
+                <div class="card-header">
+                    <div>
+                        <div class="product-tag">MODULE: SHIPRADAR_V2</div>
+                        <h3 class="roadmap-label">Satellite Fleet Monitor</h3>
+                    </div>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--cyber-cyan)"
+                        stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                        <path d="M2 12h20" />
+                    </svg>
+                </div>
+                <p class="roadmap-desc">Tracking active satellite connectivity for global vessel coordination.</p>
+                <div class="data-stream" id="shiptrack-data">
+                    <div class="loading-shimmer"></div>
+                    <div class="loading-shimmer" style="margin-top: 10px;"></div>
+                </div>
+            </div>
+
+            <!-- AssetTrack Live (CoinGecko API for Real Asset Valuations) -->
+            <div class="product-live-card">
+                <div class="card-header">
+                    <div>
+                        <div class="product-tag">MODULE: ASSETTRACK_PRO</div>
+                        <h3 class="roadmap-label">Digital Asset Valuation</h3>
+                    </div>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--cyber-cyan)"
+                        stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="2" ry="2" />
+                        <line x1="12" y1="18" x2="12" y2="12" />
+                        <line x1="16" y1="18" x2="16" y2="10" />
+                        <line x1="8" y1="18" x2="8" y2="14" />
+                    </svg>
+                </div>
+                <p class="roadmap-desc">Real-time inventory valuation using live global market indices.</p>
+                <div class="data-stream" id="asset-data">
+                    <div class="loading-shimmer"></div>
+                    <div class="loading-shimmer" style="margin-top: 10px;"></div>
+                </div>
+            </div>
+
+            <!-- FactorySense Live (Open-Meteo API - Real Weather) -->
+            <div class="product-live-card">
+                <div class="card-header">
+                    <div>
+                        <div class="product-tag">MODULE: FACTORYSENSE_IOT</div>
+                        <h3 class="roadmap-label">Port Weather Telemetry</h3>
+                    </div>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--cyber-cyan)"
+                        stroke-width="2">
+                        <path d="M12 2v20m10-10H2" />
+                        <circle cx="12" cy="12" r="3" />
+                    </svg>
+                </div>
+                <p class="roadmap-desc">Real-time environmental monitoring at key logistics nodes (Jakarta & Shenzhen).
+                </p>
+                <div class="data-stream" id="factory-data">
+                    <div class="loading-shimmer"></div>
+                </div>
+            </div>
+
+            <!-- Ground Station Sync (ISS API) -->
+            <div class="product-live-card">
+                <div class="card-header">
+                    <div>
+                        <div class="product-tag">MODULE: ORBITAL_LINK_V4</div>
+                        <h3 class="roadmap-label">Ground Station Sync</h3>
+                    </div>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--cyber-cyan)"
+                        stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                </div>
+                <p class="roadmap-desc">Tracking International Space Station (ISS) for high-altitude data relay
+                    synchronization.</p>
+                <div class="data-stream" id="iss-data">
+                    <div class="loading-shimmer"></div>
+                </div>
+            </div>
+
+            <!-- Seismic Stability (USGS API) -->
+            <div class="product-live-card">
+                <div class="card-header">
+                    <div>
+                        <div class="product-tag">MODULE: SENSOR_SAFETY_PRO</div>
+                        <h3 class="roadmap-label">Global Site Stability</h3>
+                    </div>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--cyber-cyan)"
+                        stroke-width="2">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                    </svg>
+                </div>
+                <p class="roadmap-desc">Real-time seismic activity monitoring for structural integrity of factory sites.
+                </p>
+                <div class="data-stream" id="seismic-data">
+                    <div class="loading-shimmer"></div>
+                </div>
+            </div>
+
+            <!-- Global Currency Hub (ExchangeRate-API) -->
+            <div class="product-live-card">
+                <div class="card-header">
+                    <div>
+                        <div class="product-tag">MODULE: TRADE_FINANCE_V1</div>
+                        <h3 class="roadmap-label">Cross-Border Settlement</h3>
+                    </div>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--cyber-cyan)"
+                        stroke-width="2">
+                        <line x1="12" y1="1" x2="12" y2="23" />
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                    </svg>
+                </div>
+                <p class="roadmap-desc">Live FX rates for automated billing and supplier settlement in IDR and CNY.</p>
+                <div class="data-stream" id="currency-data">
+                    <div class="loading-shimmer"></div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center" style="padding: 40px 0;">
+            <p style="color: var(--steel-silver); font-size: 12px; font-family: var(--mono-font); margin-bottom: 12px;">
+                SYSTEM_STATUS: ALL_NODES_OPERATIONAL | DATA_LATENCY: <span style="color: var(--cyber-cyan)">24ms</span>
+            </p>
+            <a href="foundry.html" class="btn btn-outline btn-sm">Enter The Foundry (Dev Lab)</a>
+        </div>
+    </footer>
+
+    <script>
+        async function fetchDashboardData() {
+            // 1. ShipRadar Data (SpaceX API)
+            try {
+                const spxRes = await fetch('https://api.spacexdata.com/v4/launches/latest');
+                const spxData = await spxRes.json();
+                document.getElementById('shiptrack-data').innerHTML = `
+                    <div class="data-row"><span class="data-label">ACTIVE_MISSION</span><span class="data-value">${spxData.name}</span></div>
+                    <div class="data-row"><span class="data-label">FLIGHT_SERIAL</span><span class="data-value">FLIGHT-${spxData.flight_number}</span></div>
+                    <div class="data-row"><span class="data-label">TELEMETRY_LINK</span><span class="data-value" style="color:#a6e3a1">STABLE</span></div>
+                    <div class="data-row"><span class="data-label">CORE_STATUS</span><span class="data-value">READY</span></div>
+                `;
+            } catch (e) { console.error('SpaceX API Error'); }
+
+            // 2. AssetTrack Data (CoinGecko API)
+            try {
+                const assetRes = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,tether,solana&vs_currencies=usd&include_24hr_change=true');
+                const assetData = await assetRes.json();
+                const coins = ['bitcoin', 'ethereum', 'solana'];
+                let assetHtml = '';
+                coins.forEach(coin => {
+                    const price = assetData[coin].usd.toLocaleString();
+                    const change = assetData[coin].usd_24h_change.toFixed(2);
+                    const trendClass = change >= 0 ? 'trend-up' : 'trend-down';
+                    assetHtml += `
+                        <div class="data-row">
+                            <span class="data-label">${coin.toUpperCase()}</span>
+                            <span class="data-value ${trendClass}">$${price} (${change}%)</span>
+                        </div>
+                    `;
+                });
+                document.getElementById('asset-data').innerHTML = assetHtml;
+            } catch (e) { console.error('CoinGecko API Error'); }
+
+            // 3. FactorySense Data (Real Weather - Open Meteo)
+            try {
+                const cities = [
+                    { name: 'Jakarta', lat: -6.2088, lon: 106.8456 },
+                    { name: 'Shenzhen', lat: 22.5431, lon: 114.0579 }
+                ];
+                let factoryHtml = '';
+                for (let city of cities) {
+                    const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${city.lat}&longitude=${city.lon}&current_weather=true`);
+                    const weatherData = await weatherRes.json();
+                    const info = weatherData.current_weather;
+                    factoryHtml += `
+                        <div class="data-row">
+                            <span class="data-label">NODE_${city.name.toUpperCase()}</span>
+                            <span class="data-value">${info.temperature}°C / Wind: ${info.windspeed}kmh</span>
+                        </div>
+                    `;
+                }
+                document.getElementById('factory-data').innerHTML = factoryHtml;
+            } catch (e) { console.error('Open-Meteo API Error'); }
+
+            // 4. Currency Data (ExchangeRate-API)
+            try {
+                const fxRes = await fetch('https://open.er-api.com/v6/latest/USD');
+                const fxData = await fxRes.json();
+                const rates = fxData.rates;
+                document.getElementById('currency-data').innerHTML = `
+                    <div class="data-row"><span class="data-label">USD_TO_IDR</span><span class="data-value">Rp${rates.IDR.toLocaleString()}</span></div>
+                    <div class="data-row"><span class="data-label">USD_TO_CNY</span><span class="data-value">¥${rates.CNY.toFixed(2)}</span></div>
+                `;
+            } catch (e) { console.error('FX API Error'); }
+
+            // 5. ISS Tracker (Wheretheiss.at API)
+            try {
+                const issRes = await fetch('https://api.wheretheiss.at/v1/satellites/25544');
+                const issData = await issRes.json();
+                document.getElementById('iss-data').innerHTML = `
+                    <div class="data-row"><span class="data-label">ISS_LATITUDE</span><span class="data-value">${issData.latitude.toFixed(4)}</span></div>
+                    <div class="data-row"><span class="data-label">ISS_LONGITUDE</span><span class="data-value">${issData.longitude.toFixed(4)}</span></div>
+                    <div class="data-row"><span class="data-label">ISS_VELOCITY</span><span class="data-value">${Math.round(issData.velocity)} km/h</span></div>
+                    <div class="data-row"><span class="data-label">ISS_ALTITUDE</span><span class="data-value">${Math.round(issData.visibility === 'daylight' ? 'DAYLIGHT' : 'ECLIPSE')}</span></div>
+                `;
+            } catch (e) { console.error('ISS API Error'); }
+
+            // 6. Seismic Data (USGS Earthquake API)
+            try {
+                const quakeRes = await fetch('https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&limit=5');
+                const quakeData = await quakeRes.json();
+                let quakeHtml = '';
+                quakeData.features.forEach(q => {
+                    const props = q.properties;
+                    quakeHtml += `
+                        <div class="data-row">
+                            <span class="data-label">${props.place.split(',').pop().trim().toUpperCase()}</span>
+                            <span class="data-value">M${props.mag}</span>
+                        </div>
+                    `;
+                });
+                document.getElementById('seismic-data').innerHTML = quakeHtml;
+            } catch (e) { console.error('Seismic API Error'); }
+        }
+
+        // Initial fetch
+        fetchDashboardData();
+        // Refresh every 30 seconds
+        setInterval(fetchDashboardData, 30000);
+    </script>
+</body>
+
+</html>
