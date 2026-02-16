@@ -23,7 +23,7 @@ export function Footer() {
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="#" class="footer-logo">
-                        <div class="footer-logo-icon"><img src="images/ignitron.png" alt="IgnitronDev"></div>
+                        <div class="footer-logo-icon"><img src="${import.meta.env.BASE_URL}images/ignitron.png" alt="IgnitronDev"></div>
                         <span>Ignitron<span>Dev</span></span>
                     </a>
                     <p class="footer-desc">Platform Factory for System Integrators & Resellers. Strategic Joint Venture with Chinese Technology Partners.</p>
