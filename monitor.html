@@ -251,6 +251,92 @@
             border-radius: var(--radius-md);
             display: none;
         }
+
+        /* Mobile Responsive & Burger Menu */
+        @media (max-width: 768px) {
+            .dashboard-container {
+                padding-top: 100px;
+            }
+
+            .dashboard-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .nav-mobile-toggle {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 4px;
+                z-index: 1001;
+            }
+
+            .nav-mobile-toggle span {
+                display: block;
+                width: 24px;
+                height: 2px;
+                background-color: var(--white);
+                transition: 0.3s;
+            }
+
+            .nav-mobile-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 6px);
+            }
+
+            .nav-mobile-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .nav-mobile-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -6px);
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--deep-space);
+                /* Using variable from style.css */
+                background-color: #0B1B2E;
+                /* Fallback if var not available in this scope */
+                border-bottom: 1px solid rgba(30, 58, 95, 1);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+                padding: 24px;
+                z-index: 1000;
+                gap: 16px;
+                animation: slideDown 0.3s ease;
+            }
+
+            .nav-links.active a {
+                padding: 12px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                width: 100%;
+                text-align: center;
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        }
     </style>
 </head>
 
@@ -272,6 +358,12 @@
                     <span class="nav-logo-tagline">PLATFORM FACTORY</span>
                 </div>
             </a>
+
+            <button class="nav-mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
             <div class="nav-links">
                 <a href="index.html">Home</a>
@@ -424,42 +516,36 @@
     <script>
         const API_BASE = 'https://ririn-server.pygora-cobia.ts.net';
 
-        // Format bytes to human readable
-        function formatBytes(bytes, decimals = 2) {
-            if (!+bytes) return '0 Bytes';
-            const k = 1024;
-            const dm = decimals < 0 ? 0 : decimals;
-            const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-            const i = Math.floor(Math.log(bytes) / Math.log(k));
-            return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`;
-        }
+        // Mobile Menu Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileToggle = document.getElementById('mobileToggle');
+            const navLinks = document.querySelector('.nav-links');
 
-        // Format seconds to uptime string
-        function formatUptime(seconds) {
-            const d = Math.floor(seconds / (3600 * 24));
-            const h = Math.floor(seconds % (3600 * 24) / 3600);
-            const m = Math.floor(seconds % 3600 / 60);
-            const s = Math.floor(seconds % 60);
-
-            const parts = [];
-            if (d > 0) parts.push(`${d}d`);
-            if (h > 0) parts.push(`${h}h`);
-            if (m > 0) parts.push(`${m}m`);
-            if (s > 0) parts.push(`${s}s`);
-            return parts.join(' ') || '0s';
-        }
+            if (mobileToggle && navLinks) {
+                mobileToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    mobileToggle.classList.toggle('active');
+                });
+            }
+        });
 
         function updateProgressBar(elementId, percentage) {
             const bar = document.getElementById(elementId);
-            bar.style.width = `${percentage}%`;
+            const fill = document.querySelector(`#${elementId}`); // Select the fill element directly if passed ID is the fill
 
-            // Remove old classes
-            bar.classList.remove('high', 'critical');
+            // If the elementId refers to the container or the fill, ensure we target the fill for style updates
+            // In the HTML, IDs like 'cpuBar' are on the .progress-fill div
+            if (fill) {
+                fill.style.width = `${percentage}%`;
 
-            if (percentage > 90) {
-                bar.classList.add('critical');
-            } else if (percentage > 70) {
-                bar.classList.add('high');
+                // Remove old classes
+                fill.classList.remove('high', 'critical');
+
+                if (percentage > 90) {
+                    fill.classList.add('critical');
+                } else if (percentage > 70) {
+                    fill.classList.add('high');
+                }
             }
         }
 
@@ -469,25 +555,31 @@
                 const response = await fetch(`${API_BASE}/api/all`);
                 if (!response.ok) throw new Error('Network response was not ok');
 
-                const data = await response.json();
+                const json = await response.json();
 
-                updateDashboard(data);
+                if (json.success && json.data) {
+                    updateDashboard(json.data);
 
-                // Update status UI
-                document.getElementById('serverStatus').innerHTML = `
-                    <div class="status-dot"></div>
-                    <span>Online</span>
-                `;
-                document.getElementById('serverStatus').className = 'server-status';
-                document.getElementById('errorMessage').style.display = 'none';
+                    // Update status UI
+                    const statusEl = document.getElementById('serverStatus');
+                    statusEl.innerHTML = `
+                        <div class="status-dot"></div>
+                        <span>Online</span>
+                    `;
+                    statusEl.className = 'server-status';
+                    document.getElementById('errorMessage').style.display = 'none';
+                } else {
+                    throw new Error('Invalid response format');
+                }
 
             } catch (error) {
                 console.error('Fetch error:', error);
-                document.getElementById('serverStatus').innerHTML = `
+                const statusEl = document.getElementById('serverStatus');
+                statusEl.innerHTML = `
                     <div class="status-dot" style="animation: none; opacity: 1;"></div>
                     <span>Offline</span>
                 `;
-                document.getElementById('serverStatus').className = 'server-status offline';
+                statusEl.className = 'server-status offline';
                 document.getElementById('errorMessage').style.display = 'block';
                 document.getElementById('errorMessage').textContent = `Connection Error: ${error.message}. Is the server accessible?`;
             }
@@ -498,69 +590,61 @@
             const now = new Date();
             document.getElementById('lastUpdated').textContent = `Last updated: ${now.toLocaleTimeString()}`;
 
-            // We need to adapt based on actual API structure. 
-            // Assuming the API returns keys like: os, cpu, ram, disk within proper objects
-            // Use try-catch blocks for safety around missing data
-
             // 1. CPU
             try {
                 if (data.cpu) {
-                    // Adjust key names based on common patterns or simple inspection if it fails
-                    // Assumption: data.cpu might have 'usage' or 'load_percentage'
-                    const cpuUsage = data.cpu.usage || data.cpu.global_usage || 0;
-                    document.getElementById('cpuValue').textContent = `${cpuUsage.toFixed(1)}%`;
-                    updateProgressBar('cpuBar', cpuUsage);
-                    document.getElementById('cpuModel').textContent = data.cpu.brand || data.cpu.model || `${data.cpu.cores || '?'} Cores`;
+                    const usage = data.cpu.usage || 0;
+                    const cores = data.cpu.cores || '?';
+
+                    document.getElementById('cpuValue').textContent = `${usage}%`;
+                    updateProgressBar('cpuBar', usage);
+                    document.getElementById('cpuModel').textContent = `${cores} Cores Active`;
                 }
             } catch (e) { console.warn('Error parsing CPU data', e); }
 
-            // 2. RAM
+            // 2. RAM (Memory)
             try {
-                if (data.ram) {
-                    const total = data.ram.total || 0;
-                    const used = data.ram.used || 0;
-                    const free = data.ram.free || 0;
+                if (data.memory) {
+                    // API sends pre-formatted strings: "16 GB", "4 GB"
+                    const total = data.memory.total || '0 GB';
+                    const used = data.memory.used || '0 GB';
+                    const percentage = data.memory.usedPercent || 0;
 
-                    // If API returns percentage directly
-                    let percentage = data.ram.percentage || (total > 0 ? (used / total) * 100 : 0);
-
-                    document.getElementById('ramValue').textContent = `${percentage.toFixed(1)}%`;
-                    document.getElementById('ramDetails').textContent = `${formatBytes(used)} / ${formatBytes(total)}`;
+                    document.getElementById('ramValue').textContent = `${percentage}%`;
+                    document.getElementById('ramDetails').textContent = `${used} / ${total}`;
                     updateProgressBar('ramBar', percentage);
                 }
             } catch (e) { console.warn('Error parsing RAM data', e); }
 
             // 3. Disk
             try {
-                if (data.disk) {
-                    // Disk might be an array or single object. Let's assume root '/' or first entry if array
-                    let disk = Array.isArray(data.disk) ? data.disk[0] : data.disk;
+                if (data.disk && Array.isArray(data.disk)) {
+                    // Find root partition first, or default to first entry
+                    const rootDisk = data.disk.find(d => d.mount === '/') || data.disk[0];
 
-                    if (disk) {
-                        const total = disk.total || 0;
-                        const used = disk.used || 0; // or total - free
-                        const free = disk.free || (total - used);
+                    if (rootDisk) {
+                        const available = rootDisk.available || '0 GB';
+                        const percentage = rootDisk.usedPercent || 0;
 
-                        let percentage = disk.percentage || (total > 0 ? (used / total) * 100 : 0);
-                        // Sometimes APIs return usage string "34%"
-
-                        document.getElementById('diskValue').textContent = `${percentage.toFixed(1)}%`;
-                        document.getElementById('diskDetails').textContent = `Free: ${formatBytes(free)}`;
+                        document.getElementById('diskValue').textContent = `${percentage}%`;
+                        document.getElementById('diskDetails').textContent = `Free: ${available}`;
                         updateProgressBar('diskBar', percentage);
                     }
                 }
             } catch (e) { console.warn('Error parsing Disk data', e); }
 
-            // 4. OS
+            // 4. System Info
             try {
-                if (data.os) {
-                    document.getElementById('osHost').textContent = data.os.hostname || data.os.host || 'Unknown';
-                    document.getElementById('osPlatform').textContent = data.os.platform || data.os.os || 'Unknown';
+                if (data.system) {
+                    document.getElementById('osHost').textContent = data.system.hostname || 'Unknown';
+                    // Combine Platform and Distro if available
+                    const osName = data.system.distro ? `${data.system.platform} (${data.system.distro})` : (data.system.platform || 'Unknown');
+                    document.getElementById('osPlatform').textContent = osName;
 
-                    const uptime = data.os.uptime || 0;
-                    document.getElementById('osUptime').textContent = formatUptime(uptime);
+                    // Uptime is already formatted string: "5d 10h 30m"
+                    document.getElementById('osUptime').textContent = data.system.uptime || 'Unknown';
                 }
-            } catch (e) { console.warn('Error parsing OS data', e); }
+            } catch (e) { console.warn('Error parsing System data', e); }
         }
 
         async function runPing() {
