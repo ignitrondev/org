@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Monitor - IgnitronDev</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Dashboard Specific Styles */
+        :root {
+            --success: #22c55e;
+            --warning: #eab308;
+            --danger: #ef4444;
+        }
+
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 24px 40px;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .dashboard-title {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .server-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: var(--success);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .server-status.offline {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: rgba(239, 68, 68, 0.3);
+            color: var(--danger);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: currentColor;
+            border-radius: 50%;
+            box-shadow: 0 0 8px currentColor;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(1.2);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .last-updated {
+            color: var(--steel-silver);
+            font-size: 0.875rem;
+            margin-top: 4px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: rgba(15, 39, 68, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: rgba(0, 245, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .stat-title {
+            color: var(--steel-silver);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: rgba(0, 245, 255, 0.1);
+            color: var(--cyber-cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .stat-subtext {
+            color: var(--steel-silver);
+            font-size: 0.875rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            overflow: hidden;
+            margin-top: 12px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--cyber-cyan);
+            border-radius: 100px;
+            width: 0%;
+            transition: width 0.5s ease;
+            box-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+        }
+
+        .progress-fill.high {
+            background: var(--warning);
+            box-shadow: 0 0 10px rgba(234, 179, 8, 0.5);
+        }
+
+        .progress-fill.critical {
+            background: var(--danger);
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+        }
+
+        .os-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .os-detail {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .os-detail:last-child {
+            border-bottom: none;
+        }
+
+        .tools-section {
+            margin-top: 40px;
+        }
+
+        .tool-card {
+            background: rgba(15, 39, 68, 0.3);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+        }
+
+        .ping-console {
+            background: #000;
+            border-radius: 8px;
+            padding: 16px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            color: #00f5ff;
+            min-height: 150px;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 16px;
+            white-space: pre-wrap;
+        }
+
+        .ping-input-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .ping-input {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-family);
+        }
+
+        .ping-input:focus {
+            outline: none;
+            border-color: var(--cyber-cyan);
+        }
+
+        /* Error state */
+        .error-message {
+            color: var(--danger);
+            text-align: center;
+            padding: 20px;
+            background: rgba(239, 68, 68, 0.1);
+            border-radius: var(--radius-md);
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="nav-logo-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                        <path
+                            d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                    </svg>
+                </div>
+                <div class="nav-logo-text">
+                    <span class="nav-logo-name">Ignitron<span>Dev</span></span>
+                    <span class="nav-logo-tagline">PLATFORM FACTORY</span>
+                </div>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#" class="active" style="color: var(--cyber-cyan);">Server Monitor</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-container">
+        <div class="dashboard-header">
+            <div>
+                <h1 class="dashboard-title">System <span class="text-gradient">Monitor</span></h1>
+                <div class="last-updated" id="lastUpdated">Last updated: Never</div>
+            </div>
+            <div class="server-status" id="serverStatus">
+                <div class="status-dot"></div>
+                <span>Online</span>
+            </div>
+        </div>
+
+        <div class="error-message" id="errorMessage">
+            Failed to connect to monitoring server. Retrying...
+        </div>
+
+        <div class="stats-grid">
+            <!-- CPU Card -->
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-title">CPU Usage</span>
+                    <div class="stat-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                            <rect x="9" y="9" width="6" height="6"></rect>
+                            <line x1="9" y1="1" x2="9" y2="4"></line>
+                            <line x1="15" y1="1" x2="15" y2="4"></line>
+                            <line x1="9" y1="20" x2="9" y2="23"></line>
+                            <line x1="15" y1="20" x2="15" y2="23"></line>
+                            <line x1="20" y1="9" x2="23" y2="9"></line>
+                            <line x1="20" y1="14" x2="23" y2="14"></line>
+                            <line x1="1" y1="9" x2="4" y2="9"></line>
+                            <line x1="1" y1="14" x2="4" y2="14"></line>
+                        </svg>
+                    </div>
+                </div>
+                <div class="stat-value" id="cpuValue">0%</div>
+                <div class="stat-subtext" id="cpuModel">Loading...</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="cpuBar" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- RAM Card -->
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-title">RAM Usage</span>
+                    <div class="stat-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 19v-3"></path>
+                            <path d="M10 19v-3"></path>
+                            <path d="M14 19v-3"></path>
+                            <path d="M18 19v-3"></path>
+                            <path d="M8 11V9"></path>
+                            <path d="M16 11V9"></path>
+                            <path d="M12 5v2"></path>
+                            <path d="M12 17v-2"></path>
+                            <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                        </svg>
+                    </div>
+                </div>
+                <div class="stat-value" id="ramValue">0%</div>
+                <div class="stat-subtext" id="ramDetails">0 GB / 0 GB</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="ramBar" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Disk Card -->
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-title">Disk Storage</span>
+                    <div class="stat-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="stat-value" id="diskValue">0%</div>
+                <div class="stat-subtext" id="diskDetails">Free: 0 GB</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="diskBar" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- OS Card -->
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-title">System Info</span>
+                    <div class="stat-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                </div>
+                <div class="os-info" id="osInfo">
+                    <div class="os-detail">
+                        <span>Host</span>
+                        <span id="osHost">...</span>
+                    </div>
+                    <div class="os-detail">
+                        <span>Platform</span>
+                        <span id="osPlatform">...</span>
+                    </div>
+                    <div class="os-detail">
+                        <span>Uptime</span>
+                        <span id="osUptime">...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tools-section">
+            <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 24px;">Network <span
+                    class="text-gradient">Tools</span></h2>
+            <div class="tool-card">
+                <h3 style="margin-bottom: 16px;">Remote Ping</h3>
+                <div class="ping-input-group">
+                    <input type="text" id="pingHost" class="ping-input" placeholder="Enter hostname (e.g., google.com)"
+                        value="google.com">
+                    <button class="btn btn-primary" onclick="runPing()">
+                        Ping
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="ping-console" id="pingOutput">// Output will appear here...</div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const API_BASE = 'https://ririn-server.pygora-cobia.ts.net';
+
+        // Format bytes to human readable
+        function formatBytes(bytes, decimals = 2) {
+            if (!+bytes) return '0 Bytes';
+            const k = 1024;
+            const dm = decimals < 0 ? 0 : decimals;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`;
+        }
+
+        // Format seconds to uptime string
+        function formatUptime(seconds) {
+            const d = Math.floor(seconds / (3600 * 24));
+            const h = Math.floor(seconds % (3600 * 24) / 3600);
+            const m = Math.floor(seconds % 3600 / 60);
+            const s = Math.floor(seconds % 60);
+
+            const parts = [];
+            if (d > 0) parts.push(`${d}d`);
+            if (h > 0) parts.push(`${h}h`);
+            if (m > 0) parts.push(`${m}m`);
+            if (s > 0) parts.push(`${s}s`);
+            return parts.join(' ') || '0s';
+        }
+
+        function updateProgressBar(elementId, percentage) {
+            const bar = document.getElementById(elementId);
+            bar.style.width = `${percentage}%`;
+
+            // Remove old classes
+            bar.classList.remove('high', 'critical');
+
+            if (percentage > 90) {
+                bar.classList.add('critical');
+            } else if (percentage > 70) {
+                bar.classList.add('high');
+            }
+        }
+
+        async function fetchStats() {
+            try {
+                // Fetch all stats
+                const response = await fetch(`${API_BASE}/api/all`);
+                if (!response.ok) throw new Error('Network response was not ok');
+
+                const data = await response.json();
+
+                updateDashboard(data);
+
+                // Update status UI
+                document.getElementById('serverStatus').innerHTML = `
+                    <div class="status-dot"></div>
+                    <span>Online</span>
+                `;
+                document.getElementById('serverStatus').className = 'server-status';
+                document.getElementById('errorMessage').style.display = 'none';
+
+            } catch (error) {
+                console.error('Fetch error:', error);
+                document.getElementById('serverStatus').innerHTML = `
+                    <div class="status-dot" style="animation: none; opacity: 1;"></div>
+                    <span>Offline</span>
+                `;
+                document.getElementById('serverStatus').className = 'server-status offline';
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('errorMessage').textContent = `Connection Error: ${error.message}. Is the server accessible?`;
+            }
+        }
+
+        function updateDashboard(data) {
+            // Timestamp
+            const now = new Date();
+            document.getElementById('lastUpdated').textContent = `Last updated: ${now.toLocaleTimeString()}`;
+
+            // We need to adapt based on actual API structure. 
+            // Assuming the API returns keys like: os, cpu, ram, disk within proper objects
+            // Use try-catch blocks for safety around missing data
+
+            // 1. CPU
+            try {
+                if (data.cpu) {
+                    // Adjust key names based on common patterns or simple inspection if it fails
+                    // Assumption: data.cpu might have 'usage' or 'load_percentage'
+                    const cpuUsage = data.cpu.usage || data.cpu.global_usage || 0;
+                    document.getElementById('cpuValue').textContent = `${cpuUsage.toFixed(1)}%`;
+                    updateProgressBar('cpuBar', cpuUsage);
+                    document.getElementById('cpuModel').textContent = data.cpu.brand || data.cpu.model || `${data.cpu.cores || '?'} Cores`;
+                }
+            } catch (e) { console.warn('Error parsing CPU data', e); }
+
+            // 2. RAM
+            try {
+                if (data.ram) {
+                    const total = data.ram.total || 0;
+                    const used = data.ram.used || 0;
+                    const free = data.ram.free || 0;
+
+                    // If API returns percentage directly
+                    let percentage = data.ram.percentage || (total > 0 ? (used / total) * 100 : 0);
+
+                    document.getElementById('ramValue').textContent = `${percentage.toFixed(1)}%`;
+                    document.getElementById('ramDetails').textContent = `${formatBytes(used)} / ${formatBytes(total)}`;
+                    updateProgressBar('ramBar', percentage);
+                }
+            } catch (e) { console.warn('Error parsing RAM data', e); }
+
+            // 3. Disk
+            try {
+                if (data.disk) {
+                    // Disk might be an array or single object. Let's assume root '/' or first entry if array
+                    let disk = Array.isArray(data.disk) ? data.disk[0] : data.disk;
+
+                    if (disk) {
+                        const total = disk.total || 0;
+                        const used = disk.used || 0; // or total - free
+                        const free = disk.free || (total - used);
+
+                        let percentage = disk.percentage || (total > 0 ? (used / total) * 100 : 0);
+                        // Sometimes APIs return usage string "34%"
+
+                        document.getElementById('diskValue').textContent = `${percentage.toFixed(1)}%`;
+                        document.getElementById('diskDetails').textContent = `Free: ${formatBytes(free)}`;
+                        updateProgressBar('diskBar', percentage);
+                    }
+                }
+            } catch (e) { console.warn('Error parsing Disk data', e); }
+
+            // 4. OS
+            try {
+                if (data.os) {
+                    document.getElementById('osHost').textContent = data.os.hostname || data.os.host || 'Unknown';
+                    document.getElementById('osPlatform').textContent = data.os.platform || data.os.os || 'Unknown';
+
+                    const uptime = data.os.uptime || 0;
+                    document.getElementById('osUptime').textContent = formatUptime(uptime);
+                }
+            } catch (e) { console.warn('Error parsing OS data', e); }
+        }
+
+        async function runPing() {
+            const host = document.getElementById('pingHost').value;
+            const output = document.getElementById('pingOutput');
+            const btn = document.querySelector('.ping-input-group .btn');
+
+            if (!host) return;
+
+            output.innerHTML += `\n> Pinging ${host}...\n`;
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+
+            try {
+                const response = await fetch(`${API_BASE}/api/ping?host=${encodeURIComponent(host)}`);
+                const result = await response.text(); // Ping usually returns raw text output
+
+                output.innerHTML += `${result}\n`;
+            } catch (error) {
+                output.innerHTML += `Error: ${error.message}\n`;
+            } finally {
+                btn.disabled = false;
+                btn.style.opacity = '1';
+                output.scrollTop = output.scrollHeight;
+            }
+        }
+
+        // Initial fetch
+        fetchStats();
+
+        // Auto Refresh every 3 seconds
+        setInterval(fetchStats, 3000);
+    </script>
+</body>
+
+</html>
