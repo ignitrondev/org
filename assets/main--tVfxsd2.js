@@ -1,40 +1,4 @@
-import"./modulepreload-polyfill-B5Qt9EMX.js";function g(){return`
-    <nav class="nav" id="nav">
-        <div class="nav-container">
-            <a href="#" class="nav-logo">
-                <div class="nav-logo-icon">
-                    <img src="/org/images/ignitron.png" alt="IgnitronDev">
-                </div>
-                <div class="nav-logo-text">
-                    <span class="nav-logo-name">Ignitron<span>Dev</span></span>
-                    <span class="nav-logo-tagline">PLATFORM FACTORY</span>
-                </div>
-            </a>
-
-            <button class="nav-mobile-toggle" id="mobileToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <div class="nav-links">
-                <a href="#platforms">Platforms</a>
-                <a href="#why-whitelabel">Why White-Label</a>
-                <a href="#calculator">Calculator</a>
-                <a href="#partners">Partnership</a>
-                <a href="monitor.html">Monitor</a>
-            </div>
-
-            <button class="btn btn-primary nav-cta" onclick="scrollToSection('contact')">
-                Become a Partner
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-            </button>
-
-        </div>
-    </nav>
-    `}function m(){return`
+import"./modulepreload-polyfill-B5Qt9EMX.js";import{N as m,F as g}from"./Footer-BwxLpDTt.js";function u(){return`
     <section class="hero" id="hero">
         <div class="hero-bg">
             <div class="hero-grid"></div>
@@ -138,7 +102,7 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";function g(){return`
             </div>
         </div>
     </section>
-    `}function u(){return`
+    `}function f(){return`
     <div class="partners-strip" style="background: rgba(11, 27, 46, 0.8); border-bottom: 1px solid var(--border-color); padding: 24px 0; overflow: hidden; margin-bottom: 40px;">
         <div class="container">
             <p style="text-align: center; font-size: 12px; color: var(--steel-silver); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px;">
@@ -168,7 +132,7 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";function g(){return`
             </div>
         </div>
     </div>
-    `}function f(){return`
+    `}function y(){return`
     <div class="deployment-ticker">
         <div class="ticker-content" id="deployment-ticker-content">
             <div class="ticker-item"><span>[LOG]</span> Pushed v2.4.1 core update to Jakarta-Node-01...</div>
@@ -186,7 +150,7 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";function g(){return`
             <div class="ticker-item"><span>[LOG]</span> Automated security patch applied to all partner-facing APIs...</div>
         </div>
     </div>
-    `}function y(){return`
+    `}function b(){return`
     <section class="tech-stack-section">
         <div class="container text-center">
             <div class="section-badge">Platform Architecture</div>
@@ -270,7 +234,7 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";function g(){return`
             </div>
         </div>
     </section>
-    `}function b(){return`
+    `}function w(){return`
     <section class="roadmap-section" id="roadmap">
         <div class="container">
             <div class="section-header text-center">
@@ -323,7 +287,7 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";function g(){return`
             </div>
         </div>
     </section>
-    `}function w(){return`
+    `}function x(){return`
     <section class="section platforms" id="platforms">
         <div class="container">
             <div class="section-header">
@@ -459,7 +423,7 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";function g(){return`
             </div>
         </div>
     </section>
-    `}function x(){return`
+    `}function k(){return`
     <section class="section why-whitelabel" id="why-whitelabel">
         <div class="container">
             <div class="section-header">
@@ -540,7 +504,7 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";function g(){return`
             </div>
         </div>
     </section>
-    `}function k(){return`
+    `}function S(){return`
     <section class="section calculator" id="calculator">
         <div class="container container-sm">
             <div class="section-header">
@@ -587,7 +551,7 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";function g(){return`
             </div>
         </div>
     </section>
-    `}function S(){return`
+    `}function M(){return`
     <section class="section partners" id="partners">
         <div class="container">
             <div class="section-header">
@@ -654,7 +618,7 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";function g(){return`
             </div>
         </div>
     </section>
-    `}function M(){return`
+    `}function C(){return`
     <section class="heritage-section" id="heritage">
         <div class="container">
             <div class="section-header text-center">
@@ -696,7 +660,7 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";function g(){return`
             </div>
         </div>
     </section>
-    `}function C(){return`
+    `}function B(){return`
     <section class="section leadership" id="leadership">
         <div class="container container-sm">
             <div class="section-header">
@@ -716,64 +680,9 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";function g(){return`
             </div>
         </div>
     </section>
-    `}function B(){return`
-    <section class="section cta" id="contact">
-        <div class="container container-sm">
-            <div class="cta-card">
-                <div class="cta-icon">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" />
-                    </svg>
-                </div>
-                <h2 class="cta-title">Ready to Start Your Software Business?</h2>
-                <p class="cta-subtitle">Join our partner program today. Deploy your first platform within 2 weeks.</p>
-                <div class="cta-buttons">
-                    <button class="btn btn-primary btn-lg">Schedule Partnership Call</button>
-                    <button class="btn btn-outline btn-lg">Download Partner Kit</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="#" class="footer-logo">
-                        <div class="footer-logo-icon"><img src="/org/images/ignitron.png" alt="IgnitronDev"></div>
-                        <span>Ignitron<span>Dev</span></span>
-                    </a>
-                    <p class="footer-desc">Platform Factory for System Integrators & Resellers. Strategic Joint Venture with Chinese Technology Partners.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Platforms</h4>
-                    <ul><li><a href="#">ShipRadar</a></li><li><a href="#">FactorySense</a></li><li><a href="#">AssetTrack</a></li></ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Partnership</h4>
-                    <ul><li><a href="#">Reseller Program</a></li><li><a href="#">White-Label Partner</a></li><li><a href="#">Technology Partner</a></li></ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li class="footer-contact-item">partners@ignitrondev.com</li>
-                        <li class="footer-contact-item">WA: +62 xxx-xxxx-xxxx</li>
-                        <li class="footer-contact-item">WeChat: ignitrondev</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2024 IgnitronDev. All rights reserved.</p>
-                <div class="footer-bottom-links">
-                    <a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Partner Agreement</a>
-                </div>
-            </div>
-        </div>
-    </footer>
     `}const d=document.querySelector("#app");d&&(d.innerHTML=`
-        ${g()}
+        ${m()}
         <main class="main-content">
-            ${m()}
             ${u()}
             ${f()}
             ${y()}
@@ -784,6 +693,7 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";function g(){return`
             ${S()}
             ${M()}
             ${C()}
+            ${B()}
         </main>
-        ${B()}
-    `);function L(){const t=document.getElementById("nav"),e=document.getElementById("mobileToggle");t&&(window.addEventListener("scroll",()=>{window.scrollY>50?t.classList.add("scrolled"):t.classList.remove("scrolled")}),e&&e.addEventListener("click",()=>{const i=document.querySelector(".nav-links");i&&(i.classList.toggle("active"),e.classList.toggle("active"))}))}function A(){const t=document.getElementById("clientsSlider"),e=document.getElementById("dealSlider"),i=document.getElementById("clientsValue"),a=document.getElementById("dealValue"),s=document.getElementById("monthlyRevenue"),o=document.getElementById("annualRevenue"),p=.5;function r(){if(!t||!e)return;const n=parseInt(t.value),l=parseInt(e.value),c=n*l*p,h=c*12;i&&(i.textContent=n),a&&(a.textContent=l.toLocaleString()),s&&(s.textContent="$"+c.toLocaleString()),o&&(o.textContent="$"+h.toLocaleString())}t&&e&&(t.addEventListener("input",r),e.addEventListener("input",r),r())}function P(){const t=document.getElementById("globeViz");if(!t||typeof Globe>"u")return;const e={blue:"#89b4fa",sapphire:"#74c7ec"},i=Math.min(window.innerWidth,800),a=Globe()(t).globeImageUrl("//unpkg.com/three-globe/example/img/earth-dark.jpg").backgroundColor("rgba(0,0,0,0)").showAtmosphere(!0).atmosphereColor(e.blue).atmosphereDaylightAlpha(.1).width(i).height(i).arcsData([{startLat:22.5431,startLng:114.0579,endLat:-6.2088,endLng:106.8456,color:[e.sapphire,e.blue]},{startLat:22.5431,startLng:114.0579,endLat:-6.2088,endLng:106.8456,color:[e.sapphire,e.blue],altitude:.4}]).arcColor("color").arcDashLength(.5).arcDashGap(2).arcDashAnimateTime(2e3).arcStroke(1.2).arcCurve(.3).ringsData([{lat:-6.2088,lng:106.8456,color:e.blue},{lat:22.5431,lng:114.0579,color:e.sapphire}]).ringColor(o=>o.color).ringMaxRadius(6).ringPropagationSpeed(2).ringRepeatPeriod(1200);a.pointOfView({lat:15,lng:110,altitude:2.2},0);const s=a.controls();s&&(s.autoRotate=!0,s.autoRotateSpeed=.4,s.enableZoom=!1,s.enablePan=!1,s.update())}function v(){const t=new Date().toLocaleTimeString("en-GB",{timeZone:"Asia/Jakarta",hour:"2-digit",minute:"2-digit"}),e=new Date().toLocaleTimeString("en-GB",{timeZone:"Asia/Shanghai",hour:"2-digit",minute:"2-digit",second:"2-digit"}),i=document.getElementById("jkt-time"),a=document.getElementById("sz-time");i&&(i.innerText=t),a&&(a.innerText=e)}async function R(){const t=document.getElementById("gh-activity");if(t)try{const e=await fetch("https://api.github.com/orgs/ignitrondev/repos?sort=updated&per_page=1"),[i]=await e.json();if(i){const a=new Date(i.updated_at).toLocaleDateString("en-GB",{day:"2-digit",month:"short"});t.innerText=`Active in "${i.name}" (Last push: ${a})`}}catch{t.innerText="Operational (v2.4.0 Stable)"}}L();A();setInterval(v,1e3);v();R();setTimeout(P,500);window.scrollToSection=t=>{const e=document.getElementById(t);e&&e.scrollIntoView({behavior:"smooth"})};console.log("IgnitronDev Modular Platform Initialized");
+        ${g()}
+    `);function L(){const t=document.getElementById("nav"),e=document.getElementById("mobileToggle");t&&(window.addEventListener("scroll",()=>{window.scrollY>50?t.classList.add("scrolled"):t.classList.remove("scrolled")}),e&&e.addEventListener("click",()=>{const i=document.querySelector(".nav-links");i&&(i.classList.toggle("active"),e.classList.toggle("active"))}))}function A(){const t=document.getElementById("clientsSlider"),e=document.getElementById("dealSlider"),i=document.getElementById("clientsValue"),s=document.getElementById("dealValue"),a=document.getElementById("monthlyRevenue"),o=document.getElementById("annualRevenue"),v=.5;function r(){if(!t||!e)return;const n=parseInt(t.value),l=parseInt(e.value),c=n*l*v,h=c*12;i&&(i.textContent=n),s&&(s.textContent=l.toLocaleString()),a&&(a.textContent="$"+c.toLocaleString()),o&&(o.textContent="$"+h.toLocaleString())}t&&e&&(t.addEventListener("input",r),e.addEventListener("input",r),r())}function z(){const t=document.getElementById("globeViz");if(!t||typeof Globe>"u")return;const e={blue:"#89b4fa",sapphire:"#74c7ec"},i=Math.min(window.innerWidth,800),s=Globe()(t).globeImageUrl("//unpkg.com/three-globe/example/img/earth-dark.jpg").backgroundColor("rgba(0,0,0,0)").showAtmosphere(!0).atmosphereColor(e.blue).atmosphereDaylightAlpha(.1).width(i).height(i).arcsData([{startLat:22.5431,startLng:114.0579,endLat:-6.2088,endLng:106.8456,color:[e.sapphire,e.blue]},{startLat:22.5431,startLng:114.0579,endLat:-6.2088,endLng:106.8456,color:[e.sapphire,e.blue],altitude:.4}]).arcColor("color").arcDashLength(.5).arcDashGap(2).arcDashAnimateTime(2e3).arcStroke(1.2).arcCurve(.3).ringsData([{lat:-6.2088,lng:106.8456,color:e.blue},{lat:22.5431,lng:114.0579,color:e.sapphire}]).ringColor(o=>o.color).ringMaxRadius(6).ringPropagationSpeed(2).ringRepeatPeriod(1200);s.pointOfView({lat:15,lng:110,altitude:2.2},0);const a=s.controls();a&&(a.autoRotate=!0,a.autoRotateSpeed=.4,a.enableZoom=!1,a.enablePan=!1,a.update())}function p(){const t=new Date().toLocaleTimeString("en-GB",{timeZone:"Asia/Jakarta",hour:"2-digit",minute:"2-digit"}),e=new Date().toLocaleTimeString("en-GB",{timeZone:"Asia/Shanghai",hour:"2-digit",minute:"2-digit",second:"2-digit"}),i=document.getElementById("jkt-time"),s=document.getElementById("sz-time");i&&(i.innerText=t),s&&(s.innerText=e)}async function R(){const t=document.getElementById("gh-activity");if(t)try{const e=await fetch("https://api.github.com/orgs/ignitrondev/repos?sort=updated&per_page=1"),[i]=await e.json();if(i){const s=new Date(i.updated_at).toLocaleDateString("en-GB",{day:"2-digit",month:"short"});t.innerText=`Active in "${i.name}" (Last push: ${s})`}}catch{t.innerText="Operational (v2.4.0 Stable)"}}L();A();setInterval(p,1e3);p();R();setTimeout(z,500);window.scrollToSection=t=>{const e=document.getElementById(t);e&&e.scrollIntoView({behavior:"smooth"})};console.log("IgnitronDev Modular Platform Initialized");
