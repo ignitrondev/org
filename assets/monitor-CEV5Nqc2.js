@@ -1,4 +1,4 @@
-import"./modulepreload-polyfill-B5Qt9EMX.js";import{N as g,F as m}from"./Footer-BwxLpDTt.js";function u(){return`
+import"./modulepreload-polyfill-B5Qt9EMX.js";import{N as u,F as y}from"./Footer-BwxLpDTt.js";function h(){return`
     <main class="dashboard-container">
         <div class="dashboard-header">
             <div>
@@ -160,24 +160,24 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";import{N as g,F as m}from"./Footer-
             </div>
         </div>
     </main>
-    `}const l="https://ririn-server.pygora-cobia.ts.net";async function y(t=""){try{const e=t?`${l}/api/ping?host=${encodeURIComponent(t)}`:`${l}/api/ping`;return await(await fetch(e)).json()}catch(e){return console.error("Ping failed:",e),{success:!1,error:e.message}}}async function h(){try{return await(await fetch(`${l}/api/all`)).json()}catch(t){return console.error("Fetch stats failed:",t),{success:!1,error:t.message}}}async function f(){try{return await(await fetch(`${l}/api/vps`)).json()}catch(t){return console.error("Fetch VPS stats failed:",t),{success:!1,error:t.message}}}const p=document.querySelector("#app");p&&(p.innerHTML=`
-        ${g()}
+    `}const d="https://ririn-server.pygora-cobia.ts.net";async function f(t=""){try{const e=t?`${d}/api/ping?host=${encodeURIComponent(t)}`:`${d}/api/ping`;return await(await fetch(e)).json()}catch(e){return console.error("Ping failed:",e),{success:!1,error:e.message}}}async function x(){try{return await(await fetch(`${d}/api/all`)).json()}catch(t){return console.error("Fetch stats failed:",t),{success:!1,error:t.message}}}async function w(){try{return await(await fetch(`${d}/api/vps`)).json()}catch(t){return console.error("Fetch VPS stats failed:",t),{success:!1,error:t.message}}}const p=document.querySelector("#app");p&&(p.innerHTML=`
         ${u()}
-        ${m()}
-    `);const x=1e3;async function v(){try{const[t,e]=await Promise.all([h(),f()]);if(t.success&&t.data){w(t.data,e.success?e.data:null);const a=document.getElementById("serverStatus");a&&(a.classList.remove("offline"),a.querySelector("span").textContent="Live (Enhanced)"),document.getElementById("errorMessage").style.display="none"}else throw new Error("Invalid API response")}catch(t){console.error("Monitoring error:",t);const e=document.getElementById("serverStatus");e&&(e.classList.add("offline"),e.querySelector("span").textContent="Offline"),document.getElementById("errorMessage").style.display="block"}}function w(t,e){const a=new Date,d=document.getElementById("lastUpdated");if(d&&(d.textContent=`Last updated: ${a.toLocaleTimeString()}`),t.cpu){const i=document.getElementById("cpuValue"),r=document.getElementById("cpuBar"),s=document.getElementById("cpuModel"),o=typeof t.cpu.usage=="number"?t.cpu.usage:0;i&&(i.textContent=`${o}%`),r&&(r.style.width=`${o}%`,r.className="progress-fill"+(o>90?" critical":o>70?" high":"")),s&&(s.textContent=`${t.cpu.cores||0} Cores Active`)}if(t.memory){const i=document.getElementById("ramValue"),r=document.getElementById("ramBar"),s=document.getElementById("ramDetails"),o=t.memory.usedPercent||0;i&&(i.textContent=`${o}%`),r&&(r.style.width=`${o}%`,r.className="progress-fill"+(o>90?" critical":o>70?" high":"")),s&&(s.textContent=`${t.memory.used||"0B"} / ${t.memory.total||"0B"}`)}if(e){const i=document.getElementById("servicesGrid");i&&e.services&&(i.innerHTML=e.services.map(s=>`
+        ${h()}
+        ${y()}
+    `);const b=3e3,B=3;let v=0,g=null;async function m(){try{const t=v%B===0,e=await x();let r=null;if(t&&(r=await w(),r.success&&(g=r.data)),e.success&&e.data){I(e.data,g);const l=document.getElementById("serverStatus");l&&(l.classList.remove("offline"),l.querySelector("span").textContent="Live (Optimized)"),document.getElementById("errorMessage").style.display="none"}else throw new Error("Invalid API response");v++}catch(t){console.error("Monitoring error:",t);const e=document.getElementById("serverStatus");e&&(e.classList.add("offline"),e.querySelector("span").textContent="Offline"),document.getElementById("errorMessage").style.display="block"}}function I(t,e){const r=new Date,l=document.getElementById("lastUpdated");if(l&&(l.textContent=`Last updated: ${r.toLocaleTimeString()}`),t.cpu){const i=document.getElementById("cpuValue"),a=document.getElementById("cpuBar"),s=document.getElementById("cpuModel"),o=typeof t.cpu.usage=="number"?t.cpu.usage:0;i&&(i.textContent=`${o}%`),a&&(a.style.width=`${o}%`,a.className="progress-fill"+(o>90?" critical":o>70?" high":"")),s&&(s.textContent=`${t.cpu.cores||0} Cores Active`)}if(t.memory){const i=document.getElementById("ramValue"),a=document.getElementById("ramBar"),s=document.getElementById("ramDetails"),o=t.memory.usedPercent||0;i&&(i.textContent=`${o}%`),a&&(a.style.width=`${o}%`,a.className="progress-fill"+(o>90?" critical":o>70?" high":"")),s&&(s.textContent=`${t.memory.used||"0B"} / ${t.memory.total||"0B"}`)}if(e){const i=document.getElementById("servicesGrid");i&&e.services&&(i.innerHTML=e.services.map(s=>`
                 <div class="stat-card" style="padding: 16px; border-color: ${s.running?"rgba(166,227,161,0.3)":"rgba(243,139,168,0.3)"}">
                     <div style="display: flex; align-items: center; justify-content: space-between;">
                         <span style="font-weight: 600; font-size: 0.875rem;">${s.service.toUpperCase()}</span>
                         <div class="status-dot" style="width: 6px; height: 6px; background-color: ${s.running?"var(--success)":"var(--danger)"}; animation: ${s.running?"pulse-dot 2s infinite":"none"}"></div>
                     </div>
                 </div>
-            `).join(""));const r=document.getElementById("processList");if(r&&e.processes&&(r.innerHTML=e.processes.slice(0,10).map(s=>`
+            `).join(""));const a=document.getElementById("processList");if(a&&e.processes&&(a.innerHTML=e.processes.slice(0,10).map(s=>`
                 <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
                     <td style="padding: 10px 16px; font-weight: 500;">${s.name}</td>
                     <td style="padding: 10px 16px; color: ${s.cpu>20?"var(--warning)":"var(--white)"}">${s.cpu}%</td>
                     <td style="padding: 10px 16px; color: var(--steel-silver);">${s.memoryPercent.toFixed(1)}%</td>
                 </tr>
-            `).join("")),e.network){const s=e.network.find(o=>o.active)||e.network[0];if(s){const o=document.getElementById("netIn"),c=document.getElementById("netOut");o&&(o.textContent=s.rx_bytes_formatted),c&&(c.textContent=s.tx_bytes_formatted)}}}if(t.system){const i=document.getElementById("osHost"),r=document.getElementById("osPlatform"),s=document.getElementById("osUptime");i&&(i.textContent=t.system.hostname||"Unknown"),r&&(r.textContent=t.system.distro||t.system.platform||"Unknown"),s&&(s.textContent=t.system.uptime||"Unknown")}const n=document.getElementById("dockerStatsGrid");t.docker&&t.docker.available&&t.docker.containers&&t.docker.containers.length>0?n&&(n.innerHTML=t.docker.containers.map(i=>`
+            `).join("")),e.network){const s=e.network.find(o=>o.active)||e.network[0];if(s){const o=document.getElementById("netIn"),c=document.getElementById("netOut");o&&(o.textContent=s.rx_bytes_formatted),c&&(c.textContent=s.tx_bytes_formatted)}}}if(t.system){const i=document.getElementById("osHost"),a=document.getElementById("osPlatform"),s=document.getElementById("osUptime");i&&(i.textContent=t.system.hostname||"Unknown"),a&&(a.textContent=t.system.distro||t.system.platform||"Unknown"),s&&(s.textContent=t.system.uptime||"Unknown")}const n=document.getElementById("dockerStatsGrid");t.docker&&t.docker.available&&t.docker.containers&&t.docker.containers.length>0?n&&(n.innerHTML=t.docker.containers.map(i=>`
                 <div class="stat-card" style="padding: 16px;">
                     <div class="stat-header" style="margin-bottom: 8px;">
                         <span class="stat-title" style="font-size: 0.75rem;">${i.name}</span>
@@ -188,9 +188,9 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";import{N as g,F as m}from"./Footer-
                         <span>MEM: ${i.memoryPercent}</span>
                     </div>
                 </div>
-            `).join("")):n&&t.docker&&(n.innerHTML='<div class="stat-card" style="text-align: center; color: var(--steel-silver);">No Docker containers.</div>')}async function b(){const t=document.getElementById("pingHost"),e=document.getElementById("pingOutput"),a=document.getElementById("pingBtn");if(!t||!e||!a)return;const d=t.value;if(d){e.textContent+=`
-> Pinging ${d}...
-`,a.disabled=!0;try{const n=await y(d);n.success&&n.data?e.textContent+=`Host: ${n.data.host} | Alive: ${n.data.alive} | Latency: ${n.data.time}ms | Loss: ${n.data.packetLoss}
+            `).join("")):n&&t.docker&&(n.innerHTML='<div class="stat-card" style="text-align: center; color: var(--steel-silver);">No Docker containers.</div>')}async function E(){const t=document.getElementById("pingHost"),e=document.getElementById("pingOutput"),r=document.getElementById("pingBtn");if(!t||!e||!r)return;const l=t.value;if(l){e.textContent+=`
+> Pinging ${l}...
+`,r.disabled=!0;try{const n=await f(l);n.success&&n.data?e.textContent+=`Host: ${n.data.host} | Alive: ${n.data.alive} | Latency: ${n.data.time}ms | Loss: ${n.data.packetLoss}
 `:e.textContent+=`Error: ${n.error||"Failed to ping"}
 `}catch(n){e.textContent+=`Error: ${n.message}
-`}finally{a.disabled=!1,e.scrollTop=e.scrollHeight}}}v();setInterval(v,x);document.getElementById("pingBtn")?.addEventListener("click",b);
+`}finally{r.disabled=!1,e.scrollTop=e.scrollHeight}}}m();setInterval(m,b);document.getElementById("pingBtn")?.addEventListener("click",E);
