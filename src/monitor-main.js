@@ -19,28 +19,38 @@ if (app) {
 }
 
 // 2. Monitoring Logic
-const POLL_RATE = 1000; // Update every 1 second
+const POLL_RATE = 3000; // Basic stats every 3 seconds
+const HEAVY_POLL_MULTIPLIER = 3; // Heavy stats every 9 seconds
+let pollCount = 0;
+let lastVpsData = null;
 
 async function refreshStats() {
     try {
-        // Fetch both basic and advanced stats in parallel
-        const [basicRes, vpsRes] = await Promise.all([
-            getStats(),
-            getVPSStats()
-        ]);
+        const fetchHeavy = pollCount % HEAVY_POLL_MULTIPLIER === 0;
+
+        // Fetch basic stats every time, but heavy stats only occasionally
+        const basicRes = await getStats();
+        let vpsRes = null;
+
+        if (fetchHeavy) {
+            vpsRes = await getVPSStats();
+            if (vpsRes.success) lastVpsData = vpsRes.data;
+        }
 
         if (basicRes.success && basicRes.data) {
-            updateUI(basicRes.data, vpsRes.success ? vpsRes.data : null);
+            updateUI(basicRes.data, lastVpsData);
 
             const statusEl = document.getElementById('serverStatus');
             if (statusEl) {
                 statusEl.classList.remove('offline');
-                statusEl.querySelector('span').textContent = 'Live (Enhanced)';
+                statusEl.querySelector('span').textContent = 'Live (Optimized)';
             }
             document.getElementById('errorMessage').style.display = 'none';
         } else {
             throw new Error('Invalid API response');
         }
+
+        pollCount++;
     } catch (e) {
         console.error('Monitoring error:', e);
         const statusEl = document.getElementById('serverStatus');
