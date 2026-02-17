@@ -4,13 +4,7 @@ export default defineConfig({
     base: '/org/',
     build: {
         outDir: 'dist',
-        minify: 'terser',
-        terserOptions: {
-            compress: {
-                drop_console: true,
-                drop_debugger: true
-            }
-        },
+        minify: 'esbuild', // Faster and built-in (no extra install needed)
         rollupOptions: {
             input: {
                 main: 'index.html',
