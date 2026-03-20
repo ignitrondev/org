@@ -22,7 +22,7 @@
                 <a href="#why-whitelabel">Why White-Label</a>
                 <a href="#calculator">Calculator</a>
                 <a href="#partners">Partnership</a>
-                <a href="monitor.html">Monitor</a>
+                <a href="monitor/">Monitor</a>
             </div>
 
             <button class="btn btn-primary nav-cta" onclick="scrollToSection('contact')">

@@ -1,4 +1,4 @@
-import{N as f,F as h}from"./Footer-DdRb7I7X.js";function b(){return`
+import{N as f,F as h}from"./Footer-G6a9ukAo.js";function b(){return`
     <main class="monitor-container">
         <div class="monitor-header">
             <div class="monitor-title">
@@ -14,7 +14,7 @@ import{N as f,F as h}from"./Footer-DdRb7I7X.js";function b(){return`
                     <div class="status-dot"></div>
                     <span>Checking...</span>
                 </div>
-                <a href="index.html" class="back-btn">
+                <a href="../" class="back-btn">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M19 12H5M12 19l-7-7 7-7"/>
                     </svg>
