@@ -1,4 +1,4 @@
-import"./modulepreload-polyfill-B5Qt9EMX.js";import{N as u,F as y}from"./Footer-BwxLpDTt.js";function h(){return`
+import"./modulepreload-polyfill-B5Qt9EMX.js";import{N as u,F as y}from"./Footer-DiaRU2UA.js";function h(){return`
     <main class="dashboard-container">
         <div class="dashboard-header">
             <div>
@@ -160,7 +160,7 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";import{N as u,F as y}from"./Footer-
             </div>
         </div>
     </main>
-    `}const d="https://ririn-server.pygora-cobia.ts.net";async function f(t=""){try{const e=t?`${d}/api/ping?host=${encodeURIComponent(t)}`:`${d}/api/ping`;return await(await fetch(e)).json()}catch(e){return console.error("Ping failed:",e),{success:!1,error:e.message}}}async function x(){try{return await(await fetch(`${d}/api/all`)).json()}catch(t){return console.error("Fetch stats failed:",t),{success:!1,error:t.message}}}async function w(){try{return await(await fetch(`${d}/api/vps`)).json()}catch(t){return console.error("Fetch VPS stats failed:",t),{success:!1,error:t.message}}}const p=document.querySelector("#app");p&&(p.innerHTML=`
+    `}const d="http://localhost:3000";async function f(t=""){try{const e=t?`${d}/api/ping?host=${encodeURIComponent(t)}`:`${d}/api/ping`;return await(await fetch(e)).json()}catch(e){return console.error("Ping failed:",e),{success:!1,error:e.message}}}async function x(){try{return await(await fetch(`${d}/api/all`)).json()}catch(t){return console.error("Fetch stats failed:",t),{success:!1,error:t.message}}}async function w(){try{return await(await fetch(`${d}/api/vps`)).json()}catch(t){return console.error("Fetch VPS stats failed:",t),{success:!1,error:t.message}}}const p=document.querySelector("#app");p&&(p.innerHTML=`
         ${u()}
         ${h()}
         ${y()}
