@@ -8,7 +8,8 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 main: 'index.html',
-                monitor: 'monitor.html'
+                monitor: 'monitor.html',
+                blog: 'blog.html'
             }
         }
     },
