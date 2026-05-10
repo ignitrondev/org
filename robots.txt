@@ -1,6 +1,4 @@
-User-Agent: *
+User-agent: *
 Allow: /
-Disallow: /monitor
 
-Host: https://ignitrondev.github.io
 Sitemap: https://ignitrondev.github.io/org/sitemap.xml
