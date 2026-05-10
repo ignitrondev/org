@@ -17,7 +17,7 @@ const blogPosts = [
         date: 'April 20, 2026',
         dateISO: '2026-04-20',
         title: 'Introducing Our Co-Founder: Ririn Setiawati',
-        excerpt: 'Meet Ririn Setiawati, Co-Founder of IgnitronDev. Born on November 28, 2007 in Narmada, Lombok Barat — she is the heart and inspiration behind everything we build at IgnitronDev.',
+        excerpt: 'Meet Ririn Setiawati, Co-Founder of IgnitronDev. Born on November 28, 2007 in Narmada, Lombok Barat — currently studying Nursing at Universitas Qamarul Huda Badaruddin Bagu (UNIQBHA). She is the heart and inspiration behind everything we build.',
         color: '#cba6f7',
         featured: false,
     },
@@ -122,7 +122,7 @@ function BlogCard(post) {
                             <div class="blog-ldr-dot" style="background: #a6e3a1;"></div>
                             <div>
                                 <strong>2026 — Still Going Strong</strong>
-                                <p>4+ years of LDR. Still together. Still building. Ririn Setiawati, born November 28, 2007 in Narmada, Lombok Barat, is the Co-Founder of IgnitronDev and the person who proves that the best partnerships are built on trust, patience, and love — not just proximity.</p>
+                                <p>4+ years of LDR. Still together. Still building. Ririn Setiawati, born November 28, 2007 in Narmada, Lombok Barat, is the Co-Founder of IgnitronDev. She is currently studying Nursing (Keperawatan) at Universitas Qamarul Huda Badaruddin Bagu (UNIQBHA), Lombok — proving that the best partnerships are built on trust, patience, and love, not just proximity.</p>
                             </div>
                         </div>
                     </div>
