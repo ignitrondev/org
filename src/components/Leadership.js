@@ -47,7 +47,7 @@ export function Leadership() {
                     <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(203,166,247,0.05) 0%, transparent 70%); pointer-events: none;"></div>
                     <div class="leadership-avatar" style="background: linear-gradient(135deg, #cba6f7, #f38ba8); border-color: rgba(203,166,247,0.3);">RS</div>
                     <h3 class="leadership-name" itemprop="name">Ririn Setiawati</h3>
-                    <p class="leadership-role" style="color: #cba6f7;" itemprop="jobTitle">Co-Founder</p>
+                    <p class="leadership-role" style="color: #cba6f7;" itemprop="jobTitle">Co-Founder & CEO</p>
                     <p class="leadership-bio" itemprop="description">
                         Born <span style="color: #cba6f7;">November 28, 2007</span> · Narmada, Lombok Barat 🇮🇩<br>
                         <span style="font-size: 13px; opacity: 0.8;">Nursing Student · <span itemprop="alumniOf" itemscope itemtype="https://schema.org/CollegeOrUniversity"><span itemprop="name">Universitas Qamarul Huda Badaruddin Bagu</span></span> (UNIQBHA)</span>
