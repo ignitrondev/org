@@ -57,7 +57,7 @@ import{N as d,F as c}from"./Footer-D2uNnEl_.js";const g=[{id:1,category:"story",
                 <div class="blog-card-footer">
                     <div class="blog-founders-tag">
                         <span class="blog-founder-chip" style="border-color: rgba(137,180,250,0.3); color: #89b4fa;">✦ Bima Adam Nugraha · Founder</span>
-                        <span class="blog-founder-chip" style="border-color: rgba(203,166,247,0.3); color: #cba6f7;">♡ Ririn Setiawati · Co-Founder</span>
+                        <span class="blog-founder-chip" style="border-color: rgba(203,166,247,0.3); color: #cba6f7;">♡ Ririn Setiawati · Co-Founder & CEO</span>
                     </div>
                 </div>
             </div>
