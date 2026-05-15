@@ -182,6 +182,15 @@ const schema = [
                             <p class="blog-card-excerpt" itemprop="description">Bagi Bima Adam, musik atmospheric bukan sekadar genre — ini adalah tempat pulang. Dari coding malam, LDR, overthinking, hingga refleksi diri. Inilah cerita di balik playlist-nya.</p>
 
                             <div class="blog-music-content" itemprop="articleBody">
+
+                                <!-- Language toggle -->
+                                <div class="blog-lang-toggle">
+                                    <button class="blog-lang-btn active" data-lang="id">🇮🇩 Indonesia</button>
+                                    <button class="blog-lang-btn" data-lang="en">🇬🇧 English</button>
+                                </div>
+
+                                <!-- Indonesian version -->
+                                <div class="blog-lang-content" data-lang-content="id">
                                 <div class="blog-music-intro">
                                     <p><strong style="color: var(--white);">Bima Adam</strong> adalah seorang fullstack developer asal Boyolali yang dikenal menyukai dunia teknologi, Linux, coding malam, dan musik dengan nuansa atmospheric, phonk, ambient, nightdrive, hingga space aesthetic.</p>
                                     <p>Bagi Bima, musik bukan hanya hiburan. Musik adalah bagian dari identitas, memori emosional, dan tempat untuk reconnect dengan dirinya sendiri.</p>
@@ -204,9 +213,36 @@ const schema = [
                                     </div>
                                     <p style="margin-top: 12px;">Cocok didengarkan saat: coding malam, naik motor malam, hujan, perjalanan jauh, overthinking, atau saat ingin sendiri.</p>
                                 </div>
+                                </div><!-- end id -->
+
+                                <!-- English version -->
+                                <div class="blog-lang-content" data-lang-content="en" style="display:none;">
+                                <div class="blog-music-intro">
+                                    <p><strong style="color: var(--white);">Bima Adam</strong> is a fullstack developer from Boyolali, known for his love of technology, Linux, late-night coding sessions, and music with atmospheric, phonk, ambient, nightdrive, and space aesthetic vibes.</p>
+                                    <p>For Bima, music is more than entertainment. It's part of his identity, emotional memory, and a way to reconnect with himself.</p>
+                                    <p>For a long time, Bima has been listening to atmospheric instrumental music while coding late at night, focusing on projects, overthinking, enjoying the night atmosphere, reflecting on life, or when feeling lost.</p>
+                                </div>
 
                                 <div class="blog-music-section">
-                                    <h3>Artist Favorit Bima Adam</h3>
+                                    <h3>Why Does Bima Like Atmospheric Phonk?</h3>
+                                    <p>Genres like atmospheric phonk, ambient drift, and nightdrive music feel different from regular music. They provide a sense of calm, nostalgia, space to think, focus while coding, and the sensation of <em>"returning to yourself"</em>.</p>
+                                    <p>When life feels chaotic, these tracks become a safe place to quiet the mind.</p>
+                                </div>
+
+                                <div class="blog-music-section">
+                                    <h3>Bima's Favorite Music Vibes</h3>
+                                    <div class="blog-music-tags">
+                                        <span>Atmospheric</span><span>Emotional</span><span>Deep Ambient</span>
+                                        <span>Nostalgic</span><span>Cosmic</span><span>Dark Nightdrive</span>
+                                        <span>Futuristic Loneliness</span><span>Reflective Mood</span>
+                                        <span>Space Ambient</span><span>Synthwave</span>
+                                    </div>
+                                    <p style="margin-top: 12px;">Best listened to while: late-night coding, riding at night, rain, long trips, overthinking, or when you just want to be alone.</p>
+                                </div>
+                                </div><!-- end en -->
+
+                                <div class="blog-music-section">
+                                    <h3>Bima Adam's Favorite Artists</h3>
                                     <div class="blog-music-artists" itemprop="mentions">
                                         <span itemprop="name">Blessed Mane</span><span itemprop="name">LXST CXNTURY</span>
                                         <span itemprop="name">Ryder Spot</span><span itemprop="name">GRAVECHILL</span>
@@ -238,10 +274,20 @@ const schema = [
 
                                 <div class="blog-music-faq">
                                     <h3>FAQ</h3>
-                                    <div class="blog-music-faq-item"><strong>Kenapa Bima suka musik nightdrive?</strong><p>Karena musik nightdrive memberikan suasana tenang dan reflektif yang cocok dengan kepribadian Bima sebagai programmer yang sering menghabiskan waktu malam untuk coding dan berpikir.</p></div>
-                                    <div class="blog-music-faq-item"><strong>Kenapa Bima suka atmospheric phonk?</strong><p>Karena atmospheric phonk memiliki nuansa emosional, nostalgia, dan ambient yang membantu Bima merasa lebih fokus dan lebih terhubung dengan dirinya sendiri.</p></div>
-                                    <div class="blog-music-faq-item"><strong>Apa arti musik bagi Bima Adam?</strong><p>Musik bagi Bima adalah tempat pulang ketika hidup terasa terlalu ramai — tempat refleksi, melarikan diri dari kebisingan hidup, dan media untuk memahami emosi.</p></div>
-                                    <div class="blog-music-faq-item"><strong>Kenapa Bima suka vibes malam?</strong><p>Karena malam memberikan suasana yang lebih tenang, sunyi, dan cocok untuk berpikir mendalam serta menikmati musik atmospheric.</p></div>
+                                    <!-- ID -->
+                                    <div class="blog-lang-content" data-lang-content="id">
+                                        <div class="blog-music-faq-item"><strong>Kenapa Bima suka musik nightdrive?</strong><p>Karena musik nightdrive memberikan suasana tenang dan reflektif yang cocok dengan kepribadian Bima sebagai programmer yang sering menghabiskan waktu malam untuk coding dan berpikir.</p></div>
+                                        <div class="blog-music-faq-item"><strong>Kenapa Bima suka atmospheric phonk?</strong><p>Karena atmospheric phonk memiliki nuansa emosional, nostalgia, dan ambient yang membantu Bima merasa lebih fokus dan lebih terhubung dengan dirinya sendiri.</p></div>
+                                        <div class="blog-music-faq-item"><strong>Apa arti musik bagi Bima Adam?</strong><p>Musik bagi Bima adalah tempat pulang ketika hidup terasa terlalu ramai — tempat refleksi, melarikan diri dari kebisingan hidup, dan media untuk memahami emosi.</p></div>
+                                        <div class="blog-music-faq-item"><strong>Kenapa Bima suka vibes malam?</strong><p>Karena malam memberikan suasana yang lebih tenang, sunyi, dan cocok untuk berpikir mendalam serta menikmati musik atmospheric.</p></div>
+                                    </div>
+                                    <!-- EN -->
+                                    <div class="blog-lang-content" data-lang-content="en" style="display:none;">
+                                        <div class="blog-music-faq-item"><strong>Why does Bima like nightdrive music?</strong><p>Because nightdrive music provides a calm and reflective atmosphere that suits Bima's personality as a programmer who often spends late nights coding and thinking deeply.</p></div>
+                                        <div class="blog-music-faq-item"><strong>Why does Bima like atmospheric phonk?</strong><p>Because atmospheric phonk has an emotional, nostalgic, and ambient quality that helps Bima feel more focused and more connected with himself.</p></div>
+                                        <div class="blog-music-faq-item"><strong>What does music mean to Bima Adam?</strong><p>Music for Bima is a place to come home to when life feels too loud — a space for reflection, escape from the noise of life, and a medium for understanding emotions.</p></div>
+                                        <div class="blog-music-faq-item"><strong>Why does Bima like night vibes?</strong><p>Because the night offers a quieter, more peaceful atmosphere — perfect for deep thinking and enjoying atmospheric music.</p></div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -335,6 +381,21 @@ const schema = [
     <Footer />
 
     <script>
+        // Language toggle
+        document.querySelectorAll('.blog-lang-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                // Update buttons
+                document.querySelectorAll('.blog-lang-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                // Show/hide content
+                document.querySelectorAll('.blog-lang-content').forEach(el => {
+                    (el as HTMLElement).style.display = el.getAttribute('data-lang-content') === lang ? 'block' : 'none';
+                });
+            });
+        });
+
+        // Filter
         document.querySelectorAll('.blog-filter-btn').forEach(btn => {
             btn.addEventListener('click', function(this: HTMLElement) {
                 document.querySelectorAll('.blog-filter-btn').forEach(b => b.classList.remove('active'));
@@ -360,3 +421,35 @@ const schema = [
         });
     </script>
 </BaseLayout>
+
+<style>
+.blog-lang-toggle {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.blog-lang-btn {
+    padding: 6px 16px;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 100px;
+    color: var(--steel-silver);
+    font-size: 13px;
+    font-weight: 500;
+    font-family: var(--font-family);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.blog-lang-btn:hover {
+    border-color: var(--cyber-cyan);
+    color: var(--cyber-cyan);
+}
+
+.blog-lang-btn.active {
+    background: var(--cyber-cyan);
+    border-color: var(--cyber-cyan);
+    color: var(--black);
+}
+</style>
