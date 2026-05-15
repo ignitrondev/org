@@ -4,4 +4,5 @@ export default defineConfig({
     site: 'https://ignitrondev.github.io',
     base: '/org',
     output: 'static',
+    trailingSlash: 'always',
 });
