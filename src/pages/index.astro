@@ -109,24 +109,7 @@ const schema = [
                 <p class="hero-subtitle">White-label web applications for system integrators & resellers.</p>
                 <p class="hero-highlight">Your brand. Your pricing. Your clients. We stay invisible.</p>
 
-                <div class="server-ping-demo" style="margin-top: 40px; margin-bottom: 20px;">
-                    <div class="server-node">
-                        <div class="server-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="1" /><rect x="2" y="14" width="20" height="8" rx="1" /></svg></div>
-                        <span style="font-family: var(--mono-font); font-size: 10px;">JKT_NODE</span>
-                        <div id="jkt-time" style="font-family: var(--mono-font); font-size: 11px; color: var(--cyber-cyan); font-weight: 700;">--:--</div>
-                    </div>
-                    <div class="ping-conn-line">
-                        <div class="ping-packet"></div>
-                        <div class="ping-latency" style="font-family: var(--mono-font);">24ms</div>
-                    </div>
-                    <div class="server-node">
-                        <div class="server-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="1" /><rect x="2" y="14" width="20" height="8" rx="1" /></svg></div>
-                        <span style="font-family: var(--mono-font); font-size: 10px;">SHZ_NODE</span>
-                        <div id="sz-time" style="font-family: var(--mono-font); font-size: 11px; color: var(--cyber-cyan); font-weight: 700;">--:--:--</div>
-                    </div>
-                </div>
-
-                <div class="hero-cta">
+                <div class="hero-cta" style="margin-top: 40px;">
                     <a href={`${base}products`} class="btn btn-primary btn-lg">View Live Dashboard</a>
                     <a href={`${base}foundry`} class="btn btn-outline btn-lg">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg>
@@ -148,13 +131,12 @@ const schema = [
         </section>
 
         <PartnersStrip />
-        <DeploymentTicker />
-        <TechStack />
-        <Roadmap />
         <Platforms />
+        <Roadmap />
         <WhyWhitelabel />
         <Calculator />
         <Partners />
+        <TechStack />
 
         <!-- Heritage -->
         <section class="heritage-section" id="heritage">
