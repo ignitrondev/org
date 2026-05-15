@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import '../styles.css';
+
+const base = import.meta.env.BASE_URL;
+const API_BASE = 'http://100.104.183.126:19999';
+---
+
+<BaseLayout
+    title="Server Monitor - IgnitronDev"
+    description="Real-time server monitoring dashboard for IgnitronDev infrastructure."
+    keywords="IgnitronDev monitor, server stats, CPU, RAM, network"
+>
+    <Navbar />
+
+    <main class="monitor-container">
+        <div class="monitor-header">
+            <div class="monitor-title">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+                <span>Server <span class="text-gradient">Monitor</span></span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <div class="server-badge" id="serverStatus">
+                    <div class="status-dot"></div>
+                    <span>Checking...</span>
+                </div>
+                <a href={`${base}/`} class="back-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    Back to Home
+                </a>
+            </div>
+        </div>
+
+        <div id="errorMessage" class="error-message" style="display: none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            Unable to connect to monitoring server. Retrying...
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header"><span class="stat-title">CPU Usage</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect></svg></div>
+                <div class="stat-value" id="cpuValue">--</div>
+                <div class="stat-subtext" id="cpuModel">-- Cores Active</div>
+                <div class="progress-bar"><div class="progress-fill" id="cpuBar" style="width: 0%"></div></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-header"><span class="stat-title">Memory Usage</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"></rect><path d="M6 19v-3M10 19v-3M14 19v-3M18 19v-3"></path></svg></div>
+                <div class="stat-value" id="ramValue">--</div>
+                <div class="stat-subtext" id="ramDetails">-- / --</div>
+                <div class="progress-bar"><div class="progress-fill" id="ramBar" style="width: 0%"></div></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-header"><span class="stat-title">Network I/O</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg></div>
+                <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 8px;">
+                    <div style="display: flex; justify-content: space-between;"><span style="color: var(--steel-silver); font-size: 0.875rem;">↓ In</span><span style="color: var(--cyber-cyan); font-weight: 600;" id="netIn">--</span></div>
+                    <div style="display: flex; justify-content: space-between;"><span style="color: var(--steel-silver); font-size: 0.875rem;">↑ Out</span><span style="color: var(--cyber-cyan-dark); font-weight: 600;" id="netOut">--</span></div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-header"><span class="stat-title">System Info</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+                <div class="os-info">
+                    <div class="os-detail"><span style="color: var(--steel-silver);">Hostname</span><span id="osHost">--</span></div>
+                    <div class="os-detail"><span style="color: var(--steel-silver);">Platform</span><span id="osPlatform">--</span></div>
+                    <div class="os-detail"><span style="color: var(--steel-silver);">Uptime</span><span id="osUptime">--</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="last-updated" id="lastUpdated" style="text-align: center; font-size: 12px; color: var(--steel-silver); margin-top: 24px; font-family: var(--mono-font);">Last updated: Never</div>
+    </main>
+
+    <script define:vars={{ API_BASE }}>
+        async function getStats() {
+            const res = await fetch(`${API_BASE}/api/v1/allmetrics?format=json`);
+            if (!res.ok) throw new Error('API error');
+            return res.json();
+        }
+
+        async function refreshStats() {
+            try {
+                const data = await getStats();
+                const now = new Date();
+                const lu = document.getElementById('lastUpdated');
+                if (lu) lu.textContent = `Last updated: ${now.toLocaleTimeString()}`;
+
+                // CPU
+                const cpuChart = data?.['system.cpu'];
+                if (cpuChart) {
+                    const dims = cpuChart.dimensions;
+                    const total = Object.values(dims).reduce((s, d) => s + Math.abs(d.value), 0);
+                    const usage = Math.min(100, Math.round(total));
+                    const cpuValue = document.getElementById('cpuValue');
+                    const cpuBar = document.getElementById('cpuBar');
+                    if (cpuValue) cpuValue.textContent = `${usage}%`;
+                    if (cpuBar) {
+                        cpuBar.style.width = `${usage}%`;
+                        cpuBar.className = 'progress-fill' + (usage > 90 ? ' critical' : usage > 70 ? ' high' : '');
+                    }
+                }
+
+                // RAM
+                const ramChart = data?.['system.ram'];
+                if (ramChart) {
+                    const dims = ramChart.dimensions;
+                    const used = Math.abs(dims?.used?.value || 0);
+                    const free = Math.abs(dims?.free?.value || 0);
+                    const total = used + free + Math.abs(dims?.cached?.value || 0) + Math.abs(dims?.buffers?.value || 0);
+                    const pct = total > 0 ? Math.round((used / total) * 100) : 0;
+                    const ramValue = document.getElementById('ramValue');
+                    const ramBar = document.getElementById('ramBar');
+                    const ramDetails = document.getElementById('ramDetails');
+                    if (ramValue) ramValue.textContent = `${pct}%`;
+                    if (ramBar) {
+                        ramBar.style.width = `${pct}%`;
+                        ramBar.className = 'progress-fill' + (pct > 90 ? ' critical' : pct > 70 ? ' high' : '');
+                    }
+                    if (ramDetails) ramDetails.textContent = `${(used / 1024).toFixed(0)} MB / ${(total / 1024).toFixed(0)} MB`;
+                }
+
+                // Network
+                const netChart = data?.['system.net'];
+                if (netChart) {
+                    const recv = Math.abs(netChart.dimensions?.received?.value || 0);
+                    const sent = Math.abs(netChart.dimensions?.sent?.value || 0);
+                    const netIn = document.getElementById('netIn');
+                    const netOut = document.getElementById('netOut');
+                    if (netIn) netIn.textContent = `${(recv / 1024).toFixed(1)} KB/s`;
+                    if (netOut) netOut.textContent = `${(sent / 1024).toFixed(1)} KB/s`;
+                }
+
+                const statusEl = document.getElementById('serverStatus');
+                if (statusEl) {
+                    statusEl.classList.remove('offline');
+                    const span = statusEl.querySelector('span');
+                    if (span) span.textContent = 'Live';
+                }
+                const errEl = document.getElementById('errorMessage');
+                if (errEl) errEl.style.display = 'none';
+
+            } catch (e) {
+                const statusEl = document.getElementById('serverStatus');
+                if (statusEl) {
+                    statusEl.classList.add('offline');
+                    const span = statusEl.querySelector('span');
+                    if (span) span.textContent = 'Offline';
+                }
+                const errEl = document.getElementById('errorMessage');
+                if (errEl) errEl.style.display = 'flex';
+            }
+        }
+
+        refreshStats();
+        setInterval(refreshStats, 3000);
+    </script>
+</BaseLayout>
+
+<style>
+.monitor-container { max-width: 1200px; margin: 0 auto; padding: 120px 24px 40px; }
+.monitor-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; flex-wrap: wrap; gap: 16px; }
+.monitor-title { display: flex; align-items: center; gap: 12px; font-size: 2rem; font-weight: 700; }
+.server-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(166,227,161,0.1); border: 1px solid rgba(166,227,161,0.3); color: #a6e3a1; border-radius: 100px; font-size: 0.875rem; font-weight: 500; }
+.server-badge.offline { background: rgba(243,139,168,0.1); border-color: rgba(243,139,168,0.3); color: #f38ba8; }
+.status-dot { width: 8px; height: 8px; background-color: currentColor; border-radius: 50%; box-shadow: 0 0 8px currentColor; animation: pulse-dot 2s infinite; }
+.back-btn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--border-color); border-radius: var(--radius-sm); font-size: 14px; color: var(--white); text-decoration: none; transition: background 0.2s; }
+.back-btn:hover { background: rgba(137,180,250,0.2); }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 32px; }
+.stat-card { background: #11111b; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 24px; }
+.stat-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; color: var(--steel-silver); }
+.stat-title { font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.stat-value { font-size: 2.5rem; font-weight: 700; color: var(--cyber-cyan); margin-bottom: 4px; }
+.stat-subtext { font-size: 0.875rem; color: var(--steel-silver); margin-bottom: 12px; }
+.progress-bar { width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 100px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--cyber-cyan); border-radius: 100px; transition: width 0.5s ease; box-shadow: 0 0 10px rgba(137,180,250,0.5); }
+.progress-fill.high { background: #f9e2af; box-shadow: 0 0 10px rgba(249,226,175,0.5); }
+.progress-fill.critical { background: #f38ba8; box-shadow: 0 0 10px rgba(243,139,168,0.5); }
+.os-info { display: flex; flex-direction: column; gap: 8px; }
+.os-detail { display: flex; justify-content: space-between; font-size: 0.875rem; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.error-message { display: flex; align-items: center; gap: 12px; padding: 16px; background: rgba(243,139,168,0.1); border: 1px solid rgba(243,139,168,0.3); border-radius: var(--radius-sm); color: #f38ba8; margin-bottom: 24px; font-size: 14px; }
+@keyframes pulse-dot { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.5; transform:scale(1.2); } }
+</style>
