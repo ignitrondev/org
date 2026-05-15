@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><title>Server Monitor - IgnitronDev</title><meta name="description" content="Real-time server monitoring dashboard for IgnitronDev infrastructure."><meta name="keywords" content="IgnitronDev monitor, server stats, CPU, RAM, network"><meta name="author" content="Bima Adam Nugraha, Ririn Setiawati"><meta name="robots" content="index, follow"><meta name="theme-color" content="#89b4fa"><link rel="canonical" href="https://ignitrondev.github.io/org/monitor/"><!-- Open Graph --><meta property="og:type" content="website"><meta property="og:url" content="https://ignitrondev.github.io/org/monitor/"><meta property="og:title" content="Server Monitor - IgnitronDev"><meta property="og:description" content="Real-time server monitoring dashboard for IgnitronDev infrastructure."><meta property="og:image" content="/org/images/ignitron.png"><meta property="og:site_name" content="IgnitronDev"><meta property="og:locale" content="en_US"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Server Monitor - IgnitronDev"><meta name="twitter:description" content="Real-time server monitoring dashboard for IgnitronDev infrastructure."><meta name="twitter:image" content="/org/images/ignitron.png"><meta name="twitter:creator" content="@bima_yadan27"><!-- Favicon --><link rel="icon" type="image/x-icon" href="/org/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="/org/images/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/org/images/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/org/images/apple-touch-icon.png"><!-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"><!-- Schema JSON-LD --><link rel="stylesheet" href="/org/_astro/blog.n0i3gj86.css">
+<style>.monitor-container[data-astro-cid-ou3ajuke]{max-width:1200px;margin:0 auto;padding:120px 24px 40px}.monitor-header[data-astro-cid-ou3ajuke]{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;flex-wrap:wrap;gap:16px}.monitor-title[data-astro-cid-ou3ajuke]{display:flex;align-items:center;gap:12px;font-size:2rem;font-weight:700}.server-badge[data-astro-cid-ou3ajuke]{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:#a6e3a11a;border:1px solid rgba(166,227,161,.3);color:#a6e3a1;border-radius:100px;font-size:.875rem;font-weight:500}.server-badge[data-astro-cid-ou3ajuke].offline{background:#f38ba81a;border-color:#f38ba84d;color:#f38ba8}.status-dot[data-astro-cid-ou3ajuke]{width:8px;height:8px;background-color:currentColor;border-radius:50%;box-shadow:0 0 8px currentColor;animation:pulse-dot 2s infinite}.back-btn[data-astro-cid-ou3ajuke]{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:var(--border-color);border-radius:var(--radius-sm);font-size:14px;color:var(--white);text-decoration:none;transition:background .2s}.back-btn[data-astro-cid-ou3ajuke]:hover{background:#89b4fa33}.stats-grid[data-astro-cid-ou3ajuke]{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-bottom:32px}.stat-card[data-astro-cid-ou3ajuke]{background:#11111b;border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:24px}.stat-header[data-astro-cid-ou3ajuke]{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;color:var(--steel-silver)}.stat-title[data-astro-cid-ou3ajuke]{font-size:.875rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px}.stat-value[data-astro-cid-ou3ajuke]{font-size:2.5rem;font-weight:700;color:var(--cyber-cyan);margin-bottom:4px}.stat-subtext[data-astro-cid-ou3ajuke]{font-size:.875rem;color:var(--steel-silver);margin-bottom:12px}.progress-bar[data-astro-cid-ou3ajuke]{width:100%;height:6px;background:#ffffff1a;border-radius:100px;overflow:hidden}.progress-fill[data-astro-cid-ou3ajuke]{height:100%;background:var(--cyber-cyan);border-radius:100px;transition:width .5s ease;box-shadow:0 0 10px #89b4fa80}.progress-fill[data-astro-cid-ou3ajuke].high{background:#f9e2af;box-shadow:0 0 10px #f9e2af80}.progress-fill[data-astro-cid-ou3ajuke].critical{background:#f38ba8;box-shadow:0 0 10px #f38ba880}.os-info[data-astro-cid-ou3ajuke]{display:flex;flex-direction:column;gap:8px}.os-detail[data-astro-cid-ou3ajuke]{display:flex;justify-content:space-between;font-size:.875rem;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.05)}.error-message[data-astro-cid-ou3ajuke]{display:flex;align-items:center;gap:12px;padding:16px;background:#f38ba81a;border:1px solid rgba(243,139,168,.3);border-radius:var(--radius-sm);color:#f38ba8;margin-bottom:24px;font-size:14px}@keyframes pulse-dot{0%,to{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.2)}}
+</style><script type="module" src="/org/_astro/hoisted.MixFUBCE.js"></script></head> <body> <div class="lang-toggle" id="langToggle" data-astro-cid-lb7h3eps> <button class="lang-btn active" data-lang="en" data-astro-cid-lb7h3eps>🇬🇧 EN</button><button class="lang-btn " data-lang="id" data-astro-cid-lb7h3eps>🇮🇩 ID</button><button class="lang-btn " data-lang="zh" data-astro-cid-lb7h3eps>🇨🇳 中文</button> </div>    <nav class="nav" id="nav"> <div class="nav-container"> <a href="/org/" class="nav-logo"> <div class="nav-logo-icon"> <img src="/org/images/ignitron.png" alt="IgnitronDev" width="40" height="40"> </div> <div class="nav-logo-text"> <span class="nav-logo-name">Ignitron<span>Dev</span></span> <span class="nav-logo-tagline">PLATFORM FACTORY</span> </div> </a> <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Toggle menu"> <span></span><span></span><span></span> </button> <div class="nav-links"> <a href="/org/#platforms">Platforms</a> <a href="/org/#why-whitelabel">Why White-Label</a> <a href="/org/#calculator">Calculator</a> <a href="/org/#partners">Partnership</a> <a href="/org/blog">Blog</a> <a href="/org/monitor">Monitor</a> </div> <a href="/org/#contact" class="btn btn-primary nav-cta">
+Become a Partner
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <path d="M5 12h14M12 5l7 7-7 7"></path> </svg> </a> </div> </nav>   <main class="monitor-container" data-astro-cid-ou3ajuke> <div class="monitor-header" data-astro-cid-ou3ajuke> <div class="monitor-title" data-astro-cid-ou3ajuke> <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-astro-cid-ou3ajuke> <rect x="2" y="3" width="20" height="14" rx="2" ry="2" data-astro-cid-ou3ajuke></rect> <line x1="8" y1="21" x2="16" y2="21" data-astro-cid-ou3ajuke></line> <line x1="12" y1="17" x2="12" y2="21" data-astro-cid-ou3ajuke></line> </svg> <span data-astro-cid-ou3ajuke>Server <span class="text-gradient" data-astro-cid-ou3ajuke>Monitor</span></span> </div> <div style="display: flex; align-items: center; gap: 16px;" data-astro-cid-ou3ajuke> <div class="server-badge" id="serverStatus" data-astro-cid-ou3ajuke> <div class="status-dot" data-astro-cid-ou3ajuke></div> <span data-astro-cid-ou3ajuke>Checking...</span> </div> <a href="/org/" class="back-btn" data-astro-cid-ou3ajuke> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-astro-cid-ou3ajuke><path d="M19 12H5M12 19l-7-7 7-7" data-astro-cid-ou3ajuke></path></svg>
+Back to Home
+</a> </div> </div> <div id="errorMessage" class="error-message" style="display: none;" data-astro-cid-ou3ajuke> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-astro-cid-ou3ajuke><circle cx="12" cy="12" r="10" data-astro-cid-ou3ajuke></circle><line x1="12" y1="8" x2="12" y2="12" data-astro-cid-ou3ajuke></line><line x1="12" y1="16" x2="12.01" y2="16" data-astro-cid-ou3ajuke></line></svg>
+Unable to connect to monitoring server. Retrying...
+</div> <div class="stats-grid" data-astro-cid-ou3ajuke> <div class="stat-card" data-astro-cid-ou3ajuke> <div class="stat-header" data-astro-cid-ou3ajuke><span class="stat-title" data-astro-cid-ou3ajuke>CPU Usage</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-astro-cid-ou3ajuke><rect x="4" y="4" width="16" height="16" rx="2" data-astro-cid-ou3ajuke></rect><rect x="9" y="9" width="6" height="6" data-astro-cid-ou3ajuke></rect></svg></div> <div class="stat-value" id="cpuValue" data-astro-cid-ou3ajuke>--</div> <div class="stat-subtext" id="cpuModel" data-astro-cid-ou3ajuke>-- Cores Active</div> <div class="progress-bar" data-astro-cid-ou3ajuke><div class="progress-fill" id="cpuBar" style="width: 0%" data-astro-cid-ou3ajuke></div></div> </div> <div class="stat-card" data-astro-cid-ou3ajuke> <div class="stat-header" data-astro-cid-ou3ajuke><span class="stat-title" data-astro-cid-ou3ajuke>Memory Usage</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-astro-cid-ou3ajuke><rect x="2" y="5" width="20" height="14" rx="2" data-astro-cid-ou3ajuke></rect><path d="M6 19v-3M10 19v-3M14 19v-3M18 19v-3" data-astro-cid-ou3ajuke></path></svg></div> <div class="stat-value" id="ramValue" data-astro-cid-ou3ajuke>--</div> <div class="stat-subtext" id="ramDetails" data-astro-cid-ou3ajuke>-- / --</div> <div class="progress-bar" data-astro-cid-ou3ajuke><div class="progress-fill" id="ramBar" style="width: 0%" data-astro-cid-ou3ajuke></div></div> </div> <div class="stat-card" data-astro-cid-ou3ajuke> <div class="stat-header" data-astro-cid-ou3ajuke><span class="stat-title" data-astro-cid-ou3ajuke>Network I/O</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-astro-cid-ou3ajuke><path d="M22 12h-4l-3 9L9 3l-3 9H2" data-astro-cid-ou3ajuke></path></svg></div> <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 8px;" data-astro-cid-ou3ajuke> <div style="display: flex; justify-content: space-between;" data-astro-cid-ou3ajuke><span style="color: var(--steel-silver); font-size: 0.875rem;" data-astro-cid-ou3ajuke>↓ In</span><span style="color: var(--cyber-cyan); font-weight: 600;" id="netIn" data-astro-cid-ou3ajuke>--</span></div> <div style="display: flex; justify-content: space-between;" data-astro-cid-ou3ajuke><span style="color: var(--steel-silver); font-size: 0.875rem;" data-astro-cid-ou3ajuke>↑ Out</span><span style="color: var(--cyber-cyan-dark); font-weight: 600;" id="netOut" data-astro-cid-ou3ajuke>--</span></div> </div> </div> <div class="stat-card" data-astro-cid-ou3ajuke> <div class="stat-header" data-astro-cid-ou3ajuke><span class="stat-title" data-astro-cid-ou3ajuke>System Info</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-astro-cid-ou3ajuke><circle cx="12" cy="12" r="10" data-astro-cid-ou3ajuke></circle><line x1="12" y1="8" x2="12" y2="12" data-astro-cid-ou3ajuke></line><line x1="12" y1="16" x2="12.01" y2="16" data-astro-cid-ou3ajuke></line></svg></div> <div class="os-info" data-astro-cid-ou3ajuke> <div class="os-detail" data-astro-cid-ou3ajuke><span style="color: var(--steel-silver);" data-astro-cid-ou3ajuke>Hostname</span><span id="osHost" data-astro-cid-ou3ajuke>--</span></div> <div class="os-detail" data-astro-cid-ou3ajuke><span style="color: var(--steel-silver);" data-astro-cid-ou3ajuke>Platform</span><span id="osPlatform" data-astro-cid-ou3ajuke>--</span></div> <div class="os-detail" data-astro-cid-ou3ajuke><span style="color: var(--steel-silver);" data-astro-cid-ou3ajuke>Uptime</span><span id="osUptime" data-astro-cid-ou3ajuke>--</span></div> </div> </div> </div> <div class="last-updated" id="lastUpdated" style="text-align: center; font-size: 12px; color: var(--steel-silver); margin-top: 24px; font-family: var(--mono-font);" data-astro-cid-ou3ajuke>Last updated: Never</div> </main> <script>(function(){const API_BASE = "http://100.104.183.126:19999";
+
+        async function getStats() {
+            const res = await fetch(`${API_BASE}/api/v1/allmetrics?format=json`);
+            if (!res.ok) throw new Error('API error');
+            return res.json();
+        }
+
+        async function refreshStats() {
+            try {
+                const data = await getStats();
+                const now = new Date();
+                const lu = document.getElementById('lastUpdated');
+                if (lu) lu.textContent = `Last updated: ${now.toLocaleTimeString()}`;
+
+                // CPU
+                const cpuChart = data?.['system.cpu'];
+                if (cpuChart) {
+                    const dims = cpuChart.dimensions;
+                    const total = Object.values(dims).reduce((s, d) => s + Math.abs(d.value), 0);
+                    const usage = Math.min(100, Math.round(total));
+                    const cpuValue = document.getElementById('cpuValue');
+                    const cpuBar = document.getElementById('cpuBar');
+                    if (cpuValue) cpuValue.textContent = `${usage}%`;
+                    if (cpuBar) {
+                        cpuBar.style.width = `${usage}%`;
+                        cpuBar.className = 'progress-fill' + (usage > 90 ? ' critical' : usage > 70 ? ' high' : '');
+                    }
+                }
+
+                // RAM
+                const ramChart = data?.['system.ram'];
+                if (ramChart) {
+                    const dims = ramChart.dimensions;
+                    const used = Math.abs(dims?.used?.value || 0);
+                    const free = Math.abs(dims?.free?.value || 0);
+                    const total = used + free + Math.abs(dims?.cached?.value || 0) + Math.abs(dims?.buffers?.value || 0);
+                    const pct = total > 0 ? Math.round((used / total) * 100) : 0;
+                    const ramValue = document.getElementById('ramValue');
+                    const ramBar = document.getElementById('ramBar');
+                    const ramDetails = document.getElementById('ramDetails');
+                    if (ramValue) ramValue.textContent = `${pct}%`;
+                    if (ramBar) {
+                        ramBar.style.width = `${pct}%`;
+                        ramBar.className = 'progress-fill' + (pct > 90 ? ' critical' : pct > 70 ? ' high' : '');
+                    }
+                    if (ramDetails) ramDetails.textContent = `${(used / 1024).toFixed(0)} MB / ${(total / 1024).toFixed(0)} MB`;
+                }
+
+                // Network
+                const netChart = data?.['system.net'];
+                if (netChart) {
+                    const recv = Math.abs(netChart.dimensions?.received?.value || 0);
+                    const sent = Math.abs(netChart.dimensions?.sent?.value || 0);
+                    const netIn = document.getElementById('netIn');
+                    const netOut = document.getElementById('netOut');
+                    if (netIn) netIn.textContent = `${(recv / 1024).toFixed(1)} KB/s`;
+                    if (netOut) netOut.textContent = `${(sent / 1024).toFixed(1)} KB/s`;
+                }
+
+                const statusEl = document.getElementById('serverStatus');
+                if (statusEl) {
+                    statusEl.classList.remove('offline');
+                    const span = statusEl.querySelector('span');
+                    if (span) span.textContent = 'Live';
+                }
+                const errEl = document.getElementById('errorMessage');
+                if (errEl) errEl.style.display = 'none';
+
+            } catch (e) {
+                const statusEl = document.getElementById('serverStatus');
+                if (statusEl) {
+                    statusEl.classList.add('offline');
+                    const span = statusEl.querySelector('span');
+                    if (span) span.textContent = 'Offline';
+                }
+                const errEl = document.getElementById('errorMessage');
+                if (errEl) errEl.style.display = 'flex';
+            }
+        }
+
+        refreshStats();
+        setInterval(refreshStats, 3000);
+    })();</script>  </body></html> 
