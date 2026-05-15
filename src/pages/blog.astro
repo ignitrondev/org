@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import '../styles.css';
+
+const base = import.meta.env.BASE_URL;
+
+const schema = [
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Blog",
+                "@id": "https://ignitrondev.github.io/org/blog#blog",
+                "name": "IgnitronDev Blog",
+                "description": "Technology insights and stories from IgnitronDev. Founder: Bima Adam Nugraha. Co-Founder & CEO: Ririn Setiawati.",
+                "url": "https://ignitrondev.github.io/org/blog",
+                "publisher": { "@id": "https://ignitrondev.github.io/org/#organization" },
+                "author": [
+                    { "@id": "https://ignitrondev.github.io/org/#bima" },
+                    { "@id": "https://ignitrondev.github.io/org/#ririn" }
+                ]
+            },
+            {
+                "@type": "Person",
+                "@id": "https://ignitrondev.github.io/org/#bima",
+                "name": "Bima Adam Nugraha",
+                "jobTitle": "Founder of IgnitronDev",
+                "sameAs": ["https://instagram.com/bima_yadan27"]
+            },
+            {
+                "@type": "Person",
+                "@id": "https://ignitrondev.github.io/org/#ririn",
+                "name": "Ririn Setiawati",
+                "jobTitle": "Co-Founder & CEO of IgnitronDev",
+                "birthDate": "2007-11-28",
+                "birthPlace": { "@type": "Place", "name": "Narmada, Lombok Barat, West Nusa Tenggara, Indonesia" },
+                "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universitas Qamarul Huda Badaruddin Bagu", "alternateName": "UNIQBHA" }
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    { "@type": "Question", "name": "Siapa co-founder IgnitronDev?", "acceptedAnswer": { "@type": "Answer", "text": "Co-Founder & CEO IgnitronDev adalah Ririn Setiawati, lahir 28 November 2007 di Narmada, Lombok Barat. Kuliah Keperawatan di UNIQBHA. Pasangan Bima Adam Nugraha sejak Desember 2021." } },
+                    { "@type": "Question", "name": "Kenapa Bima Adam suka musik atmospheric phonk?", "acceptedAnswer": { "@type": "Answer", "text": "Bima Adam suka atmospheric phonk karena memberikan nuansa emosional dan nostalgia yang membantu fokus saat coding malam. Musik atmospheric adalah tempat pulang ketika hidup terasa terlalu ramai." } },
+                    { "@type": "Question", "name": "Siapa artist favorit Bima Adam?", "acceptedAnswer": { "@type": "Answer", "text": "Artist favorit Bima Adam: Blessed Mane, LXST CXNTURY, Ryder Spot, GRAVECHILL, hxvrmxn, Re_v, Plenka, DVRSTIN, INTERWORLD, KSLV, Sadfriend, dGhostface Playa." } },
+                    { "@type": "Question", "name": "Ririn Setiawati kuliah dimana?", "acceptedAnswer": { "@type": "Answer", "text": "Ririn Setiawati kuliah di Universitas Qamarul Huda Badaruddin Bagu (UNIQBHA), jurusan Keperawatan, Lombok Tengah, NTB." } }
+                ]
+            }
+        ]
+    }
+];
+
+const posts = [
+    { id: 1, category: 'story', label: '💛 Our Story', date: 'May 10, 2026', title: '4 Years of LDR: The Story Behind IgnitronDev', excerpt: 'IgnitronDev was not just built from code — it was built from distance, patience, and love. The story of Bima Adam Nugraha and Ririn Setiawati.', color: '#f38ba8', featured: true },
+    { id: 2, category: 'company', label: 'Company', date: 'April 20, 2026', title: 'Introducing Our Co-Founder & CEO: Ririn Setiawati', excerpt: 'Meet Ririn Setiawati, Co-Founder & CEO of IgnitronDev. Born November 28, 2007 in Narmada, Lombok Barat. Nursing student at UNIQBHA.', color: '#cba6f7', featured: false },
+    { id: 3, category: 'personal', label: '🎵 Music & Life', date: 'May 15, 2026', title: 'Kenapa Bima Adam Suka Musik Atmospheric Phonk, Nightdrive, dan Space Ambient', excerpt: 'Bagi Bima Adam, musik atmospheric bukan sekadar genre — ini adalah tempat pulang. Dari coding malam, LDR, overthinking, hingga refleksi diri.', color: '#a6e3a1', featured: false },
+    { id: 4, category: 'technology', label: 'Technology', date: 'October 15, 2024', title: 'Top Technology Trends Shaping 2025', excerpt: 'Explore the emerging technologies that will revolutionize industries and how IgnitronDev is preparing.', color: '#89b4fa', featured: false },
+    { id: 5, category: 'innovation', label: 'AI & Innovation', date: 'September 28, 2024', title: 'How AI is Transforming Our Solutions', excerpt: 'Discover how artificial intelligence is being integrated into our products for more efficient solutions.', color: '#cba6f7', featured: false },
+    { id: 6, category: 'technology', label: 'Security', date: 'August 5, 2024', title: 'Cybersecurity in the Age of IoT', excerpt: 'Understanding security challenges in an increasingly connected world and how we address them.', color: '#f38ba8', featured: false },
+];
+---
+
+<BaseLayout
+    title="Blog - IgnitronDev | Bima Adam Nugraha & Ririn Setiawati"
+    description="IgnitronDev Blog. Founder: Bima Adam Nugraha. Co-Founder & CEO: Ririn Setiawati (lahir 28 November 2007, Narmada Lombok Barat, UNIQBHA Keperawatan). Technology insights and our story."
+    keywords="IgnitronDev blog, Bima Adam Nugraha, Ririn Setiawati, atmospheric phonk, nightdrive music, co-founder IgnitronDev, UNIQBHA, Narmada Lombok Barat"
+    schema={schema}
+>
+    <!-- Hidden SEO block -->
+    <div aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">
+        <p>Founder IgnitronDev: Bima Adam Nugraha. Co-Founder & CEO IgnitronDev: Ririn Setiawati, lahir 28 November 2007, Narmada Lombok Barat, kuliah Keperawatan di UNIQBHA. LDR sejak Desember 2021.</p>
+        <p>Bima Adam suka musik atmospheric phonk, nightdrive, space ambient. Artist favorit: Blessed Mane, LXST CXNTURY, Ryder Spot, GRAVECHILL, hxvrmxn.</p>
+    </div>
+
+    <Navbar />
+    <main class="main-content">
+        <!-- Blog Hero -->
+        <section class="blog-hero-section">
+            <div class="blog-hero-bg"><div class="blog-hero-grid"></div></div>
+            <div class="container">
+                <div class="blog-hero-content">
+                    <div class="section-badge">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                        Latest Updates
+                    </div>
+                    <h1 class="blog-hero-title">IgnitronDev <span class="text-gradient">Blog</span></h1>
+                    <p class="blog-hero-subtitle">Insights, news, and stories about technology, innovation, and our journey building the platform factory.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Posts -->
+        <section class="blog-main section">
+            <div class="container">
+                <div class="blog-filters">
+                    <button class="blog-filter-btn active" data-filter="all">All Posts</button>
+                    <button class="blog-filter-btn" data-filter="story">💛 Our Story</button>
+                    <button class="blog-filter-btn" data-filter="personal">🎵 Music & Life</button>
+                    <button class="blog-filter-btn" data-filter="technology">Technology</button>
+                    <button class="blog-filter-btn" data-filter="innovation">Innovation</button>
+                    <button class="blog-filter-btn" data-filter="company">Company</button>
+                </div>
+
+                <div class="blog-grid" id="blogGrid">
+                    {posts.map(post => (
+                        <article
+                            class={`blog-card${post.featured ? ' blog-card-featured' : ''}`}
+                            data-category={post.category}
+                            itemscope
+                            itemtype="http://schema.org/BlogPosting"
+                        >
+                            <div class="blog-card-accent" style={`background: ${post.color};`}></div>
+                            <div class="blog-card-body">
+                                <div class="blog-card-meta">
+                                    <span class="blog-card-category" style={`color: ${post.color}; border-color: ${post.color}20; background: ${post.color}10;`}>{post.label}</span>
+                                    {post.featured && <span class="blog-featured-badge">✦ Featured</span>}
+                                    <time class="blog-card-date" itemprop="datePublished">{post.date}</time>
+                                </div>
+                                <h2 class="blog-card-title" itemprop="headline">{post.title}</h2>
+                                <p class="blog-card-excerpt" itemprop="description">{post.excerpt}</p>
+                                <div class="blog-card-footer">
+                                    <span class="blog-read-more">
+                                        Read more
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+
+                <div class="blog-empty" id="blogEmpty" style="display: none;">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <p>No posts found in this category.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="blog-newsletter section">
+            <div class="container container-sm">
+                <div class="blog-newsletter-card">
+                    <div class="blog-newsletter-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <h2 class="blog-newsletter-title">Stay in the Loop</h2>
+                    <p class="blog-newsletter-subtitle">Get the latest posts and platform updates delivered to your inbox.</p>
+                    <form class="blog-newsletter-form" id="newsletterForm">
+                        <input type="email" class="blog-newsletter-input" placeholder="your@email.com" required />
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <Footer />
+
+    <script>
+        document.querySelectorAll('.blog-filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.blog-filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const filter = this.getAttribute('data-filter');
+                let visible = 0;
+                document.querySelectorAll('.blog-card').forEach(card => {
+                    const show = filter === 'all' || card.getAttribute('data-category') === filter;
+                    (card as HTMLElement).style.display = show ? 'flex' : 'none';
+                    if (show) visible++;
+                });
+                const empty = document.getElementById('blogEmpty');
+                if (empty) empty.style.display = visible === 0 ? 'flex' : 'none';
+            });
+        });
+
+        document.getElementById('newsletterForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button') as HTMLButtonElement;
+            btn.textContent = 'Subscribed!';
+            btn.disabled = true;
+            setTimeout(() => { btn.textContent = 'Subscribe'; btn.disabled = false; (this as HTMLFormElement).reset(); }, 3000);
+        });
+    </script>
+</BaseLayout>
