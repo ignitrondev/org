@@ -2297,3 +2297,169 @@ img {
         padding: 16px;
     }
 }
+
+/* Blog Music Post */
+.blog-card-full {
+    grid-column: 1 / -1;
+}
+
+.blog-music-content {
+    margin: 20px 0;
+}
+
+.blog-music-intro {
+    padding: 20px;
+    background: rgba(166, 227, 161, 0.05);
+    border: 1px solid rgba(166, 227, 161, 0.15);
+    border-radius: 4px;
+    margin-bottom: 24px;
+}
+
+.blog-music-intro p {
+    font-size: 14px;
+    color: var(--steel-silver);
+    line-height: 1.7;
+    margin-bottom: 8px;
+}
+
+.blog-music-intro p:last-child { margin-bottom: 0; }
+
+.blog-music-section {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.blog-music-section h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #a6e3a1;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: var(--mono-font);
+}
+
+.blog-music-section p {
+    font-size: 14px;
+    color: var(--steel-silver);
+    line-height: 1.7;
+}
+
+.blog-music-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.blog-music-tags span {
+    font-size: 12px;
+    padding: 4px 12px;
+    background: rgba(166, 227, 161, 0.08);
+    border: 1px solid rgba(166, 227, 161, 0.2);
+    border-radius: 100px;
+    color: #a6e3a1;
+    font-weight: 500;
+}
+
+.blog-music-artists {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.blog-music-artists span {
+    font-size: 12px;
+    padding: 4px 12px;
+    background: rgba(137, 180, 250, 0.08);
+    border: 1px solid rgba(137, 180, 250, 0.2);
+    border-radius: 4px;
+    color: var(--cyber-cyan);
+    font-weight: 600;
+    font-family: var(--mono-font);
+}
+
+.blog-music-tracks {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.blog-music-track {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--steel-silver);
+    padding: 8px 12px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 4px;
+    border-left: 2px solid rgba(166, 227, 161, 0.3);
+}
+
+.blog-music-quote {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 20px;
+    background: rgba(166, 227, 161, 0.05);
+    border: 1px solid rgba(166, 227, 161, 0.15);
+    border-radius: 4px;
+    margin-bottom: 24px;
+}
+
+.blog-music-quote p {
+    font-size: 15px;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.7;
+    margin-bottom: 6px;
+}
+
+.blog-music-quote span {
+    font-size: 12px;
+    color: #a6e3a1;
+    font-weight: 600;
+}
+
+.blog-music-faq {
+    margin-top: 8px;
+}
+
+.blog-music-faq h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #a6e3a1;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: var(--mono-font);
+}
+
+.blog-music-faq-item {
+    margin-bottom: 16px;
+    padding: 16px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 4px;
+    border-left: 2px solid rgba(166, 227, 161, 0.3);
+}
+
+.blog-music-faq-item strong {
+    display: block;
+    font-size: 13px;
+    color: var(--white);
+    margin-bottom: 6px;
+}
+
+.blog-music-faq-item p {
+    font-size: 13px;
+    color: var(--steel-silver);
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .blog-card-full {
+        grid-column: 1;
+    }
+}
