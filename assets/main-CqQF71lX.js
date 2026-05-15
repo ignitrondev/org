@@ -1,4 +1,4 @@
-import{N as g,F as m}from"./Footer-D2uNnEl_.js";function u(){return`
+import{N as g,F as m}from"./Footer-BXOpJowa.js";function u(){return`
     <section class="hero" id="hero">
         <div class="hero-bg">
             <div class="hero-grid"></div>

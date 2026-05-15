@@ -1,4 +1,4 @@
-import{N as f,F as h}from"./Footer-D2uNnEl_.js";function b(){return`
+import{N as f,F as h}from"./Footer-BXOpJowa.js";function b(){return`
     <main class="monitor-container">
         <div class="monitor-header">
             <div class="monitor-title">
