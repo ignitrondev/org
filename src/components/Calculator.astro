@@ -1,0 +1,64 @@
+---
+---
+<section class="section calculator" id="calculator">
+    <div class="container container-sm">
+        <div class="section-header">
+            <span class="section-badge">Revenue Calculator</span>
+            <h2 class="section-title">Calculate Your <span class="text-gradient">Earnings</span></h2>
+        </div>
+        <div class="calculator-card">
+            <div class="calculator-input">
+                <div class="calculator-label">
+                    <span>Clients per Month</span>
+                    <span class="calculator-value" id="clientsValue">3</span>
+                </div>
+                <input type="range" class="calculator-slider" id="clientsSlider" min="1" max="20" value="3" />
+                <div class="calculator-slider-labels"><span>1</span><span>20</span></div>
+            </div>
+            <div class="calculator-input">
+                <div class="calculator-label">
+                    <span>Average Deal Size</span>
+                    <span class="calculator-value">$<span id="dealValue">10,000</span></span>
+                </div>
+                <input type="range" class="calculator-slider" id="dealSlider" min="5000" max="50000" value="10000" step="1000" />
+                <div class="calculator-slider-labels"><span>$5,000</span><span>$50,000</span></div>
+            </div>
+            <div class="calculator-results">
+                <div class="calculator-result">
+                    <div class="calculator-result-label">Monthly Revenue</div>
+                    <div class="calculator-result-value" id="monthlyRevenue">$15,000</div>
+                </div>
+                <div class="calculator-result calculator-result-highlight">
+                    <div class="calculator-result-label">Annual Potential</div>
+                    <div class="calculator-result-value" id="annualRevenue">$180,000</div>
+                </div>
+            </div>
+            <p class="calculator-disclaimer">* Based on 50% revenue share as White-Label Partner</p>
+        </div>
+    </div>
+</section>
+
+<script>
+    const clientsSlider = document.getElementById('clientsSlider') as HTMLInputElement;
+    const dealSlider = document.getElementById('dealSlider') as HTMLInputElement;
+    const clientsValue = document.getElementById('clientsValue');
+    const dealValue = document.getElementById('dealValue');
+    const monthlyRevenue = document.getElementById('monthlyRevenue');
+    const annualRevenue = document.getElementById('annualRevenue');
+
+    function calc() {
+        if (!clientsSlider || !dealSlider) return;
+        const clients = parseInt(clientsSlider.value);
+        const deal = parseInt(dealSlider.value);
+        const monthly = clients * deal * 0.5;
+        const annual = monthly * 12;
+        if (clientsValue) clientsValue.textContent = String(clients);
+        if (dealValue) dealValue.textContent = deal.toLocaleString();
+        if (monthlyRevenue) monthlyRevenue.textContent = '$' + monthly.toLocaleString();
+        if (annualRevenue) annualRevenue.textContent = '$' + annual.toLocaleString();
+    }
+
+    clientsSlider?.addEventListener('input', calc);
+    dealSlider?.addEventListener('input', calc);
+    calc();
+</script>

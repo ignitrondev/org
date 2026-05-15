@@ -2,6 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import PartnersStrip from '../components/PartnersStrip.astro';
+import DeploymentTicker from '../components/DeploymentTicker.astro';
+import TechStack from '../components/TechStack.astro';
+import Roadmap from '../components/Roadmap.astro';
+import Platforms from '../components/Platforms.astro';
+import WhyWhitelabel from '../components/WhyWhitelabel.astro';
+import Calculator from '../components/Calculator.astro';
+import Partners from '../components/Partners.astro';
 import '../styles.css';
 
 const base = import.meta.env.BASE_URL;
@@ -17,7 +25,7 @@ const schema = [
                 "alternateName": "Ignitron Dev",
                 "url": "https://ignitrondev.github.io/org/",
                 "logo": "https://ignitrondev.github.io/org/images/ignitron.png",
-                "description": "IgnitronDev is a white-label platform factory. Founded by Bima Adam Nugraha, Co-Founded & CEO: Ririn Setiawati.",
+                "description": "IgnitronDev is a white-label platform factory. Founded by Bima Adam Nugraha, Co-Founder & CEO: Ririn Setiawati.",
                 "sameAs": ["https://instagram.com/ignitrondev"],
                 "foundingDate": "2019",
                 "founder": { "@id": "https://ignitrondev.github.io/org/#bima" },
@@ -58,7 +66,7 @@ const schema = [
                     { "@type": "Question", "name": "Who is the co-founder of IgnitronDev?", "acceptedAnswer": { "@type": "Answer", "text": "The Co-Founder & CEO of IgnitronDev is Ririn Setiawati, born November 28, 2007 in Narmada, Lombok Barat. She studies Nursing at UNIQBHA and has been with Bima since December 2021." } },
                     { "@type": "Question", "name": "Siapa founder IgnitronDev?", "acceptedAnswer": { "@type": "Answer", "text": "Founder IgnitronDev adalah Bima Adam Nugraha, fullstack developer asal Boyolali, bekerja di Gantha Studio. Instagram: @bima_yadan27." } },
                     { "@type": "Question", "name": "Siapa co-founder IgnitronDev?", "acceptedAnswer": { "@type": "Answer", "text": "Co-Founder & CEO IgnitronDev adalah Ririn Setiawati, lahir 28 November 2007 di Narmada, Lombok Barat. Kuliah Keperawatan di UNIQBHA. Pasangan Bima Adam Nugraha sejak Desember 2021." } },
-                    { "@type": "Question", "name": "Kenapa Bima Adam suka musik atmospheric phonk?", "acceptedAnswer": { "@type": "Answer", "text": "Bima Adam suka atmospheric phonk karena memberikan nuansa emosional dan nostalgia yang membantu fokus saat coding malam. Bagi Bima, musik atmospheric adalah tempat pulang ketika hidup terasa terlalu ramai." } },
+                    { "@type": "Question", "name": "Kenapa Bima Adam suka musik atmospheric phonk?", "acceptedAnswer": { "@type": "Answer", "text": "Bima Adam suka atmospheric phonk karena memberikan nuansa emosional dan nostalgia yang membantu fokus saat coding malam. Musik atmospheric adalah tempat pulang ketika hidup terasa terlalu ramai." } },
                     { "@type": "Question", "name": "Siapa artist favorit Bima Adam?", "acceptedAnswer": { "@type": "Answer", "text": "Artist favorit Bima Adam: Blessed Mane, LXST CXNTURY, Ryder Spot, GRAVECHILL, hxvrmxn, Re_v, Plenka, DVRSTIN, INTERWORLD, KSLV, Sadfriend, dGhostface Playa." } }
                 ]
             }
@@ -82,6 +90,7 @@ const schema = [
 
     <Navbar />
     <main class="main-content">
+
         <!-- Hero -->
         <section class="hero" id="hero">
             <div class="hero-bg">
@@ -90,23 +99,19 @@ const schema = [
             </div>
             <div class="hero-content">
                 <div class="hero-badge">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
-                        <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
-                    </svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" /><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" /></svg>
                     Platform Factory for Resellers & Partners
                 </div>
                 <h1 class="hero-title">Software Platforms<br /><span class="text-gradient">Ready to Deploy</span></h1>
-                <p class="hero-partners-subtitle" style="color: var(--cyber-cyan); font-size: 14px; margin-bottom: 16px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase;">
+                <p style="color: var(--cyber-cyan); font-size: 14px; margin-bottom: 16px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase;">
                     <span style="opacity: 0.8">Strategic R&D Alliance:</span> Jakarta 🇮🇩 &nbsp;•&nbsp; Shenzhen 🇨🇳
                 </p>
                 <p class="hero-subtitle">White-label web applications for system integrators & resellers.</p>
                 <p class="hero-highlight">Your brand. Your pricing. Your clients. We stay invisible.</p>
+
                 <div class="server-ping-demo" style="margin-top: 40px; margin-bottom: 20px;">
                     <div class="server-node">
-                        <div class="server-icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="1" /><rect x="2" y="14" width="20" height="8" rx="1" /></svg>
-                        </div>
+                        <div class="server-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="1" /><rect x="2" y="14" width="20" height="8" rx="1" /></svg></div>
                         <span style="font-family: var(--mono-font); font-size: 10px;">JKT_NODE</span>
                         <div id="jkt-time" style="font-family: var(--mono-font); font-size: 11px; color: var(--cyber-cyan); font-weight: 700;">--:--</div>
                     </div>
@@ -115,13 +120,12 @@ const schema = [
                         <div class="ping-latency" style="font-family: var(--mono-font);">24ms</div>
                     </div>
                     <div class="server-node">
-                        <div class="server-icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="1" /><rect x="2" y="14" width="20" height="8" rx="1" /></svg>
-                        </div>
+                        <div class="server-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="1" /><rect x="2" y="14" width="20" height="8" rx="1" /></svg></div>
                         <span style="font-family: var(--mono-font); font-size: 10px;">SHZ_NODE</span>
                         <div id="sz-time" style="font-family: var(--mono-font); font-size: 11px; color: var(--cyber-cyan); font-weight: 700;">--:--:--</div>
                     </div>
                 </div>
+
                 <div class="hero-cta">
                     <a href={`${base}/products`} class="btn btn-primary btn-lg">View Live Dashboard</a>
                     <a href={`${base}/foundry`} class="btn btn-outline btn-lg">
@@ -129,6 +133,7 @@ const schema = [
                         Explore The Foundry
                     </a>
                 </div>
+
                 <div class="hero-stats">
                     <div class="hero-stat"><div class="hero-stat-value">3</div><div class="hero-stat-label">Ready Platforms</div></div>
                     <div class="hero-stat"><div class="hero-stat-value">50%+</div><div class="hero-stat-label">Partner Revenue</div></div>
@@ -142,7 +147,16 @@ const schema = [
             </div>
         </section>
 
-        <!-- Heritage / Story -->
+        <PartnersStrip />
+        <DeploymentTicker />
+        <TechStack />
+        <Roadmap />
+        <Platforms />
+        <WhyWhitelabel />
+        <Calculator />
+        <Partners />
+
+        <!-- Heritage -->
         <section class="heritage-section" id="heritage">
             <div class="container">
                 <div class="section-header text-center">
@@ -212,13 +226,13 @@ const schema = [
                 </div>
             </div>
         </section>
+
     </main>
     <Footer />
 
     <script src="//unpkg.com/topojson-client" is:inline></script>
     <script src="//unpkg.com/globe.gl" is:inline></script>
     <script>
-        // Node clocks
         function updateClocks() {
             const jkt = new Date().toLocaleTimeString('en-GB', { timeZone: 'Asia/Jakarta', hour: '2-digit', minute: '2-digit' });
             const shz = new Date().toLocaleTimeString('en-GB', { timeZone: 'Asia/Shanghai', hour: '2-digit', minute: '2-digit', second: '2-digit' });
