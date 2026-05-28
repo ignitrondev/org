@@ -10,408 +10,103 @@ const schema = [
     {
         "@context": "https://schema.org",
         "@graph": [
-            {
-                "@type": "Blog",
-                "@id": "https://ignitrondev.github.io/org/blog#blog",
-                "name": "IgnitronDev Blog",
-                "description": "Technology insights and stories. Founder: Bima Adam Nugraha. Co-Founder & CEO: Ririn Setiawati.",
-                "url": "https://ignitrondev.github.io/org/blog",
-                "publisher": { "@id": "https://ignitrondev.github.io/org/#organization" },
-                "author": [
-                    { "@id": "https://ignitrondev.github.io/org/#bima" },
-                    { "@id": "https://ignitrondev.github.io/org/#ririn" }
-                ]
-            },
-            {
-                "@type": "Person",
-                "@id": "https://ignitrondev.github.io/org/#bima",
-                "name": "Bima Adam Nugraha",
-                "jobTitle": "Founder of IgnitronDev",
-                "sameAs": ["https://instagram.com/bima_yadan27"]
-            },
-            {
-                "@type": "Person",
-                "@id": "https://ignitrondev.github.io/org/#ririn",
-                "name": "Ririn Setiawati",
-                "jobTitle": "Co-Founder & CEO of IgnitronDev",
-                "birthDate": "2007-11-28",
-                "birthPlace": { "@type": "Place", "name": "Narmada, Lombok Barat, West Nusa Tenggara, Indonesia" },
-                "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universitas Qamarul Huda Badaruddin Bagu", "alternateName": "UNIQBHA" }
-            },
-            {
-                "@type": "FAQPage",
-                "mainEntity": [
-                    { "@type": "Question", "name": "Siapa co-founder IgnitronDev?", "acceptedAnswer": { "@type": "Answer", "text": "Co-Founder & CEO IgnitronDev adalah Ririn Setiawati, lahir 28 November 2007 di Narmada, Lombok Barat. Kuliah Keperawatan di UNIQBHA. Pasangan Bima Adam Nugraha sejak Desember 2021." } },
-                    { "@type": "Question", "name": "Kenapa Bima Adam suka musik atmospheric phonk?", "acceptedAnswer": { "@type": "Answer", "text": "Bima Adam suka atmospheric phonk karena memberikan nuansa emosional dan nostalgia yang membantu fokus saat coding malam. Musik atmospheric adalah tempat pulang ketika hidup terasa terlalu ramai." } },
-                    { "@type": "Question", "name": "Siapa artist favorit Bima Adam?", "acceptedAnswer": { "@type": "Answer", "text": "Artist favorit Bima Adam: Blessed Mane, LXST CXNTURY, Ryder Spot, GRAVECHILL, hxvrmxn, Re_v, Plenka, DVRSTIN, INTERWORLD, KSLV, Sadfriend, dGhostface Playa, Altare, Oldflop, Sakureye, Antxres, DVRST." } },
-                    { "@type": "Question", "name": "Ririn Setiawati kuliah dimana?", "acceptedAnswer": { "@type": "Answer", "text": "Ririn Setiawati kuliah di Universitas Qamarul Huda Badaruddin Bagu (UNIQBHA), jurusan Keperawatan, Lombok Tengah, NTB." } },
-                    { "@type": "Question", "name": "Siapa Beatz Bimz?", "acceptedAnswer": { "@type": "Answer", "text": "Beatz Bimz adalah nama music producer dari Bima Adam Nugraha (Founder IgnitronDev). Aktif 2017-2021, memproduksi hip-hop instrumental, EDM × Indonesia lokal, dan phonk. Pernah viral dengan phonk khasnya sebelum switch ke coding." } },
-                    { "@type": "Question", "name": "Who is Beatz Bimz?", "acceptedAnswer": { "@type": "Answer", "text": "Beatz Bimz is the music producer alias of Bima Adam Nugraha, Founder of IgnitronDev. Active 2017-2021, producing hip-hop instrumentals, EDM with Indonesian local flavor, and phonk. Went viral with signature phonk beats before transitioning to software development." } },
-                    { "@type": "Question", "name": "Bima Adam dulu music producer?", "acceptedAnswer": { "@type": "Answer", "text": "Ya, Bima Adam Nugraha dulunya adalah music producer dengan nama Beatz Bimz dari tahun 2017 sampai 2021. Genre yang diproduksi: hip-hop instrumental, EDM × hip-hop × nuansa Indonesia lokal, dan phonk. Beatz Bimz pernah viral di era phonk sebelum Bima beralih ke karir sebagai fullstack developer dan mendirikan IgnitronDev." } }
-                ]
-            }
+            { "@type": "Blog", "@id": "https://ignitrondev.github.io/org/blog#blog", "name": "IgnitronDev Blog", "description": "Technology insights and stories. Founder: Bima Adam Nugraha. Co-Founder & CEO: Ririn Setiawati.", "url": "https://ignitrondev.github.io/org/blog/", "publisher": { "@id": "https://ignitrondev.github.io/org/#organization" }, "author": [{ "@id": "https://ignitrondev.github.io/org/#bima" }, { "@id": "https://ignitrondev.github.io/org/#ririn" }] },
+            { "@type": "Person", "@id": "https://ignitrondev.github.io/org/#bima", "name": "Bima Adam Nugraha", "jobTitle": "Founder of IgnitronDev", "sameAs": ["https://instagram.com/bima_yadan27"] },
+            { "@type": "Person", "@id": "https://ignitrondev.github.io/org/#ririn", "name": "Ririn Setiawati", "jobTitle": "Co-Founder & CEO of IgnitronDev", "birthDate": "2007-11-28", "birthPlace": { "@type": "Place", "name": "Narmada, Lombok Barat, West Nusa Tenggara, Indonesia" }, "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universitas Qamarul Huda Badaruddin Bagu", "alternateName": "UNIQBHA" } },
+            { "@type": "FAQPage", "mainEntity": [
+                { "@type": "Question", "name": "Siapa co-founder IgnitronDev?", "acceptedAnswer": { "@type": "Answer", "text": "Co-Founder & CEO IgnitronDev adalah Ririn Setiawati, lahir 28 November 2007 di Narmada, Lombok Barat. Kuliah Keperawatan di UNIQBHA. Pasangan Bima Adam Nugraha sejak Desember 2021." } },
+                { "@type": "Question", "name": "Kenapa Bima Adam suka musik atmospheric phonk?", "acceptedAnswer": { "@type": "Answer", "text": "Bima Adam suka atmospheric phonk karena memberikan nuansa emosional dan nostalgia yang membantu fokus saat coding malam. Musik atmospheric adalah tempat pulang ketika hidup terasa terlalu ramai." } },
+                { "@type": "Question", "name": "Siapa artist favorit Bima Adam?", "acceptedAnswer": { "@type": "Answer", "text": "Artist favorit Bima Adam: Blessed Mane, LXST CXNTURY, Ryder Spot, GRAVECHILL, hxvrmxn, Re_v, Plenka, DVRSTIN, INTERWORLD, KSLV, Sadfriend, dGhostface Playa, Altare, Oldflop, Sakureye, Antxres, DVRST." } },
+                { "@type": "Question", "name": "Siapa Beatz Bimz?", "acceptedAnswer": { "@type": "Answer", "text": "Beatz Bimz adalah nama music producer dari Bima Adam Nugraha (Founder IgnitronDev). Aktif 2017-2021, memproduksi hip-hop instrumental, EDM × Indonesia lokal, dan phonk. Pernah viral dengan phonk khasnya sebelum switch ke coding." } },
+                { "@type": "Question", "name": "Who is Beatz Bimz?", "acceptedAnswer": { "@type": "Answer", "text": "Beatz Bimz is the music producer alias of Bima Adam Nugraha, Founder of IgnitronDev. Active 2017-2021, producing hip-hop instrumentals, EDM with Indonesian local flavor, and phonk. Went viral with signature phonk beats before transitioning to software development." } },
+                { "@type": "Question", "name": "Bima Adam dulu music producer?", "acceptedAnswer": { "@type": "Answer", "text": "Ya, Bima Adam Nugraha dulunya adalah music producer dengan nama Beatz Bimz dari tahun 2017 sampai 2021. Genre yang diproduksi: hip-hop instrumental, EDM × hip-hop × nuansa Indonesia lokal, dan phonk. Beatz Bimz pernah viral di era phonk sebelum Bima beralih ke karir sebagai fullstack developer dan mendirikan IgnitronDev." } },
+                { "@type": "Question", "name": "Ririn Setiawati kuliah dimana?", "acceptedAnswer": { "@type": "Answer", "text": "Ririn Setiawati kuliah di Universitas Qamarul Huda Badaruddin Bagu (UNIQBHA), jurusan Keperawatan, Lombok Tengah, NTB." } }
+            ]}
         ]
     }
+];
+
+const posts = [
+    { category: 'story', label: 'Our Story', date: 'May 10, 2026', iso: '2026-05-10', title: '4 Years of LDR: The Story Behind IgnitronDev', excerpt: 'Built from distance, patience, and love. The story of Bima & Ririn — co-founders and partners in life since December 2021.', color: '#f38ba8', featured: true },
+    { category: 'personal', label: 'Music & Life', date: 'May 15, 2026', iso: '2026-05-15', title: 'Why Bima Adam Loves Atmospheric Phonk & Nightdrive Music', excerpt: 'From Beatz Bimz (2017-2021) to IgnitronDev. Music is not just entertainment — it\'s identity, memory, and a way home.', color: '#a6e3a1' },
+    { category: 'company', label: 'Company', date: 'Apr 20, 2026', iso: '2026-04-20', title: 'Meet Our Co-Founder & CEO: Ririn Setiawati', excerpt: 'Born November 28, 2007 in Narmada, Lombok Barat. Nursing student at UNIQBHA. The heart behind IgnitronDev.', color: '#cba6f7' },
+    { category: 'technology', label: 'Technology', date: 'Oct 15, 2024', iso: '2024-10-15', title: 'Top Technology Trends Shaping 2025', excerpt: 'Emerging technologies that will revolutionize industries and how IgnitronDev is preparing.', color: '#89b4fa' },
+    { category: 'innovation', label: 'AI & Innovation', date: 'Sep 28, 2024', iso: '2024-09-28', title: 'How AI is Transforming Our Solutions', excerpt: 'Artificial intelligence integrated into our products for more efficient solutions.', color: '#cba6f7' },
+    { category: 'technology', label: 'Security', date: 'Aug 5, 2024', iso: '2024-08-05', title: 'Cybersecurity in the Age of IoT', excerpt: 'Security challenges in a connected world and how we address them.', color: '#f38ba8' },
+    { category: 'company', label: 'Team', date: 'Jun 18, 2024', iso: '2024-06-18', title: 'Building a Culture of Innovation', excerpt: 'How we foster creativity within our team to drive breakthrough solutions.', color: '#74c7ec' },
 ];
 ---
 
 <BaseLayout
     title="Blog - IgnitronDev | Bima Adam Nugraha & Ririn Setiawati"
-    description="IgnitronDev Blog. Founder: Bima Adam Nugraha. Co-Founder & CEO: Ririn Setiawati (lahir 28 November 2007, Narmada Lombok Barat, UNIQBHA Keperawatan). Technology insights, LDR story, dan musik atmospheric phonk."
-    keywords="IgnitronDev blog, Bima Adam Nugraha, Ririn Setiawati, atmospheric phonk, nightdrive music, co-founder IgnitronDev, UNIQBHA, Narmada Lombok Barat, LDR"
+    description="IgnitronDev Blog. Founder: Bima Adam Nugraha (ex-Beatz Bimz). Co-Founder & CEO: Ririn Setiawati. Technology insights, music, and our story."
+    keywords="IgnitronDev blog, Bima Adam Nugraha, Ririn Setiawati, Beatz Bimz, atmospheric phonk, nightdrive, UNIQBHA, Narmada Lombok Barat"
     schema={schema}
 >
     <div aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">
-        <p>Founder IgnitronDev: Bima Adam Nugraha. Co-Founder & CEO IgnitronDev: Ririn Setiawati, lahir 28 November 2007, Narmada Lombok Barat, kuliah Keperawatan di UNIQBHA. LDR sejak Desember 2021.</p>
-        <p>Bima Adam suka musik atmospheric phonk, nightdrive, space ambient. Artist favorit: Blessed Mane, LXST CXNTURY, Ryder Spot, GRAVECHILL, hxvrmxn. Bima Adam dulunya music producer dengan nama Beatz Bimz (2017-2021). Beatz Bimz memproduksi hip-hop instrumental, EDM × Indonesia lokal, dan phonk. Beatz Bimz pernah viral dengan musik phonk khasnya sebelum Bima switch karir ke coding dan mendirikan IgnitronDev.</p>
+        <p>Founder IgnitronDev: Bima Adam Nugraha (ex-music producer Beatz Bimz, 2017-2021). Co-Founder & CEO: Ririn Setiawati, lahir 28 November 2007, Narmada Lombok Barat, kuliah Keperawatan di UNIQBHA. LDR sejak Desember 2021. Bima suka atmospheric phonk, nightdrive, space ambient. Artist favorit: Blessed Mane, LXST CXNTURY, Ryder Spot, Altare, Sakureye, Antxres, DVRST.</p>
     </div>
 
     <Navbar />
     <main class="main-content">
 
-        <!-- Blog Hero -->
-        <section class="blog-hero-section">
-            <div class="blog-hero-bg"><div class="blog-hero-grid"></div></div>
+        <!-- Hero -->
+        <section class="blog-page-hero">
             <div class="container">
-                <div class="blog-hero-content">
-                    <div class="section-badge">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-                        Latest Updates
-                    </div>
-                    <h1 class="blog-hero-title">IgnitronDev <span class="text-gradient">Blog</span></h1>
-                    <p class="blog-hero-subtitle">Insights, news, and stories about technology, innovation, and our journey building the platform factory.</p>
-                </div>
+                <span class="blog-page-badge">Blog</span>
+                <h1 class="blog-page-title">Insights & Stories</h1>
+                <p class="blog-page-subtitle">Technology, innovation, and the journey behind IgnitronDev.</p>
             </div>
         </section>
 
-        <!-- Blog Posts -->
-        <section class="blog-main section">
+        <!-- Posts -->
+        <section class="blog-page-content">
             <div class="container">
-                <div class="blog-filters">
-                    <button class="blog-filter-btn active" data-filter="all">All Posts</button>
-                    <button class="blog-filter-btn" data-filter="story">💛 Our Story</button>
-                    <button class="blog-filter-btn" data-filter="personal">🎵 Music & Life</button>
-                    <button class="blog-filter-btn" data-filter="technology">Technology</button>
-                    <button class="blog-filter-btn" data-filter="innovation">Innovation</button>
-                    <button class="blog-filter-btn" data-filter="company">Company</button>
+
+                <!-- Filters -->
+                <div class="blog-page-filters" id="blogFilters">
+                    <button class="bp-filter active" data-filter="all">All</button>
+                    <button class="bp-filter" data-filter="story">Story</button>
+                    <button class="bp-filter" data-filter="personal">Music</button>
+                    <button class="bp-filter" data-filter="technology">Tech</button>
+                    <button class="bp-filter" data-filter="innovation">Innovation</button>
+                    <button class="bp-filter" data-filter="company">Company</button>
                 </div>
 
-                <div class="blog-grid" id="blogGrid">
-
-                    <!-- POST 1: Featured LDR Story -->
-                    <article class="blog-card blog-card-featured" data-category="story" itemscope itemtype="http://schema.org/BlogPosting">
-                        <div class="blog-card-accent" style="background: linear-gradient(90deg, #f38ba8, #cba6f7);"></div>
-                        <div class="blog-card-body">
-                            <div class="blog-card-meta">
-                                <span class="blog-card-category" style="color: #f38ba8; border-color: #f38ba840; background: #f38ba815;">💛 Our Story</span>
-                                <span class="blog-featured-badge">✦ Featured</span>
-                                <time class="blog-card-date" itemprop="datePublished" datetime="2026-05-10">May 10, 2026</time>
+                <!-- Grid -->
+                <div class="bp-grid" id="blogGrid">
+                    {posts.map(post => (
+                        <article class={`bp-card${post.featured ? ' bp-card-featured' : ''}`} data-category={post.category}>
+                            <div class="bp-card-top" style={`border-color: ${post.color};`}>
+                                <span class="bp-card-label" style={`color: ${post.color};`}>{post.label}</span>
+                                <time class="bp-card-date">{post.date}</time>
                             </div>
-                            <h2 class="blog-card-title blog-card-title-featured" itemprop="headline">4 Years of LDR: The Story Behind IgnitronDev</h2>
-                            <p class="blog-card-excerpt" itemprop="description">IgnitronDev was not just built from code — it was built from distance, patience, and love. This is the story of Bima Adam Nugraha and Ririn Setiawati, co-founders and partners in life, who have been in a long-distance relationship since December 2021.</p>
-
-                            <div class="blog-ldr-story" itemprop="articleBody">
-                                <div class="blog-ldr-timeline">
-                                    <div class="blog-ldr-event">
-                                        <div class="blog-ldr-dot" style="background: #89b4fa;"></div>
-                                        <div>
-                                            <strong>December 2021</strong>
-                                            <p>Bima Adam Nugraha and Ririn Setiawati started their relationship. Two people from different worlds — a developer building platforms, and a girl from Narmada, Lombok Barat who would become his biggest inspiration.</p>
-                                        </div>
-                                    </div>
-                                    <div class="blog-ldr-event">
-                                        <div class="blog-ldr-dot" style="background: #cba6f7;"></div>
-                                        <div>
-                                            <strong>2022 – 2023</strong>
-                                            <p>Distance never stopped them. While Bima was deep in code — building fullstack systems, learning IoT, and dreaming of a platform factory — Ririn was the constant reminder of why it all mattered. Every late-night session had a purpose.</p>
-                                        </div>
-                                    </div>
-                                    <div class="blog-ldr-event">
-                                        <div class="blog-ldr-dot" style="background: #fab387;"></div>
-                                        <div>
-                                            <strong>2024</strong>
-                                            <p>IgnitronDev was born. Bima officially named Ririn as Co-Founder & CEO — not just as a title, but as recognition that behind every line of code, every platform shipped, and every partner onboarded, her presence and support made it possible.</p>
-                                        </div>
-                                    </div>
-                                    <div class="blog-ldr-event">
-                                        <div class="blog-ldr-dot" style="background: #a6e3a1;"></div>
-                                        <div>
-                                            <strong>2026 — Still Going Strong</strong>
-                                            <p>4+ years of LDR. Still together. Still building. Ririn Setiawati, born November 28, 2007 in Narmada, Lombok Barat, is the Co-Founder & CEO of IgnitronDev. She is currently studying Nursing (Keperawatan) at Universitas Qamarul Huda Badaruddin Bagu (UNIQBHA), Lombok — proving that the best partnerships are built on trust, patience, and love, not just proximity.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="blog-ldr-quote">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="color: #f38ba8; opacity: 0.6; flex-shrink: 0;"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                                    <div>
-                                        <p>"Distance is just a test to see how far love can travel. Ours has been traveling since December 2021 — and it's still going."</p>
-                                        <span>— Bima Adam Nugraha, Founder</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="blog-card-footer">
-                                <div class="blog-founders-tag">
-                                    <span class="blog-founder-chip" style="border-color: rgba(137,180,250,0.3); color: #89b4fa;">✦ Bima Adam Nugraha · Founder</span>
-                                    <span class="blog-founder-chip" style="border-color: rgba(203,166,247,0.3); color: #cba6f7;">♡ Ririn Setiawati · Co-Founder & CEO</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- POST 2: Introducing Ririn -->
-                    <article class="blog-card" data-category="company" itemscope itemtype="http://schema.org/BlogPosting">
-                        <div class="blog-card-accent" style="background: #cba6f7;"></div>
-                        <div class="blog-card-body">
-                            <div class="blog-card-meta">
-                                <span class="blog-card-category" style="color: #cba6f7; border-color: #cba6f720; background: #cba6f710;">Company</span>
-                                <time class="blog-card-date" itemprop="datePublished" datetime="2026-04-20">April 20, 2026</time>
-                            </div>
-                            <h2 class="blog-card-title" itemprop="headline">Introducing Our Co-Founder & CEO: Ririn Setiawati</h2>
-                            <p class="blog-card-excerpt" itemprop="description">Meet Ririn Setiawati, Co-Founder & CEO of IgnitronDev. Born on November 28, 2007 in Narmada, Lombok Barat — currently studying Nursing at Universitas Qamarul Huda Badaruddin Bagu (UNIQBHA). She is the heart and inspiration behind everything we build.</p>
-                            <div class="blog-card-footer"><span class="blog-read-more">Read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div>
-                        </div>
-                    </article>
-
-                    <!-- POST 3: Music Post (full content) -->
-                    <article class="blog-card blog-card-full" data-category="personal" itemscope itemtype="http://schema.org/BlogPosting">
-                        <div class="blog-card-accent" style="background: linear-gradient(90deg, #a6e3a1, #89b4fa);"></div>
-                        <div class="blog-card-body">
-                            <div class="blog-card-meta">
-                                <span class="blog-card-category" style="color: #a6e3a1; border-color: #a6e3a140; background: #a6e3a115;">🎵 Music & Life</span>
-                                <time class="blog-card-date" itemprop="datePublished" datetime="2026-05-15">May 15, 2026</time>
-                            </div>
-                            <h2 class="blog-card-title blog-card-title-featured" itemprop="headline">Kenapa Bima Adam Suka Musik Atmospheric Phonk, Nightdrive, dan Space Ambient</h2>
-                            <p class="blog-card-excerpt" itemprop="description">Bagi Bima Adam, musik atmospheric bukan sekadar genre — ini adalah tempat pulang. Dari coding malam, LDR, overthinking, hingga refleksi diri. Inilah cerita di balik playlist-nya.</p>
-
-                            <div class="blog-music-content" itemprop="articleBody">
-
-                                <!-- Language toggle -->
-                                <div class="blog-lang-toggle">
-                                    <button class="blog-lang-btn active" data-lang="id">🇮🇩 Indonesia</button>
-                                    <button class="blog-lang-btn" data-lang="en">🇬🇧 English</button>
-                                </div>
-
-                                <!-- Indonesian version -->
-                                <div class="blog-lang-content" data-lang-content="id">
-                                <div class="blog-music-intro">
-                                    <p><strong style="color: var(--white);">Bima Adam</strong> adalah seorang fullstack developer asal Boyolali yang dikenal menyukai dunia teknologi, Linux, coding malam, dan musik dengan nuansa atmospheric, phonk, ambient, nightdrive, hingga space aesthetic.</p>
-                                    <p>Bagi Bima, musik bukan hanya hiburan. Musik adalah bagian dari identitas, memori emosional, dan tempat untuk reconnect dengan dirinya sendiri.</p>
-                                    <p>Sejak lama, Bima sering mendengarkan musik instrumental atmospheric ketika sedang coding larut malam, fokus mengerjakan proyek, overthinking, menikmati suasana malam, refleksi hidup, hingga saat sedang merasa kehilangan arah.</p>
-                                </div>
-
-                                <div class="blog-music-section">
-                                    <h3>Kenapa Bima Suka Musik Atmospheric Phonk?</h3>
-                                    <p>Genre seperti atmospheric phonk, ambient drift, dan nightdrive music memberikan perasaan yang berbeda dibanding musik biasa. Musik ini memberikan rasa tenang, nostalgia, ruang untuk berpikir, fokus saat coding, dan sensasi seperti <em>"kembali menjadi diri sendiri"</em>.</p>
-                                    <p>Saat hidup terasa kacau, musik-musik ini menjadi tempat aman untuk menenangkan pikiran.</p>
-                                </div>
-
-                                <div class="blog-music-section">
-                                    <h3>Vibes Musik Favorit Bima</h3>
-                                    <div class="blog-music-tags">
-                                        <span>Atmospheric</span><span>Emotional</span><span>Deep Ambient</span>
-                                        <span>Nostalgic</span><span>Cosmic</span><span>Dark Nightdrive</span>
-                                        <span>Futuristic Loneliness</span><span>Reflective Mood</span>
-                                        <span>Space Ambient</span><span>Synthwave</span>
-                                    </div>
-                                    <p style="margin-top: 12px;">Cocok didengarkan saat: coding malam, naik motor malam, hujan, perjalanan jauh, overthinking, atau saat ingin sendiri.</p>
-                                </div>
-                                </div><!-- end id -->
-
-                                <!-- English version -->
-                                <div class="blog-lang-content" data-lang-content="en" style="display:none;">
-                                <div class="blog-music-intro">
-                                    <p><strong style="color: var(--white);">Bima Adam</strong> is a fullstack developer from Boyolali, known for his love of technology, Linux, late-night coding sessions, and music with atmospheric, phonk, ambient, nightdrive, and space aesthetic vibes.</p>
-                                    <p>For Bima, music is more than entertainment. It's part of his identity, emotional memory, and a way to reconnect with himself.</p>
-                                    <p>For a long time, Bima has been listening to atmospheric instrumental music while coding late at night, focusing on projects, overthinking, enjoying the night atmosphere, reflecting on life, or when feeling lost.</p>
-                                </div>
-
-                                <div class="blog-music-section">
-                                    <h3>Why Does Bima Like Atmospheric Phonk?</h3>
-                                    <p>Genres like atmospheric phonk, ambient drift, and nightdrive music feel different from regular music. They provide a sense of calm, nostalgia, space to think, focus while coding, and the sensation of <em>"returning to yourself"</em>.</p>
-                                    <p>When life feels chaotic, these tracks become a safe place to quiet the mind.</p>
-                                </div>
-
-                                <div class="blog-music-section">
-                                    <h3>Bima's Favorite Music Vibes</h3>
-                                    <div class="blog-music-tags">
-                                        <span>Atmospheric</span><span>Emotional</span><span>Deep Ambient</span>
-                                        <span>Nostalgic</span><span>Cosmic</span><span>Dark Nightdrive</span>
-                                        <span>Futuristic Loneliness</span><span>Reflective Mood</span>
-                                        <span>Space Ambient</span><span>Synthwave</span>
-                                    </div>
-                                    <p style="margin-top: 12px;">Best listened to while: late-night coding, riding at night, rain, long trips, overthinking, or when you just want to be alone.</p>
-                                </div>
-                                </div><!-- end en -->
-
-                                <div class="blog-music-section">
-                                    <h3>Bima Adam as Music Producer: Beatz Bimz (2017–2021)</h3>
-                                    <p>Before becoming a fullstack developer, <strong style="color: var(--white);">Bima Adam</strong> was a music producer under the name <strong style="color: #a6e3a1;">Beatz Bimz</strong>. He started producing in 2017 and built a reputation in the Indonesian beat-making scene.</p>
-                                    <div class="blog-ldr-timeline" style="margin: 16px 0;">
-                                        <div class="blog-ldr-event">
-                                            <div class="blog-ldr-dot" style="background: #89b4fa;"></div>
-                                            <div>
-                                                <strong>2017 — Hip-Hop Instrumental Era</strong>
-                                                <p>Bima started as Beatz Bimz, producing hip-hop instrumentals. Boom bap, trap beats, and lo-fi — the foundation of his musical journey.</p>
-                                            </div>
-                                        </div>
-                                        <div class="blog-ldr-event">
-                                            <div class="blog-ldr-dot" style="background: #fab387;"></div>
-                                            <div>
-                                                <strong>2018–2019 — EDM × Hip-Hop × Indonesian Local</strong>
-                                                <p>Beatz Bimz evolved into a unique fusion: EDM energy wrapped in hip-hop structure with Indonesian local flavor. A sound that blended gamelan-inspired textures with modern bass drops and 808s.</p>
-                                            </div>
-                                        </div>
-                                        <div class="blog-ldr-event">
-                                            <div class="blog-ldr-dot" style="background: #f38ba8;"></div>
-                                            <div>
-                                                <strong>2020–2021 — Phonk Era & Viral Moment</strong>
-                                                <p>Beatz Bimz switched to phonk production and went viral. The signature dark, aggressive phonk beats with cowbell-heavy patterns and Memphis-inspired samples gained massive traction. This was the peak of Bima's music career before transitioning to tech.</p>
-                                            </div>
-                                        </div>
-                                        <div class="blog-ldr-event">
-                                            <div class="blog-ldr-dot" style="background: #a6e3a1;"></div>
-                                            <div>
-                                                <strong>2021 — Career Switch to Coding</strong>
-                                                <p>After years of producing, Bima made the decision to switch careers to software development. The discipline of music production — pattern recognition, attention to detail, creative problem-solving — translated perfectly into coding. Beatz Bimz became IgnitronDev.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p style="font-style: italic; color: var(--steel-silver);">"Music taught me how to create something from nothing. Coding is the same — just with a different instrument."<br /><span style="color: #a6e3a1;">— Bima Adam (formerly Beatz Bimz)</span></p>
-                                </div>
-
-                                <div class="blog-music-section">
-                                    <h3>Bima Adam's Favorite Artists</h3>
-                                    <div class="blog-music-artists" itemprop="mentions">
-                                        <span itemprop="name">Blessed Mane</span><span itemprop="name">LXST CXNTURY</span>
-                                        <span itemprop="name">Ryder Spot</span><span itemprop="name">GRAVECHILL</span>
-                                        <span itemprop="name">hxvrmxn</span><span itemprop="name">Re_v</span>
-                                        <span itemprop="name">Plenka</span><span itemprop="name">DVRSTIN</span>
-                                        <span itemprop="name">INTERWORLD</span><span itemprop="name">KSLV</span>
-                                        <span itemprop="name">Sadfriend</span><span itemprop="name">dGhostface Playa</span>
-                                        <span itemprop="name">Altare</span><span itemprop="name">Oldflop</span>
-                                        <span itemprop="name">Sakureye</span><span itemprop="name">Antxres</span><span itemprop="name">DVRST</span>
-                                    </div>
-                                    <p style="margin-top: 12px; font-style: italic; color: var(--steel-silver);">"Nostalgia dari kehidupan yang bahkan belum pernah terjadi."</p>
-                                </div>
-
-                                <div class="blog-music-section">
-                                    <h3>Listen to Bima's Playlist</h3>
-                                    <div class="blog-spotify-embed">
-                                        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2noGfli9DsoQpf81dD5H7R?utm_source=generator&theme=0" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                                    </div>
-                                </div>
-
-                                <div class="blog-music-quote">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="color: #a6e3a1; opacity: 0.5; flex-shrink:0;"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                                    <div>
-                                        <p>"Beberapa lagu tidak hanya terdengar enak, tapi bisa membawa kembali versi diri kita yang dulu."</p>
-                                        <span>— Bima Adam, Founder IgnitronDev</span>
-                                    </div>
-                                </div>
-
-                                <div class="blog-music-faq">
-                                    <h3>FAQ</h3>
-                                    <!-- ID -->
-                                    <div class="blog-lang-content" data-lang-content="id">
-                                        <div class="blog-music-faq-item"><strong>Kenapa Bima suka musik nightdrive?</strong><p>Karena musik nightdrive memberikan suasana tenang dan reflektif yang cocok dengan kepribadian Bima sebagai programmer yang sering menghabiskan waktu malam untuk coding dan berpikir.</p></div>
-                                        <div class="blog-music-faq-item"><strong>Kenapa Bima suka atmospheric phonk?</strong><p>Karena atmospheric phonk memiliki nuansa emosional, nostalgia, dan ambient yang membantu Bima merasa lebih fokus dan lebih terhubung dengan dirinya sendiri.</p></div>
-                                        <div class="blog-music-faq-item"><strong>Apa arti musik bagi Bima Adam?</strong><p>Musik bagi Bima adalah tempat pulang ketika hidup terasa terlalu ramai — tempat refleksi, melarikan diri dari kebisingan hidup, dan media untuk memahami emosi.</p></div>
-                                        <div class="blog-music-faq-item"><strong>Kenapa Bima suka vibes malam?</strong><p>Karena malam memberikan suasana yang lebih tenang, sunyi, dan cocok untuk berpikir mendalam serta menikmati musik atmospheric.</p></div>
-                                    </div>
-                                    <!-- EN -->
-                                    <div class="blog-lang-content" data-lang-content="en" style="display:none;">
-                                        <div class="blog-music-faq-item"><strong>Why does Bima like nightdrive music?</strong><p>Because nightdrive music provides a calm and reflective atmosphere that suits Bima's personality as a programmer who often spends late nights coding and thinking deeply.</p></div>
-                                        <div class="blog-music-faq-item"><strong>Why does Bima like atmospheric phonk?</strong><p>Because atmospheric phonk has an emotional, nostalgic, and ambient quality that helps Bima feel more focused and more connected with himself.</p></div>
-                                        <div class="blog-music-faq-item"><strong>What does music mean to Bima Adam?</strong><p>Music for Bima is a place to come home to when life feels too loud — a space for reflection, escape from the noise of life, and a medium for understanding emotions.</p></div>
-                                        <div class="blog-music-faq-item"><strong>Why does Bima like night vibes?</strong><p>Because the night offers a quieter, more peaceful atmosphere — perfect for deep thinking and enjoying atmospheric music.</p></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="blog-card-footer">
-                                <div class="blog-founders-tag">
-                                    <span class="blog-founder-chip" style="border-color: rgba(137,180,250,0.3); color: #89b4fa;">✦ Bima Adam Nugraha · Founder</span>
-                                    <span class="blog-founder-chip" style="border-color: rgba(166,227,161,0.3); color: #a6e3a1;">🎵 Atmospheric Phonk · Nightdrive · Space Ambient</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- POST 4-8: Standard posts -->
-                    <article class="blog-card" data-category="technology" itemscope itemtype="http://schema.org/BlogPosting">
-                        <div class="blog-card-accent" style="background: #89b4fa;"></div>
-                        <div class="blog-card-body">
-                            <div class="blog-card-meta"><span class="blog-card-category" style="color: #89b4fa; border-color: #89b4fa20; background: #89b4fa10;">Technology</span><time class="blog-card-date" itemprop="datePublished" datetime="2024-10-15">October 15, 2024</time></div>
-                            <h2 class="blog-card-title" itemprop="headline">Top Technology Trends Shaping 2025</h2>
-                            <p class="blog-card-excerpt" itemprop="description">Explore the emerging technologies that will revolutionize industries in the coming year and how IgnitronDev is preparing for these changes.</p>
-                            <div class="blog-card-footer"><span class="blog-read-more">Read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div>
-                        </div>
-                    </article>
-
-                    <article class="blog-card" data-category="innovation" itemscope itemtype="http://schema.org/BlogPosting">
-                        <div class="blog-card-accent" style="background: #cba6f7;"></div>
-                        <div class="blog-card-body">
-                            <div class="blog-card-meta"><span class="blog-card-category" style="color: #cba6f7; border-color: #cba6f720; background: #cba6f710;">AI & Innovation</span><time class="blog-card-date" itemprop="datePublished" datetime="2024-09-28">September 28, 2024</time></div>
-                            <h2 class="blog-card-title" itemprop="headline">How AI is Transforming Our Solutions</h2>
-                            <p class="blog-card-excerpt" itemprop="description">Discover how artificial intelligence is being integrated into our products to deliver more efficient and intelligent solutions for our clients.</p>
-                            <div class="blog-card-footer"><span class="blog-read-more">Read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div>
-                        </div>
-                    </article>
-
-                    <article class="blog-card" data-category="technology" itemscope itemtype="http://schema.org/BlogPosting">
-                        <div class="blog-card-accent" style="background: #f38ba8;"></div>
-                        <div class="blog-card-body">
-                            <div class="blog-card-meta"><span class="blog-card-category" style="color: #f38ba8; border-color: #f38ba820; background: #f38ba810;">Security</span><time class="blog-card-date" itemprop="datePublished" datetime="2024-08-05">August 5, 2024</time></div>
-                            <h2 class="blog-card-title" itemprop="headline">Cybersecurity in the Age of IoT</h2>
-                            <p class="blog-card-excerpt" itemprop="description">Understanding the security challenges in an increasingly connected world and how we're addressing them in our solutions.</p>
-                            <div class="blog-card-footer"><span class="blog-read-more">Read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div>
-                        </div>
-                    </article>
-
-                    <article class="blog-card" data-category="innovation" itemscope itemtype="http://schema.org/BlogPosting">
-                        <div class="blog-card-accent" style="background: #fab387;"></div>
-                        <div class="blog-card-body">
-                            <div class="blog-card-meta"><span class="blog-card-category" style="color: #fab387; border-color: #fab38720; background: #fab38710;">Data Analytics</span><time class="blog-card-date" itemprop="datePublished" datetime="2024-07-12">July 12, 2024</time></div>
-                            <h2 class="blog-card-title" itemprop="headline">Transforming Data into Actionable Insights</h2>
-                            <p class="blog-card-excerpt" itemprop="description">Learn how our analytics platform helps businesses make data-driven decisions that improve efficiency and profitability.</p>
-                            <div class="blog-card-footer"><span class="blog-read-more">Read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div>
-                        </div>
-                    </article>
-
-                    <article class="blog-card" data-category="company" itemscope itemtype="http://schema.org/BlogPosting">
-                        <div class="blog-card-accent" style="background: #74c7ec;"></div>
-                        <div class="blog-card-body">
-                            <div class="blog-card-meta"><span class="blog-card-category" style="color: #74c7ec; border-color: #74c7ec20; background: #74c7ec10;">Team</span><time class="blog-card-date" itemprop="datePublished" datetime="2024-06-18">June 18, 2024</time></div>
-                            <h2 class="blog-card-title" itemprop="headline">Building a Culture of Innovation</h2>
-                            <p class="blog-card-excerpt" itemprop="description">How we foster creativity and innovation within our team to drive breakthrough solutions for our clients.</p>
-                            <div class="blog-card-footer"><span class="blog-read-more">Read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div>
-                        </div>
-                    </article>
-
-                </div><!-- end blog-grid -->
-
-                <div class="blog-empty" id="blogEmpty" style="display: none;">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                    <p>No posts found in this category.</p>
+                            <h2 class="bp-card-title">{post.title}</h2>
+                            <p class="bp-card-excerpt">{post.excerpt}</p>
+                            {post.featured && <span class="bp-card-badge">Featured</span>}
+                        </article>
+                    ))}
                 </div>
-            </div>
-        </section>
 
-        <!-- Newsletter -->
-        <section class="blog-newsletter section">
-            <div class="container container-sm">
-                <div class="blog-newsletter-card">
-                    <div class="blog-newsletter-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <!-- Spotify -->
+                <div class="bp-spotify">
+                    <div class="bp-spotify-header">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color: #1DB954;"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                        <h3>Bima's Playlist</h3>
                     </div>
-                    <h2 class="blog-newsletter-title">Stay in the Loop</h2>
-                    <p class="blog-newsletter-subtitle">Get the latest posts and platform updates delivered to your inbox.</p>
-                    <form class="blog-newsletter-form" id="newsletterForm">
-                        <input type="email" class="blog-newsletter-input" placeholder="your@email.com" required />
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2noGfli9DsoQpf81dD5H7R?utm_source=generator&theme=0" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="bp-newsletter">
+                    <h3>Stay Updated</h3>
+                    <p>Get the latest posts delivered to your inbox.</p>
+                    <form class="bp-newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="your@email.com" required />
                         <button type="submit" class="btn btn-primary">Subscribe</button>
                     </form>
                 </div>
+
             </div>
         </section>
 
@@ -419,41 +114,22 @@ const schema = [
     <Footer />
 
     <script>
-        // Language toggle
-        document.querySelectorAll('.blog-lang-btn').forEach(btn => {
+        // Filters
+        document.querySelectorAll('.bp-filter').forEach(btn => {
             btn.addEventListener('click', function() {
-                const lang = this.getAttribute('data-lang');
-                // Update buttons
-                document.querySelectorAll('.blog-lang-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.bp-filter').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
-                // Show/hide content
-                document.querySelectorAll('.blog-lang-content').forEach(el => {
-                    (el as HTMLElement).style.display = el.getAttribute('data-lang-content') === lang ? 'block' : 'none';
+                const f = this.getAttribute('data-filter');
+                document.querySelectorAll('.bp-card').forEach(c => {
+                    (c as HTMLElement).style.display = (f === 'all' || c.getAttribute('data-category') === f) ? '' : 'none';
                 });
             });
         });
-
-        // Filter
-        document.querySelectorAll('.blog-filter-btn').forEach(btn => {
-            btn.addEventListener('click', function(this: HTMLElement) {
-                document.querySelectorAll('.blog-filter-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                const filter = this.getAttribute('data-filter');
-                let visible = 0;
-                document.querySelectorAll('.blog-card').forEach(card => {
-                    const show = filter === 'all' || card.getAttribute('data-category') === filter;
-                    (card as HTMLElement).style.display = show ? 'flex' : 'none';
-                    if (show) visible++;
-                });
-                const empty = document.getElementById('blogEmpty');
-                if (empty) empty.style.display = visible === 0 ? 'flex' : 'none';
-            });
-        });
-
+        // Newsletter
         document.getElementById('newsletterForm')?.addEventListener('submit', function(e) {
             e.preventDefault();
             const btn = (this as HTMLFormElement).querySelector('button') as HTMLButtonElement;
-            btn.textContent = 'Subscribed!';
+            btn.textContent = '✓ Subscribed';
             btn.disabled = true;
             setTimeout(() => { btn.textContent = 'Subscribe'; btn.disabled = false; (this as HTMLFormElement).reset(); }, 3000);
         });
@@ -461,33 +137,237 @@ const schema = [
 </BaseLayout>
 
 <style>
-.blog-lang-toggle {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 20px;
+/* Blog Page — Clean Professional Layout */
+.blog-page-hero {
+    padding: 140px 24px 60px;
+    text-align: center;
 }
 
-.blog-lang-btn {
-    padding: 6px 16px;
+.blog-page-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--cyber-cyan);
+    margin-bottom: 16px;
+}
+
+.blog-page-title {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+}
+
+.blog-page-subtitle {
+    font-size: 18px;
+    color: var(--steel-silver);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.blog-page-content {
+    padding: 0 24px 80px;
+}
+
+/* Filters */
+.blog-page-filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.bp-filter {
+    padding: 8px 16px;
     background: transparent;
     border: 1px solid var(--border-color);
-    border-radius: 100px;
+    border-radius: 6px;
     color: var(--steel-silver);
     font-size: 13px;
     font-weight: 500;
     font-family: var(--font-family);
     cursor: pointer;
-    transition: all var(--transition-base);
+    transition: all 0.15s ease;
 }
 
-.blog-lang-btn:hover {
+.bp-filter:hover {
     border-color: var(--cyber-cyan);
-    color: var(--cyber-cyan);
+    color: var(--white);
 }
 
-.blog-lang-btn.active {
+.bp-filter.active {
     background: var(--cyber-cyan);
     border-color: var(--cyber-cyan);
     color: var(--black);
+    font-weight: 600;
+}
+
+/* Grid */
+.bp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+/* Card */
+.bp-card {
+    background: var(--black);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 24px;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+}
+
+.bp-card:hover {
+    border-color: rgba(137, 180, 250, 0.4);
+    transform: translateY(-2px);
+}
+
+.bp-card-featured {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(243, 139, 168, 0.05), rgba(203, 166, 247, 0.05));
+    border-color: rgba(243, 139, 168, 0.2);
+}
+
+.bp-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.bp-card-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.bp-card-date {
+    font-size: 12px;
+    color: var(--steel-silver);
+    font-family: var(--mono-font);
+}
+
+.bp-card-title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    color: var(--white);
+}
+
+.bp-card-excerpt {
+    font-size: 14px;
+    color: var(--steel-silver);
+    line-height: 1.6;
+}
+
+.bp-card-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    background: rgba(243, 139, 168, 0.15);
+    color: #f38ba8;
+    border-radius: 4px;
+}
+
+/* Spotify */
+.bp-spotify {
+    margin-bottom: 60px;
+    padding: 24px;
+    background: var(--black);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.bp-spotify-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.bp-spotify-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.bp-spotify iframe {
+    border-radius: 8px;
+    display: block;
+}
+
+/* Newsletter */
+.bp-newsletter {
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px 24px;
+    background: var(--black);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.bp-newsletter h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.bp-newsletter p {
+    font-size: 14px;
+    color: var(--steel-silver);
+    margin-bottom: 20px;
+}
+
+.bp-newsletter-form {
+    display: flex;
+    gap: 8px;
+}
+
+.bp-newsletter-form input {
+    flex: 1;
+    padding: 10px 14px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--white);
+    font-family: var(--font-family);
+    font-size: 14px;
+}
+
+.bp-newsletter-form input::placeholder {
+    color: var(--steel-silver);
+}
+
+.bp-newsletter-form input:focus {
+    outline: none;
+    border-color: var(--cyber-cyan);
+}
+
+@media (max-width: 768px) {
+    .bp-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bp-card-featured {
+        grid-column: 1;
+    }
+
+    .bp-newsletter-form {
+        flex-direction: column;
+    }
 }
 </style>
