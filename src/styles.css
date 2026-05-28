@@ -2463,3 +2463,16 @@ img {
         grid-column: 1;
     }
 }
+
+/* Spotify Embed */
+.blog-spotify-embed {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    background: rgba(0, 0, 0, 0.3);
+    margin-top: 12px;
+}
+
+.blog-spotify-embed iframe {
+    display: block;
+}
