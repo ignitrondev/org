@@ -8,8 +8,6 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 main: 'index.html',
-                products: 'products.html',
-                foundry: 'foundry.html',
                 monitor: 'monitor.html',
                 blog: 'blog.html'
             }

@@ -54,7 +54,7 @@ export function Footer() {
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2024 IgnitronDev. All rights reserved.</p>
+                <p>© 2026 IgnitronDev. All rights reserved. Founded by <a href="https://instagram.com/bima_yadan27" target="_blank" rel="noopener noreferrer" style="color: var(--cyber-cyan); text-decoration: none;">Bima Adam Nugraha</a> · Co-Founded by Ririn Setiawati</p>
                 <div class="footer-bottom-links">
                     <a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Partner Agreement</a>
                 </div>
