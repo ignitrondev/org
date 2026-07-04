@@ -1,8 +1,4 @@
 User-agent: *
 Allow: /
-Crawl-delay: 1
 
 Sitemap: https://ignitrondev.github.io/org/sitemap.xml
-
-# Ignitron.ID - Jasa Website UMKM, Software Kasir, SIMRS
-# Founder: Bima Adam Nugraha
