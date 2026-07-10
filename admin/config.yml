@@ -2,6 +2,7 @@ backend:
   name: github
   repo: ignitrondev/org
   branch: astro-clean
+  app_id: "Ov23liEeJWTrXm4bMUc4"
 
 media_folder: "public/images"
 public_folder: "/images"
