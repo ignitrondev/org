@@ -136,8 +136,8 @@
     "titleGradient": "Founders",
     "subtitle": "The people behind IgnitronDev",
     "bimaRole": "Founder & Fullstack Engineer",
-    "bimaDesc": "Currently building EMR systems at Gantha Studio",
-    "bimaWork": "Boyolali · Working on: EMR RSIA Gladiool",
+    "bimaDesc": "Founder & Lead Developer of IgnitronDev",
+    "bimaWork": "Boyolali · Building Digital Solutions",
     "bimaQuote": "Bridging China's hardware innovation with Southeast Asia's digital transformation. Building platforms that scale.",
     "bimaStatus": "West Java, Indonesia ☕",
     "ririnRole": "",
@@ -188,11 +188,11 @@
     "badge": "We Are Expanding",
     "title": "Join The",
     "titleGradient": "Core Team",
-    "subtitle": "IgnitronDev is currently building enterprise-grade systems like the EMR for RSIA Gladiool.",
+    "subtitle": "IgnitronDev is currently building digital products like white-label platforms and smart POS systems.",
     "desc": "If you speak this stack and want to build high-scale platforms, let's talk. We operate remotely. No corporate BS.",
     "cta": "Hit Me Up",
     "terminalRole": "Fullstack",
     "terminalMsg": "We are looking for engineers.",
-    "terminalTarget": "RSIA Gladiool EMR"
+    "terminalTarget": "IgnitronDev Core Platform"
   }
 }
