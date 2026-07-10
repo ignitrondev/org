@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import { getCollection } from 'astro:content';
 import '../styles.css';
 
 const base = import.meta.env.BASE_URL;
@@ -23,14 +24,14 @@ const schema = [
     }
 ];
 
-const posts = [
-    { category: 'story', label: 'Our Story', date: 'May 10, 2026', iso: '2026-05-10', title: '4 Years of LDR: The Story Behind IgnitronDev', excerpt: 'Built from distance, patience, and love. The story of Bima — partners in life since December 2021.', color: 'var(--cyber-cyan)', featured: true },
-    { category: 'personal', label: 'Music & Life', date: 'May 15, 2026', iso: '2026-05-15', title: 'Why Bima Adam Loves Atmospheric Phonk & Nightdrive Music', excerpt: 'From Beatz Bimz (2017-2021) to IgnitronDev. Music is not just entertainment — it\'s identity, memory, and a way home.', color: 'var(--cyber-cyan-dark)' },
-    { category: 'technology', label: 'Technology', date: 'Oct 15, 2024', iso: '2024-10-15', title: 'Top Technology Trends Shaping 2025', excerpt: 'Emerging technologies that will revolutionize industries and how IgnitronDev is preparing.', color: 'var(--cyber-cyan)' },
-    { category: 'innovation', label: 'AI & Innovation', date: 'Sep 28, 2024', iso: '2024-09-28', title: 'How AI is Transforming Our Solutions', excerpt: 'Artificial intelligence integrated into our products for more efficient solutions.', color: 'var(--steel-silver)' },
-    { category: 'technology', label: 'Security', date: 'Aug 5, 2024', iso: '2024-08-05', title: 'Cybersecurity in the Age of IoT', excerpt: 'Security challenges in a connected world and how we address them.', color: 'var(--cyber-cyan)' },
-    { category: 'company', label: 'Team', date: 'Jun 18, 2024', iso: '2024-06-18', title: 'Building a Culture of Innovation', excerpt: 'How we foster creativity within our team to drive breakthrough solutions.', color: 'var(--cyber-cyan-dark)' },
-];
+const allBlogPosts = await getCollection('blog');
+const posts = allBlogPosts
+    .map(post => ({
+        ...post.data,
+        slug: post.slug,
+        dateFormatted: post.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+    }))
+    .sort((a, b) => b.date.valueOf() - a.date.valueOf());
 ---
 
 <BaseLayout
@@ -73,13 +74,15 @@ const posts = [
                 <div class="bp-grid" id="blogGrid">
                     {posts.map(post => (
                         <article class={`bp-card${post.featured ? ' bp-card-featured' : ''}`} data-category={post.category}>
-                            <div class="bp-card-top" style={`border-color: ${post.color};`}>
-                                <span class="bp-card-label" style={`color: ${post.color};`}>{post.label}</span>
-                                <time class="bp-card-date">{post.date}</time>
-                            </div>
-                            <h2 class="bp-card-title">{post.title}</h2>
-                            <p class="bp-card-excerpt">{post.excerpt}</p>
-                            {post.featured && <span class="bp-card-badge">Featured</span>}
+                            <a href={`${base}blog/${post.slug}`} style="text-decoration: none; color: inherit; display: block; height: 100%;">
+                                <div class="bp-card-top" style={`border-color: ${post.color};`}>
+                                    <span class="bp-card-label" style={`color: ${post.color};`}>{post.label}</span>
+                                    <time class="bp-card-date">{post.dateFormatted}</time>
+                                </div>
+                                <h2 class="bp-card-title">{post.title}</h2>
+                                <p class="bp-card-excerpt">{post.excerpt}</p>
+                                {post.featured && <span class="bp-card-badge">Featured</span>}
+                            </a>
                         </article>
                     ))}
                 </div>

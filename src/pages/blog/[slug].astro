@@ -1,0 +1,97 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import '../../styles.css';
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const dateFormatted = entry.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+---
+
+<BaseLayout
+    title={`${entry.data.title} - IgnitronDev Blog`}
+    description={entry.data.excerpt}
+>
+    <Navbar />
+    <main class="main-content">
+        <section class="blog-post-hero" style="padding: 140px 24px 60px; max-width: 800px; margin: 0 auto; text-align: center;">
+            <span class="blog-page-badge" style={`color: ${entry.data.color}; display: inline-block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px;`}>{entry.data.label}</span>
+            <h1 style="font-size: clamp(32px, 5vw, 48px); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 24px; color: var(--text-primary);">{entry.data.title}</h1>
+            <div style="color: var(--steel-silver); display: flex; align-items: center; justify-content: center; gap: 16px; font-size: 14px;">
+                <time>{dateFormatted}</time>
+                <span>•</span>
+                <span>Bima Adam Nugraha</span>
+            </div>
+        </section>
+
+        <section class="blog-post-content" style="max-width: 800px; margin: 0 auto 100px; padding: 0 24px; color: var(--text-secondary); font-size: 18px; line-height: 1.8;">
+            <div class="prose prose-invert" style="max-width: none;">
+                <Content />
+            </div>
+        </section>
+    </main>
+    <Footer />
+</BaseLayout>
+
+<style>
+/* Prose styles for markdown content */
+.prose h1, .prose h2, .prose h3, .prose h4 {
+    color: var(--text-primary);
+    margin-top: 2em;
+    margin-bottom: 1em;
+    font-weight: 700;
+}
+.prose h2 { font-size: 24px; letter-spacing: -0.02em; }
+.prose h3 { font-size: 20px; }
+.prose p {
+    margin-bottom: 1.5em;
+}
+.prose a {
+    color: var(--cyber-cyan);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+    transition: all 0.2s ease;
+}
+.prose a:hover {
+    border-bottom-color: var(--cyber-cyan);
+}
+.prose ul, .prose ol {
+    margin-bottom: 1.5em;
+    padding-left: 24px;
+}
+.prose li {
+    margin-bottom: 0.5em;
+}
+.prose strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+.prose blockquote {
+    border-left: 4px solid var(--cyber-cyan);
+    padding-left: 16px;
+    margin-left: 0;
+    margin-right: 0;
+    font-style: italic;
+    color: var(--steel-silver);
+    background: rgba(0, 240, 255, 0.05);
+    padding: 16px 16px 16px 20px;
+    border-radius: 0 8px 8px 0;
+}
+.prose img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin: 2em 0;
+}
+</style>
