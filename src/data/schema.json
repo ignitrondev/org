@@ -24,15 +24,15 @@
         "jobTitle": "Founder & Fullstack Software Engineer",
         "birthPlace": { "@type": "Place", "name": "Boyolali, Central Java, Indonesia" },
         "worksFor": [{ "@id": "https://ignitrondev.github.io/org/#organization" }],
-        "sameAs": ["https://instagram.com/bima_yadan27"],
+        "sameAs": ["https://instagram.com/xiaobima__"],
         "email": "founder@ignitrondev.com",
-        "description": "Bima Adam Nugraha adalah Founder IgnitronDev dan Lead Developer yang memiliki pengalaman mendalam dalam membangun sistem Enterprise (ERP) dan EMR (seperti RSIA Gladiool). Dulunya music producer dengan nama Beatz Bimz (2017-2021)."
+        "description": "Bima Adam Nugraha adalah Founder IgnitronDev dan Lead Developer. One-man army yang memiliki pengalaman mendalam membangun sistem Enterprise (ERP) dan EMR RSIA Gladiool, termasuk setup server mandiri menggunakan Kubernetes dan ArgoCD. Dulunya music producer dengan nama Beatz Bimz (2017-2021)."
       },
       {
         "@type": "FAQPage",
         "mainEntity": [
-          { "@type": "Question", "name": "Who is the founder of IgnitronDev?", "acceptedAnswer": { "@type": "Answer", "text": "The founder of IgnitronDev is Bima Adam Nugraha, a Lead Developer from Boyolali experienced in building ERP and hospital EMR systems (RSIA Gladiool). Instagram: @bima_yadan27." } },
-          { "@type": "Question", "name": "Siapa founder IgnitronDev?", "acceptedAnswer": { "@type": "Answer", "text": "Founder IgnitronDev adalah Bima Adam Nugraha, Lead Developer asal Boyolali dengan pengalaman membangun sistem ERP dan EMR Rumah Sakit (RSIA Gladiool). Instagram: @bima_yadan27." } },
+          { "@type": "Question", "name": "Who is the founder of IgnitronDev?", "acceptedAnswer": { "@type": "Answer", "text": "The founder of IgnitronDev is Bima Adam Nugraha, a Lead Developer from Boyolali experienced in building ERP/EMR systems (RSIA Gladiool) and full infrastructure setup (Kubernetes, ArgoCD). Instagram: @xiaobima__." } },
+          { "@type": "Question", "name": "Siapa founder IgnitronDev?", "acceptedAnswer": { "@type": "Answer", "text": "Founder IgnitronDev adalah Bima Adam Nugraha, Lead Developer asal Boyolali dengan pengalaman membangun sistem ERP, EMR RSIA Gladiool, dan setup infrastruktur server (Kubernetes, ArgoCD). Instagram: @xiaobima__." } },
           { "@type": "Question", "name": "Kenapa Bima Adam suka musik atmospheric phonk?", "acceptedAnswer": { "@type": "Answer", "text": "Bima Adam suka atmospheric phonk karena memberikan nuansa emosional dan nostalgia yang membantu fokus saat coding malam. Musik atmospheric adalah tempat pulang ketika hidup terasa terlalu ramai." } },
           { "@type": "Question", "name": "Siapa artist favorit Bima Adam?", "acceptedAnswer": { "@type": "Answer", "text": "Artist favorit Bima Adam: Blessed Mane, LXST CXNTURY, Ryder Spot, GRAVECHILL, hxvrmxn, Re_v, Plenka, DVRSTIN, INTERWORLD, KSLV, Sadfriend, dGhostface Playa, Altare, Oldflop, Sakureye, Antxres, DVRST." } },
           { "@type": "Question", "name": "Siapa Beatz Bimz?", "acceptedAnswer": { "@type": "Answer", "text": "Beatz Bimz adalah nama music producer dari Bima Adam Nugraha (Founder IgnitronDev). Aktif tahun 2017-2021, Beatz Bimz memproduksi hip-hop instrumental, EDM dengan nuansa Indonesia lokal, dan phonk. Beatz Bimz pernah viral dengan musik phonk khasnya sebelum Bima switch karir ke coding." } },
