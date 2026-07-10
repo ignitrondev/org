@@ -136,8 +136,8 @@
     "titleGradient": "Founders",
     "subtitle": "The people behind IgnitronDev",
     "bimaRole": "Founder & Fullstack Engineer",
-    "bimaDesc": "Founder & Lead Developer of IgnitronDev",
-    "bimaWork": "Boyolali · Building Digital Solutions",
+    "bimaDesc": "Founder of IgnitronDev & Lead Developer. Experienced in building complex Enterprise systems (ERP) and Electronic Medical Records (EMR).",
+    "bimaWork": "Boyolali · Leading EMR RSIA Gladiool Project",
     "bimaQuote": "Bridging China's hardware innovation with Southeast Asia's digital transformation. Building platforms that scale.",
     "bimaStatus": "West Java, Indonesia ☕",
     "ririnRole": "",
@@ -188,11 +188,11 @@
     "badge": "We Are Expanding",
     "title": "Join The",
     "titleGradient": "Core Team",
-    "subtitle": "IgnitronDev is currently building digital products like white-label platforms and smart POS systems.",
+    "subtitle": "IgnitronDev builds enterprise-grade digital solutions, driven by deep experience in developing large-scale ERP and EMR systems.",
     "desc": "If you speak this stack and want to build high-scale platforms, let's talk. We operate remotely. No corporate BS.",
     "cta": "Hit Me Up",
     "terminalRole": "Fullstack",
     "terminalMsg": "We are looking for engineers.",
-    "terminalTarget": "IgnitronDev Core Platform"
+    "terminalTarget": "Enterprise ERP & SaaS Platform"
   }
 }
