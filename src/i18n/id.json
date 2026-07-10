@@ -194,5 +194,24 @@
     "terminalRole": "Fullstack",
     "terminalMsg": "We are looking for engineers.",
     "terminalTarget": "Enterprise ERP & SaaS Platform"
+  },
+  "foundry": {
+    "title": "The Foundry",
+    "subtitle": "Platform Enterprise white-label yang siap di-deploy kapanpun.",
+    "emrTitle": "Ignitron EMR",
+    "emrDesc": "Sistem Rekam Medis Elektronik lengkap. Skalabilitas tinggi dan modular. Sudah teruji di RSIA Gladiool.",
+    "erpTitle": "Ignitron ERP",
+    "erpDesc": "Sistem ERP (Enterprise Resource Planning) handal. Atur stok, keuangan, dan HR dengan mudah.",
+    "posTitle": "Ignitron POS",
+    "posDesc": "Sistem Kasir (Point of Sale) cepat dan mendukung offline-first. Terintegrasi dengan analitik cloud.",
+    "whyPartner": "Kenapa Jadi Partner Kami?",
+    "whyPartnerDesc": "Kami nyediain mesinnya. Lo yang jalanin bisnisnya.",
+    "feature1": "100% White-Label",
+    "feature1Desc": "Pake brand, domain, dan harga lo sendiri. Kami murni di belakang layar.",
+    "feature2": "DevOps Ready",
+    "feature2Desc": "Siap deploy pake Kubernetes dan ArgoCD. Skalabilitas tanpa batas.",
+    "feature3": "Lead Developer Support",
+    "feature3Desc": "Support langsung dari Bima Adam buat kebutuhan integrasi teknis rumit.",
+    "cta": "Jadi Partner Kami"
   }
 }

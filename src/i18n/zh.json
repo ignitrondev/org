@@ -193,5 +193,24 @@
     "terminalRole": "全栈",
     "terminalMsg": "我们正在寻找工程师。",
     "terminalTarget": "Enterprise ERP & SaaS Platform"
+  },
+  "foundry": {
+    "title": "The Foundry (研发中心)",
+    "subtitle": "准备部署的企业级白标平台。",
+    "emrTitle": "Ignitron EMR (电子病历)",
+    "emrDesc": "完整的电子病历系统。专为高扩展性和模块化而设计。在 RSIA Gladiool 经过实战测试。",
+    "erpTitle": "Ignitron ERP (企业资源计划)",
+    "erpDesc": "强大的企业资源计划系统。轻松管理库存、财务和人力资源。",
+    "posTitle": "Ignitron POS (销售点)",
+    "posDesc": "快速、离线优先的零售销售点系统。与云端分析同步。",
+    "whyPartner": "为什么选择与我们合作？",
+    "whyPartnerDesc": "我们提供引擎。你来驱动业务。",
+    "feature1": "100% 白标",
+    "feature1Desc": "使用您自己的品牌、域名和定价。我们完全隐形。",
+    "feature2": "DevOps 就绪",
+    "feature2Desc": "准备好使用 Kubernetes 和 ArgoCD 部署。无限扩展。",
+    "feature3": "首席开发者支持",
+    "feature3Desc": "Bima Adam 提供直接支持以解决复杂的技术集成问题。",
+    "cta": "与我们合作"
   }
 }

@@ -194,5 +194,24 @@
     "terminalRole": "Fullstack",
     "terminalMsg": "We are looking for engineers.",
     "terminalTarget": "Enterprise ERP & SaaS Platform"
+  },
+  "foundry": {
+    "title": "The Foundry",
+    "subtitle": "Enterprise-grade white-label platforms ready for deployment.",
+    "emrTitle": "Ignitron EMR",
+    "emrDesc": "A complete Electronic Medical Record system. Designed for high scalability and modularity. Battle-tested at RSIA Gladiool.",
+    "erpTitle": "Ignitron ERP",
+    "erpDesc": "A robust Enterprise Resource Planning system. Manages inventory, finance, and human resources with ease.",
+    "posTitle": "Ignitron POS",
+    "posDesc": "A fast, offline-first Point of Sale system for retail. Synced with cloud analytics.",
+    "whyPartner": "Why Partner With Us?",
+    "whyPartnerDesc": "We provide the engines. You drive the business.",
+    "feature1": "100% White-Label",
+    "feature1Desc": "Use your own brand, domain, and pricing. We stay completely invisible.",
+    "feature2": "DevOps Ready",
+    "feature2Desc": "Ready for Kubernetes and ArgoCD deployment. Scales infinitely.",
+    "feature3": "Lead Developer Support",
+    "feature3Desc": "Direct support from Bima Adam for complex technical integration.",
+    "cta": "Partner With Us"
   }
 }
