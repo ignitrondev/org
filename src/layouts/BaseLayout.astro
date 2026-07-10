@@ -12,7 +12,7 @@ export interface Props {
 const {
     title,
     description,
-    keywords = 'Bima Adam Nugraha, Ririn Setiawati, IgnitronDev founder, IgnitronDev co-founder, white-label platform, software reseller',
+    keywords = 'Bima Adam Nugraha, IgnitronDev founder, white-label platform, software reseller',
     canonical,
     schema = [],
 } = Astro.props;
@@ -30,7 +30,7 @@ const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
 
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
-    <meta name="author" content="Bima Adam Nugraha, Ririn Setiawati" />
+    <meta name="author" content="Bima Adam Nugraha" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#89b4fa" />
     <link rel="canonical" href={canonicalURL} />

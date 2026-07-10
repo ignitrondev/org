@@ -20,6 +20,8 @@ import { langLabels, type Lang } from '../i18n/index';
         localStorage.setItem(STORAGE_KEY, lang);
         document.documentElement.setAttribute('data-lang', lang);
         updateUI(lang);
+        // Notify other scripts (e.g. Hero typewriter) to re-run with new lang
+        document.dispatchEvent(new CustomEvent('ignitron:lang-changed', { detail: { lang } }));
     }
 
     function updateUI(lang: string) {
@@ -28,13 +30,27 @@ import { langLabels, type Lang } from '../i18n/index';
             btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
         });
 
-        // Update all elements with data-i18n-{lang} attributes
+        // Update all elements with data-i18n attributes.
+        // Only target leaf nodes (no children with attributes) to preserve icons/svgs alongside text.
         document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            const translations = el.getAttribute(`data-t-${lang}`);
-            if (translations) {
-                el.textContent = translations;
-            }
+            // If element has child elements, translate those instead (typically the <T> span we author)
+            const targetChildren = el.querySelectorAll(':scope [data-i18n]');
+            const nodes = targetChildren.length > 0 ? targetChildren : [el];
+            nodes.forEach(node => {
+                // Don't replace if this node contains element children (icons, svgs) — set innerText only on the first text node
+                const hasElementChildren = node.children.length > 0;
+                if (hasElementChildren) {
+                    // Walk text nodes, replace only direct text nodes
+                    const translation = node.getAttribute(`data-t-${lang}`);
+                    if (!translation) return;
+                    const textNode = Array.from(node.childNodes).find(n => n.nodeType === Node.TEXT_NODE);
+                    if (textNode) textNode.textContent = translation;
+                    else node.prepend(document.createTextNode(translation));
+                } else {
+                    const translation = node.getAttribute(`data-t-${lang}`);
+                    if (translation) node.textContent = translation;
+                }
+            });
         });
 
         // Show/hide language-specific content blocks

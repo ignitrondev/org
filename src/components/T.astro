@@ -1,0 +1,32 @@
+---
+import { languages, type Lang } from '../i18n/index';
+
+interface Props {
+    tag?: 'span' | 'a' | 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'div';
+    key: string;
+    class?: string;
+    href?: string;
+}
+
+const { tag: Tag = 'span', key, class: className, href } = Astro.props;
+const en = languages.en as any;
+const id = languages.id as any;
+const zh = languages.zh as any;
+const get = (obj: any) => key.split('.').reduce((o, k) => o?.[k], obj) ?? key;
+
+const attrs = {
+    'data-i18n': key,
+    'data-t-en': get(en),
+    'data-t-id': get(id),
+    'data-t-zh': get(zh),
+};
+---
+
+<Tag
+    class={className}
+    href={href}
+    data-i18n={attrs['data-i18n']}
+    data-t-en={attrs['data-t-en']}
+    data-t-id={attrs['data-t-id']}
+    data-t-zh={attrs['data-t-zh']}
+><slot>{get(en)}</slot></Tag>

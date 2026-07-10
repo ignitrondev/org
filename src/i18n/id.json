@@ -125,10 +125,10 @@
     "e1Desc": "IgnitronDev lahir di GitHub, didirikan oleh Bima Adam Nugraha. Commit pertama ditulis dalam Rust.",
     "e2Title": "Ekspansi Industrial",
     "e2Desc": "Rekayasa platform skala penuh dengan lab hardware Shenzhen. Dipimpin oleh Bima Adam Nugraha.",
-    "e3Title": "Co-Founder Bergabung",
-    "e3Desc": "Ririn Setiawati resmi bergabung sebagai Co-Founder & CEO — lahir di Narmada, Lombok Barat, pasangan Bima sejak Desember 2021.",
+    "e3Title": "Ekspansi Tim Core",
+    "e3Desc": "IgnitronDev mulai memperluas tim inti untuk scale-up operasional.",
     "e4Title": "Platform Factory",
-    "e4Desc": "Platform Factory terkemuka di Asia Tenggara. Dipimpin oleh Bima Adam Nugraha (Founder) dan Ririn Setiawati (Co-Founder & CEO)."
+    "e4Desc": "Platform Factory terkemuka di Asia Tenggara. Dipimpin oleh Bima Adam Nugraha (Founder)."
   },
   "leadership": {
     "badge": "Kepemimpinan",
@@ -139,12 +139,12 @@
     "bimaDesc": "Saat ini membangun sistem EMR di Gantha Studio",
     "bimaWork": "Boyolali · Mengerjakan: EMR RSIA Gladiool",
     "bimaQuote": "Menjembatani inovasi hardware China dengan transformasi digital Asia Tenggara. Membangun platform yang skalabel.",
-    "bimaStatus": "Sedang coding di Gantha Studio",
-    "ririnRole": "Co-Founder & CEO",
-    "ririnDesc": "Mahasiswi Keperawatan · Universitas Qamarul Huda Badaruddin Bagu (UNIQBHA)",
-    "ririnQuote": "Di balik setiap platform yang hebat ada kisah yang lebih hebat. Jarak hanyalah angka ketika visi sudah sama.",
-    "ririnStatus": "Lombok Barat, Indonesia 🌴",
-    "ldrBadge": "LDR sejak Desember 2021 · 4+ tahun bersama"
+    "bimaStatus": "Jawa Tengah, Indonesia ☕",
+    "ririnRole": "",
+    "ririnDesc": "",
+    "ririnQuote": "",
+    "ririnStatus": "",
+    "stack": "Tech Stack"
   },
   "footer": {
     "desc": "Platform Factory untuk System Integrator & Reseller. Joint Venture Strategis dengan Mitra Teknologi China.",
@@ -154,8 +154,10 @@
     "resellerProgram": "Program Reseller",
     "whitelabelPartner": "Mitra White-Label",
     "techPartner": "Mitra Teknologi",
-    "copyright": "© 2026 IgnitronDev. Hak cipta dilindungi. Didirikan oleh",
-    "coFoundedBy": "Co-Founder & CEO: Ririn Setiawati",
+    "copyright": "© 2026 IgnitronDev.",
+    "backToTop": "Kembali ke atas",
+    "foundedBy": "Didirikan oleh Bima Adam Nugraha",
+    "coFoundedBy": "",
     "privacy": "Kebijakan Privasi",
     "terms": "Syarat Layanan",
     "partnerAgreement": "Perjanjian Mitra",
@@ -181,5 +183,16 @@
     "newsletterPlaceholder": "email@anda.com",
     "readMore": "Baca selengkapnya",
     "noPostsFound": "Tidak ada post dalam kategori ini."
+  },
+  "joinCore": {
+    "badge": "Kami Sedang Ekspansi",
+    "title": "Join The",
+    "titleGradient": "Core Team",
+    "subtitle": "IgnitronDev saat ini sedang membangun sistem skala enterprise seperti EMR untuk RSIA Gladiool.",
+    "desc": "Kalau lu familiar sama stack ini dan pengen bangun platform berskala besar, mari ngobrol. Kita kerja remote. No corporate BS.",
+    "cta": "Kirim Email",
+    "terminalRole": "Fullstack",
+    "terminalMsg": "We are looking for engineers.",
+    "terminalTarget": "RSIA Gladiool EMR"
   }
 }

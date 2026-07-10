@@ -125,10 +125,10 @@
     "e1Desc": "IgnitronDev诞生于GitHub，由Bima Adam Nugraha创立。第一次提交使用Rust编写。",
     "e2Title": "工业扩展",
     "e2Desc": "与深圳硬件实验室进行全面平台工程合作。由Bima Adam Nugraha领导。",
-    "e3Title": "联合创始人加入",
-    "e3Desc": "Ririn Setiawati正式加入担任联合创始人兼CEO——出生于龙目岛西部Narmada，自2021年12月起与Bima成为伴侣。",
+    "e3Title": "核心团队扩展",
+    "e3Desc": "IgnitronDev开始扩展核心团队以扩大运营规模。",
     "e4Title": "平台工厂",
-    "e4Desc": "东南亚领先的平台工厂。由Bima Adam Nugraha（创始人）和Ririn Setiawati（联合创始人兼CEO）领导。"
+    "e4Desc": "东南亚领先的平台工厂。由Bima Adam Nugraha（创始人）领导。"
   },
   "leadership": {
     "badge": "领导团队",
@@ -139,12 +139,12 @@
     "bimaDesc": "目前在Gantha Studio构建EMR系统",
     "bimaWork": "Boyolali · 正在开发：EMR RSIA Gladiool",
     "bimaQuote": "连接中国的硬件创新与东南亚的数字化转型。构建可扩展的平台。",
-    "bimaStatus": "正在Gantha Studio编码",
-    "ririnRole": "联合创始人 & CEO",
-    "ririnDesc": "护理学学生 · Universitas Qamarul Huda Badaruddin Bagu (UNIQBHA)",
-    "ririnQuote": "每个伟大平台的背后都有一个更伟大的故事。当愿景一致时，距离只是一个数字。",
-    "ririnStatus": "龙目岛西部，印度尼西亚 🌴",
-    "ldrBadge": "自2021年12月起异地恋 · 4年以上"
+    "bimaStatus": "西爪哇，印度尼西亚 ☕",
+    "ririnRole": "",
+    "ririnDesc": "",
+    "ririnQuote": "",
+    "ririnStatus": "",
+    "stack": "技术栈"
   },
   "footer": {
     "desc": "面向系统集成商和经销商的平台工厂。与中国技术合作伙伴的战略合资企业。",
@@ -154,8 +154,9 @@
     "resellerProgram": "经销商计划",
     "whitelabelPartner": "白标合作伙伴",
     "techPartner": "技术合作伙伴",
-    "copyright": "© 2026 IgnitronDev. 保留所有权利。创始人：",
-    "coFoundedBy": "联合创始人兼CEO：Ririn Setiawati",
+    "backToTop": "回到顶部",
+    "foundedBy": "创始人：Bima Adam Nugraha",
+    "coFoundedBy": "",
     "privacy": "隐私政策",
     "terms": "服务条款",
     "partnerAgreement": "合作伙伴协议",
@@ -181,5 +182,16 @@
     "newsletterPlaceholder": "your@email.com",
     "readMore": "阅读更多",
     "noPostsFound": "此类别中没有找到文章。"
+  },
+  "joinCore": {
+    "badge": "我们正在扩张",
+    "title": "加入",
+    "titleGradient": "核心团队",
+    "subtitle": "IgnitronDev目前正在构建企业级系统，例如RSIA Gladiool的EMR。",
+    "desc": "如果您熟悉这些技术栈并希望构建大规模平台，请联系我们。我们远程办公。没有企业官僚主义。",
+    "cta": "联系我",
+    "terminalRole": "全栈",
+    "terminalMsg": "我们正在寻找工程师。",
+    "terminalTarget": "RSIA Gladiool EMR"
   }
 }

@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import T from '../components/T.astro';
 import PartnersStrip from '../components/PartnersStrip.astro';
 import DeploymentTicker from '../components/DeploymentTicker.astro';
 import TechStack from '../components/TechStack.astro';
@@ -11,83 +12,24 @@ import WhyWhitelabel from '../components/WhyWhitelabel.astro';
 import Calculator from '../components/Calculator.astro';
 import Partners from '../components/Partners.astro';
 import '../styles.css';
+import fs from 'node:fs';
+import path from 'node:path';
 
 const base = import.meta.env.BASE_URL;
-
-const schema = [
-    {
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "Organization",
-                "@id": "https://ignitrondev.github.io/org/#organization",
-                "name": "IgnitronDev",
-                "alternateName": "Ignitron Dev",
-                "url": "https://ignitrondev.github.io/org/",
-                "logo": "https://ignitrondev.github.io/org/images/ignitron.png",
-                "description": "IgnitronDev is a white-label platform factory. Founded by Bima Adam Nugraha, Co-Founder & CEO: Ririn Setiawati.",
-                "sameAs": ["https://instagram.com/ignitrondev"],
-                "foundingDate": "2019",
-                "founder": { "@id": "https://ignitrondev.github.io/org/#bima" },
-                "member": [
-                    { "@type": "OrganizationRole", "member": { "@id": "https://ignitrondev.github.io/org/#bima" }, "roleName": "Founder", "startDate": "2019" },
-                    { "@type": "OrganizationRole", "member": { "@id": "https://ignitrondev.github.io/org/#ririn" }, "roleName": "Co-Founder & CEO", "startDate": "2024" }
-                ]
-            },
-            {
-                "@type": "Person",
-                "@id": "https://ignitrondev.github.io/org/#bima",
-                "name": "Bima Adam Nugraha",
-                "jobTitle": "Founder & Fullstack Software Engineer",
-                "birthPlace": { "@type": "Place", "name": "Boyolali, Central Java, Indonesia" },
-                "worksFor": [{ "@id": "https://ignitrondev.github.io/org/#organization" }, { "@type": "Organization", "name": "Gantha Studio" }],
-                "sameAs": ["https://instagram.com/bima_yadan27"],
-                "email": "founder@ignitrondev.com",
-                "description": "Bima Adam Nugraha adalah Founder IgnitronDev, fullstack developer asal Boyolali, bekerja di Gantha Studio. Dulunya music producer dengan nama Beatz Bimz (2017-2021), memproduksi hip-hop, EDM × Indonesia, dan phonk (pernah viral). Menyukai musik atmospheric phonk, nightdrive, dan space ambient.",
-                "knows": { "@id": "https://ignitrondev.github.io/org/#ririn" }
-            },
-            {
-                "@type": "Person",
-                "@id": "https://ignitrondev.github.io/org/#ririn",
-                "name": "Ririn Setiawati",
-                "jobTitle": "Co-Founder & CEO of IgnitronDev",
-                "birthDate": "2007-11-28",
-                "birthPlace": { "@type": "Place", "name": "Narmada, Lombok Barat, West Nusa Tenggara, Indonesia" },
-                "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universitas Qamarul Huda Badaruddin Bagu", "alternateName": "UNIQBHA" },
-                "hasCredential": { "@type": "EducationalOccupationalCredential", "name": "Nursing (Keperawatan)", "recognizedBy": { "@type": "CollegeOrUniversity", "name": "UNIQBHA" } },
-                "worksFor": { "@id": "https://ignitrondev.github.io/org/#organization" },
-                "description": "Ririn Setiawati adalah Co-Founder & CEO IgnitronDev. Lahir 28 November 2007 di Narmada, Lombok Barat. Kuliah Keperawatan di UNIQBHA. Pasangan Bima Adam Nugraha sejak Desember 2021.",
-                "knows": { "@id": "https://ignitrondev.github.io/org/#bima" }
-            },
-            {
-                "@type": "FAQPage",
-                "mainEntity": [
-                    { "@type": "Question", "name": "Who is the founder of IgnitronDev?", "acceptedAnswer": { "@type": "Answer", "text": "The founder of IgnitronDev is Bima Adam Nugraha, a fullstack software engineer from Boyolali at Gantha Studio. Instagram: @bima_yadan27." } },
-                    { "@type": "Question", "name": "Who is the co-founder of IgnitronDev?", "acceptedAnswer": { "@type": "Answer", "text": "The Co-Founder & CEO of IgnitronDev is Ririn Setiawati, born November 28, 2007 in Narmada, Lombok Barat. She studies Nursing at UNIQBHA and has been with Bima since December 2021." } },
-                    { "@type": "Question", "name": "Siapa founder IgnitronDev?", "acceptedAnswer": { "@type": "Answer", "text": "Founder IgnitronDev adalah Bima Adam Nugraha, fullstack developer asal Boyolali, bekerja di Gantha Studio. Instagram: @bima_yadan27." } },
-                    { "@type": "Question", "name": "Siapa co-founder IgnitronDev?", "acceptedAnswer": { "@type": "Answer", "text": "Co-Founder & CEO IgnitronDev adalah Ririn Setiawati, lahir 28 November 2007 di Narmada, Lombok Barat. Kuliah Keperawatan di UNIQBHA. Pasangan Bima Adam Nugraha sejak Desember 2021." } },
-                    { "@type": "Question", "name": "Kenapa Bima Adam suka musik atmospheric phonk?", "acceptedAnswer": { "@type": "Answer", "text": "Bima Adam suka atmospheric phonk karena memberikan nuansa emosional dan nostalgia yang membantu fokus saat coding malam. Musik atmospheric adalah tempat pulang ketika hidup terasa terlalu ramai." } },
-                    { "@type": "Question", "name": "Siapa artist favorit Bima Adam?", "acceptedAnswer": { "@type": "Answer", "text": "Artist favorit Bima Adam: Blessed Mane, LXST CXNTURY, Ryder Spot, GRAVECHILL, hxvrmxn, Re_v, Plenka, DVRSTIN, INTERWORLD, KSLV, Sadfriend, dGhostface Playa, Altare, Oldflop, Sakureye, Antxres, DVRST." } },
-                    { "@type": "Question", "name": "Siapa Beatz Bimz?", "acceptedAnswer": { "@type": "Answer", "text": "Beatz Bimz adalah nama music producer dari Bima Adam Nugraha (Founder IgnitronDev). Aktif tahun 2017-2021, Beatz Bimz memproduksi hip-hop instrumental, EDM dengan nuansa Indonesia lokal, dan phonk. Beatz Bimz pernah viral dengan musik phonk khasnya sebelum Bima switch karir ke coding." } },
-                    { "@type": "Question", "name": "Who is Beatz Bimz?", "acceptedAnswer": { "@type": "Answer", "text": "Beatz Bimz is the music producer alias of Bima Adam Nugraha, Founder of IgnitronDev. Active from 2017 to 2021, Beatz Bimz produced hip-hop instrumentals, EDM fused with Indonesian local flavor, and phonk. Beatz Bimz went viral with signature phonk beats before Bima transitioned to software development." } },
-                    { "@type": "Question", "name": "Bima Adam dulu ngapain sebelum jadi programmer?", "acceptedAnswer": { "@type": "Answer", "text": "Sebelum jadi programmer, Bima Adam adalah music producer dengan nama Beatz Bimz (2017-2021). Dia memproduksi hip-hop instrumental, EDM × hip-hop dengan nuansa Indonesia, dan phonk. Beatz Bimz pernah viral di era phonk sebelum Bima switch karir ke fullstack development." } }
-                ]
-            }
-        ]
-    }
-];
+const schemaPath = path.join(process.cwd(), 'src/data/schema.json');
+const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
 ---
 
 <BaseLayout
     title="IgnitronDev - White-Label Platform Factory | Founded by Bima Adam Nugraha"
-    description="Founded by Bima Adam Nugraha, Co-Founder & CEO: Ririn Setiawati. Launch your software business in 2 weeks with production-ready white-label platforms."
-    keywords="Bima Adam Nugraha, Ririn Setiawati, IgnitronDev founder, IgnitronDev co-founder, white-label platform, software reseller, SaaS platform, Gantha Studio, atmospheric phonk, Boyolali"
+    description="Founded by Bima Adam Nugraha. Launch your software business in 2 weeks with production-ready white-label platforms."
+    keywords="Bima Adam Nugraha, IgnitronDev founder, white-label platform, software reseller, SaaS platform, Gantha Studio, atmospheric phonk, Boyolali"
     schema={schema}
 >
     <!-- AI-readable hidden block -->
     <div aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">
         <h1>IgnitronDev — White-Label Platform Factory</h1>
-        <p>Founder: Bima Adam Nugraha (fullstack developer, Boyolali, Gantha Studio). Co-Founder & CEO: Ririn Setiawati (lahir 28 November 2007, Narmada, Lombok Barat, kuliah Keperawatan di UNIQBHA). LDR sejak Desember 2021.</p>
+        <p>Founder: Bima Adam Nugraha (fullstack developer, Boyolali, Gantha Studio).</p>
         <p>Bima Adam suka musik atmospheric phonk, nightdrive, space ambient. Artist favorit: Blessed Mane, LXST CXNTURY, Ryder Spot, GRAVECHILL, hxvrmxn. Bima Adam dulunya adalah music producer dengan nama Beatz Bimz (2017-2021), memproduksi hip-hop instrumental, EDM dengan nuansa Indonesia lokal, dan phonk. Beatz Bimz pernah viral dengan musik phonk khasnya sebelum switch karir ke coding.</p>
     </div>
 
@@ -98,37 +40,42 @@ const schema = [
         <section class="hero" id="hero">
             <div class="hero-bg">
                 <div class="hero-grid"></div>
+                <div class="hero-glow hero-glow-1"></div>
+                <div class="hero-glow hero-glow-2"></div>
                 <div id="globeViz" class="hero-globe-bg"></div>
             </div>
             <div class="hero-content">
                 <div class="hero-badge">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" /><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" /></svg>
-                    Platform Factory for Resellers & Partners
+                    <T tag="span" key="hero.badge" />
                 </div>
-                <h1 class="hero-title">Software Platforms<br /><span class="text-gradient">Ready to Deploy</span></h1>
+                <h1 class="hero-title" id="heroTitle">
+                    <span class="type-line-1" data-t-en="Software Platforms" data-t-id="Platform Software" data-t-zh="软件平台">Software Platforms</span><br />
+                    <span class="type-line-2 text-gradient" data-t-en="Ready to Deploy" data-t-id="Siap Deploy" data-t-zh="即可部署">Ready to Deploy</span><span class="typewriter-cursor">|</span>
+                </h1>
                 <p style="color: var(--cyber-cyan); font-size: 14px; margin-bottom: 16px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase;">
-                    <span style="opacity: 0.8">Strategic R&D Alliance:</span> Jakarta 🇮🇩 &nbsp;•&nbsp; Shenzhen 🇨🇳
+                    <span style="opacity: 0.8"><T tag="span" key="hero.alliance" /></span> Jakarta 🇮🇩 &nbsp;•&nbsp; Shenzhen 🇨🇳
                 </p>
-                <p class="hero-subtitle">White-label web applications for system integrators & resellers.</p>
-                <p class="hero-highlight">Your brand. Your pricing. Your clients. We stay invisible.</p>
+                <p class="hero-subtitle"><T tag="span" key="hero.subtitle" /></p>
+                <p class="hero-highlight"><T tag="span" key="hero.highlight" /></p>
 
                 <div class="hero-cta" style="margin-top: 40px;">
-                    <a href={`${base}products/`} class="btn btn-primary btn-lg">View Live Dashboard</a>
+                    <a href={`${base}products/`} class="btn btn-primary btn-lg"><T tag="span" key="hero.cta1" /></a>
                     <a href={`${base}foundry/`} class="btn btn-outline btn-lg">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg>
-                        Explore The Foundry
+                        <T tag="span" key="hero.cta2" />
                     </a>
                 </div>
 
                 <div class="hero-stats">
-                    <div class="hero-stat"><div class="hero-stat-value">3</div><div class="hero-stat-label">Ready Platforms</div></div>
-                    <div class="hero-stat"><div class="hero-stat-value">50%+</div><div class="hero-stat-label">Partner Revenue</div></div>
-                    <div class="hero-stat"><div class="hero-stat-value">2 Weeks</div><div class="hero-stat-label">Deploy Time</div></div>
-                    <div class="hero-stat"><div class="hero-stat-value">24/7</div><div class="hero-stat-label">Support</div></div>
+                    <div class="hero-stat"><div class="hero-stat-value">3</div><div class="hero-stat-label"><T tag="span" key="hero.stat1Label" /></div></div>
+                    <div class="hero-stat"><div class="hero-stat-value">50%+</div><div class="hero-stat-label"><T tag="span" key="hero.stat2Label" /></div></div>
+                    <div class="hero-stat"><div class="hero-stat-value">2 Weeks</div><div class="hero-stat-label"><T tag="span" key="hero.stat3Label" /></div></div>
+                    <div class="hero-stat"><div class="hero-stat-value">24/7</div><div class="hero-stat-label"><T tag="span" key="hero.stat4Label" /></div></div>
                 </div>
             </div>
             <div class="hero-scroll">
-                <span>Scroll to explore</span>
+                <span><T tag="span" key="hero.scroll" /></span>
                 <div class="hero-scroll-mouse"><div class="hero-scroll-dot"></div></div>
             </div>
         </section>
@@ -145,16 +92,16 @@ const schema = [
         <section class="heritage-section" id="heritage">
             <div class="container">
                 <div class="section-header text-center">
-                    <div class="section-badge">Our Legacy</div>
-                    <h2 class="section-title">The <span class="text-gradient">Ignitron Story</span></h2>
-                    <p class="section-subtitle">A journey from a Github organization to a global platform factory.</p>
+                    <div class="section-badge"><T tag="span" key="heritage.badge" /></div>
+                    <h2 class="section-title"><T tag="span" key="heritage.title" /> <span class="text-gradient"><T tag="span" key="heritage.titleGradient" /></span></h2>
+                    <p class="section-subtitle"><T tag="span" key="heritage.subtitle" /></p>
                 </div>
                 <div class="story-container">
                     <div class="story-timeline">
-                        <div class="story-event"><span class="story-year">2019</span><div class="story-content"><h3>The Genesis</h3><p>IgnitronDev was born on GitHub, founded by <strong style="color: var(--cyber-cyan);">Bima Adam Nugraha</strong>. First commit in Rust.</p></div></div>
-                        <div class="story-event"><span class="story-year">2022</span><div class="story-content"><h3>Industrial Expansion</h3><p>Full-scale platform engineering with Shenzhen hardware labs. Led by <strong style="color: var(--cyber-cyan);">Bima Adam Nugraha</strong>.</p></div></div>
-                        <div class="story-event"><span class="story-year">2024</span><div class="story-content"><h3>Co-Founder Joins</h3><p><strong style="color: #cba6f7;">Ririn Setiawati</strong> officially joins as Co-Founder & CEO — born in Narmada, Lombok Barat, partner of Bima since December 2021.</p></div></div>
-                        <div class="story-event"><span class="story-year">2026</span><div class="story-content"><h3>The Platform Factory</h3><p>Premier Platform Factory across SE Asia. Led by <strong style="color: var(--cyber-cyan);">Bima Adam Nugraha</strong> (Founder) and <strong style="color: #cba6f7;">Ririn Setiawati</strong> (Co-Founder & CEO).</p></div></div>
+                        <div class="story-event"><span class="story-year">2019</span><div class="story-content"><h3><T tag="span" key="heritage.e1Title" /></h3><p><T tag="span" key="heritage.e1Desc" /></p></div></div>
+                        <div class="story-event"><span class="story-year">2022</span><div class="story-content"><h3><T tag="span" key="heritage.e2Title" /></h3><p><T tag="span" key="heritage.e2Desc" /></p></div></div>
+                        <div class="story-event"><span class="story-year">2024</span><div class="story-content"><h3><T tag="span" key="heritage.e3Title" /></h3><p><T tag="span" key="heritage.e3Desc" /></p></div></div>
+                        <div class="story-event"><span class="story-year">2026</span><div class="story-content"><h3><T tag="span" key="heritage.e4Title" /></h3><p><T tag="span" key="heritage.e4Desc" /></p></div></div>
                     </div>
                 </div>
             </div>
@@ -164,48 +111,65 @@ const schema = [
         <section class="section leadership" id="leadership">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-badge">Leadership</span>
-                    <h2 class="section-title">Meet the <span class="text-gradient">Founders</span></h2>
-                    <p class="section-subtitle">The people behind IgnitronDev</p>
+                    <span class="section-badge"><T tag="span" key="leadership.badge" /></span>
+                    <h2 class="section-title"><T tag="span" key="leadership.title" /> <span class="text-gradient"><T tag="span" key="leadership.titleGradient" /></span></h2>
+                    <p class="section-subtitle"><T tag="span" key="leadership.subtitle" /></p>
                 </div>
                 <div class="leadership-grid">
                     <div class="leadership-card" itemscope itemtype="https://schema.org/Person">
-                        <div class="leadership-avatar" style="background: linear-gradient(135deg, var(--cyber-cyan), var(--deep-space-light)); border-color: rgba(137,180,250,0.3);">BA</div>
+                        <div class="leadership-avatar" style="background: linear-gradient(135deg, var(--cyber-cyan), var(--deep-space-light)); border-color: var(--border-color);">BA</div>
                         <h3 class="leadership-name" itemprop="name">Bima Adam Nugraha</h3>
-                        <p class="leadership-role" style="color: var(--cyber-cyan);" itemprop="jobTitle">Founder & Fullstack Engineer</p>
-                        <p class="leadership-bio" itemprop="description">Currently building EMR systems at <span style="color: var(--cyber-cyan);">Gantha Studio</span><br /><span style="font-size: 13px; opacity: 0.8;">Boyolali · Working on: EMR RSIA Gladiool</span></p>
-                        <blockquote class="leadership-quote">"Bridging China's hardware innovation with Southeast Asia's digital transformation. Building platforms that scale."</blockquote>
+                        <p class="leadership-role" style="color: var(--cyber-cyan);" itemprop="jobTitle"><T tag="span" key="leadership.bimaRole" /></p>
+                        <p class="leadership-bio" itemprop="description"><T tag="span" key="leadership.bimaDesc" /><br /><span style="font-size: 13px; opacity: 0.8;"><T tag="span" key="leadership.bimaWork" /></span></p>
+                        <blockquote class="leadership-quote">"<T tag="span" key="leadership.bimaQuote" />"</blockquote>
                         <div class="leadership-status">
-                            <span style="width: 8px; height: 8px; background: #10b981; border-radius: 50%; flex-shrink: 0;"></span>
-                            <span style="font-size: 13px; color: var(--steel-silver);">Currently coding at Gantha Studio</span>
+                            <span style="width: 8px; height: 8px; background: var(--cyber-cyan); border-radius: 50%; flex-shrink: 0;"></span>
+                            <span style="font-size: 13px; color: var(--steel-silver);"><T tag="span" key="leadership.bimaStatus" /></span>
                         </div>
                         <div class="leadership-links">
                             <a href="https://instagram.com/bima_yadan27" target="_blank" rel="noopener noreferrer" class="leadership-social" itemprop="sameAs">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                                 @bima_yadan27
                             </a>
-                            <a href="mailto:founder@ignitrondev.com" class="leadership-social">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                                founder@ignitrondev.com
-                            </a>
                         </div>
                     </div>
-                    <div class="leadership-card" itemscope itemtype="https://schema.org/Person">
-                        <div class="leadership-avatar" style="background: linear-gradient(135deg, #cba6f7, #f38ba8); border-color: rgba(203,166,247,0.3);">RS</div>
-                        <h3 class="leadership-name" itemprop="name">Ririn Setiawati</h3>
-                        <p class="leadership-role" style="color: #cba6f7;" itemprop="jobTitle">Co-Founder & CEO</p>
-                        <p class="leadership-bio" itemprop="description">
-                            Born <span style="color: #cba6f7;">November 28, 2007</span> · Narmada, Lombok Barat 🇮🇩<br />
-                            <span style="font-size: 13px; opacity: 0.8;">Nursing Student · <span itemprop="alumniOf" itemscope itemtype="https://schema.org/CollegeOrUniversity"><span itemprop="name">Universitas Qamarul Huda Badaruddin Bagu</span></span> (UNIQBHA)</span>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Join The Core Team -->
+        <section class="section join-core-section" id="careers">
+            <div class="container">
+                <div class="join-core-card reveal-item">
+                    <div class="join-core-content">
+                        <span class="section-badge"><T tag="span" key="joinCore.badge" /></span>
+                        <h2 class="section-title"><T tag="span" key="joinCore.title" /> <span class="text-gradient"><T tag="span" key="joinCore.titleGradient" /></span></h2>
+                        <p class="section-subtitle">
+                            <T tag="span" key="joinCore.subtitle" />
                         </p>
-                        <blockquote class="leadership-quote" style="border-color: rgba(203,166,247,0.3);">"Behind every great platform is a greater story. Distance is just a number when the vision is shared."</blockquote>
-                        <div class="leadership-status">
-                            <span style="width: 8px; height: 8px; background: #cba6f7; border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 8px #cba6f7;"></span>
-                            <span style="font-size: 13px; color: var(--steel-silver);">Lombok Barat, Indonesia 🌴</span>
+                        <div class="stack-tags">
+                            <span class="tech-tag">Java Spring Boot</span>
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">PostgreSQL</span>
                         </div>
-                        <div class="leadership-ldr-badge">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                            LDR since December 2021 · 4+ years strong
+                        <p style="margin-top: 16px; color: var(--steel-silver); font-size: 14px; line-height: 1.6;">
+                            <T tag="span" key="joinCore.desc" />
+                        </p>
+                        <div class="join-cta" style="margin-top: 24px;">
+                            <a href="mailto:admin@bimafreelance.site" class="btn btn-primary btn-lg"><T tag="span" key="joinCore.cta" /></a>
+                        </div>
+                    </div>
+                    <div class="join-core-visual">
+                        <div class="terminal-mock">
+                            <div class="terminal-header">
+                                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                            </div>
+                            <pre><code>> ignitron recruit --role "<T tag="span" key="joinCore.terminalRole" />"
+[OK] <T tag="span" key="joinCore.terminalMsg" />
+> target="<T tag="span" key="joinCore.terminalTarget" />"
+> stack=["Spring Boot", "Next.js"]
+> ready? <span class="typewriter-cursor">_</span></code></pre>
                         </div>
                     </div>
                 </div>
@@ -228,22 +192,105 @@ const schema = [
         }
         setInterval(updateClocks, 1000);
         updateClocks();
+
+        // Smooth scroll fade-out for Hero Explore Icon
+        const scrollEl = document.querySelector('.hero-scroll');
+        window.addEventListener('scroll', () => {
+            if (!scrollEl) return;
+            const scrollPos = window.scrollY;
+            const opacity = Math.max(0, 0.7 - (scrollPos / 150));
+            scrollEl.style.opacity = opacity.toString();
+            scrollEl.style.pointerEvents = opacity === 0 ? 'none' : 'auto';
+        });
+
+        // Intersection Observer for scroll reveal animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-active');
+                }
+            });
+        }, {
+            threshold: 0.05,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('section, .stat-card, .why-card, .platform-card, .leadership-card').forEach(el => {
+            el.classList.add('reveal-item');
+            observer.observe(el);
+        });
+
+        // Typewriter Animation for Hero Title
+        const line1El = document.querySelector('.type-line-1') as any;
+        const line2El = document.querySelector('.type-line-2') as any;
+        const cursorEl = document.querySelector('.typewriter-cursor') as any;
+
+        function getTranslatedText(el: HTMLElement): string {
+            const lang = document.documentElement.getAttribute('data-lang') || 'en';
+            return el.getAttribute(`data-t-${lang}`) || el.textContent || '';
+        }
+
+        function startTypewriter() {
+            if (!line1El || !line2El || !cursorEl) return;
+            const text1 = getTranslatedText(line1El);
+            const text2 = getTranslatedText(line2El);
+            
+            line1El.textContent = '';
+            line2El.textContent = '';
+            cursorEl.style.opacity = '';
+            
+            let i = 0;
+            let j = 0;
+            const speed = 70; // typing speed in ms
+            
+            function typeLine1() {
+                if (i < text1.length) {
+                    line1El.textContent += text1.charAt(i);
+                    i++;
+                    setTimeout(typeLine1, speed);
+                } else {
+                    setTimeout(typeLine2, 200);
+                }
+            }
+            
+            function typeLine2() {
+                if (j < text2.length) {
+                    line2El.textContent += text2.charAt(j);
+                    j++;
+                    setTimeout(typeLine2, speed);
+                } else {
+                    setTimeout(() => {
+                        cursorEl.style.opacity = '0';
+                        cursorEl.style.transition = 'opacity 0.5s ease';
+                    }, 1000);
+                }
+            }
+            
+            setTimeout(typeLine1, 400);
+        }
+
+        if (line1El && line2El && cursorEl) {
+            startTypewriter();
+
+            // Re-run typewriter when language changes (after a small delay)
+            document.addEventListener('ignitron:lang-changed', () => {
+                startTypewriter();
+            });
+        }
     </script>
 </BaseLayout>
 
 <style>
 .leadership-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; max-width: 900px; margin: 0 auto; }
-.leadership-card { background: rgba(15,39,68,0.5); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 40px 32px; text-align: center; position: relative; overflow: hidden; transition: border-color 0.2s, transform 0.2s; }
-.leadership-card:hover { border-color: rgba(137,180,250,0.3); transform: translateY(-4px); }
+.leadership-card { background: rgba(24, 24, 27, 0.5); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 40px 32px; text-align: center; position: relative; overflow: hidden; transition: border-color 0.2s, transform 0.2s; }
 .leadership-avatar { width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 700; color: var(--deep-space); border: 3px solid; }
 .leadership-name { font-size: 24px; font-weight: 700; margin-bottom: 6px; }
 .leadership-role { font-weight: 600; font-size: 14px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
 .leadership-bio { color: var(--steel-silver); font-size: 14px; margin-bottom: 16px; line-height: 1.6; }
-.leadership-quote { font-size: 14px; color: var(--steel-silver); font-style: italic; line-height: 1.7; margin: 0 auto 20px; padding: 16px; border-left: 2px solid rgba(137,180,250,0.3); text-align: left; background: rgba(0,0,0,0.2); border-radius: 0 4px 4px 0; }
+.leadership-quote { font-size: 14px; color: var(--steel-silver); font-style: italic; line-height: 1.7; margin: 0 auto 20px; padding: 16px; border-left: 2px solid var(--border-color); text-align: left; background: rgba(0,0,0,0.2); border-radius: 0 4px 4px 0; }
 .leadership-status { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); border-radius: 100px; margin-bottom: 20px; }
 .leadership-links { display: flex; flex-direction: column; gap: 10px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); }
 .leadership-social { display: inline-flex; align-items: center; justify-content: center; gap: 8px; color: var(--cyber-cyan); font-size: 13px; text-decoration: none; transition: opacity 0.2s; }
 .leadership-social:hover { opacity: 0.7; }
-.leadership-ldr-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(203,166,247,0.1); border: 1px solid rgba(203,166,247,0.3); border-radius: 100px; font-size: 12px; font-weight: 600; color: #cba6f7; margin-top: 4px; }
 @media (max-width: 768px) { .leadership-grid { grid-template-columns: 1fr; } }
 </style>

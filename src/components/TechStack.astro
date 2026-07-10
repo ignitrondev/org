@@ -1,10 +1,11 @@
 ---
+import T from './T.astro';
 ---
 <section class="tech-stack-section">
     <div class="container text-center">
-        <div class="section-badge">Platform Architecture</div>
-        <h2 class="section-title">Inside the <span class="text-gradient">Engine</span></h2>
-        <p class="section-subtitle">We use industrial-grade technology to ensure your business remains unbreakable and scalable.</p>
+        <div class="section-badge"><T tag="span" key="techstack.badge" /></div>
+        <h2 class="section-title"><T tag="span" key="techstack.title" /> <span class="text-gradient"><T tag="span" key="techstack.titleGradient" /></span></h2>
+        <p class="section-subtitle"><T tag="span" key="techstack.subtitle" /></p>
         <div class="tech-grid">
             <div class="tech-item">
                 <div class="tech-icon">

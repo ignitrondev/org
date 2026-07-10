@@ -125,10 +125,10 @@
     "e1Desc": "IgnitronDev was born on GitHub, founded by Bima Adam Nugraha. First commit in Rust.",
     "e2Title": "Industrial Expansion",
     "e2Desc": "Full-scale platform engineering with Shenzhen hardware labs. Led by Bima Adam Nugraha.",
-    "e3Title": "Co-Founder Joins",
-    "e3Desc": "Ririn Setiawati officially joins as Co-Founder & CEO — born in Narmada, Lombok Barat, partner of Bima since December 2021.",
+    "e3Title": "Core Team Expansion",
+    "e3Desc": "IgnitronDev begins expanding its core team to scale up operations.",
     "e4Title": "The Platform Factory",
-    "e4Desc": "Premier Platform Factory across SE Asia. Led by Bima Adam Nugraha (Founder) and Ririn Setiawati (Co-Founder & CEO)."
+    "e4Desc": "Premier Platform Factory across SE Asia. Led by Bima Adam Nugraha (Founder)."
   },
   "leadership": {
     "badge": "Leadership",
@@ -139,12 +139,12 @@
     "bimaDesc": "Currently building EMR systems at Gantha Studio",
     "bimaWork": "Boyolali · Working on: EMR RSIA Gladiool",
     "bimaQuote": "Bridging China's hardware innovation with Southeast Asia's digital transformation. Building platforms that scale.",
-    "bimaStatus": "Currently coding at Gantha Studio",
-    "ririnRole": "Co-Founder & CEO",
-    "ririnDesc": "Nursing Student · Universitas Qamarul Huda Badaruddin Bagu (UNIQBHA)",
-    "ririnQuote": "Behind every great platform is a greater story. Distance is just a number when the vision is shared.",
-    "ririnStatus": "Lombok Barat, Indonesia 🌴",
-    "ldrBadge": "LDR since December 2021 · 4+ years strong"
+    "bimaStatus": "West Java, Indonesia ☕",
+    "ririnRole": "",
+    "ririnDesc": "",
+    "ririnQuote": "",
+    "ririnStatus": "",
+    "stack": "Tech Stack"
   },
   "footer": {
     "desc": "Platform Factory for System Integrators & Resellers. Strategic Joint Venture with Chinese Technology Partners.",
@@ -154,8 +154,10 @@
     "resellerProgram": "Reseller Program",
     "whitelabelPartner": "White-Label Partner",
     "techPartner": "Technology Partner",
-    "copyright": "© 2026 IgnitronDev. All rights reserved. Founded by",
-    "coFoundedBy": "Co-Founder & CEO: Ririn Setiawati",
+    "copyright": "© 2026 IgnitronDev. All rights reserved.",
+    "backToTop": "Back to top",
+    "foundedBy": "Founded by Bima Adam Nugraha",
+    "coFoundedBy": "",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "partnerAgreement": "Partner Agreement",
@@ -181,5 +183,16 @@
     "newsletterPlaceholder": "your@email.com",
     "readMore": "Read more",
     "noPostsFound": "No posts found in this category."
+  },
+  "joinCore": {
+    "badge": "We Are Expanding",
+    "title": "Join The",
+    "titleGradient": "Core Team",
+    "subtitle": "IgnitronDev is currently building enterprise-grade systems like the EMR for RSIA Gladiool.",
+    "desc": "If you speak this stack and want to build high-scale platforms, let's talk. We operate remotely. No corporate BS.",
+    "cta": "Hit Me Up",
+    "terminalRole": "Fullstack",
+    "terminalMsg": "We are looking for engineers.",
+    "terminalTarget": "RSIA Gladiool EMR"
   }
 }

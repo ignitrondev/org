@@ -1,4 +1,5 @@
 ---
+import T from './T.astro';
 const base = import.meta.env.BASE_URL;
 ---
 
@@ -10,11 +11,11 @@ const base = import.meta.env.BASE_URL;
                     <circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" />
                 </svg>
             </div>
-            <h2 class="cta-title">Ready to Start Your Software Business?</h2>
-            <p class="cta-subtitle">Join our partner program today. Deploy your first platform within 2 weeks.</p>
+            <h2 class="cta-title"><T tag="span" key="footer.ctaTitle" /></h2>
+            <p class="cta-subtitle"><T tag="span" key="footer.ctaSubtitle" /></p>
             <div class="cta-buttons">
-                <button class="btn btn-primary btn-lg">Schedule Partnership Call</button>
-                <button class="btn btn-outline btn-lg">Download Partner Kit</button>
+                <button class="btn btn-primary btn-lg"><T tag="span" key="footer.ctaBtn1" /></button>
+                <button class="btn btn-outline btn-lg"><T tag="span" key="footer.ctaBtn2" /></button>
             </div>
         </div>
     </div>
@@ -30,26 +31,26 @@ const base = import.meta.env.BASE_URL;
                     </div>
                     <span>Ignitron<span>Dev</span></span>
                 </a>
-                <p class="footer-desc">Platform Factory for System Integrators & Resellers. Strategic Joint Venture with Chinese Technology Partners.</p>
+                <p class="footer-desc"><T tag="span" key="footer.desc" /></p>
             </div>
             <div class="footer-links">
-                <h4>Platforms</h4>
+                <h4><T tag="span" key="footer.platforms" /></h4>
                 <ul>
-                    <li><a href="#">ShipRadar</a></li>
-                    <li><a href="#">FactorySense</a></li>
-                    <li><a href="#">AssetTrack</a></li>
+                    <li><a href={`${base}#platforms`}>ShipRadar</a></li>
+                    <li><a href={`${base}#platforms`}>FactorySense</a></li>
+                    <li><a href={`${base}#platforms`}>AssetTrack</a></li>
                 </ul>
             </div>
             <div class="footer-links">
-                <h4>Partnership</h4>
+                <h4><T tag="span" key="footer.partnership" /></h4>
                 <ul>
-                    <li><a href="#">Reseller Program</a></li>
-                    <li><a href="#">White-Label Partner</a></li>
-                    <li><a href="#">Technology Partner</a></li>
+                    <li><a href={`${base}#partners`}><T tag="span" key="footer.resellerProgram" /></a></li>
+                    <li><a href={`${base}#partners`}><T tag="span" key="footer.whitelabelPartner" /></a></li>
+                    <li><a href={`${base}#partners`}><T tag="span" key="footer.techPartner" /></a></li>
                 </ul>
             </div>
             <div class="footer-links">
-                <h4>Contact</h4>
+                <h4><T tag="span" key="footer.contact" /></h4>
                 <ul>
                     <li class="footer-contact-item">partners@ignitrondev.com</li>
                     <li class="footer-contact-item">WA: +62 xxx-xxxx-xxxx</li>
@@ -66,9 +67,9 @@ const base = import.meta.env.BASE_URL;
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 IgnitronDev. All rights reserved. Founded by <a href="https://instagram.com/bima_yadan27" target="_blank" rel="noopener noreferrer">Bima Adam Nugraha</a> · Co-Founder & CEO: Ririn Setiawati</p>
+            <p><T tag="span" key="footer.copyright" /> <a href="https://instagram.com/bima_yadan27" target="_blank" rel="noopener noreferrer">Bima Adam Nugraha</a></p>
             <div class="footer-bottom-links">
-                <a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Partner Agreement</a>
+                <a href={`${base}legal/privacy`}><T tag="span" key="footer.privacy" /></a><a href={`${base}legal/terms`}><T tag="span" key="footer.terms" /></a><a href={`${base}legal/partner-agreement`}><T tag="span" key="footer.partnerAgreement" /></a>
             </div>
         </div>
     </div>

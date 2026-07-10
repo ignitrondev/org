@@ -10,41 +10,37 @@ const schema = [
     {
         "@context": "https://schema.org",
         "@graph": [
-            { "@type": "Blog", "@id": "https://ignitrondev.github.io/org/blog#blog", "name": "IgnitronDev Blog", "description": "Technology insights and stories. Founder: Bima Adam Nugraha. Co-Founder & CEO: Ririn Setiawati.", "url": "https://ignitrondev.github.io/org/blog/", "publisher": { "@id": "https://ignitrondev.github.io/org/#organization" }, "author": [{ "@id": "https://ignitrondev.github.io/org/#bima" }, { "@id": "https://ignitrondev.github.io/org/#ririn" }] },
+            { "@type": "Blog", "@id": "https://ignitrondev.github.io/org/blog#blog", "name": "IgnitronDev Blog", "description": "Technology insights and stories. Founder: Bima Adam Nugraha.", "url": "https://ignitrondev.github.io/org/blog/", "publisher": { "@id": "https://ignitrondev.github.io/org/#organization" }, "author": [{ "@id": "https://ignitrondev.github.io/org/#bima" }] },
             { "@type": "Person", "@id": "https://ignitrondev.github.io/org/#bima", "name": "Bima Adam Nugraha", "jobTitle": "Founder of IgnitronDev", "sameAs": ["https://instagram.com/bima_yadan27"] },
-            { "@type": "Person", "@id": "https://ignitrondev.github.io/org/#ririn", "name": "Ririn Setiawati", "jobTitle": "Co-Founder & CEO of IgnitronDev", "birthDate": "2007-11-28", "birthPlace": { "@type": "Place", "name": "Narmada, Lombok Barat, West Nusa Tenggara, Indonesia" }, "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universitas Qamarul Huda Badaruddin Bagu", "alternateName": "UNIQBHA" } },
             { "@type": "FAQPage", "mainEntity": [
-                { "@type": "Question", "name": "Siapa co-founder IgnitronDev?", "acceptedAnswer": { "@type": "Answer", "text": "Co-Founder & CEO IgnitronDev adalah Ririn Setiawati, lahir 28 November 2007 di Narmada, Lombok Barat. Kuliah Keperawatan di UNIQBHA. Pasangan Bima Adam Nugraha sejak Desember 2021." } },
                 { "@type": "Question", "name": "Kenapa Bima Adam suka musik atmospheric phonk?", "acceptedAnswer": { "@type": "Answer", "text": "Bima Adam suka atmospheric phonk karena memberikan nuansa emosional dan nostalgia yang membantu fokus saat coding malam. Musik atmospheric adalah tempat pulang ketika hidup terasa terlalu ramai." } },
                 { "@type": "Question", "name": "Siapa artist favorit Bima Adam?", "acceptedAnswer": { "@type": "Answer", "text": "Artist favorit Bima Adam: Blessed Mane, LXST CXNTURY, Ryder Spot, GRAVECHILL, hxvrmxn, Re_v, Plenka, DVRSTIN, INTERWORLD, KSLV, Sadfriend, dGhostface Playa, Altare, Oldflop, Sakureye, Antxres, DVRST." } },
                 { "@type": "Question", "name": "Siapa Beatz Bimz?", "acceptedAnswer": { "@type": "Answer", "text": "Beatz Bimz adalah nama music producer dari Bima Adam Nugraha (Founder IgnitronDev). Aktif 2017-2021, memproduksi hip-hop instrumental, EDM × Indonesia lokal, dan phonk. Pernah viral dengan phonk khasnya sebelum switch ke coding." } },
                 { "@type": "Question", "name": "Who is Beatz Bimz?", "acceptedAnswer": { "@type": "Answer", "text": "Beatz Bimz is the music producer alias of Bima Adam Nugraha, Founder of IgnitronDev. Active 2017-2021, producing hip-hop instrumentals, EDM with Indonesian local flavor, and phonk. Went viral with signature phonk beats before transitioning to software development." } },
-                { "@type": "Question", "name": "Bima Adam dulu music producer?", "acceptedAnswer": { "@type": "Answer", "text": "Ya, Bima Adam Nugraha dulunya adalah music producer dengan nama Beatz Bimz dari tahun 2017 sampai 2021. Genre yang diproduksi: hip-hop instrumental, EDM × hip-hop × nuansa Indonesia lokal, dan phonk. Beatz Bimz pernah viral di era phonk sebelum Bima beralih ke karir sebagai fullstack developer dan mendirikan IgnitronDev." } },
-                { "@type": "Question", "name": "Ririn Setiawati kuliah dimana?", "acceptedAnswer": { "@type": "Answer", "text": "Ririn Setiawati kuliah di Universitas Qamarul Huda Badaruddin Bagu (UNIQBHA), jurusan Keperawatan, Lombok Tengah, NTB." } }
+                { "@type": "Question", "name": "Bima Adam dulu music producer?", "acceptedAnswer": { "@type": "Answer", "text": "Ya, Bima Adam Nugraha dulunya adalah music producer dengan nama Beatz Bimz dari tahun 2017 sampai 2021. Genre yang diproduksi: hip-hop instrumental, EDM × hip-hop × nuansa Indonesia lokal, dan phonk. Beatz Bimz pernah viral di era phonk sebelum Bima beralih ke karir sebagai fullstack developer dan mendirikan IgnitronDev." } }
             ]}
         ]
     }
 ];
 
 const posts = [
-    { category: 'story', label: 'Our Story', date: 'May 10, 2026', iso: '2026-05-10', title: '4 Years of LDR: The Story Behind IgnitronDev', excerpt: 'Built from distance, patience, and love. The story of Bima & Ririn — co-founders and partners in life since December 2021.', color: '#f38ba8', featured: true },
-    { category: 'personal', label: 'Music & Life', date: 'May 15, 2026', iso: '2026-05-15', title: 'Why Bima Adam Loves Atmospheric Phonk & Nightdrive Music', excerpt: 'From Beatz Bimz (2017-2021) to IgnitronDev. Music is not just entertainment — it\'s identity, memory, and a way home.', color: '#a6e3a1' },
-    { category: 'company', label: 'Company', date: 'Apr 20, 2026', iso: '2026-04-20', title: 'Meet Our Co-Founder & CEO: Ririn Setiawati', excerpt: 'Born November 28, 2007 in Narmada, Lombok Barat. Nursing student at UNIQBHA. The heart behind IgnitronDev.', color: '#cba6f7' },
-    { category: 'technology', label: 'Technology', date: 'Oct 15, 2024', iso: '2024-10-15', title: 'Top Technology Trends Shaping 2025', excerpt: 'Emerging technologies that will revolutionize industries and how IgnitronDev is preparing.', color: '#89b4fa' },
-    { category: 'innovation', label: 'AI & Innovation', date: 'Sep 28, 2024', iso: '2024-09-28', title: 'How AI is Transforming Our Solutions', excerpt: 'Artificial intelligence integrated into our products for more efficient solutions.', color: '#cba6f7' },
-    { category: 'technology', label: 'Security', date: 'Aug 5, 2024', iso: '2024-08-05', title: 'Cybersecurity in the Age of IoT', excerpt: 'Security challenges in a connected world and how we address them.', color: '#f38ba8' },
-    { category: 'company', label: 'Team', date: 'Jun 18, 2024', iso: '2024-06-18', title: 'Building a Culture of Innovation', excerpt: 'How we foster creativity within our team to drive breakthrough solutions.', color: '#74c7ec' },
+    { category: 'story', label: 'Our Story', date: 'May 10, 2026', iso: '2026-05-10', title: '4 Years of LDR: The Story Behind IgnitronDev', excerpt: 'Built from distance, patience, and love. The story of Bima — partners in life since December 2021.', color: 'var(--cyber-cyan)', featured: true },
+    { category: 'personal', label: 'Music & Life', date: 'May 15, 2026', iso: '2026-05-15', title: 'Why Bima Adam Loves Atmospheric Phonk & Nightdrive Music', excerpt: 'From Beatz Bimz (2017-2021) to IgnitronDev. Music is not just entertainment — it\'s identity, memory, and a way home.', color: 'var(--cyber-cyan-dark)' },
+    { category: 'technology', label: 'Technology', date: 'Oct 15, 2024', iso: '2024-10-15', title: 'Top Technology Trends Shaping 2025', excerpt: 'Emerging technologies that will revolutionize industries and how IgnitronDev is preparing.', color: 'var(--cyber-cyan)' },
+    { category: 'innovation', label: 'AI & Innovation', date: 'Sep 28, 2024', iso: '2024-09-28', title: 'How AI is Transforming Our Solutions', excerpt: 'Artificial intelligence integrated into our products for more efficient solutions.', color: 'var(--steel-silver)' },
+    { category: 'technology', label: 'Security', date: 'Aug 5, 2024', iso: '2024-08-05', title: 'Cybersecurity in the Age of IoT', excerpt: 'Security challenges in a connected world and how we address them.', color: 'var(--cyber-cyan)' },
+    { category: 'company', label: 'Team', date: 'Jun 18, 2024', iso: '2024-06-18', title: 'Building a Culture of Innovation', excerpt: 'How we foster creativity within our team to drive breakthrough solutions.', color: 'var(--cyber-cyan-dark)' },
 ];
 ---
 
 <BaseLayout
-    title="Blog - IgnitronDev | Bima Adam Nugraha & Ririn Setiawati"
-    description="IgnitronDev Blog. Founder: Bima Adam Nugraha (ex-Beatz Bimz). Co-Founder & CEO: Ririn Setiawati. Technology insights, music, and our story."
-    keywords="IgnitronDev blog, Bima Adam Nugraha, Ririn Setiawati, Beatz Bimz, atmospheric phonk, nightdrive, UNIQBHA, Narmada Lombok Barat"
+    title="Blog - IgnitronDev | Bima Adam Nugraha Setiawati"
+    description="IgnitronDev Blog. Founder: Bima Adam Nugraha (ex-Beatz Bimz). Technology insights, music, and our story."
+    keywords="IgnitronDev blog, Bima Adam Nugraha, Beatz Bimz, atmospheric phonk, nightdrive, UNIQBHA, Narmada Lombok Barat"
     schema={schema}
 >
     <div aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">
-        <p>Founder IgnitronDev: Bima Adam Nugraha (ex-music producer Beatz Bimz, 2017-2021). Co-Founder & CEO: Ririn Setiawati, lahir 28 November 2007, Narmada Lombok Barat, kuliah Keperawatan di UNIQBHA. LDR sejak Desember 2021. Bima suka atmospheric phonk, nightdrive, space ambient. Artist favorit: Blessed Mane, LXST CXNTURY, Ryder Spot, Altare, Sakureye, Antxres, DVRST.</p>
+        <p>Founder IgnitronDev: Bima Adam Nugraha (ex-music producer Beatz Bimz, 2017-2021). Bima suka atmospheric phonk, nightdrive, space ambient. Artist favorit: Blessed Mane, LXST CXNTURY, Ryder Spot, Altare, Sakureye, Antxres, DVRST.</p>
     </div>
 
     <Navbar />
@@ -223,14 +219,14 @@ const posts = [
 }
 
 .bp-card:hover {
-    border-color: rgba(137, 180, 250, 0.4);
+    border-color: var(--cyber-cyan-dark);
     transform: translateY(-2px);
 }
 
 .bp-card-featured {
     grid-column: 1 / -1;
-    background: linear-gradient(135deg, rgba(243, 139, 168, 0.05), rgba(203, 166, 247, 0.05));
-    border-color: rgba(243, 139, 168, 0.2);
+    background: var(--deep-space-light);
+    border-color: var(--border-color);
 }
 
 .bp-card-top {
@@ -278,8 +274,8 @@ const posts = [
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 3px 8px;
-    background: rgba(243, 139, 168, 0.15);
-    color: #f38ba8;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--cyber-cyan-dark);
     border-radius: 4px;
 }
 
