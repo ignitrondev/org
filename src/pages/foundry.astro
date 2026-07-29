@@ -2,332 +2,62 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import T from '../components/T.astro';
+import C from '../components/C.astro';
 import '../styles.css';
-
-const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout
-    title="The Foundry - IgnitronDev | White-label B2B Platforms"
-    description="Enterprise-grade white-label platforms ready for deployment. EMR, ERP, and POS systems built by Bima Adam Nugraha."
+    title="Clinical Component Catalog — IgnitronDev"
+    description="Explore the Ignitron Clinical UI roadmap: odontogram, body map, growth chart, partograph, medication timeline, and other reusable clinical interfaces."
+    keywords="clinical component catalog, odontogram React, medical body map, growth chart component, EMR UI components"
 >
     <Navbar />
     <main class="main-content">
-        <!-- Hero Section -->
-        <section class="foundry-hero">
+        <section class="catalog-hero">
             <div class="container">
-                <span class="section-badge" style="margin-bottom: 24px; display: inline-block;">IGNITRON FOUNDRY</span>
-                <h1 class="hero-title"><T tag="span" key="foundry.title" /></h1>
-                <p class="hero-subtitle" style="max-width: 600px; margin: 0 auto; margin-top: 24px; color: var(--steel-silver);">
-                    <T tag="span" key="foundry.subtitle" />
-                </p>
+                <span class="section-badge">IGNITRON CLINICAL UI</span>
+                <h1><C en="Clinical component" id="Katalog komponen" zh="临床组件" /><br /><span class="text-gradient"><C en="catalog & roadmap" id="klinis & roadmap" zh="目录与路线图" /></span></h1>
+                <p><C en="A focused library of difficult clinical interfaces. Availability labels are intentional: we publish what is real and show what is still being validated." id="Library terfokus untuk interface klinis yang sulit. Label ketersediaan dibuat secara sengaja: kami mempublikasikan yang nyata dan menunjukkan yang masih divalidasi." zh="专注于复杂临床界面的组件库。可用性标签保持透明：真实发布已完成内容，并明确标注仍在验证的部分。" /></p>
             </div>
         </section>
 
-        <!-- Product Grid (Bento Style) -->
-        <section class="foundry-products">
-            <div class="container">
-                <div class="bento-grid">
-                    
-                    <!-- EMR (Main Focus) -->
-                    <div class="bento-card bento-emr">
-                        <div class="bento-content">
-                            <span class="product-badge">Flagship Platform</span>
-                            <h2 class="product-title"><T tag="span" key="foundry.emrTitle" /></h2>
-                            <p class="product-desc"><T tag="span" key="foundry.emrDesc" /></p>
-                            
-                            <div class="product-specs">
-                                <span>Java Spring Boot</span>
-                                <span>Next.js</span>
-                                <span>PostgreSQL</span>
-                            </div>
-                        </div>
-                        <div class="bento-visual">
-                            <!-- Abstract visual representation of EMR -->
-                            <div class="abstract-emr">
-                                <div class="pulse-ring"></div>
-                                <div class="node"></div>
-                                <div class="node"></div>
-                                <div class="node"></div>
-                            </div>
-                        </div>
-                    </div>
+        <section class="catalog-section">
+            <div class="container catalog-list">
+                <article class="catalog-item focus">
+                    <div class="item-meta"><span>01 · DENTISTRY</span><span class="availability active"><C en="In development" id="Dalam pengembangan" zh="开发中" /></span></div>
+                    <div class="item-main"><div><h2>Ignitron Odontogram</h2><p><C en="The first release: a configurable, controlled dental chart for clinical findings at tooth and surface level." id="Rilis pertama: dental chart configurable dan controlled untuk temuan klinis pada tingkat gigi maupun permukaan." zh="首个版本：可配置、受控的牙科图表，支持牙齿与牙面级临床发现。" /></p></div><div class="item-tags"><span>FDI</span><span>Universal</span><span>Palmer</span><span>Primary</span><span>Permanent</span><span>Mixed</span></div></div>
+                    <div class="item-scope"><div><b>Core</b><span>Canonical data model, numbering conversion, validation, serializer</span></div><div><b>React</b><span>Controlled input, whole-tooth selection, read-only and print modes</span></div><div><b>Enterprise</b><span>Terminology mapping, organization profiles, migration support</span></div></div>
+                </article>
 
-                    <!-- ERP -->
-                    <div class="bento-card bento-erp">
-                        <div class="bento-content">
-                            <span class="product-badge" style="color: var(--steel-silver);">Enterprise</span>
-                            <h2 class="product-title"><T tag="span" key="foundry.erpTitle" /></h2>
-                            <p class="product-desc"><T tag="span" key="foundry.erpDesc" /></p>
-                        </div>
-                    </div>
-
-                    <!-- POS -->
-                    <div class="bento-card bento-pos">
-                        <div class="bento-content">
-                            <span class="product-badge" style="color: var(--steel-silver);">Retail</span>
-                            <h2 class="product-title"><T tag="span" key="foundry.posTitle" /></h2>
-                            <p class="product-desc"><T tag="span" key="foundry.posDesc" /></p>
-                        </div>
-                    </div>
-
-                </div>
+                <article class="catalog-item"><div class="item-meta"><span>02 · ANATOMICAL INPUT</span><span class="availability research"><C en="Research" id="Riset" zh="研究中" /></span></div><div class="item-main"><div><h2>Clinical Body Map</h2><p><C en="Anatomical location input for wounds, pain, lesions, and procedures with renderer-independent structured output." id="Input lokasi anatomi untuk luka, nyeri, lesi, dan tindakan dengan output terstruktur yang independen dari renderer." zh="面向伤口、疼痛、病变与操作的解剖位置输入，提供独立于渲染器的结构化输出。" /></p></div><div class="item-tags"><span>Regions</span><span>Laterality</span><span>Annotations</span></div></div></article>
+                <article class="catalog-item"><div class="item-meta"><span>03 · PEDIATRICS</span><span class="availability planned"><C en="Planned" id="Direncanakan" zh="已规划" /></span></div><div class="item-main"><div><h2>Growth Chart</h2><p><C en="Pediatric growth visualization with explicit, versioned reference datasets and accessible data-table fallback." id="Visualisasi pertumbuhan anak dengan dataset referensi eksplisit dan berversi serta fallback tabel data yang accessible." zh="儿童生长可视化，采用显式版本化参考数据集，并提供无障碍数据表回退。" /></p></div><div class="item-tags"><span>Percentiles</span><span>Z-score</span><span>Print</span></div></div></article>
+                <article class="catalog-item"><div class="item-meta"><span>04 · MATERNAL CARE</span><span class="availability planned"><C en="Planned" id="Direncanakan" zh="已规划" /></span></div><div class="item-main"><div><h2>Partograph</h2><p><C en="Structured labor monitoring designed around configurable clinical workflows and deterministic print output." id="Monitoring persalinan terstruktur yang dirancang untuk workflow klinis configurable dan output print konsisten." zh="结构化产程监测，围绕可配置临床工作流与确定性打印输出设计。" /></p></div><div class="item-tags"><span>Timeline</span><span>Observations</span><span>Print</span></div></div></article>
+                <article class="catalog-item"><div class="item-meta"><span>05 · CLINICAL MONITORING</span><span class="availability planned"><C en="Planned" id="Direncanakan" zh="已规划" /></span></div><div class="item-main"><div><h2>Vitals & Early Warning Score</h2><p><C en="Fast vital-sign entry and warning presentation while leaving scoring policy under application control." id="Input tanda vital dan penyajian peringatan yang cepat, sementara kebijakan scoring tetap dikendalikan aplikasi." zh="快速生命体征录入与预警展示，评分策略仍由应用控制。" /></p></div><div class="item-tags"><span>Keyboard</span><span>Validation</span><span>Read-only</span></div></div></article>
+                <article class="catalog-item"><div class="item-meta"><span>06 · MEDICATION</span><span class="availability planned"><C en="Planned" id="Direncanakan" zh="已规划" /></span></div><div class="item-main"><div><h2>Medication Timeline</h2><p><C en="A timeline for scheduled, administered, delayed, omitted, and corrected medication events." id="Timeline untuk event obat terjadwal, diberikan, terlambat, tidak diberikan, dan dikoreksi." zh="用于计划、已给药、延迟、遗漏与更正用药事件的时间线。" /></p></div><div class="item-tags"><span>Events</span><span>History</span><span>Print</span></div></div></article>
             </div>
         </section>
 
-        <!-- Why Partner With Us -->
-        <section class="foundry-features">
-            <div class="container" style="text-align: center;">
-                <h2 style="font-size: clamp(32px, 4vw, 40px); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 16px;"><T tag="span" key="foundry.whyPartner" /></h2>
-                <p style="color: var(--steel-silver); margin-bottom: 64px;"><T tag="span" key="foundry.whyPartnerDesc" /></p>
-
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg>
-                        </div>
-                        <h3><T tag="span" key="foundry.feature1" /></h3>
-                        <p><T tag="span" key="foundry.feature1Desc" /></p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                        </div>
-                        <h3><T tag="span" key="foundry.feature2" /></h3>
-                        <p><T tag="span" key="foundry.feature2Desc" /></p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                        </div>
-                        <h3><T tag="span" key="foundry.feature3" /></h3>
-                        <p><T tag="span" key="foundry.feature3Desc" /></p>
-                    </div>
-                </div>
-
-                <div style="margin-top: 80px; padding: 60px 24px; background: rgba(255,255,255,0.02); border-radius: 24px; border: 1px solid rgba(255,255,255,0.05);">
-                    <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 24px;">Ready to deploy?</h3>
-                    <a href="mailto:admin@bimafreelance.site" class="btn btn-primary btn-lg"><T tag="span" key="foundry.cta" /></a>
-                </div>
+        <section class="catalog-note">
+            <div class="container note-grid">
+                <div><span class="section-badge"><C en="How we prioritize" id="Cara kami menentukan prioritas" zh="我们的优先级方法" /></span><h2><C en="Clinical evidence before component count." id="Bukti klinis sebelum jumlah komponen." zh="临床证据优先于组件数量。" /></h2></div>
+                <div><p><C en="A roadmap item moves into development only after workflow observation, a written data contract, and access to domain reviewers. We would rather ship one trustworthy component than ten decorative mockups." id="Item roadmap masuk pengembangan hanya setelah observasi workflow, kontrak data tertulis, dan tersedia reviewer domain. Kami lebih memilih merilis satu komponen tepercaya daripada sepuluh mockup dekoratif." zh="路线图项目只有在完成工作流观察、书面数据契约并获得领域评审后才进入开发。我们宁愿发布一个可信组件，也不发布十个装饰性原型。" /></p><a href="mailto:admin@bimafreelance.site?subject=Ignitron%20Clinical%20UI%20Pilot" class="btn btn-primary"><C en="Propose a pilot" id="Ajukan pilot" zh="提议试点" /></a></div>
             </div>
         </section>
-
     </main>
     <Footer />
 </BaseLayout>
 
 <style>
-/* Hero Section */
-.foundry-hero {
-    padding: 180px 24px 80px;
-    text-align: center;
-    background: radial-gradient(circle at 50% -20%, rgba(0, 240, 255, 0.1), transparent 60%);
-}
-
-.section-badge {
-    color: var(--cyber-cyan);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    background: rgba(0, 240, 255, 0.1);
-    padding: 6px 16px;
-    border-radius: 100px;
-}
-
-/* Bento Grid */
-.foundry-products {
-    padding: 40px 24px 100px;
-}
-
-.bento-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: minmax(300px, auto);
-    gap: 24px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.bento-card {
-    background: rgba(255,255,255,0.02);
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 24px;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative;
-    overflow: hidden;
-}
-
-.bento-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(0, 240, 255, 0.2);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(0, 240, 255, 0.1);
-}
-
-.bento-emr {
-    grid-column: span 12;
-    min-height: 480px;
-    flex-direction: row;
-    align-items: center;
-}
-
-.bento-erp {
-    grid-column: span 7;
-}
-
-.bento-pos {
-    grid-column: span 5;
-}
-
-@media (max-width: 900px) {
-    .bento-emr { flex-direction: column; }
-    .bento-erp, .bento-pos { grid-column: span 12; }
-}
-
-.product-badge {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--cyber-cyan);
-    margin-bottom: 16px;
-    display: block;
-}
-
-.product-title {
-    font-size: clamp(32px, 3vw, 40px);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    margin-bottom: 16px;
-}
-
-.product-desc {
-    color: var(--steel-silver);
-    font-size: 18px;
-    line-height: 1.6;
-    max-width: 500px;
-    margin-bottom: 32px;
-}
-
-.product-specs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.product-specs span {
-    font-size: 12px;
-    padding: 6px 12px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 6px;
-    color: var(--steel-silver);
-}
-
-/* Abstract Visual for EMR */
-.bento-visual {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 300px;
-    position: relative;
-}
-
-.abstract-emr {
-    position: relative;
-    width: 200px;
-    height: 200px;
-}
-
-.pulse-ring {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100px; height: 100px;
-    border: 1px solid var(--cyber-cyan);
-    border-radius: 50%;
-    animation: pulse 3s infinite;
-}
-
-.pulse-ring::before {
-    content: '';
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 150px; height: 150px;
-    border: 1px dashed rgba(0, 240, 255, 0.3);
-    border-radius: 50%;
-    animation: rotate 20s linear infinite;
-}
-
-.node {
-    position: absolute;
-    width: 12px; height: 12px;
-    background: var(--cyber-cyan);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--cyber-cyan);
-}
-
-.node:nth-child(2) { top: 20%; left: 50%; transform: translate(-50%, 0); }
-.node:nth-child(3) { bottom: 20%; left: 20%; }
-.node:nth-child(4) { bottom: 20%; right: 20%; }
-
-@keyframes pulse {
-    0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
-    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
-    100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
-}
-
-@keyframes rotate {
-    0% { transform: translate(-50%, -50%) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-/* Features */
-.foundry-features {
-    padding: 0 24px 140px;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 32px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.feature-card {
-    text-align: left;
-    padding: 32px;
-    background: rgba(255,255,255,0.01);
-    border-radius: 16px;
-    border: 1px solid rgba(255,255,255,0.03);
-}
-
-.feature-icon {
-    width: 48px;
-    height: 48px;
-    background: rgba(0, 240, 255, 0.1);
-    color: var(--cyber-cyan);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 24px;
-}
-
-.feature-card h3 {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 12px;
-}
-
-.feature-card p {
-    color: var(--steel-silver);
-    line-height: 1.6;
-}
+    .catalog-hero { padding: 190px 0 100px; text-align: center; background: radial-gradient(circle at 50% -20%, rgba(255,255,255,.08), transparent 55%); }
+    .catalog-hero h1 { font-size: clamp(52px, 8vw, 96px); line-height: .98; letter-spacing: -.06em; margin: 26px 0; }
+    .catalog-hero p { color: #a1a1aa; font-size: 18px; line-height: 1.7; max-width: 720px; margin: 0 auto; }
+    .catalog-section { padding: 20px 0 130px; }.catalog-list { display: grid; gap: 18px; }
+    .catalog-item { border: 1px solid #27272a; background: #0c0c0f; padding: 32px; }.catalog-item.focus { background: linear-gradient(135deg,#18181b,#0c0c0f 65%); border-color: #52525b; }
+    .item-meta { display: flex; justify-content: space-between; color: #71717a; font: 10px var(--font-mono); letter-spacing: .12em; }
+    .availability { border: 1px solid #3f3f46; padding: 5px 9px; }.availability.active { color: #e4e4e7; }.availability.research { border-style: dashed; }.availability.planned { opacity: .65; }
+    .item-main { display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: end; margin-top: 70px; }.item-main h2 { font-size: clamp(30px, 4vw, 52px); letter-spacing: -.045em; }.item-main p { color: #a1a1aa; max-width: 720px; line-height: 1.7; margin-top: 12px; }
+    .item-tags { display: flex; gap: 7px; flex-wrap: wrap; justify-content: flex-end; max-width: 330px; }.item-tags span { border: 1px solid #3f3f46; padding: 5px 8px; color: #71717a; font: 9px var(--font-mono); }
+    .item-scope { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: #27272a; border: 1px solid #27272a; margin-top: 32px; }.item-scope div { background: #0c0c0f; padding: 20px; }.item-scope b { display: block; font: 11px var(--font-mono); margin-bottom: 8px; }.item-scope span { color: #71717a; font-size: 12px; line-height: 1.55; }
+    .catalog-note { background: #0c0c0f; border-block: 1px solid #27272a; padding: 110px 0; }.note-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }.note-grid h2 { font-size: clamp(34px,4vw,58px); line-height: 1.05; letter-spacing: -.045em; margin-top: 25px; }.note-grid p { color: #a1a1aa; font-size: 17px; line-height: 1.8; margin-bottom: 28px; }
+    @media(max-width:760px){.catalog-hero{padding-top:150px}.item-main,.note-grid{grid-template-columns:1fr}.item-main{margin-top:45px}.item-tags{justify-content:flex-start}.item-scope{grid-template-columns:1fr}.note-grid{gap:40px}}
 </style>

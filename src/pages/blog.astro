@@ -11,15 +11,8 @@ const schema = [
     {
         "@context": "https://schema.org",
         "@graph": [
-            { "@type": "Blog", "@id": "https://ignitrondev.github.io/org/blog#blog", "name": "IgnitronDev Blog", "description": "Technology insights and stories. Founder: Bima Adam Nugraha.", "url": "https://ignitrondev.github.io/org/blog/", "publisher": { "@id": "https://ignitrondev.github.io/org/#organization" }, "author": [{ "@id": "https://ignitrondev.github.io/org/#bima" }] },
-            { "@type": "Person", "@id": "https://ignitrondev.github.io/org/#bima", "name": "Bima Adam Nugraha", "jobTitle": "Founder of IgnitronDev", "sameAs": ["https://instagram.com/xiaobima__"] },
-            { "@type": "FAQPage", "mainEntity": [
-                { "@type": "Question", "name": "Kenapa Bima Adam suka musik atmospheric phonk?", "acceptedAnswer": { "@type": "Answer", "text": "Bima Adam suka atmospheric phonk karena memberikan nuansa emosional dan nostalgia yang membantu fokus saat coding malam. Musik atmospheric adalah tempat pulang ketika hidup terasa terlalu ramai." } },
-                { "@type": "Question", "name": "Siapa artist favorit Bima Adam?", "acceptedAnswer": { "@type": "Answer", "text": "Artist favorit Bima Adam: Blessed Mane, LXST CXNTURY, Ryder Spot, GRAVECHILL, hxvrmxn, Re_v, Plenka, DVRSTIN, INTERWORLD, KSLV, Sadfriend, dGhostface Playa, Altare, Oldflop, Sakureye, Antxres, DVRST." } },
-                { "@type": "Question", "name": "Siapa Beatz Bimz?", "acceptedAnswer": { "@type": "Answer", "text": "Beatz Bimz adalah nama music producer dari Bima Adam Nugraha (Founder IgnitronDev). Aktif 2017-2021, memproduksi hip-hop instrumental, EDM × Indonesia lokal, dan phonk. Pernah viral dengan phonk khasnya sebelum switch ke coding." } },
-                { "@type": "Question", "name": "Who is Beatz Bimz?", "acceptedAnswer": { "@type": "Answer", "text": "Beatz Bimz is the music producer alias of Bima Adam Nugraha, Founder of IgnitronDev. Active 2017-2021, producing hip-hop instrumentals, EDM with Indonesian local flavor, and phonk. Went viral with signature phonk beats before transitioning to software development." } },
-                { "@type": "Question", "name": "Bima Adam dulu music producer?", "acceptedAnswer": { "@type": "Answer", "text": "Ya, Bima Adam Nugraha dulunya adalah music producer dengan nama Beatz Bimz dari tahun 2017 sampai 2021. Genre yang diproduksi: hip-hop instrumental, EDM × hip-hop × nuansa Indonesia lokal, dan phonk. Beatz Bimz pernah viral di era phonk sebelum Bima beralih ke karir sebagai fullstack developer dan mendirikan IgnitronDev." } }
-            ]}
+            { "@type": "Blog", "@id": "https://ignitrondev.github.io/org/blog#blog", "name": "IgnitronDev Blog", "description": "Notes on clinical UI, healthcare engineering, and product development.", "url": "https://ignitrondev.github.io/org/blog/", "publisher": { "@id": "https://ignitrondev.github.io/org/#organization" }, "author": [{ "@id": "https://ignitrondev.github.io/org/#bima" }] },
+            { "@type": "Person", "@id": "https://ignitrondev.github.io/org/#bima", "name": "Bima Adam Nugraha", "jobTitle": "Founder of IgnitronDev", "sameAs": ["https://instagram.com/xiaobima__"] }
         ]
     }
 ];
@@ -35,15 +28,11 @@ const posts = allBlogPosts
 ---
 
 <BaseLayout
-    title="Blog - IgnitronDev | Bima Adam Nugraha Setiawati"
-    description="IgnitronDev Blog. Founder: Bima Adam Nugraha (ex-Beatz Bimz). Technology insights, music, and our story."
-    keywords="IgnitronDev blog, Bima Adam Nugraha, Beatz Bimz, atmospheric phonk, nightdrive, UNIQBHA, Narmada Lombok Barat"
+    title="IgnitronDev Blog — Clinical UI, Healthcare Engineering & Product Notes"
+    description="Notes from IgnitronDev about clinical UI, healthcare software engineering, product development, and the journey behind the work."
+    keywords="IgnitronDev blog, clinical UI, healthcare software engineering, medical UI components, product development"
     schema={schema}
 >
-    <div aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">
-        <p>Founder IgnitronDev: Bima Adam Nugraha (ex-music producer Beatz Bimz, 2017-2021). Bima suka atmospheric phonk, nightdrive, space ambient. Artist favorit: Blessed Mane, LXST CXNTURY, Ryder Spot, Altare, Sakureye, Antxres, DVRST.</p>
-    </div>
-
     <Navbar />
     <main class="main-content">
 

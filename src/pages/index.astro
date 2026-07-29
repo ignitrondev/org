@@ -2,15 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import T from '../components/T.astro';
-import PartnersStrip from '../components/PartnersStrip.astro';
-import DeploymentTicker from '../components/DeploymentTicker.astro';
-import TechStack from '../components/TechStack.astro';
-import Roadmap from '../components/Roadmap.astro';
-import Platforms from '../components/Platforms.astro';
-import WhyWhitelabel from '../components/WhyWhitelabel.astro';
-import Calculator from '../components/Calculator.astro';
-import Partners from '../components/Partners.astro';
+import C from '../components/C.astro';
 import '../styles.css';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -21,278 +13,226 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
 ---
 
 <BaseLayout
-    title="IgnitronDev - White-Label Platform Factory | Founded by Bima Adam Nugraha"
-    description="Founded by Bima Adam Nugraha. Launch your software business in 2 weeks with production-ready white-label platforms."
-    keywords="Bima Adam Nugraha, IgnitronDev founder, white-label platform, software reseller, SaaS platform, atmospheric phonk, Boyolali"
+    title="Ignitron Clinical UI — Clinical Components for Healthcare Developers"
+    description="Reusable clinical UI components with clear data contracts, configurable workflows, accessible interactions, and no hidden backend dependency. Starting with odontogram."
+    keywords="clinical UI components, medical UI library, React odontogram, dental chart component, healthcare developer tools, EMR components"
     schema={schema}
 >
-    <!-- AI-readable hidden block -->
-    <div aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">
-        <h1>IgnitronDev — White-Label Platform Factory</h1>
-        <p>Founder: Bima Adam Nugraha (fullstack developer, Boyolali).</p>
-        <p>Bima Adam suka musik atmospheric phonk, nightdrive, space ambient. Artist favorit: Blessed Mane, LXST CXNTURY, Ryder Spot, GRAVECHILL, hxvrmxn. Bima Adam dulunya adalah music producer dengan nama Beatz Bimz (2017-2021), memproduksi hip-hop instrumental, EDM dengan nuansa Indonesia lokal, dan phonk. Beatz Bimz pernah viral dengan musik phonk khasnya sebelum switch karir ke coding.</p>
-    </div>
-
     <Navbar />
     <main class="main-content">
-
-        <!-- Hero -->
-        <section class="hero" id="hero">
-            <div class="hero-bg">
-                <div class="hero-grid"></div>
-                <div class="hero-glow hero-glow-1"></div>
-                <div class="hero-glow hero-glow-2"></div>
-                <div id="globeViz" class="hero-globe-bg"></div>
-            </div>
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" /><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" /></svg>
-                    <T tag="span" key="hero.badge" />
-                </div>
-                <h1 class="hero-title" id="heroTitle">
-                    <span class="type-line-1" data-t-en="Software Platforms" data-t-id="Platform Software" data-t-zh="软件平台">Software Platforms</span><br />
-                    <span class="type-line-2 text-gradient" data-t-en="Ready to Deploy" data-t-id="Siap Deploy" data-t-zh="即可部署">Ready to Deploy</span><span class="typewriter-cursor">|</span>
-                </h1>
-                <p style="color: var(--cyber-cyan); font-size: 14px; margin-bottom: 16px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase;">
-                    <span style="opacity: 0.8"><T tag="span" key="hero.alliance" /></span> Jakarta 🇮🇩 &nbsp;•&nbsp; Shenzhen 🇨🇳
-                </p>
-                <p class="hero-subtitle"><T tag="span" key="hero.subtitle" /></p>
-                <p class="hero-highlight"><T tag="span" key="hero.highlight" /></p>
-
-                <div class="hero-cta" style="margin-top: 40px;">
-                    <a href={`${base}products/`} class="btn btn-primary btn-lg"><T tag="span" key="hero.cta1" /></a>
-                    <a href={`${base}foundry/`} class="btn btn-outline btn-lg">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg>
-                        <T tag="span" key="hero.cta2" />
-                    </a>
+        <section class="clinical-hero" id="hero">
+            <div class="hero-grid-bg" aria-hidden="true"></div>
+            <div class="container clinical-hero-grid">
+                <div class="clinical-hero-copy">
+                    <div class="hero-badge"><span class="status-dot"></span><C en="Clinical UI infrastructure · Early access" id="Infrastruktur UI klinis · Akses awal" zh="临床 UI 基础设施 · 早期访问" /></div>
+                    <h1><C en="Complex clinical UI," id="UI klinis kompleks," zh="复杂的临床 UI，" /><br /><span class="text-gradient"><C en="ready to integrate." id="siap diintegrasikan." zh="随时可集成。" /></span></h1>
+                    <p class="clinical-hero-subtitle"><C en="Reusable components for EMR and healthcare teams—built around clear clinical data contracts, configurable workflows, accessibility, and print-safe output." id="Komponen reusable untuk tim EMR dan healthcare—dibangun dengan kontrak data klinis yang jelas, workflow configurable, aksesibilitas, dan output aman untuk dicetak." zh="面向 EMR 与医疗团队的可复用组件——围绕清晰的临床数据契约、可配置工作流、无障碍与可靠打印输出构建。" /></p>
+                    <div class="hero-cta">
+                        <a href="#components" class="btn btn-primary btn-lg"><C en="Explore components" id="Jelajahi komponen" zh="浏览组件" /></a>
+                        <a href="mailto:admin@bimafreelance.site?subject=Ignitron%20Clinical%20UI%20Pilot" class="btn btn-outline btn-lg"><C en="Join the pilot" id="Ikuti pilot" zh="加入试点" /></a>
+                    </div>
+                    <div class="hero-proof">
+                        <span><b>React</b> first</span>
+                        <span><b>JSON</b> data contract</span>
+                        <span><b>0</b> hidden telemetry</span>
+                    </div>
                 </div>
 
-                <div class="hero-stats">
-                    <div class="hero-stat"><div class="hero-stat-value">3</div><div class="hero-stat-label"><T tag="span" key="hero.stat1Label" /></div></div>
-                    <div class="hero-stat"><div class="hero-stat-value">50%+</div><div class="hero-stat-label"><T tag="span" key="hero.stat2Label" /></div></div>
-                    <div class="hero-stat"><div class="hero-stat-value">2 Weeks</div><div class="hero-stat-label"><T tag="span" key="hero.stat3Label" /></div></div>
-                    <div class="hero-stat"><div class="hero-stat-value">24/7</div><div class="hero-stat-label"><T tag="span" key="hero.stat4Label" /></div></div>
-                </div>
-            </div>
-            <div class="hero-scroll">
-                <span><T tag="span" key="hero.scroll" /></span>
-                <div class="hero-scroll-mouse"><div class="hero-scroll-dot"></div></div>
-            </div>
-        </section>
-
-        <PartnersStrip />
-        <Platforms />
-        <Roadmap />
-        <WhyWhitelabel />
-        <Calculator />
-        <Partners />
-        <TechStack />
-
-        <!-- Heritage -->
-        <section class="heritage-section" id="heritage">
-            <div class="container">
-                <div class="section-header text-center">
-                    <div class="section-badge"><T tag="span" key="heritage.badge" /></div>
-                    <h2 class="section-title"><T tag="span" key="heritage.title" /> <span class="text-gradient"><T tag="span" key="heritage.titleGradient" /></span></h2>
-                    <p class="section-subtitle"><T tag="span" key="heritage.subtitle" /></p>
-                </div>
-                <div class="story-container">
-                    <div class="story-timeline">
-                        <div class="story-event"><span class="story-year">2019</span><div class="story-content"><h3><T tag="span" key="heritage.e1Title" /></h3><p><T tag="span" key="heritage.e1Desc" /></p></div></div>
-                        <div class="story-event"><span class="story-year">2022</span><div class="story-content"><h3><T tag="span" key="heritage.e2Title" /></h3><p><T tag="span" key="heritage.e2Desc" /></p></div></div>
-                        <div class="story-event"><span class="story-year">2024</span><div class="story-content"><h3><T tag="span" key="heritage.e3Title" /></h3><p><T tag="span" key="heritage.e3Desc" /></p></div></div>
-                        <div class="story-event"><span class="story-year">2026</span><div class="story-content"><h3><T tag="span" key="heritage.e4Title" /></h3><p><T tag="span" key="heritage.e4Desc" /></p></div></div>
+                <div class="odontogram-preview" aria-label="Odontogram component preview">
+                    <div class="preview-window">
+                        <div class="preview-header">
+                            <div class="preview-dots"><i></i><i></i><i></i></div>
+                            <span>Odontogram.tsx</span>
+                            <span class="preview-status"><C en="IN DEVELOPMENT" id="DALAM PENGEMBANGAN" zh="开发中" /></span>
+                        </div>
+                        <div class="jaw-label"><C en="Permanent dentition · FDI" id="Gigi permanen · FDI" zh="恒牙列 · FDI" /></div>
+                        <div class="teeth-row upper">
+                            {['18','17','16','15','14','13','12','11','21','22','23','24','25','26','27','28'].map((tooth, index) => (
+                                <div class:list={['tooth', { active: tooth === '16', missing: tooth === '24' }]} style={`--i:${index}`}><span>{tooth}</span><i></i></div>
+                            ))}
+                        </div>
+                        <div class="jaw-divider"><span>R</span><i></i><span>L</span></div>
+                        <div class="teeth-row lower">
+                            {['48','47','46','45','44','43','42','41','31','32','33','34','35','36','37','38'].map((tooth, index) => (
+                                <div class:list={['tooth', { active: tooth === '36' }]} style={`--i:${index}`}><i></i><span>{tooth}</span></div>
+                            ))}
+                        </div>
+                        <div class="preview-legend">
+                            <span><i class="legend-active"></i><C en="Finding" id="Temuan" zh="发现" /></span>
+                            <span><i class="legend-missing"></i><C en="Missing" id="Hilang" zh="缺失" /></span>
+                            <span><i class="legend-clean"></i><C en="No finding" id="Tanpa temuan" zh="无发现" /></span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Leadership -->
-        <section class="section leadership" id="leadership">
+        <section class="signal-strip" aria-label="Product principles summary">
+            <div class="container signal-grid">
+                <span>CLINICAL DATA FIRST</span><span>BACKEND AGNOSTIC</span><span>ACCESSIBLE BY DEFAULT</span><span>PRINT IS FIRST-CLASS</span>
+            </div>
+        </section>
+
+        <section class="section component-section" id="components">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-badge"><T tag="span" key="leadership.badge" /></span>
-                    <h2 class="section-title"><T tag="span" key="leadership.title" /> <span class="text-gradient"><T tag="span" key="leadership.titleGradient" /></span></h2>
-                    <p class="section-subtitle"><T tag="span" key="leadership.subtitle" /></p>
+                    <span class="section-badge"><C en="Clinical component catalog" id="Katalog komponen klinis" zh="临床组件目录" /></span>
+                    <h2 class="section-title"><C en="Hard workflows," id="Workflow sulit," zh="复杂工作流，" /> <span class="text-gradient"><C en="reusable building blocks" id="building block reusable" zh="可复用构件" /></span></h2>
+                    <p class="section-subtitle"><C en="We focus on specialist interfaces that generic design systems do not solve." id="Kami fokus pada interface spesialis yang tidak diselesaikan oleh design system generik." zh="我们专注于通用设计系统无法解决的专业界面。" /></p>
                 </div>
-                <div class="leadership-grid">
-                    <div class="leadership-card" itemscope itemtype="https://schema.org/Person">
-                        <div class="leadership-avatar" style="background: linear-gradient(135deg, var(--cyber-cyan), var(--deep-space-light)); border-color: var(--border-color);">BA</div>
-                        <h3 class="leadership-name" itemprop="name">Bima Adam Nugraha</h3>
-                        <p class="leadership-role" style="color: var(--cyber-cyan);" itemprop="jobTitle"><T tag="span" key="leadership.bimaRole" /></p>
-                        <p class="leadership-bio" itemprop="description"><T tag="span" key="leadership.bimaDesc" /><br /><span style="font-size: 13px; opacity: 0.8;"><T tag="span" key="leadership.bimaWork" /></span></p>
-                        <blockquote class="leadership-quote">"<T tag="span" key="leadership.bimaQuote" />"</blockquote>
-                        <div class="leadership-status">
-                            <span style="width: 8px; height: 8px; background: var(--cyber-cyan); border-radius: 50%; flex-shrink: 0;"></span>
-                            <span style="font-size: 13px; color: var(--steel-silver);"><T tag="span" key="leadership.bimaStatus" /></span>
-                        </div>
-                        <div class="leadership-links">
-                            <a href="https://instagram.com/xiaobima__" target="_blank" rel="noopener noreferrer" class="leadership-social" itemprop="sameAs">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                                @xiaobima__
-                            </a>
-                        </div>
-                    </div>
 
+                <div class="component-grid">
+                    <article class="component-card featured" id="odontogram">
+                        <div class="component-top"><span class="component-index">01</span><span class="status building"><C en="In development" id="Dalam pengembangan" zh="开发中" /></span></div>
+                        <div>
+                            <p class="component-eyebrow">DENTAL CHARTING</p>
+                            <h3>Ignitron Odontogram</h3>
+                            <p><C en="Interactive dental charting for whole-tooth and surface-level findings, with configurable terminology and deterministic read-only/print output." id="Pencatatan gigi interaktif untuk temuan seluruh gigi dan per permukaan, dengan terminologi configurable serta output read-only/print yang konsisten." zh="支持全牙与牙面级发现的交互式牙科记录，可配置术语，并提供确定性的只读与打印输出。" /></p>
+                        </div>
+                        <div class="feature-pills"><span>FDI</span><span>Universal</span><span>Palmer</span><span>Mixed dentition</span><span>TypeScript</span></div>
+                    </article>
+
+                    <article class="component-card">
+                        <div class="component-top"><span class="component-index">02</span><span class="status research"><C en="Research" id="Riset" zh="研究中" /></span></div>
+                        <div><p class="component-eyebrow">ANATOMICAL INPUT</p><h3>Clinical Body Map</h3><p><C en="Record wound, pain, lesion, or procedure locations without tying the data to a single visual renderer." id="Catat lokasi luka, nyeri, lesi, atau tindakan tanpa mengikat data pada satu renderer visual." zh="记录伤口、疼痛、病变或操作位置，同时避免数据绑定到单一视觉渲染器。" /></p></div>
+                    </article>
+
+                    <article class="component-card">
+                        <div class="component-top"><span class="component-index">03</span><span class="status roadmap"><C en="Roadmap" id="Roadmap" zh="路线图" /></span></div>
+                        <div><p class="component-eyebrow">PEDIATRIC CARE</p><h3>Growth Chart</h3><p><C en="Structured pediatric growth plotting with reference datasets supplied explicitly by the integrating application." id="Plot pertumbuhan anak terstruktur dengan dataset referensi yang diberikan secara eksplisit oleh aplikasi integrator." zh="结构化儿童生长曲线，参考数据集由集成应用明确提供。" /></p></div>
+                    </article>
+
+                    <article class="component-card">
+                        <div class="component-top"><span class="component-index">04</span><span class="status roadmap"><C en="Roadmap" id="Roadmap" zh="路线图" /></span></div>
+                        <div><p class="component-eyebrow">CLINICAL MONITORING</p><h3>Vitals & EWS</h3><p><C en="Fast vital-sign entry and warning-score presentation, configurable for organization-specific workflows." id="Input tanda vital dan penyajian warning score yang cepat, configurable untuk workflow masing-masing organisasi." zh="快速生命体征录入与预警评分展示，可按机构工作流配置。" /></p></div>
+                    </article>
                 </div>
+                <div class="catalog-link"><a href={`${base}foundry/`} class="btn btn-outline"><C en="View the full roadmap" id="Lihat roadmap lengkap" zh="查看完整路线图" /></a></div>
             </div>
         </section>
 
-        <!-- Join The Core Team -->
-        <section class="section join-core-section" id="careers">
+        <section class="section principle-section" id="principles">
             <div class="container">
-                <div class="join-core-card">
-                    <div class="join-core-content">
-                        <span class="section-badge"><T tag="span" key="joinCore.badge" /></span>
-                        <h2 class="section-title"><T tag="span" key="joinCore.title" /> <span class="text-gradient"><T tag="span" key="joinCore.titleGradient" /></span></h2>
-                        <p class="section-subtitle">
-                            <T tag="span" key="joinCore.subtitle" />
-                        </p>
-                        <div class="stack-tags">
-                            <span class="tech-tag">Java Spring Boot</span>
-                            <span class="tech-tag">Next.js</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">Kubernetes</span>
-                            <span class="tech-tag">ArgoCD</span>
-                        </div>
-                        <p style="margin-top: 16px; color: var(--steel-silver); font-size: 14px; line-height: 1.6;">
-                            <T tag="span" key="joinCore.desc" />
-                        </p>
-                        <div class="join-cta" style="margin-top: 24px;">
-                            <a href="mailto:admin@bimafreelance.site" class="btn btn-primary btn-lg"><T tag="span" key="joinCore.cta" /></a>
-                        </div>
-                    </div>
-                    <div class="join-core-visual">
-                        <div class="terminal-mock">
-                            <div class="terminal-header">
-                                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-                            </div>
-                            <pre><code>> ignitron recruit --role "<T tag="span" key="joinCore.terminalRole" />"
-[OK] <T tag="span" key="joinCore.terminalMsg" />
-> target="<T tag="span" key="joinCore.terminalTarget" />"
-> stack=["Spring Boot", "Next.js"]
-> ready? <span class="typewriter-cursor">_</span></code></pre>
-                        </div>
-                    </div>
+                <div class="section-header">
+                    <span class="section-badge"><C en="Built for clinical software" id="Dibangun untuk software klinis" zh="为临床软件而构建" /></span>
+                    <h2 class="section-title"><C en="The interface can change." id="Interface boleh berubah." zh="界面可以变化。" /><br /><span class="text-gradient"><C en="The clinical meaning cannot." id="Makna klinis tidak boleh." zh="临床含义不能变。" /></span></h2>
+                </div>
+                <div class="principle-grid">
+                    <article><span>01</span><h3><C en="Data before pixels" id="Data sebelum visual" zh="数据优先于像素" /></h3><p><C en="The UI represents structured data; color and SVG paths are never the clinical source of truth." id="UI merepresentasikan data terstruktur; warna dan path SVG tidak pernah menjadi sumber kebenaran klinis." zh="UI 表示结构化数据；颜色与 SVG 路径绝不是临床事实来源。" /></p></article>
+                    <article><span>02</span><h3><C en="Configured, not forked" id="Dikonfigurasi, bukan di-fork" zh="配置，而非分叉" /></h3><p><C en="Terminology, symbols, language, permissions, and workflow states belong in explicit configuration." id="Terminologi, simbol, bahasa, permission, dan state workflow berada dalam konfigurasi eksplisit." zh="术语、符号、语言、权限与工作流状态均通过显式配置定义。" /></p></article>
+                    <article><span>03</span><h3><C en="Integration boundaries" id="Batas integrasi yang jelas" zh="清晰的集成边界" /></h3><p><C en="Components emit values and domain events. Your application owns identity, storage, authorization, and signatures." id="Komponen menghasilkan value dan domain event. Aplikasi Anda mengelola identitas, penyimpanan, otorisasi, dan tanda tangan." zh="组件输出值与领域事件；身份、存储、授权与签名由您的应用负责。" /></p></article>
+                    <article><span>04</span><h3><C en="No patient data by default" id="Tanpa data pasien secara default" zh="默认不处理患者数据" /></h3><p><C en="The library makes no network request and ships no hidden telemetry. Analytics must be deliberately enabled." id="Library tidak membuat network request dan tidak membawa telemetry tersembunyi. Analytics harus diaktifkan secara sengaja." zh="库不会发起网络请求，也不包含隐藏遥测；分析功能必须主动启用。" /></p></article>
                 </div>
             </div>
         </section>
 
+        <section class="section integration-section" id="integration">
+            <div class="container integration-grid">
+                <div>
+                    <span class="section-badge">DEVELOPER EXPERIENCE</span>
+                    <h2 class="section-title"><C en="Bring your backend." id="Gunakan backend Anda." zh="使用您自己的后端。" /><br /><span class="text-gradient"><C en="Keep your data." id="Data tetap milik Anda." zh="数据始终归您。" /></span></h2>
+                    <p class="section-subtitle"><C en="Ignitron components are controlled inputs. They accept validated configuration, return structured values, and stay out of your storage architecture." id="Komponen Ignitron adalah controlled input. Komponen menerima konfigurasi tervalidasi, menghasilkan value terstruktur, dan tidak mencampuri arsitektur penyimpanan Anda." zh="Ignitron 组件是受控输入：接收经过验证的配置、返回结构化值，并独立于您的存储架构。" /></p>
+                    <div class="integration-points"><span>✓ Type-safe value</span><span>✓ Domain change events</span><span>✓ Read-only & print modes</span><span>✓ Theme tokens</span></div>
+                </div>
+                <div class="code-window" aria-label="Odontogram React integration example">
+                    <div class="code-header"><span>Assessment.tsx</span><span>React + TypeScript</span></div>
+                    <pre><code><span class="code-purple">&lt;Odontogram</span>
+  <span class="code-blue">value</span>={'{value}'}
+  <span class="code-blue">onChange</span>={'{setValue}'}
+  <span class="code-blue">numbering</span>=<span class="code-green">"FDI"</span>
+  <span class="code-blue">dentition</span>=<span class="code-green">"MIXED"</span>
+  <span class="code-blue">conditions</span>={'{hospitalConditions}'}
+  <span class="code-blue">mode</span>=<span class="code-green">"edit"</span>
+<span class="code-purple">/&gt;</span></code></pre>
+                    <div class="code-footer"><span class="status-dot"></span>No backend required</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section roadmap-section" id="roadmap">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-badge"><C en="Release path" id="Jalur rilis" zh="发布路径" /></span>
+                    <h2 class="section-title"><C en="Validate first." id="Validasi dahulu." zh="先验证。" /> <span class="text-gradient"><C en="Then scale." id="Baru scale." zh="再扩展。" /></span></h2>
+                    <p class="section-subtitle"><C en="We will not call a component clinical-ready until clinicians and integrators have tested it in realistic workflows." id="Kami tidak akan menyebut komponen clinical-ready sebelum tenaga medis dan integrator mengujinya dalam workflow realistis." zh="在临床人员与集成者完成真实工作流测试之前，我们不会称组件已达到临床可用。" /></p>
+                </div>
+                <div class="release-steps">
+                    <article><b>01</b><span><C en="Discovery" id="Discovery" zh="需求发现" /></span><p><C en="Workflow observation and clinical data contract." id="Observasi workflow dan kontrak data klinis." zh="工作流观察与临床数据契约。" /></p></article>
+                    <article><b>02</b><span><C en="Prototype" id="Prototype" zh="原型" /></span><p><C en="Interaction model, accessibility, and print behavior." id="Model interaksi, aksesibilitas, dan perilaku print." zh="交互模型、无障碍与打印行为。" /></p></article>
+                    <article><b>03</b><span><C en="Pilot" id="Pilot" zh="试点" /></span><p><C en="Clinical review and real EMR integration." id="Review klinis dan integrasi EMR nyata." zh="临床评审与真实 EMR 集成。" /></p></article>
+                    <article><b>04</b><span><C en="Release" id="Rilis" zh="发布" /></span><p><C en="Versioned package, documentation, and migration policy." id="Package berversi, dokumentasi, dan kebijakan migrasi." zh="版本化软件包、文档与迁移策略。" /></p></article>
+                </div>
+            </div>
+        </section>
     </main>
     <Footer />
-
-    <script src="//unpkg.com/topojson-client" is:inline></script>
-    <script src="//unpkg.com/globe.gl" is:inline></script>
-    <script>
-        function updateClocks() {
-            const jkt = new Date().toLocaleTimeString('en-GB', { timeZone: 'Asia/Jakarta', hour: '2-digit', minute: '2-digit' });
-            const shz = new Date().toLocaleTimeString('en-GB', { timeZone: 'Asia/Shanghai', hour: '2-digit', minute: '2-digit', second: '2-digit' });
-            const j = document.getElementById('jkt-time');
-            const s = document.getElementById('sz-time');
-            if (j) j.textContent = jkt;
-            if (s) s.textContent = shz;
-        }
-        setInterval(updateClocks, 1000);
-        updateClocks();
-
-        // Smooth scroll fade-out for Hero Explore Icon
-        const scrollEl = document.querySelector('.hero-scroll');
-        window.addEventListener('scroll', () => {
-            if (!scrollEl) return;
-            const scrollPos = window.scrollY;
-            const opacity = Math.max(0, 0.7 - (scrollPos / 150));
-            scrollEl.style.opacity = opacity.toString();
-            scrollEl.style.pointerEvents = opacity === 0 ? 'none' : 'auto';
-        });
-
-        // Intersection Observer for scroll reveal animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('reveal-active');
-                }
-            });
-        }, {
-            threshold: 0.05,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        document.querySelectorAll('section, .stat-card, .why-card, .platform-card, .leadership-card').forEach(el => {
-            el.classList.add('reveal-item');
-            observer.observe(el);
-        });
-
-        // Typewriter Animation for Hero Title
-        const line1El = document.querySelector('.type-line-1') as any;
-        const line2El = document.querySelector('.type-line-2') as any;
-        const cursorEl = document.querySelector('.typewriter-cursor') as any;
-
-        function getTranslatedText(el: HTMLElement): string {
-            const lang = document.documentElement.getAttribute('data-lang') || 'en';
-            return el.getAttribute(`data-t-${lang}`) || el.textContent || '';
-        }
-
-        function startTypewriter() {
-            if (!line1El || !line2El || !cursorEl) return;
-            const text1 = getTranslatedText(line1El);
-            const text2 = getTranslatedText(line2El);
-            
-            line1El.textContent = '';
-            line2El.textContent = '';
-            cursorEl.style.opacity = '';
-            
-            let i = 0;
-            let j = 0;
-            const speed = 70; // typing speed in ms
-            
-            function typeLine1() {
-                if (i < text1.length) {
-                    line1El.textContent += text1.charAt(i);
-                    i++;
-                    setTimeout(typeLine1, speed);
-                } else {
-                    setTimeout(typeLine2, 200);
-                }
-            }
-            
-            function typeLine2() {
-                if (j < text2.length) {
-                    line2El.textContent += text2.charAt(j);
-                    j++;
-                    setTimeout(typeLine2, speed);
-                } else {
-                    setTimeout(() => {
-                        cursorEl.style.opacity = '0';
-                        cursorEl.style.transition = 'opacity 0.5s ease';
-                    }, 1000);
-                }
-            }
-            
-            setTimeout(typeLine1, 400);
-        }
-
-        if (line1El && line2El && cursorEl) {
-            startTypewriter();
-
-            // Re-run typewriter when language changes (after a small delay)
-            document.addEventListener('ignitron:lang-changed', () => {
-                startTypewriter();
-            });
-        }
-    </script>
 </BaseLayout>
 
 <style>
-.leadership-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; max-width: 900px; margin: 0 auto; }
-.leadership-card { background: rgba(24, 24, 27, 0.5); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 40px 32px; text-align: center; position: relative; overflow: hidden; transition: border-color 0.2s, transform 0.2s; }
-.leadership-avatar { width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 700; color: var(--deep-space); border: 3px solid; }
-.leadership-name { font-size: 24px; font-weight: 700; margin-bottom: 6px; }
-.leadership-role { font-weight: 600; font-size: 14px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
-.leadership-bio { color: var(--steel-silver); font-size: 14px; margin-bottom: 16px; line-height: 1.6; }
-.leadership-quote { font-size: 14px; color: var(--steel-silver); font-style: italic; line-height: 1.7; margin: 0 auto 20px; padding: 16px; border-left: 2px solid var(--border-color); text-align: left; background: rgba(0,0,0,0.2); border-radius: 0 4px 4px 0; }
-.leadership-status { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); border-radius: 100px; margin-bottom: 20px; }
-.leadership-links { display: flex; flex-direction: column; gap: 10px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); }
-.leadership-social { display: inline-flex; align-items: center; justify-content: center; gap: 8px; color: var(--cyber-cyan); font-size: 13px; text-decoration: none; transition: opacity 0.2s; }
-.leadership-social:hover { opacity: 0.7; }
-@media (max-width: 768px) { .leadership-grid { grid-template-columns: 1fr; } }
+    .clinical-hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 150px 0 90px; }
+    .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(to bottom, black, transparent 90%); }
+    .clinical-hero::before { content: ''; position: absolute; width: 600px; height: 600px; border-radius: 50%; background: rgba(255,255,255,.06); filter: blur(140px); top: -300px; left: 15%; }
+    .clinical-hero-grid { position: relative; display: grid; grid-template-columns: 1.02fr .98fr; gap: 72px; align-items: center; }
+    .hero-badge { width: fit-content; display: flex; align-items: center; gap: 9px; padding: 7px 13px; border: 1px solid var(--border-color); background: rgba(24,24,27,.75); color: var(--cyber-cyan-dark); font: 600 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 26px; }
+    .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 9px rgba(74,222,128,.6); display: inline-block; }
+    .clinical-hero h1 { font-size: clamp(50px, 6.3vw, 84px); line-height: .98; letter-spacing: -.055em; max-width: 800px; }
+    .clinical-hero-subtitle { color: #a1a1aa; font-size: clamp(17px, 1.7vw, 20px); line-height: 1.7; max-width: 690px; margin: 30px 0 34px; }
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-proof { display: flex; gap: 24px; flex-wrap: wrap; color: #71717a; font: 12px var(--font-mono); margin-top: 38px; }
+    .hero-proof b { color: #d4d4d8; }
+    .preview-window { background: rgba(9,9,11,.92); border: 1px solid #3f3f46; box-shadow: 0 40px 100px rgba(0,0,0,.6); padding: 18px; position: relative; }
+    .preview-window::after { content: ''; position: absolute; inset: -1px; background: linear-gradient(135deg, rgba(255,255,255,.16), transparent 35%); pointer-events: none; }
+    .preview-header { display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 1px solid #27272a; color: #71717a; font: 10px var(--font-mono); }
+    .preview-dots { display: flex; gap: 5px; }
+    .preview-dots i { width: 7px; height: 7px; background: #3f3f46; border-radius: 50%; }
+    .preview-status { margin-left: auto; color: #a1a1aa; }
+    .jaw-label { text-align: center; color: #71717a; font: 10px var(--font-mono); margin: 24px 0 17px; text-transform: uppercase; letter-spacing: .08em; }
+    .teeth-row { display: grid; grid-template-columns: repeat(16, 1fr); gap: 4px; align-items: end; }
+    .tooth { min-width: 0; text-align: center; color: #52525b; font: 8px var(--font-mono); }
+    .tooth i { display: block; height: calc(23px + (var(--i) % 4) * 3px); border: 1px solid #52525b; border-radius: 45% 45% 35% 35%; margin: 3px 0; background: #18181b; }
+    .tooth:nth-child(n+9) i { border-radius: 45% 45% 35% 35%; }
+    .lower .tooth i { border-radius: 35% 35% 45% 45%; }
+    .tooth.active { color: #f4f4f5; }
+    .tooth.active i { border-color: #f4f4f5; background: repeating-linear-gradient(45deg, #27272a, #27272a 3px, #52525b 3px, #52525b 4px); box-shadow: 0 0 10px rgba(255,255,255,.12); }
+    .tooth.missing i { border-style: dashed; opacity: .45; background: transparent; position: relative; }
+    .jaw-divider { display: flex; align-items: center; gap: 8px; color: #52525b; font: 9px var(--font-mono); margin: 9px 0; }
+    .jaw-divider i { flex: 1; height: 1px; background: #27272a; }
+    .preview-legend { display: flex; justify-content: center; gap: 18px; border-top: 1px solid #27272a; padding-top: 15px; margin-top: 22px; color: #71717a; font: 9px var(--font-mono); }
+    .preview-legend span { display: flex; align-items: center; gap: 5px; }
+    .preview-legend i { width: 8px; height: 8px; border: 1px solid #52525b; }
+    .legend-active { background: #f4f4f5; }.legend-missing { border-style: dashed !important; }.legend-clean { background: #18181b; }
+    .signal-strip { border-block: 1px solid #27272a; background: #0c0c0f; }
+    .signal-grid { min-height: 70px; display: grid; grid-template-columns: repeat(4, 1fr); align-items: center; text-align: center; color: #71717a; font: 10px var(--font-mono); letter-spacing: .12em; }
+    .signal-grid span + span { border-left: 1px solid #27272a; }
+    .component-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .component-card { min-height: 340px; border: 1px solid #27272a; background: #0c0c0f; padding: 30px; display: flex; flex-direction: column; justify-content: space-between; transition: .25s ease; }
+    .component-card:hover { border-color: #52525b; transform: translateY(-3px); }
+    .component-card.featured { grid-column: span 2; min-height: 400px; background: linear-gradient(135deg, #18181b, #0c0c0f 60%); }
+    .component-top { display: flex; justify-content: space-between; align-items: start; }
+    .component-index { color: #52525b; font: 12px var(--font-mono); }
+    .status { border: 1px solid #3f3f46; padding: 5px 9px; color: #a1a1aa; font: 9px var(--font-mono); text-transform: uppercase; letter-spacing: .08em; }
+    .status.building { border-color: #52525b; color: #e4e4e7; }.status.research { border-style: dashed; }.status.roadmap { opacity: .65; }
+    .component-eyebrow { color: #71717a !important; font: 10px var(--font-mono) !important; letter-spacing: .14em; margin-bottom: 10px; }
+    .component-card h3 { font-size: clamp(27px, 3vw, 42px); letter-spacing: -.035em; margin-bottom: 14px; }
+    .component-card p { color: #a1a1aa; max-width: 760px; line-height: 1.7; }
+    .feature-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 28px; }
+    .feature-pills span { border: 1px solid #3f3f46; padding: 6px 10px; color: #a1a1aa; font: 10px var(--font-mono); }
+    .catalog-link { display: flex; justify-content: center; margin-top: 40px; }
+    .principle-section { background: #0c0c0f; border-block: 1px solid #18181b; }
+    .principle-grid { display: grid; grid-template-columns: repeat(2, 1fr); border: 1px solid #27272a; }
+    .principle-grid article { padding: 38px; min-height: 240px; }
+    .principle-grid article:nth-child(odd) { border-right: 1px solid #27272a; }.principle-grid article:nth-child(-n+2) { border-bottom: 1px solid #27272a; }
+    .principle-grid article > span { color: #52525b; font: 11px var(--font-mono); }
+    .principle-grid h3 { font-size: 22px; margin: 40px 0 10px; }.principle-grid p { color: #71717a; line-height: 1.7; }
+    .integration-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .integration-points { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 28px; color: #a1a1aa; font: 12px var(--font-mono); }
+    .code-window { border: 1px solid #3f3f46; background: #09090b; box-shadow: 0 30px 70px rgba(0,0,0,.45); }
+    .code-header,.code-footer { display: flex; justify-content: space-between; align-items: center; padding: 13px 17px; border-bottom: 1px solid #27272a; color: #71717a; font: 10px var(--font-mono); }
+    .code-window pre { padding: 32px; overflow-x: auto; color: #d4d4d8; font: 14px/1.8 var(--font-mono); }.code-footer { justify-content: flex-start; gap: 8px; border: 0; border-top: 1px solid #27272a; }.code-purple { color: #c4b5fd; }.code-blue { color: #93c5fd; }.code-green { color: #86efac; }
+    .roadmap-section { background: #0c0c0f; }
+    .release-steps { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid #3f3f46; }
+    .release-steps article { padding: 30px 22px; border-right: 1px solid #27272a; }.release-steps article:last-child { border: 0; }
+    .release-steps b { display: block; color: #52525b; font: 11px var(--font-mono); margin-bottom: 50px; }.release-steps span { font-size: 18px; font-weight: 700; }.release-steps p { color: #71717a; margin-top: 10px; font-size: 14px; line-height: 1.65; }
+    @media (max-width: 1000px) { .clinical-hero-grid,.integration-grid { grid-template-columns: 1fr; }.clinical-hero-copy { text-align: center; }.hero-badge,.clinical-hero-subtitle { margin-inline: auto; }.hero-cta,.hero-proof { justify-content: center; }.odontogram-preview { max-width: 720px; margin: 0 auto; width: 100%; } }
+    @media (max-width: 760px) { .clinical-hero { padding-top: 130px; }.clinical-hero-grid { gap: 50px; }.clinical-hero h1 { font-size: clamp(43px, 14vw, 64px); }.signal-grid { grid-template-columns: 1fr 1fr; padding-block: 14px; gap: 14px; }.signal-grid span + span { border: 0; }.component-grid,.principle-grid { grid-template-columns: 1fr; }.component-card.featured { grid-column: span 1; }.principle-grid article { border-right: 0 !important; border-bottom: 1px solid #27272a !important; }.principle-grid article:last-child { border-bottom: 0 !important; }.release-steps { grid-template-columns: 1fr 1fr; }.release-steps article:nth-child(2) { border-right: 0; }.release-steps article:nth-child(-n+2) { border-bottom: 1px solid #27272a; }.teeth-row { gap: 2px; }.tooth span { display: none; }.preview-legend { flex-wrap: wrap; }.integration-points { grid-template-columns: 1fr; } }
 </style>

@@ -1,112 +1,65 @@
 ---
-import T from './T.astro';
+import C from './C.astro';
 
 const base = import.meta.env.BASE_URL;
-
-function isLebaranPeriod() {
-    const now = new Date();
-    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    // Approximate Eid al-Fitr & al-Adha dates (±1 day — Islamic calendar shifts ~11 days earlier/year)
-    // Format: [startYear, startMonth, startDay, endYear, endMonth, endDay]
-    const eidRanges = [
-        // Idul Fitri 2025 ~Mar 31
-        [2025, 2, 29, 2025, 3, 2],
-        // Idul Adha 2025 ~Jun 7
-        [2025, 5, 5, 2025, 5, 9],
-        // Idul Fitri 2026 ~Mar 20 (already passed, safe)
-        [2026, 2, 17, 2026, 2, 21],
-        // Idul Adha 2026 ~May 27
-        [2026, 4, 25, 2026, 4, 29],
-        // 2027+
-        [2027, 2, 7, 2027, 2, 11],
-        [2027, 4, 14, 2027, 4, 19],
-        [2028, 1, 25, 2028, 1, 29],
-        [2028, 4, 3, 2028, 4, 7],
-        [2029, 1, 13, 2029, 1, 17],
-        [2029, 3, 22, 2029, 3, 26],
-        [2030, 1, 2, 2030, 1, 6],
-        [2030, 3, 11, 2030, 3, 15],
-    ];
-    return eidRanges.some(([sy, sm, sd, ey, em, ed]) => {
-        const s = new Date(sy, sm, sd);
-        const e = new Date(ey, em, ed);
-        return today >= s && today <= e;
-    });
-}
-
-const showLebaran = isLebaranPeriod();
 ---
 
-<nav class="nav" id="nav">
+<nav class="nav" id="nav" aria-label="Primary navigation">
     <div class="nav-container">
-        <a href={`${base}`} class="nav-logo">
+        <a href={base} class="nav-logo" aria-label="IgnitronDev home">
             <div class="nav-logo-icon">
-                <img src={`${base}images/ignitron.png`} alt="IgnitronDev" width="40" height="40" />
+                <img src={`${base}images/ignitron.png`} alt="" width="40" height="40" />
             </div>
             <div class="nav-logo-text">
                 <span class="nav-logo-name">Ignitron<span>Dev</span></span>
-                <span class="nav-logo-tagline">PLATFORM FACTORY</span>
+                <span class="nav-logo-tagline">CLINICAL UI</span>
             </div>
         </a>
 
-        <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+        <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Toggle navigation" aria-expanded="false">
             <span></span><span></span><span></span>
         </button>
 
         <div class="nav-links">
-            <a href={`${base}#platforms`}><T tag="span" key="nav.platforms" /></a>
-            <a href={`${base}#why-whitelabel`}><T tag="span" key="nav.whyWhitelabel" /></a>
-            <a href={`${base}#calculator`}><T tag="span" key="nav.calculator" /></a>
-            <a href={`${base}#partners`}><T tag="span" key="nav.partnership" /></a>
-            <a href={`${base}blog/`}><T tag="span" key="nav.blog" /></a>
-            <a href={`${base}monitor/`}><T tag="span" key="nav.monitor" /></a>
+            <a href={`${base}#components`}><C en="Components" id="Komponen" zh="组件" /></a>
+            <a href={`${base}#principles`}><C en="Principles" id="Prinsip" zh="原则" /></a>
+            <a href={`${base}#roadmap`}><C en="Roadmap" id="Roadmap" zh="路线图" /></a>
+            <a href={`${base}foundry/`}><C en="Catalog" id="Katalog" zh="目录" /></a>
+            <a href={`${base}blog/`}><C en="Blog" id="Blog" zh="博客" /></a>
         </div>
 
-        <a href={`${base}#contact`} class="btn btn-primary nav-cta">
-            <T tag="span" key="nav.cta" />
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <a href="mailto:admin@bimafreelance.site?subject=Ignitron%20Clinical%20UI%20Pilot" class="btn btn-primary nav-cta">
+            <C en="Join the pilot" id="Ikuti pilot" zh="加入试点" />
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
         </a>
     </div>
 </nav>
 
-{showLebaran && (
-    <div class="lebaran-floating" id="lebaranFloat">
-        <div class="lebaran-content">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="mosque-icon">
-                <path d="M12 2L10 6H14L12 2Z"/>
-                <path d="M6 8C6 6.9 6.9 6 8 6C9.1 6 10 6.9 10 8H14C14 6.9 14.9 6 16 6C17.1 6 18 6.9 18 8H20V10H4V8H6Z"/>
-                <path d="M4 11H20V22H16V18C16 16.9 15.1 16 14 16H10C8.9 16 8.9 16.9 8 18V22H4V11Z"/>
-                <circle cx="7" cy="14" r="1"/><circle cx="17" cy="14" r="1"/>
-            </svg>
-            <span class="lebaran-text">Minal Aidin<br />Wal Faizin</span>
-        </div>
-        <button class="lebaran-close" id="lebaranClose" aria-label="Close">×</button>
-    </div>
-)}
-
 <script>
-    // Nav scroll
     const nav = document.getElementById('nav');
     const toggle = document.getElementById('mobileToggle');
 
     function checkScroll() {
-        if (nav) {
-            nav.classList.toggle('scrolled', window.scrollY > 10);
-        }
+        nav?.classList.toggle('scrolled', window.scrollY > 10);
     }
 
-    window.addEventListener('scroll', checkScroll);
-    checkScroll(); // Trigger immediately on mount
+    window.addEventListener('scroll', checkScroll, { passive: true });
+    checkScroll();
 
     toggle?.addEventListener('click', () => {
-        document.querySelector('.nav-links')?.classList.toggle('active');
-        toggle.classList.toggle('active');
+        const links = document.querySelector('.nav-links');
+        const expanded = links?.classList.toggle('active') ?? false;
+        toggle.classList.toggle('active', expanded);
+        toggle.setAttribute('aria-expanded', String(expanded));
     });
-    // Lebaran close
-    document.getElementById('lebaranClose')?.addEventListener('click', () => {
-        const el = document.getElementById('lebaranFloat');
-        if (el) el.style.display = 'none';
+
+    document.querySelectorAll('.nav-links a').forEach((link) => {
+        link.addEventListener('click', () => {
+            document.querySelector('.nav-links')?.classList.remove('active');
+            toggle?.classList.remove('active');
+            toggle?.setAttribute('aria-expanded', 'false');
+        });
     });
 </script>

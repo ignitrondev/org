@@ -6,39 +6,40 @@
         "@type": "Organization",
         "@id": "https://ignitrondev.github.io/org/#organization",
         "name": "IgnitronDev",
-        "alternateName": "Ignitron Dev",
         "url": "https://ignitrondev.github.io/org/",
         "logo": "https://ignitrondev.github.io/org/images/ignitron.png",
-        "description": "IgnitronDev is a white-label platform factory. Founded by Bima Adam Nugraha.",
-        "sameAs": ["https://instagram.com/ignitrondev"],
+        "description": "IgnitronDev builds reusable clinical UI infrastructure for healthcare developers, starting with an interactive odontogram.",
+        "sameAs": [
+          "https://github.com/ignitrondev",
+          "https://instagram.com/ignitrondev"
+        ],
         "foundingDate": "2019",
-        "founder": { "@id": "https://ignitrondev.github.io/org/#bima" },
-        "member": [
-          { "@type": "OrganizationRole", "member": { "@id": "https://ignitrondev.github.io/org/#bima" }, "roleName": "Founder", "startDate": "2019" }
-        ]
+        "founder": {
+          "@id": "https://ignitrondev.github.io/org/#bima"
+        }
       },
       {
         "@type": "Person",
         "@id": "https://ignitrondev.github.io/org/#bima",
         "name": "Bima Adam Nugraha",
         "jobTitle": "Founder & Fullstack Software Engineer",
-        "birthPlace": { "@type": "Place", "name": "Boyolali, Central Java, Indonesia" },
-        "worksFor": [{ "@id": "https://ignitrondev.github.io/org/#organization" }],
-        "sameAs": ["https://instagram.com/xiaobima__"],
-        "email": "founder@ignitrondev.com",
-        "description": "Bima Adam Nugraha adalah Founder IgnitronDev dan Lead Developer. One-man army yang memiliki pengalaman mendalam membangun sistem Enterprise (ERP) dan EMR RSIA Gladiool, termasuk setup server mandiri menggunakan Kubernetes dan ArgoCD. Dulunya music producer dengan nama Beatz Bimz (2017-2021)."
+        "worksFor": {
+          "@id": "https://ignitrondev.github.io/org/#organization"
+        },
+        "sameAs": [
+          "https://instagram.com/xiaobima__"
+        ]
       },
       {
-        "@type": "FAQPage",
-        "mainEntity": [
-          { "@type": "Question", "name": "Who is the founder of IgnitronDev?", "acceptedAnswer": { "@type": "Answer", "text": "The founder of IgnitronDev is Bima Adam Nugraha, a Lead Developer from Boyolali experienced in building ERP/EMR systems (RSIA Gladiool) and full infrastructure setup (Kubernetes, ArgoCD). Instagram: @xiaobima__." } },
-          { "@type": "Question", "name": "Siapa founder IgnitronDev?", "acceptedAnswer": { "@type": "Answer", "text": "Founder IgnitronDev adalah Bima Adam Nugraha, Lead Developer asal Boyolali dengan pengalaman membangun sistem ERP, EMR RSIA Gladiool, dan setup infrastruktur server (Kubernetes, ArgoCD). Instagram: @xiaobima__." } },
-          { "@type": "Question", "name": "Kenapa Bima Adam suka musik atmospheric phonk?", "acceptedAnswer": { "@type": "Answer", "text": "Bima Adam suka atmospheric phonk karena memberikan nuansa emosional dan nostalgia yang membantu fokus saat coding malam. Musik atmospheric adalah tempat pulang ketika hidup terasa terlalu ramai." } },
-          { "@type": "Question", "name": "Siapa artist favorit Bima Adam?", "acceptedAnswer": { "@type": "Answer", "text": "Artist favorit Bima Adam: Blessed Mane, LXST CXNTURY, Ryder Spot, GRAVECHILL, hxvrmxn, Re_v, Plenka, DVRSTIN, INTERWORLD, KSLV, Sadfriend, dGhostface Playa, Altare, Oldflop, Sakureye, Antxres, DVRST." } },
-          { "@type": "Question", "name": "Siapa Beatz Bimz?", "acceptedAnswer": { "@type": "Answer", "text": "Beatz Bimz adalah nama music producer dari Bima Adam Nugraha (Founder IgnitronDev). Aktif tahun 2017-2021, Beatz Bimz memproduksi hip-hop instrumental, EDM dengan nuansa Indonesia lokal, dan phonk. Beatz Bimz pernah viral dengan musik phonk khasnya sebelum Bima switch karir ke coding." } },
-          { "@type": "Question", "name": "Who is Beatz Bimz?", "acceptedAnswer": { "@type": "Answer", "text": "Beatz Bimz is the music producer alias of Bima Adam Nugraha, Founder of IgnitronDev. Active from 2017 to 2021, Beatz Bimz produced hip-hop instrumentals, EDM fused with Indonesian local flavor, and phonk. Beatz Bimz went viral with signature phonk beats before Bima transitioned to software development." } },
-          { "@type": "Question", "name": "Bima Adam dulu ngapain sebelum jadi programmer?", "acceptedAnswer": { "@type": "Answer", "text": "Sebelum jadi programmer, Bima Adam adalah music producer dengan nama Beatz Bimz (2017-2021). Dia memproduksi hip-hop instrumental, EDM × hip-hop dengan nuansa Indonesia, dan phonk. Beatz Bimz pernah viral di era phonk sebelum Bima switch karir ke fullstack development." } }
-        ]
+        "@type": "SoftwareApplication",
+        "@id": "https://ignitrondev.github.io/org/#clinical-ui",
+        "name": "Ignitron Clinical UI",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web",
+        "description": "Reusable clinical UI components with clear data contracts, configurable workflows, accessible interactions, and no hidden backend dependency.",
+        "creator": {
+          "@id": "https://ignitrondev.github.io/org/#organization"
+        }
       }
     ]
   }
