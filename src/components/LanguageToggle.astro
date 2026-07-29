@@ -131,10 +131,18 @@ import { langLabels, type Lang } from '../i18n/index';
 
 @media (max-width: 768px) {
     .lang-toggle {
-        top: auto;
-        bottom: 20px;
+        position: absolute;
+        top: 88px;
+        bottom: auto;
         right: 50%;
         transform: translateX(50%);
+    }
+}
+
+@media (max-width: 360px) {
+    .lang-btn {
+        padding-inline: 9px;
+        font-size: 11px;
     }
 }
 </style>

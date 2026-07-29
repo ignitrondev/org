@@ -164,8 +164,8 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
     .work-section { background: #09090b; }
     .work-header { display: grid; grid-template-columns: 1fr .72fr; gap: 80px; align-items: end; }
     .work-grid { display: grid; gap: 22px; }
-    .work-card { min-height: 540px; display: grid; grid-template-columns: 1.05fr .95fr; border: 1px solid #27272a; background: #0c0c0f; overflow: hidden; }
-    .work-card-copy { padding: 36px; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; }
+    .work-card { min-width:0;min-height:540px;display:grid;grid-template-columns:1.05fr .95fr;border:1px solid #27272a;background:#0c0c0f;overflow:hidden;scroll-margin-top:110px; }
+    .work-card-copy { min-width:0;padding:36px;display:flex;flex-direction:column;justify-content:space-between;gap:40px; }
     .work-meta { display: flex; justify-content: space-between; color: #71717a; font: 10px var(--font-mono); letter-spacing: .1em; }
     .work-status { color: #a1a1aa; }
     .work-eyebrow { color: #71717a !important; font: 10px var(--font-mono); letter-spacing: .14em; margin-bottom: 10px; }
@@ -174,7 +174,7 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
     .work-tags { display: flex; gap: 8px; flex-wrap: wrap; }.work-tags span { border: 1px solid #3f3f46; padding: 6px 10px; color: #71717a; font: 10px var(--font-mono); }
     .work-link { width: fit-content; display: inline-flex; align-items: center; gap: 10px; border-bottom: 1px solid #a1a1aa; padding-bottom: 5px; font-weight: 600; }.work-link span { transition: transform .2s ease; }.work-link:hover span { transform: translate(3px,-3px); }.work-link.muted { color: #a1a1aa; }
     .work-actions { display: flex; gap: 22px; flex-wrap: wrap; }
-    .radar-visual { position: relative; min-height: 540px; overflow: hidden; background: #101014; border-left: 1px solid #27272a; }
+    .radar-visual { position:relative;min-width:0;min-height:540px;overflow:hidden;background:#101014;border-left:1px solid #27272a; }
     .radar-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px); background-size: 32px 32px; }
     .radar-ring { position: absolute; left: 50%; top: 50%; border: 1px solid #3f3f46; border-radius: 50%; transform: translate(-50%,-50%); }.ring-one{width:180px;height:180px}.ring-two{width:330px;height:330px}.ring-three{width:480px;height:480px}
     .radar-axis { position: absolute; background: #3f3f46; }.radar-axis.horizontal{height:1px;left:0;right:0;top:50%}.radar-axis.vertical{width:1px;top:0;bottom:0;left:50%}
@@ -189,7 +189,7 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
     @keyframes status-pulse { 0%,100% { transform: scale(.85); opacity: .55; } 50% { transform: scale(1.25); opacity: 1; } }
     @keyframes header-blink { 0%,100% { opacity: .35; } 50% { opacity: 1; } }
     @keyframes sweep { to { transform: rotate(360deg); } }
-    .package-visual { align-self: center; margin: 36px; border: 1px solid #3f3f46; background: #09090b; box-shadow: 0 30px 70px rgba(0,0,0,.45); }
+    .package-visual { min-width:0;max-width:100%;align-self:center;margin:36px;border:1px solid #3f3f46;background:#09090b;box-shadow:0 30px 70px rgba(0,0,0,.45); }
     .package-visual header { display:flex;justify-content:space-between;padding:14px 16px;border-bottom:1px solid #27272a;color:#71717a;font:10px var(--font-mono); }
     .package-name { padding: 54px 30px 40px; }.package-name small,.package-name strong { display:block; }.package-name small { color:#71717a;font:14px var(--font-mono); }.package-name strong { font-size:clamp(30px,4vw,50px);letter-spacing:-.05em; }
     .package-command { margin:0 30px 30px;padding:16px;background:#18181b;border:1px solid #27272a;display:flex;gap:10px;overflow-x:auto;font:11px var(--font-mono);white-space:nowrap}.package-command span{color:#71717a}.package-command code{color:#d4d4d8}
@@ -200,5 +200,6 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
     .studio-principles { border-top:1px solid #3f3f46; }.studio-principles article{display:grid;grid-template-columns:45px 1fr;gap:20px;padding:30px 0;border-bottom:1px solid #27272a}.studio-principles article>span{color:#52525b;font:11px var(--font-mono)}.studio-principles h3{font-size:22px;margin-bottom:8px}.studio-principles p{color:#71717a;line-height:1.7}
     @media(max-width:1000px){.studio-hero-grid,.work-card,.studio-grid{grid-template-columns:1fr}.studio-hero-copy{text-align:center}.hero-badge,.studio-hero-subtitle{margin-inline:auto}.hero-cta{justify-content:center}.studio-index{max-width:720px;margin:0 auto;width:100%}.work-header{grid-template-columns:1fr;gap:22px}.radar-visual{border-left:0;border-top:1px solid #27272a;min-height:450px}.package-visual{width:calc(100% - 72px)}.studio-grid{gap:60px}}
     @media(max-width:760px){.studio-hero{padding-top:140px}.studio-hero-grid{gap:50px}.studio-hero h1{font-size:clamp(43px,14vw,64px)}.signal-grid{grid-template-columns:1fr 1fr;padding-block:14px;gap:14px}.signal-grid span+span{border:0}.index-row{grid-template-columns:28px 1fr}.index-state{grid-column:2}.work-card{min-height:0}.work-card-copy{padding:24px}.radar-visual{min-height:360px}.ring-three{width:360px;height:360px}.package-visual{margin:24px;width:calc(100% - 48px)}.package-name{padding:40px 20px 30px}.package-command{margin:0 20px 20px}.package-stats span{padding:14px 10px}.studio-grid{gap:45px}}
+    @media(max-width:480px){.studio-hero{padding-top:132px}.studio-hero h1{font-size:clamp(38px,12.5vw,50px)}.work-card{scroll-margin-top:96px}.work-card-copy{padding:20px;gap:32px}.work-meta{gap:10px;flex-wrap:wrap}.work-card h3{font-size:clamp(34px,11vw,44px);overflow-wrap:anywhere}.work-actions{gap:14px}.radar-visual{min-height:300px}.ring-two{width:270px;height:270px}.ring-three{width:330px;height:330px}.package-visual{margin:12px;width:calc(100% - 24px)}.package-name{padding:32px 16px 24px}.package-name small{font-size:12px}.package-command{margin:0 12px 16px;padding:12px}.package-stats span{padding:12px 6px}.package-stats b{font-size:12px}}
     @media(prefers-reduced-motion:reduce){.studio-hero-copy>*{opacity:1;transform:none;animation:none}.studio-index{opacity:1;transform:none;animation:none}.studio-index::before,.studio-index::after{display:none}.studio-index>header,.studio-index>footer,.index-row{opacity:1;transform:none;animation:none}.studio-index>header span:first-child::before,.index-state i,.radar-sweep{animation:none}}
 </style>
