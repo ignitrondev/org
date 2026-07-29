@@ -13,154 +13,117 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
 ---
 
 <BaseLayout
-    title="Ignitron Clinical UI — Clinical Components for Healthcare Developers"
-    description="Reusable clinical UI components with clear data contracts, configurable workflows, accessible interactions, and no hidden backend dependency. Starting with odontogram."
-    keywords="clinical UI components, medical UI library, React odontogram, dental chart component, healthcare developer tools, EMR components"
+    title="IgnitronDev — Independent Software Studio"
+    description="IgnitronDev builds focused software products and open-source tools, including ShipRadar and Ignitron Clinical UI."
+    keywords="IgnitronDev, independent software studio, ShipRadar, open source developer tools, Ignitron Clinical UI"
     schema={schema}
 >
     <Navbar />
     <main class="main-content">
-        <section class="clinical-hero" id="hero">
+        <section class="studio-hero" id="hero">
             <div class="hero-grid-bg" aria-hidden="true"></div>
-            <div class="container clinical-hero-grid">
-                <div class="clinical-hero-copy">
-                    <div class="hero-badge"><span class="status-dot"></span><C en="Clinical UI infrastructure · Early access" id="Infrastruktur UI klinis · Akses awal" zh="临床 UI 基础设施 · 早期访问" /></div>
-                    <h1><C en="Complex clinical UI," id="UI klinis kompleks," zh="复杂的临床 UI，" /><br /><span class="text-gradient"><C en="ready to integrate." id="siap diintegrasikan." zh="随时可集成。" /></span></h1>
-                    <p class="clinical-hero-subtitle"><C en="Reusable components for EMR and healthcare teams—built around clear clinical data contracts, configurable workflows, accessibility, and print-safe output." id="Komponen reusable untuk tim EMR dan healthcare—dibangun dengan kontrak data klinis yang jelas, workflow configurable, aksesibilitas, dan output aman untuk dicetak." zh="面向 EMR 与医疗团队的可复用组件——围绕清晰的临床数据契约、可配置工作流、无障碍与可靠打印输出构建。" /></p>
+            <div class="container studio-hero-grid">
+                <div class="studio-hero-copy">
+                    <div class="hero-badge"><span class="status-dot"></span><C en="Independent software studio" id="Studio software independen" zh="独立软件工作室" /></div>
+                    <h1><C en="Products for real work." id="Produk untuk pekerjaan nyata." zh="为真实工作而生的产品。" /><br /><span class="text-gradient"><C en="Tools for builders." id="Tools untuk para builder." zh="为构建者而生的工具。" /></span></h1>
+                    <p class="studio-hero-subtitle"><C en="IgnitronDev is a home for focused software products and open-source infrastructure. We explore specific problems, build the system, and keep improving it in public." id="IgnitronDev adalah rumah bagi produk software terfokus dan infrastruktur open-source. Kami mendalami masalah spesifik, membangun sistemnya, lalu terus memperbaikinya secara terbuka." zh="IgnitronDev 专注于软件产品与开源基础设施：深入具体问题，构建系统，并持续公开迭代。" /></p>
                     <div class="hero-cta">
-                        <a href="#components" class="btn btn-primary btn-lg"><C en="Explore components" id="Jelajahi komponen" zh="浏览组件" /></a>
-                        <a href="https://ignitron-medic-ui.pages.dev/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg"><C en="Read the docs" id="Buka dokumentasi" zh="阅读文档" /></a>
-                    </div>
-                    <div class="hero-proof">
-                        <span><b>React</b> first</span>
-                        <span><b>JSON</b> data contract</span>
-                        <span><b>0</b> hidden telemetry</span>
+                        <a href="#work" class="btn btn-primary btn-lg"><C en="Explore our work" id="Lihat karya kami" zh="浏览我们的作品" /></a>
+                        <a href="https://github.com/ignitrondev" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">GitHub ↗</a>
                     </div>
                 </div>
 
-                <div class="odontogram-preview" aria-label="Odontogram component preview">
-                    <div class="preview-window">
-                        <div class="preview-header">
-                            <div class="preview-dots"><i></i><i></i><i></i></div>
-                            <span>Odontogram.tsx</span>
-                            <span class="preview-status"><C en="IN DEVELOPMENT" id="DALAM PENGEMBANGAN" zh="开发中" /></span>
-                        </div>
-                        <div class="jaw-label"><C en="Permanent dentition · FDI" id="Gigi permanen · FDI" zh="恒牙列 · FDI" /></div>
-                        <div class="teeth-row upper">
-                            {['18','17','16','15','14','13','12','11','21','22','23','24','25','26','27','28'].map((tooth, index) => (
-                                <div class:list={['tooth', { active: tooth === '16', missing: tooth === '24' }]} style={`--i:${index}`}><span>{tooth}</span><i></i></div>
-                            ))}
-                        </div>
-                        <div class="jaw-divider"><span>R</span><i></i><span>L</span></div>
-                        <div class="teeth-row lower">
-                            {['48','47','46','45','44','43','42','41','31','32','33','34','35','36','37','38'].map((tooth, index) => (
-                                <div class:list={['tooth', { active: tooth === '36' }]} style={`--i:${index}`}><i></i><span>{tooth}</span></div>
-                            ))}
-                        </div>
-                        <div class="preview-legend">
-                            <span><i class="legend-active"></i><C en="Finding" id="Temuan" zh="发现" /></span>
-                            <span><i class="legend-missing"></i><C en="Missing" id="Hilang" zh="缺失" /></span>
-                            <span><i class="legend-clean"></i><C en="No finding" id="Tanpa temuan" zh="无发现" /></span>
-                        </div>
-                    </div>
-                </div>
+                <aside class="studio-index" aria-label="Current IgnitronDev work">
+                    <header><span>CURRENT WORK</span><span>2026 / 02</span></header>
+                    <a href="https://shipradar.my.id" target="_blank" rel="noopener noreferrer" class="index-row">
+                        <span class="index-number">01</span>
+                        <span><b>ShipRadar</b><small><C en="Maritime software product" id="Produk software maritim" zh="海事软件产品" /></small></span>
+                        <span class="index-state live"><i></i> LIVE</span>
+                    </a>
+                    <a href="https://ignitron-medic-ui.pages.dev/" target="_blank" rel="noopener noreferrer" class="index-row">
+                        <span class="index-number">02</span>
+                        <span><b>Ignitron Clinical UI</b><small><C en="Open-source component library" id="Library komponen open-source" zh="开源组件库" /></small></span>
+                        <span class="index-state"><i></i> ALPHA</span>
+                    </a>
+                    <footer><span>PRODUCTS</span><span>+</span><span>OPEN SOURCE</span></footer>
+                </aside>
             </div>
         </section>
 
-        <section class="signal-strip" aria-label="Product principles summary">
+        <section class="signal-strip" aria-label="IgnitronDev capabilities">
             <div class="container signal-grid">
-                <span>CLINICAL DATA FIRST</span><span>BACKEND AGNOSTIC</span><span>ACCESSIBLE BY DEFAULT</span><span>PRINT IS FIRST-CLASS</span>
+                <span>PRODUCT ENGINEERING</span><span>OPEN SOURCE</span><span>WEB SOFTWARE</span><span>LONG-TERM SYSTEMS</span>
             </div>
         </section>
 
-        <section class="section component-section" id="components">
+        <section class="section work-section" id="work">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-badge"><C en="Clinical component catalog" id="Katalog komponen klinis" zh="临床组件目录" /></span>
-                    <h2 class="section-title"><C en="Hard workflows," id="Workflow sulit," zh="复杂工作流，" /> <span class="text-gradient"><C en="reusable building blocks" id="building block reusable" zh="可复用构件" /></span></h2>
-                    <p class="section-subtitle"><C en="We focus on specialist interfaces that generic design systems do not solve." id="Kami fokus pada interface spesialis yang tidak diselesaikan oleh design system generik." zh="我们专注于通用设计系统无法解决的专业界面。" /></p>
+                <div class="section-header work-header">
+                    <div>
+                        <span class="section-badge"><C en="Selected work" id="Karya pilihan" zh="精选作品" /></span>
+                        <h2 class="section-title"><C en="Two tracks." id="Dua jalur." zh="两条路径。" /> <span class="text-gradient"><C en="One studio." id="Satu studio." zh="一个工作室。" /></span></h2>
+                    </div>
+                    <p class="section-subtitle"><C en="Standalone products solve end-user problems. Open-source projects give other teams stronger building blocks." id="Produk mandiri menyelesaikan masalah pengguna. Proyek open-source memberi tim lain building block yang lebih kuat." zh="独立产品解决终端用户问题，开源项目为其他团队提供更强的构建基础。" /></p>
                 </div>
 
-                <div class="component-grid">
-                    <article class="component-card featured" id="odontogram">
-                        <div class="component-top"><span class="component-index">01</span><span class="status building"><C en="In development" id="Dalam pengembangan" zh="开发中" /></span></div>
-                        <div>
-                            <p class="component-eyebrow">DENTAL CHARTING</p>
-                            <h3>Ignitron Odontogram</h3>
-                            <p><C en="Interactive dental charting for whole-tooth and surface-level findings, with configurable terminology and deterministic read-only/print output." id="Pencatatan gigi interaktif untuk temuan seluruh gigi dan per permukaan, dengan terminologi configurable serta output read-only/print yang konsisten." zh="支持全牙与牙面级发现的交互式牙科记录，可配置术语，并提供确定性的只读与打印输出。" /></p>
+                <div class="work-grid">
+                    <article class="work-card product-card" id="products">
+                        <div class="work-card-copy">
+                            <div class="work-meta"><span>PRODUCT / 01</span><span class="work-status live"><i></i> LIVE</span></div>
+                            <div>
+                                <p class="work-eyebrow">MARITIME SOFTWARE</p>
+                                <h3>ShipRadar</h3>
+                                <p><C en="A maritime vessel-tracking platform for monitoring ships, routes, and fleet activity through a focused operational interface." id="Platform pelacakan kapal untuk memantau kapal, rute, dan aktivitas armada melalui interface operasional yang terfokus." zh="面向船舶、航线与船队活动监控的海事追踪平台，提供专注的运营界面。" /></p>
+                            </div>
+                            <div class="work-tags"><span>Vessel tracking</span><span>AIS data</span><span>Fleet operations</span></div>
+                            <a href="https://shipradar.my.id" target="_blank" rel="noopener noreferrer" class="work-link"><C en="Visit ShipRadar" id="Kunjungi ShipRadar" zh="访问 ShipRadar" /> <span>↗</span></a>
                         </div>
-                        <div class="feature-pills"><span>FDI</span><span>Universal</span><span>Palmer</span><span>Mixed dentition</span><span>TypeScript</span></div>
+                        <div class="radar-visual" aria-hidden="true">
+                            <div class="radar-grid"></div>
+                            <div class="radar-ring ring-one"></div><div class="radar-ring ring-two"></div><div class="radar-ring ring-three"></div>
+                            <div class="radar-axis horizontal"></div><div class="radar-axis vertical"></div>
+                            <div class="radar-sweep"></div>
+                            <i class="vessel vessel-one"></i><i class="vessel vessel-two"></i><i class="vessel vessel-three"></i>
+                            <span class="radar-label top">06°12' S</span><span class="radar-label bottom">106°49' E</span>
+                        </div>
                     </article>
 
-                    <article class="component-card">
-                        <div class="component-top"><span class="component-index">02</span><span class="status research"><C en="Research" id="Riset" zh="研究中" /></span></div>
-                        <div><p class="component-eyebrow">ANATOMICAL INPUT</p><h3>Clinical Body Map</h3><p><C en="Record wound, pain, lesion, or procedure locations without tying the data to a single visual renderer." id="Catat lokasi luka, nyeri, lesi, atau tindakan tanpa mengikat data pada satu renderer visual." zh="记录伤口、疼痛、病变或操作位置，同时避免数据绑定到单一视觉渲染器。" /></p></div>
+                    <article class="work-card open-source-card" id="open-source">
+                        <div class="work-card-copy">
+                            <div class="work-meta"><span>OPEN SOURCE / 01</span><span class="work-status"><i></i> ALPHA</span></div>
+                            <div>
+                                <p class="work-eyebrow">CLINICAL SOFTWARE INFRASTRUCTURE</p>
+                                <h3>Ignitron Clinical UI</h3>
+                                <p><C en="Reusable React components for difficult clinical workflows, built around explicit data contracts and clear integration boundaries." id="Komponen React reusable untuk workflow klinis yang sulit, dibangun di atas kontrak data eksplisit dan batas integrasi yang jelas." zh="面向复杂临床工作流的可复用 React 组件，采用显式数据契约与清晰集成边界。" /></p>
+                            </div>
+                            <div class="work-tags"><span>React</span><span>TypeScript</span><span>Clinical data</span><span>Apache-2.0</span></div>
+                            <div class="work-actions">
+                                <a href="https://ignitron-medic-ui.pages.dev/" target="_blank" rel="noopener noreferrer" class="work-link"><C en="Read the docs" id="Buka dokumentasi" zh="阅读文档" /> <span>↗</span></a>
+                                <a href="https://www.npmjs.com/package/@ignitrondev/odontogram" target="_blank" rel="noopener noreferrer" class="work-link muted">npm ↗</a>
+                            </div>
+                        </div>
+                        <div class="package-visual" aria-label="Odontogram package installation example">
+                            <header><span>PACKAGE / ALPHA</span><span>PUBLIC</span></header>
+                            <div class="package-name"><small>@ignitrondev/</small><strong>odontogram</strong></div>
+                            <div class="package-command"><span>$</span><code>npm install @ignitrondev/odontogram@alpha</code></div>
+                            <div class="package-stats"><span><b>React</b><small>18 / 19</small></span><span><b>ESM</b><small>typed</small></span><span><b>0</b><small>telemetry</small></span></div>
+                        </div>
                     </article>
-
-                    <article class="component-card">
-                        <div class="component-top"><span class="component-index">03</span><span class="status roadmap"><C en="Roadmap" id="Roadmap" zh="路线图" /></span></div>
-                        <div><p class="component-eyebrow">PEDIATRIC CARE</p><h3>Growth Chart</h3><p><C en="Structured pediatric growth plotting with reference datasets supplied explicitly by the integrating application." id="Plot pertumbuhan anak terstruktur dengan dataset referensi yang diberikan secara eksplisit oleh aplikasi integrator." zh="结构化儿童生长曲线，参考数据集由集成应用明确提供。" /></p></div>
-                    </article>
-
-                    <article class="component-card">
-                        <div class="component-top"><span class="component-index">04</span><span class="status roadmap"><C en="Roadmap" id="Roadmap" zh="路线图" /></span></div>
-                        <div><p class="component-eyebrow">CLINICAL MONITORING</p><h3>Vitals & EWS</h3><p><C en="Fast vital-sign entry and warning-score presentation, configurable for organization-specific workflows." id="Input tanda vital dan penyajian warning score yang cepat, configurable untuk workflow masing-masing organisasi." zh="快速生命体征录入与预警评分展示，可按机构工作流配置。" /></p></div>
-                    </article>
-                </div>
-                <div class="catalog-link"><a href={`${base}foundry/`} class="btn btn-outline"><C en="View the full roadmap" id="Lihat roadmap lengkap" zh="查看完整路线图" /></a></div>
-            </div>
-        </section>
-
-        <section class="section principle-section" id="principles">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-badge"><C en="Built for clinical software" id="Dibangun untuk software klinis" zh="为临床软件而构建" /></span>
-                    <h2 class="section-title"><C en="The interface can change." id="Interface boleh berubah." zh="界面可以变化。" /><br /><span class="text-gradient"><C en="The clinical meaning cannot." id="Makna klinis tidak boleh." zh="临床含义不能变。" /></span></h2>
-                </div>
-                <div class="principle-grid">
-                    <article><span>01</span><h3><C en="Data before pixels" id="Data sebelum visual" zh="数据优先于像素" /></h3><p><C en="The UI represents structured data; color and SVG paths are never the clinical source of truth." id="UI merepresentasikan data terstruktur; warna dan path SVG tidak pernah menjadi sumber kebenaran klinis." zh="UI 表示结构化数据；颜色与 SVG 路径绝不是临床事实来源。" /></p></article>
-                    <article><span>02</span><h3><C en="Configured, not forked" id="Dikonfigurasi, bukan di-fork" zh="配置，而非分叉" /></h3><p><C en="Terminology, symbols, language, permissions, and workflow states belong in explicit configuration." id="Terminologi, simbol, bahasa, permission, dan state workflow berada dalam konfigurasi eksplisit." zh="术语、符号、语言、权限与工作流状态均通过显式配置定义。" /></p></article>
-                    <article><span>03</span><h3><C en="Integration boundaries" id="Batas integrasi yang jelas" zh="清晰的集成边界" /></h3><p><C en="Components emit values and domain events. Your application owns identity, storage, authorization, and signatures." id="Komponen menghasilkan value dan domain event. Aplikasi Anda mengelola identitas, penyimpanan, otorisasi, dan tanda tangan." zh="组件输出值与领域事件；身份、存储、授权与签名由您的应用负责。" /></p></article>
-                    <article><span>04</span><h3><C en="No patient data by default" id="Tanpa data pasien secara default" zh="默认不处理患者数据" /></h3><p><C en="The library makes no network request and ships no hidden telemetry. Analytics must be deliberately enabled." id="Library tidak membuat network request dan tidak membawa telemetry tersembunyi. Analytics harus diaktifkan secara sengaja." zh="库不会发起网络请求，也不包含隐藏遥测；分析功能必须主动启用。" /></p></article>
-                </div>
-            </div>
-        </section>
-
-        <section class="section integration-section" id="integration">
-            <div class="container integration-grid">
-                <div>
-                    <span class="section-badge">DEVELOPER EXPERIENCE</span>
-                    <h2 class="section-title"><C en="Bring your backend." id="Gunakan backend Anda." zh="使用您自己的后端。" /><br /><span class="text-gradient"><C en="Keep your data." id="Data tetap milik Anda." zh="数据始终归您。" /></span></h2>
-                    <p class="section-subtitle"><C en="Ignitron components are controlled inputs. They accept validated configuration, return structured values, and stay out of your storage architecture." id="Komponen Ignitron adalah controlled input. Komponen menerima konfigurasi tervalidasi, menghasilkan value terstruktur, dan tidak mencampuri arsitektur penyimpanan Anda." zh="Ignitron 组件是受控输入：接收经过验证的配置、返回结构化值，并独立于您的存储架构。" /></p>
-                    <div class="integration-points"><span>✓ Type-safe value</span><span>✓ Domain change events</span><span>✓ Read-only & print modes</span><span>✓ Theme tokens</span></div>
-                </div>
-                <div class="code-window" aria-label="Odontogram React integration example">
-                    <div class="code-header"><span>Assessment.tsx</span><span>React + TypeScript</span></div>
-                    <pre><code><span class="code-purple">&lt;Odontogram</span>
-  <span class="code-blue">value</span>={'{value}'}
-  <span class="code-blue">onChange</span>={'{setValue}'}
-  <span class="code-blue">numbering</span>=<span class="code-green">"FDI"</span>
-  <span class="code-blue">dentition</span>=<span class="code-green">"MIXED"</span>
-  <span class="code-blue">conditions</span>={'{hospitalConditions}'}
-  <span class="code-blue">mode</span>=<span class="code-green">"edit"</span>
-<span class="code-purple">/&gt;</span></code></pre>
-                    <div class="code-footer"><span class="status-dot"></span>No backend required</div>
                 </div>
             </div>
         </section>
 
-        <section class="section roadmap-section" id="roadmap">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-badge"><C en="Release path" id="Jalur rilis" zh="发布路径" /></span>
-                    <h2 class="section-title"><C en="Validate first." id="Validasi dahulu." zh="先验证。" /> <span class="text-gradient"><C en="Then scale." id="Baru scale." zh="再扩展。" /></span></h2>
-                    <p class="section-subtitle"><C en="We will not call a component clinical-ready until clinicians and integrators have tested it in realistic workflows." id="Kami tidak akan menyebut komponen clinical-ready sebelum tenaga medis dan integrator mengujinya dalam workflow realistis." zh="在临床人员与集成者完成真实工作流测试之前，我们不会称组件已达到临床可用。" /></p>
+        <section class="section studio-section" id="studio">
+            <div class="container studio-grid">
+                <div class="studio-statement">
+                    <span class="section-badge"><C en="How we build" id="Cara kami membangun" zh="我们的构建方式" /></span>
+                    <h2><C en="A home for software products," id="Rumah bagi produk software," zh="软件产品的归属，" /><br /><span class="text-gradient"><C en="not one category." id="bukan satu kategori." zh="不受单一类别限制。" /></span></h2>
+                    <p><C en="IgnitronDev can build maritime software today and clinical infrastructure tomorrow. The shared thread is focused problem-solving, durable engineering, and honest product boundaries." id="IgnitronDev dapat membangun software maritim hari ini dan infrastruktur klinis besok. Benang merahnya adalah pemecahan masalah yang fokus, engineering yang tahan lama, dan batas produk yang jujur." zh="IgnitronDev 今天可以构建海事软件，明天也能打造临床基础设施。共同点是专注的问题解决、持久的工程能力与清晰诚实的产品边界。" /></p>
                 </div>
-                <div class="release-steps">
-                    <article><b>01</b><span><C en="Discovery" id="Discovery" zh="需求发现" /></span><p><C en="Workflow observation and clinical data contract." id="Observasi workflow dan kontrak data klinis." zh="工作流观察与临床数据契约。" /></p></article>
-                    <article><b>02</b><span><C en="Prototype" id="Prototype" zh="原型" /></span><p><C en="Interaction model, accessibility, and print behavior." id="Model interaksi, aksesibilitas, dan perilaku print." zh="交互模型、无障碍与打印行为。" /></p></article>
-                    <article><b>03</b><span><C en="Pilot" id="Pilot" zh="试点" /></span><p><C en="Clinical review and real EMR integration." id="Review klinis dan integrasi EMR nyata." zh="临床评审与真实 EMR 集成。" /></p></article>
-                    <article><b>04</b><span><C en="Release" id="Rilis" zh="发布" /></span><p><C en="Versioned package, documentation, and migration policy." id="Package berversi, dokumentasi, dan kebijakan migrasi." zh="版本化软件包、文档与迁移策略。" /></p></article>
+                <div class="studio-principles">
+                    <article><span>01</span><div><h3><C en="Start with the workflow" id="Mulai dari workflow" zh="从工作流开始" /></h3><p><C en="Understand the real job before choosing the interface or stack." id="Pahami pekerjaan nyata sebelum memilih interface atau stack." zh="在选择界面或技术栈前，先理解真实任务。" /></p></div></article>
+                    <article><span>02</span><div><h3><C en="Build clear boundaries" id="Bangun batas yang jelas" zh="建立清晰边界" /></h3><p><C en="Products should be explicit about what they own and what stays with the user." id="Produk harus jelas tentang apa yang dikelola dan apa yang tetap dimiliki pengguna." zh="产品应明确自身职责，以及哪些内容始终归用户所有。" /></p></div></article>
+                    <article><span>03</span><div><h3><C en="Ship, learn, improve" id="Rilis, belajar, perbaiki" zh="发布、学习、改进" /></h3><p><C en="Useful software grows through real usage, not a long list of speculative features." id="Software yang berguna tumbuh lewat penggunaan nyata, bukan daftar panjang fitur spekulatif." zh="有用的软件源于真实使用，而不是冗长的假设功能清单。" /></p></div></article>
                 </div>
             </div>
         </section>
@@ -169,70 +132,57 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
 </BaseLayout>
 
 <style>
-    .clinical-hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 150px 0 90px; }
+    .studio-hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 150px 0 90px; }
     .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(to bottom, black, transparent 90%); }
-    .clinical-hero::before { content: ''; position: absolute; width: 600px; height: 600px; border-radius: 50%; background: rgba(255,255,255,.06); filter: blur(140px); top: -300px; left: 15%; }
-    .clinical-hero-grid { position: relative; display: grid; grid-template-columns: 1.02fr .98fr; gap: 72px; align-items: center; }
+    .studio-hero::before { content: ''; position: absolute; width: 620px; height: 620px; border-radius: 50%; background: rgba(255,255,255,.055); filter: blur(150px); top: -310px; left: 8%; }
+    .studio-hero-grid { position: relative; display: grid; grid-template-columns: 1.08fr .92fr; gap: 80px; align-items: center; }
     .hero-badge { width: fit-content; display: flex; align-items: center; gap: 9px; padding: 7px 13px; border: 1px solid var(--border-color); background: rgba(24,24,27,.75); color: var(--cyber-cyan-dark); font: 600 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 26px; }
     .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 9px rgba(74,222,128,.6); display: inline-block; }
-    .clinical-hero h1 { font-size: clamp(50px, 6.3vw, 84px); line-height: .98; letter-spacing: -.055em; max-width: 800px; }
-    .clinical-hero-subtitle { color: #a1a1aa; font-size: clamp(17px, 1.7vw, 20px); line-height: 1.7; max-width: 690px; margin: 30px 0 34px; }
+    .studio-hero h1 { font-size: clamp(50px, 6.3vw, 84px); line-height: .98; letter-spacing: -.055em; max-width: 860px; }
+    .studio-hero-subtitle { color: #a1a1aa; font-size: clamp(17px, 1.7vw, 20px); line-height: 1.7; max-width: 720px; margin: 30px 0 34px; }
     .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
-    .hero-proof { display: flex; gap: 24px; flex-wrap: wrap; color: #71717a; font: 12px var(--font-mono); margin-top: 38px; }
-    .hero-proof b { color: #d4d4d8; }
-    .preview-window { background: rgba(9,9,11,.92); border: 1px solid #3f3f46; box-shadow: 0 40px 100px rgba(0,0,0,.6); padding: 18px; position: relative; }
-    .preview-window::after { content: ''; position: absolute; inset: -1px; background: linear-gradient(135deg, rgba(255,255,255,.16), transparent 35%); pointer-events: none; }
-    .preview-header { display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 1px solid #27272a; color: #71717a; font: 10px var(--font-mono); }
-    .preview-dots { display: flex; gap: 5px; }
-    .preview-dots i { width: 7px; height: 7px; background: #3f3f46; border-radius: 50%; }
-    .preview-status { margin-left: auto; color: #a1a1aa; }
-    .jaw-label { text-align: center; color: #71717a; font: 10px var(--font-mono); margin: 24px 0 17px; text-transform: uppercase; letter-spacing: .08em; }
-    .teeth-row { display: grid; grid-template-columns: repeat(16, 1fr); gap: 4px; align-items: end; }
-    .tooth { min-width: 0; text-align: center; color: #52525b; font: 8px var(--font-mono); }
-    .tooth i { display: block; height: calc(23px + (var(--i) % 4) * 3px); border: 1px solid #52525b; border-radius: 45% 45% 35% 35%; margin: 3px 0; background: #18181b; }
-    .tooth:nth-child(n+9) i { border-radius: 45% 45% 35% 35%; }
-    .lower .tooth i { border-radius: 35% 35% 45% 45%; }
-    .tooth.active { color: #f4f4f5; }
-    .tooth.active i { border-color: #f4f4f5; background: repeating-linear-gradient(45deg, #27272a, #27272a 3px, #52525b 3px, #52525b 4px); box-shadow: 0 0 10px rgba(255,255,255,.12); }
-    .tooth.missing i { border-style: dashed; opacity: .45; background: transparent; position: relative; }
-    .jaw-divider { display: flex; align-items: center; gap: 8px; color: #52525b; font: 9px var(--font-mono); margin: 9px 0; }
-    .jaw-divider i { flex: 1; height: 1px; background: #27272a; }
-    .preview-legend { display: flex; justify-content: center; gap: 18px; border-top: 1px solid #27272a; padding-top: 15px; margin-top: 22px; color: #71717a; font: 9px var(--font-mono); }
-    .preview-legend span { display: flex; align-items: center; gap: 5px; }
-    .preview-legend i { width: 8px; height: 8px; border: 1px solid #52525b; }
-    .legend-active { background: #f4f4f5; }.legend-missing { border-style: dashed !important; }.legend-clean { background: #18181b; }
+    .studio-index { border: 1px solid #3f3f46; background: rgba(9,9,11,.9); box-shadow: 0 40px 100px rgba(0,0,0,.55); }
+    .studio-index > header,.studio-index > footer { display: flex; justify-content: space-between; padding: 14px 18px; color: #71717a; font: 10px var(--font-mono); letter-spacing: .08em; border-bottom: 1px solid #27272a; }
+    .studio-index > footer { border: 0; border-top: 1px solid #27272a; justify-content: flex-start; gap: 12px; }
+    .index-row { display: grid; grid-template-columns: 34px 1fr auto; gap: 15px; align-items: center; padding: 24px 18px; border-bottom: 1px solid #27272a; transition: .2s ease; }
+    .index-row:hover { background: #18181b; }
+    .index-number { color: #52525b; font: 11px var(--font-mono); }
+    .index-row b { display: block; font-size: 18px; margin-bottom: 4px; }.index-row small { color: #71717a; }
+    .index-state { color: #a1a1aa; font: 9px var(--font-mono); letter-spacing: .08em; }.index-state i,.work-status i { width: 6px; height: 6px; border-radius: 50%; background: #a1a1aa; display: inline-block; margin-right: 5px; }.index-state.live i,.work-status.live i { background: #4ade80; box-shadow: 0 0 7px rgba(74,222,128,.5); }
     .signal-strip { border-block: 1px solid #27272a; background: #0c0c0f; }
     .signal-grid { min-height: 70px; display: grid; grid-template-columns: repeat(4, 1fr); align-items: center; text-align: center; color: #71717a; font: 10px var(--font-mono); letter-spacing: .12em; }
     .signal-grid span + span { border-left: 1px solid #27272a; }
-    .component-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-    .component-card { min-height: 340px; border: 1px solid #27272a; background: #0c0c0f; padding: 30px; display: flex; flex-direction: column; justify-content: space-between; transition: .25s ease; }
-    .component-card:hover { border-color: #52525b; transform: translateY(-3px); }
-    .component-card.featured { grid-column: span 2; min-height: 400px; background: linear-gradient(135deg, #18181b, #0c0c0f 60%); }
-    .component-top { display: flex; justify-content: space-between; align-items: start; }
-    .component-index { color: #52525b; font: 12px var(--font-mono); }
-    .status { border: 1px solid #3f3f46; padding: 5px 9px; color: #a1a1aa; font: 9px var(--font-mono); text-transform: uppercase; letter-spacing: .08em; }
-    .status.building { border-color: #52525b; color: #e4e4e7; }.status.research { border-style: dashed; }.status.roadmap { opacity: .65; }
-    .component-eyebrow { color: #71717a !important; font: 10px var(--font-mono) !important; letter-spacing: .14em; margin-bottom: 10px; }
-    .component-card h3 { font-size: clamp(27px, 3vw, 42px); letter-spacing: -.035em; margin-bottom: 14px; }
-    .component-card p { color: #a1a1aa; max-width: 760px; line-height: 1.7; }
-    .feature-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 28px; }
-    .feature-pills span { border: 1px solid #3f3f46; padding: 6px 10px; color: #a1a1aa; font: 10px var(--font-mono); }
-    .catalog-link { display: flex; justify-content: center; margin-top: 40px; }
-    .principle-section { background: #0c0c0f; border-block: 1px solid #18181b; }
-    .principle-grid { display: grid; grid-template-columns: repeat(2, 1fr); border: 1px solid #27272a; }
-    .principle-grid article { padding: 38px; min-height: 240px; }
-    .principle-grid article:nth-child(odd) { border-right: 1px solid #27272a; }.principle-grid article:nth-child(-n+2) { border-bottom: 1px solid #27272a; }
-    .principle-grid article > span { color: #52525b; font: 11px var(--font-mono); }
-    .principle-grid h3 { font-size: 22px; margin: 40px 0 10px; }.principle-grid p { color: #71717a; line-height: 1.7; }
-    .integration-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .integration-points { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 28px; color: #a1a1aa; font: 12px var(--font-mono); }
-    .code-window { border: 1px solid #3f3f46; background: #09090b; box-shadow: 0 30px 70px rgba(0,0,0,.45); }
-    .code-header,.code-footer { display: flex; justify-content: space-between; align-items: center; padding: 13px 17px; border-bottom: 1px solid #27272a; color: #71717a; font: 10px var(--font-mono); }
-    .code-window pre { padding: 32px; overflow-x: auto; color: #d4d4d8; font: 14px/1.8 var(--font-mono); }.code-footer { justify-content: flex-start; gap: 8px; border: 0; border-top: 1px solid #27272a; }.code-purple { color: #c4b5fd; }.code-blue { color: #93c5fd; }.code-green { color: #86efac; }
-    .roadmap-section { background: #0c0c0f; }
-    .release-steps { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid #3f3f46; }
-    .release-steps article { padding: 30px 22px; border-right: 1px solid #27272a; }.release-steps article:last-child { border: 0; }
-    .release-steps b { display: block; color: #52525b; font: 11px var(--font-mono); margin-bottom: 50px; }.release-steps span { font-size: 18px; font-weight: 700; }.release-steps p { color: #71717a; margin-top: 10px; font-size: 14px; line-height: 1.65; }
-    @media (max-width: 1000px) { .clinical-hero-grid,.integration-grid { grid-template-columns: 1fr; }.clinical-hero-copy { text-align: center; }.hero-badge,.clinical-hero-subtitle { margin-inline: auto; }.hero-cta,.hero-proof { justify-content: center; }.odontogram-preview { max-width: 720px; margin: 0 auto; width: 100%; } }
-    @media (max-width: 760px) { .clinical-hero { padding-top: 130px; }.clinical-hero-grid { gap: 50px; }.clinical-hero h1 { font-size: clamp(43px, 14vw, 64px); }.signal-grid { grid-template-columns: 1fr 1fr; padding-block: 14px; gap: 14px; }.signal-grid span + span { border: 0; }.component-grid,.principle-grid { grid-template-columns: 1fr; }.component-card.featured { grid-column: span 1; }.principle-grid article { border-right: 0 !important; border-bottom: 1px solid #27272a !important; }.principle-grid article:last-child { border-bottom: 0 !important; }.release-steps { grid-template-columns: 1fr 1fr; }.release-steps article:nth-child(2) { border-right: 0; }.release-steps article:nth-child(-n+2) { border-bottom: 1px solid #27272a; }.teeth-row { gap: 2px; }.tooth span { display: none; }.preview-legend { flex-wrap: wrap; }.integration-points { grid-template-columns: 1fr; } }
+    .work-section { background: #09090b; }
+    .work-header { display: grid; grid-template-columns: 1fr .72fr; gap: 80px; align-items: end; }
+    .work-grid { display: grid; gap: 22px; }
+    .work-card { min-height: 540px; display: grid; grid-template-columns: 1.05fr .95fr; border: 1px solid #27272a; background: #0c0c0f; overflow: hidden; }
+    .work-card-copy { padding: 36px; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; }
+    .work-meta { display: flex; justify-content: space-between; color: #71717a; font: 10px var(--font-mono); letter-spacing: .1em; }
+    .work-status { color: #a1a1aa; }
+    .work-eyebrow { color: #71717a !important; font: 10px var(--font-mono); letter-spacing: .14em; margin-bottom: 10px; }
+    .work-card h3 { font-size: clamp(40px, 5vw, 68px); letter-spacing: -.055em; line-height: 1; margin-bottom: 18px; }
+    .work-card p { color: #a1a1aa; font-size: 16px; line-height: 1.75; max-width: 690px; }
+    .work-tags { display: flex; gap: 8px; flex-wrap: wrap; }.work-tags span { border: 1px solid #3f3f46; padding: 6px 10px; color: #71717a; font: 10px var(--font-mono); }
+    .work-link { width: fit-content; display: inline-flex; align-items: center; gap: 10px; border-bottom: 1px solid #a1a1aa; padding-bottom: 5px; font-weight: 600; }.work-link span { transition: transform .2s ease; }.work-link:hover span { transform: translate(3px,-3px); }.work-link.muted { color: #a1a1aa; }
+    .work-actions { display: flex; gap: 22px; flex-wrap: wrap; }
+    .radar-visual { position: relative; min-height: 540px; overflow: hidden; background: #101014; border-left: 1px solid #27272a; }
+    .radar-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px); background-size: 32px 32px; }
+    .radar-ring { position: absolute; left: 50%; top: 50%; border: 1px solid #3f3f46; border-radius: 50%; transform: translate(-50%,-50%); }.ring-one{width:180px;height:180px}.ring-two{width:330px;height:330px}.ring-three{width:480px;height:480px}
+    .radar-axis { position: absolute; background: #3f3f46; }.radar-axis.horizontal{height:1px;left:0;right:0;top:50%}.radar-axis.vertical{width:1px;top:0;bottom:0;left:50%}
+    .radar-sweep { position: absolute; width: 240px; height: 240px; left: 50%; top: 50%; transform-origin: 0 0; background: conic-gradient(from 270deg,rgba(244,244,245,.18),transparent 22%); animation: sweep 8s linear infinite; }
+    .vessel { position: absolute; width: 8px; height: 13px; border: 1px solid #f4f4f5; background: #27272a; clip-path: polygon(50% 0,100% 35%,80% 100%,20% 100%,0 35%); }.vessel-one{left:67%;top:31%}.vessel-two{left:29%;top:62%}.vessel-three{left:57%;top:72%}
+    .radar-label { position: absolute; color:#52525b;font:9px var(--font-mono);letter-spacing:.08em}.radar-label.top{top:18px;left:18px}.radar-label.bottom{bottom:18px;right:18px}
+    @keyframes sweep { to { transform: rotate(360deg); } }
+    .package-visual { align-self: center; margin: 36px; border: 1px solid #3f3f46; background: #09090b; box-shadow: 0 30px 70px rgba(0,0,0,.45); }
+    .package-visual header { display:flex;justify-content:space-between;padding:14px 16px;border-bottom:1px solid #27272a;color:#71717a;font:10px var(--font-mono); }
+    .package-name { padding: 54px 30px 40px; }.package-name small,.package-name strong { display:block; }.package-name small { color:#71717a;font:14px var(--font-mono); }.package-name strong { font-size:clamp(30px,4vw,50px);letter-spacing:-.05em; }
+    .package-command { margin:0 30px 30px;padding:16px;background:#18181b;border:1px solid #27272a;display:flex;gap:10px;overflow-x:auto;font:11px var(--font-mono);white-space:nowrap}.package-command span{color:#71717a}.package-command code{color:#d4d4d8}
+    .package-stats { display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #27272a}.package-stats span{padding:18px;border-right:1px solid #27272a}.package-stats span:last-child{border:0}.package-stats b,.package-stats small{display:block}.package-stats b{font:14px var(--font-mono)}.package-stats small{color:#71717a;font-size:10px;margin-top:4px}
+    .studio-section { background:#0c0c0f;border-block:1px solid #27272a; }
+    .studio-grid { display:grid;grid-template-columns:.9fr 1.1fr;gap:100px;align-items:start; }
+    .studio-statement h2 { font-size:clamp(38px,5vw,66px);line-height:1.04;letter-spacing:-.05em;margin:26px 0; }.studio-statement p{color:#a1a1aa;font-size:17px;line-height:1.8;max-width:620px}
+    .studio-principles { border-top:1px solid #3f3f46; }.studio-principles article{display:grid;grid-template-columns:45px 1fr;gap:20px;padding:30px 0;border-bottom:1px solid #27272a}.studio-principles article>span{color:#52525b;font:11px var(--font-mono)}.studio-principles h3{font-size:22px;margin-bottom:8px}.studio-principles p{color:#71717a;line-height:1.7}
+    @media(max-width:1000px){.studio-hero-grid,.work-card,.studio-grid{grid-template-columns:1fr}.studio-hero-copy{text-align:center}.hero-badge,.studio-hero-subtitle{margin-inline:auto}.hero-cta{justify-content:center}.studio-index{max-width:720px;margin:0 auto;width:100%}.work-header{grid-template-columns:1fr;gap:22px}.radar-visual{border-left:0;border-top:1px solid #27272a;min-height:450px}.package-visual{width:calc(100% - 72px)}.studio-grid{gap:60px}}
+    @media(max-width:760px){.studio-hero{padding-top:140px}.studio-hero-grid{gap:50px}.studio-hero h1{font-size:clamp(43px,14vw,64px)}.signal-grid{grid-template-columns:1fr 1fr;padding-block:14px;gap:14px}.signal-grid span+span{border:0}.index-row{grid-template-columns:28px 1fr}.index-state{grid-column:2}.work-card{min-height:0}.work-card-copy{padding:24px}.radar-visual{min-height:360px}.ring-three{width:360px;height:360px}.package-visual{margin:24px;width:calc(100% - 48px)}.package-name{padding:40px 20px 30px}.package-command{margin:0 20px 20px}.package-stats span{padding:14px 10px}.studio-grid{gap:45px}}
+    @media(prefers-reduced-motion:reduce){.radar-sweep{animation:none}}
 </style>
