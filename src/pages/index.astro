@@ -14,8 +14,8 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
 
 <BaseLayout
     title="IgnitronDev — Independent Products"
-    description="ShipRadar and Ignitron Clinical UI are independent products by IgnitronDev."
-    keywords="IgnitronDev, independent software products, ShipRadar, open source developer tools, Ignitron Clinical UI"
+    description="IgnitronDev builds IgnitronDev Router, ShipRadar, and Ignitron Clinical UI."
+    keywords="IgnitronDev, IgnitronDev Router, AI gateway, AI router, unified AI API, ShipRadar, open source developer tools, Ignitron Clinical UI"
     schema={schema}
 >
     <Navbar />
@@ -26,7 +26,7 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
                 <div class="studio-hero-copy">
                     <div class="hero-badge"><span class="status-dot"></span><C en="Independent products" id="Produk independen" zh="独立产品" /></div>
                     <h1><C en="Products for real work." id="Produk untuk pekerjaan nyata." zh="为真实工作而生的产品。" /><br /><span class="text-gradient"><C en="Tools for builders." id="Tools untuk para builder." zh="为构建者而生的工具。" /></span></h1>
-                    <p class="studio-hero-subtitle"><C en="IgnitronDev builds and operates ShipRadar and Ignitron Clinical UI. Each product serves its own users, solves a specific problem, and follows its own roadmap." id="IgnitronDev membangun dan mengoperasikan ShipRadar serta Ignitron Clinical UI. Setiap produk melayani penggunanya sendiri, menyelesaikan masalah spesifik, dan memiliki roadmap masing-masing." zh="IgnitronDev 构建并运营 ShipRadar 与 Ignitron Clinical UI。每个产品服务各自的用户、解决具体问题，并拥有独立的路线图。" /></p>
+                    <p class="studio-hero-subtitle"><C en="IgnitronDev builds and operates IgnitronDev Router, ShipRadar, and Ignitron Clinical UI. Each product serves its own users, solves a specific problem, and follows its own roadmap." id="IgnitronDev membangun dan mengoperasikan IgnitronDev Router, ShipRadar, serta Ignitron Clinical UI. Setiap produk melayani penggunanya sendiri, menyelesaikan masalah spesifik, dan memiliki roadmap masing-masing." zh="IgnitronDev 构建并运营 IgnitronDev Router、ShipRadar 与 Ignitron Clinical UI。每个产品服务各自的用户、解决具体问题，并拥有独立的路线图。" /></p>
                     <div class="hero-cta">
                         <a href="#work" class="btn btn-primary btn-lg"><C en="Explore our work" id="Lihat karya kami" zh="浏览我们的作品" /></a>
                         <a href="https://github.com/ignitrondev" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">GitHub ↗</a>
@@ -34,14 +34,19 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
                 </div>
 
                 <aside class="studio-index" aria-label="Current IgnitronDev work">
-                    <header><span>CURRENT WORK</span><span>2026 / 02</span></header>
+                    <header><span>CURRENT WORK</span><span>3 ACTIVE BUILDS</span></header>
                     <a href="https://shipradar.my.id" target="_blank" rel="noopener noreferrer" class="index-row">
                         <span class="index-number">01</span>
                         <span><b>ShipRadar</b><small><C en="Maritime software product" id="Produk software maritim" zh="海事软件产品" /></small></span>
                         <span class="index-state live"><i></i> LIVE</span>
                     </a>
-                    <a href="https://ignitron-medic-ui.pages.dev/" target="_blank" rel="noopener noreferrer" class="index-row">
+                    <a href="https://app.ignitrondev.space" target="_blank" rel="noopener noreferrer" class="index-row">
                         <span class="index-number">02</span>
+                        <span><b>IgnitronDev Router</b><small><C en="Unified AI model gateway" id="Gateway model AI terpadu" zh="统一 AI 模型网关" /></small></span>
+                        <span class="index-state live"><i></i> LIVE</span>
+                    </a>
+                    <a href="https://ignitron-medic-ui.pages.dev/" target="_blank" rel="noopener noreferrer" class="index-row">
+                        <span class="index-number">03</span>
                         <span><b>Ignitron Clinical UI</b><small><C en="Open-source component library" id="Library komponen open-source" zh="开源组件库" /></small></span>
                         <span class="index-state"><i></i> ALPHA</span>
                     </a>
@@ -52,7 +57,7 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
 
         <section class="signal-strip" aria-label="IgnitronDev capabilities">
             <div class="container signal-grid">
-                <span>PRODUCT ENGINEERING</span><span>OPEN SOURCE</span><span>WEB SOFTWARE</span><span>LONG-TERM SYSTEMS</span>
+                <span>PRODUCT ENGINEERING</span><span>AI INFRASTRUCTURE</span><span>OPEN SOURCE</span><span>WEB SOFTWARE</span>
             </div>
         </section>
 
@@ -63,7 +68,7 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
                         <span class="section-badge"><C en="Selected work" id="Karya pilihan" zh="精选作品" /></span>
                         <h2 class="section-title"><C en="Different users." id="Pengguna berbeda." zh="不同的用户。" /> <span class="text-gradient"><C en="Focused products." id="Produk yang fokus." zh="专注的产品。" /></span></h2>
                     </div>
-                    <p class="section-subtitle"><C en="ShipRadar helps people follow vessel movements. Ignitron Clinical UI gives healthcare developers stronger building blocks." id="ShipRadar membantu orang mengikuti pergerakan kapal. Ignitron Clinical UI memberi developer healthcare building block yang lebih kuat." zh="ShipRadar 帮助用户追踪船舶动态，Ignitron Clinical UI 为医疗软件开发者提供更强的构建基础。" /></p>
+                    <p class="section-subtitle"><C en="IgnitronDev Router unifies access to leading AI models. ShipRadar follows vessel movements. Ignitron Clinical UI gives healthcare developers stronger building blocks." id="IgnitronDev Router menyatukan akses ke berbagai model AI terdepan. ShipRadar mengikuti pergerakan kapal. Ignitron Clinical UI memberi developer healthcare building block yang lebih kuat." zh="IgnitronDev Router 统一接入领先 AI 模型，ShipRadar 追踪船舶动态，Ignitron Clinical UI 为医疗软件开发者提供更强的构建基础。" /></p>
                 </div>
 
                 <div class="work-grid">
@@ -85,6 +90,33 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
                             <div class="radar-sweep"></div>
                             <i class="vessel vessel-one"></i><i class="vessel vessel-two"></i><i class="vessel vessel-three"></i>
                             <span class="radar-label top">06°12' S</span><span class="radar-label bottom">106°49' E</span>
+                        </div>
+                    </article>
+
+                    <article class="work-card router-card">
+                        <div class="work-card-copy">
+                            <div class="work-meta"><span>PRODUCT / 02</span><span class="work-status live"><i></i> LIVE</span></div>
+                            <div>
+                                <p class="work-eyebrow">AI INFRASTRUCTURE</p>
+                                <h3>IgnitronDev Router</h3>
+                                <p><C en="A unified AI gateway for routing requests to leading models through one API key, with built-in usage metering, billing, and spend controls." id="Gateway AI terpadu untuk merutekan request ke model terdepan melalui satu API key, dilengkapi metering penggunaan, billing, dan kontrol biaya." zh="统一 AI 网关，通过一个 API 密钥将请求路由至领先模型，并内置用量计量、账单与费用控制。" /></p>
+                            </div>
+                            <div class="work-tags"><span>AI gateway</span><span>Unified API</span><span>Usage metering</span><span>Spend controls</span></div>
+                            <a href="https://app.ignitrondev.space" target="_blank" rel="noopener noreferrer" class="work-link"><C en="Open IgnitronDev Router" id="Buka IgnitronDev Router" zh="打开 IgnitronDev Router" /> <span>↗</span></a>
+                        </div>
+                        <div class="router-visual" aria-hidden="true">
+                            <div class="router-console">
+                                <header><span>AI ROUTER / LIVE</span><span class="router-live"><i></i> OPERATIONAL</span></header>
+                                <div class="router-request"><span>POST</span><code>/v1/messages</code><small>ONE API KEY</small></div>
+                                <div class="router-flow">
+                                    <div class="router-source"><small>YOUR APP</small><strong>REQUEST</strong></div>
+                                    <div class="router-path"><i></i><i></i><i></i></div>
+                                    <div class="router-core"><small>IGNITRONDEV</small><strong>ROUTER</strong><span>AUTH · ROUTE · METER</span></div>
+                                    <div class="router-path outbound"><i></i><i></i><i></i></div>
+                                    <div class="router-models"><span>ANTHROPIC</span><span>OPENAI</span><span>GOOGLE</span></div>
+                                </div>
+                                <footer><span><b>1</b><small>endpoint</small></span><span><b>1</b><small>API key</small></span><span><b>∞</b><small>possibilities</small></span></footer>
+                            </div>
                         </div>
                     </article>
 
@@ -118,7 +150,7 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
                 <div class="studio-statement">
                     <span class="section-badge"><C en="Product approach" id="Pendekatan produk" zh="产品方法" /></span>
                     <h2><C en="Each product" id="Setiap produk" zh="每个产品" /><br /><span class="text-gradient"><C en="stands on its own." id="berdiri sendiri." zh="独立存在。" /></span></h2>
-                    <p><C en="ShipRadar and Ignitron Clinical UI are built for different people and different workflows. We give each product its own identity, roadmap, and measure of success." id="ShipRadar dan Ignitron Clinical UI dibangun untuk pengguna dan workflow yang berbeda. Setiap produk memiliki identitas, roadmap, dan ukuran keberhasilannya sendiri." zh="ShipRadar 与 Ignitron Clinical UI 面向不同用户与工作流。每个产品都有自己的身份、路线图与成功标准。" /></p>
+                    <p><C en="IgnitronDev Router, ShipRadar, and Ignitron Clinical UI are built for different people and different workflows. We give each product its own identity, roadmap, and measure of success." id="IgnitronDev Router, ShipRadar, dan Ignitron Clinical UI dibangun untuk pengguna dan workflow yang berbeda. Setiap produk memiliki identitas, roadmap, dan ukuran keberhasilannya sendiri." zh="IgnitronDev Router、ShipRadar 与 Ignitron Clinical UI 面向不同用户与工作流。每个产品都有自己的身份、路线图与成功标准。" /></p>
                 </div>
                 <div class="studio-principles">
                     <article><span>01</span><div><h3><C en="Start with the workflow" id="Mulai dari workflow" zh="从工作流开始" /></h3><p><C en="Understand the real job before choosing the interface or stack." id="Pahami pekerjaan nyata sebelum memilih interface atau stack." zh="在选择界面或技术栈前，先理解真实任务。" /></p></div></article>
@@ -152,7 +184,7 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
     .studio-index > footer { border: 0; border-top: 1px solid #27272a; justify-content: flex-start; gap: 12px; }
     .studio-index > footer { opacity: 0; animation: row-reveal .55s .94s ease-out forwards; }
     .index-row { position: relative; display: grid; grid-template-columns: 34px 1fr auto; gap: 15px; align-items: center; padding: 24px 18px; border-bottom: 1px solid #27272a; opacity: 0; transform: translateX(14px); transition: background .25s ease,box-shadow .25s ease; animation: row-reveal .62s cubic-bezier(.16,1,.3,1) forwards; }
-    .index-row:nth-of-type(1) { animation-delay: .66s; }.index-row:nth-of-type(2) { animation-delay: .8s; }
+    .index-row:nth-of-type(1) { animation-delay: .66s; }.index-row:nth-of-type(2) { animation-delay: .8s; }.index-row:nth-of-type(3) { animation-delay: .94s; }
     .index-row:hover { background: #18181b; box-shadow: inset 2px 0 #d4d4d8; }
     .index-row:focus-visible { outline: 1px solid #d4d4d8; outline-offset: -3px; background: #18181b; }
     .index-number { color: #52525b; font: 11px var(--font-mono); }
@@ -181,6 +213,16 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
     .radar-sweep { position: absolute; width: 240px; height: 240px; left: 50%; top: 50%; transform-origin: 0 0; background: conic-gradient(from 270deg,rgba(244,244,245,.18),transparent 22%); animation: sweep 8s linear infinite; }
     .vessel { position: absolute; width: 8px; height: 13px; border: 1px solid #f4f4f5; background: #27272a; clip-path: polygon(50% 0,100% 35%,80% 100%,20% 100%,0 35%); }.vessel-one{left:67%;top:31%}.vessel-two{left:29%;top:62%}.vessel-three{left:57%;top:72%}
     .radar-label { position: absolute; color:#52525b;font:9px var(--font-mono);letter-spacing:.08em}.radar-label.top{top:18px;left:18px}.radar-label.bottom{bottom:18px;right:18px}
+    .router-visual { min-width:0;min-height:540px;display:grid;place-items:center;padding:36px;overflow:hidden;background:#101014;border-left:1px solid #27272a;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:32px 32px; }
+    .router-console { width:100%;max-width:560px;border:1px solid #3f3f46;background:rgba(9,9,11,.96);box-shadow:0 30px 70px rgba(0,0,0,.5);font-family:var(--font-mono); }
+    .router-console header { display:flex;justify-content:space-between;gap:16px;padding:14px 16px;border-bottom:1px solid #27272a;color:#71717a;font-size:10px;letter-spacing:.08em; }
+    .router-live { color:#a1a1aa; }.router-live i { width:6px;height:6px;display:inline-block;margin-right:5px;border-radius:50%;background:#4ade80;box-shadow:0 0 7px rgba(74,222,128,.5);animation:status-pulse 2.4s ease-in-out infinite; }
+    .router-request { display:flex;align-items:center;gap:10px;margin:22px;padding:13px 14px;border:1px solid #27272a;background:#18181b;font-size:11px; }.router-request>span{color:#09090b;background:#f4f4f5;padding:3px 6px;font-weight:700}.router-request code{color:#d4d4d8}.router-request small{margin-left:auto;color:#52525b;letter-spacing:.08em}
+    .router-flow { display:grid;grid-template-columns:1fr 32px 1.35fr 32px 1fr;align-items:center;padding:26px 22px 34px; }
+    .router-source,.router-core { text-align:center;border:1px solid #3f3f46;background:#101014;padding:17px 10px; }.router-source small,.router-core small{display:block;color:#52525b;font-size:8px;letter-spacing:.1em}.router-source strong,.router-core strong{display:block;margin-top:5px;font-size:12px;letter-spacing:.08em}.router-core{border-color:#71717a;box-shadow:0 0 24px rgba(255,255,255,.05)}.router-core span{display:block;margin-top:8px;color:#71717a;font-size:7px;letter-spacing:.06em}
+    .router-path { position:relative;height:1px;background:#52525b; }.router-path::after{content:'›';position:absolute;right:-2px;top:50%;color:#a1a1aa;font-size:15px;transform:translateY(-54%)}.router-path i{position:absolute;top:-2px;width:5px;height:5px;border-radius:50%;background:#d4d4d8;animation:route-packet 2.2s linear infinite}.router-path i:nth-child(2){animation-delay:.7s}.router-path i:nth-child(3){animation-delay:1.4s}.router-path.outbound i{animation-delay:.3s}.router-path.outbound i:nth-child(2){animation-delay:1s}.router-path.outbound i:nth-child(3){animation-delay:1.7s}
+    .router-models { display:grid;gap:7px; }.router-models span{border:1px solid #27272a;background:#101014;padding:8px 6px;color:#a1a1aa;text-align:center;font-size:8px;letter-spacing:.06em}
+    .router-console footer { display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #27272a; }.router-console footer span{padding:16px;border-right:1px solid #27272a;text-align:center}.router-console footer span:last-child{border:0}.router-console footer b,.router-console footer small{display:block}.router-console footer b{font-size:15px}.router-console footer small{margin-top:3px;color:#71717a;font-size:8px;letter-spacing:.06em}
     @keyframes hero-rise { to { opacity: 1; transform: translateY(0); } }
     @keyframes index-arrive { to { opacity: 1; transform: translate3d(0,0,0) scale(1); } }
     @keyframes row-reveal { to { opacity: 1; transform: translateX(0); } }
@@ -189,6 +231,7 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
     @keyframes status-pulse { 0%,100% { transform: scale(.85); opacity: .55; } 50% { transform: scale(1.25); opacity: 1; } }
     @keyframes header-blink { 0%,100% { opacity: .35; } 50% { opacity: 1; } }
     @keyframes sweep { to { transform: rotate(360deg); } }
+    @keyframes route-packet { from{left:0;opacity:0}20%{opacity:1}80%{opacity:1}to{left:calc(100% - 5px);opacity:0} }
     .package-visual { min-width:0;max-width:100%;align-self:center;margin:36px;border:1px solid #3f3f46;background:#09090b;box-shadow:0 30px 70px rgba(0,0,0,.45); }
     .package-visual header { display:flex;justify-content:space-between;padding:14px 16px;border-bottom:1px solid #27272a;color:#71717a;font:10px var(--font-mono); }
     .package-name { padding: 54px 30px 40px; }.package-name small,.package-name strong { display:block; }.package-name small { color:#71717a;font:14px var(--font-mono); }.package-name strong { font-size:clamp(30px,4vw,50px);letter-spacing:-.05em; }
@@ -198,8 +241,8 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
     .studio-grid { display:grid;grid-template-columns:.9fr 1.1fr;gap:100px;align-items:start; }
     .studio-statement h2 { font-size:clamp(38px,5vw,66px);line-height:1.04;letter-spacing:-.05em;margin:26px 0; }.studio-statement p{color:#a1a1aa;font-size:17px;line-height:1.8;max-width:620px}
     .studio-principles { border-top:1px solid #3f3f46; }.studio-principles article{display:grid;grid-template-columns:45px 1fr;gap:20px;padding:30px 0;border-bottom:1px solid #27272a}.studio-principles article>span{color:#52525b;font:11px var(--font-mono)}.studio-principles h3{font-size:22px;margin-bottom:8px}.studio-principles p{color:#71717a;line-height:1.7}
-    @media(max-width:1000px){.studio-hero-grid,.work-card,.studio-grid{grid-template-columns:1fr}.studio-hero-copy{text-align:center}.hero-badge,.studio-hero-subtitle{margin-inline:auto}.hero-cta{justify-content:center}.studio-index{max-width:720px;margin:0 auto;width:100%}.work-header{grid-template-columns:1fr;gap:22px}.radar-visual{border-left:0;border-top:1px solid #27272a;min-height:450px}.package-visual{width:calc(100% - 72px)}.studio-grid{gap:60px}}
-    @media(max-width:760px){.studio-hero{padding-top:140px}.studio-hero-grid{gap:50px}.studio-hero h1{font-size:clamp(43px,14vw,64px)}.signal-grid{grid-template-columns:1fr 1fr;padding-block:14px;gap:14px}.signal-grid span+span{border:0}.index-row{grid-template-columns:28px 1fr}.index-state{grid-column:2}.work-card{min-height:0}.work-card-copy{padding:24px}.radar-visual{min-height:360px}.ring-three{width:360px;height:360px}.package-visual{margin:24px;width:calc(100% - 48px)}.package-name{padding:40px 20px 30px}.package-command{margin:0 20px 20px}.package-stats span{padding:14px 10px}.studio-grid{gap:45px}}
-    @media(max-width:480px){.studio-hero{padding-top:132px}.studio-hero h1{font-size:clamp(38px,12.5vw,50px)}.work-card{scroll-margin-top:96px}.work-card-copy{padding:20px;gap:32px}.work-meta{gap:10px;flex-wrap:wrap}.work-card h3{font-size:clamp(34px,11vw,44px);overflow-wrap:anywhere}.work-actions{gap:14px}.radar-visual{min-height:300px}.ring-two{width:270px;height:270px}.ring-three{width:330px;height:330px}.package-visual{margin:12px;width:calc(100% - 24px)}.package-name{padding:32px 16px 24px}.package-name small{font-size:12px}.package-command{margin:0 12px 16px;padding:12px}.package-stats span{padding:12px 6px}.package-stats b{font-size:12px}}
-    @media(prefers-reduced-motion:reduce){.studio-hero-copy>*{opacity:1;transform:none;animation:none}.studio-index{opacity:1;transform:none;animation:none}.studio-index::before,.studio-index::after{display:none}.studio-index>header,.studio-index>footer,.index-row{opacity:1;transform:none;animation:none}.studio-index>header span:first-child::before,.index-state i,.radar-sweep{animation:none}}
+    @media(max-width:1000px){.studio-hero-grid,.work-card,.studio-grid{grid-template-columns:1fr}.studio-hero-copy{text-align:center}.hero-badge,.studio-hero-subtitle{margin-inline:auto}.hero-cta{justify-content:center}.studio-index{max-width:720px;margin:0 auto;width:100%}.work-header{grid-template-columns:1fr;gap:22px}.radar-visual,.router-visual{border-left:0;border-top:1px solid #27272a;min-height:450px}.package-visual{width:calc(100% - 72px)}.studio-grid{gap:60px}}
+    @media(max-width:760px){.studio-hero{padding-top:140px}.studio-hero-grid{gap:50px}.studio-hero h1{font-size:clamp(43px,14vw,64px)}.signal-grid{grid-template-columns:1fr 1fr;padding-block:14px;gap:14px}.signal-grid span+span{border:0}.index-row{grid-template-columns:28px 1fr}.index-state{grid-column:2}.work-card{min-height:0}.work-card-copy{padding:24px}.radar-visual,.router-visual{min-height:360px}.router-visual{padding:24px}.ring-three{width:360px;height:360px}.package-visual{margin:24px;width:calc(100% - 48px)}.package-name{padding:40px 20px 30px}.package-command{margin:0 20px 20px}.package-stats span{padding:14px 10px}.studio-grid{gap:45px}}
+    @media(max-width:480px){.studio-hero{padding-top:132px}.studio-hero h1{font-size:clamp(38px,12.5vw,50px)}.work-card{scroll-margin-top:96px}.work-card-copy{padding:20px;gap:32px}.work-meta{gap:10px;flex-wrap:wrap}.work-card h3{font-size:clamp(34px,11vw,44px);overflow-wrap:anywhere}.work-actions{gap:14px}.radar-visual{min-height:300px}.router-visual{min-height:330px;padding:12px}.router-request{margin:12px;overflow:hidden}.router-request small{display:none}.router-flow{grid-template-columns:1fr 20px 1.25fr 20px 1fr;padding:18px 12px 24px}.router-source,.router-core{padding:12px 4px}.router-source strong,.router-core strong{font-size:9px}.router-core span{font-size:6px}.router-models span{padding:6px 2px;font-size:6px}.router-console footer span{padding:11px 4px}.ring-two{width:270px;height:270px}.ring-three{width:330px;height:330px}.package-visual{margin:12px;width:calc(100% - 24px)}.package-name{padding:32px 16px 24px}.package-name small{font-size:12px}.package-command{margin:0 12px 16px;padding:12px}.package-stats span{padding:12px 6px}.package-stats b{font-size:12px}}
+    @media(prefers-reduced-motion:reduce){.studio-hero-copy>*{opacity:1;transform:none;animation:none}.studio-index{opacity:1;transform:none;animation:none}.studio-index::before,.studio-index::after{display:none}.studio-index>header,.studio-index>footer,.index-row{opacity:1;transform:none;animation:none}.studio-index>header span:first-child::before,.index-state i,.radar-sweep,.router-live i,.router-path i{animation:none}}
 </style>

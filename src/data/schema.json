@@ -8,7 +8,7 @@
         "name": "IgnitronDev",
         "url": "https://ignitrondev.github.io/org/",
         "logo": "https://ignitrondev.github.io/org/images/ignitron.png",
-        "description": "IgnitronDev builds and operates independent products including ShipRadar and Ignitron Clinical UI.",
+        "description": "IgnitronDev builds and operates independent products including IgnitronDev Router, ShipRadar, and Ignitron Clinical UI.",
         "sameAs": [
           "https://github.com/ignitrondev",
           "https://instagram.com/ignitrondev"
@@ -29,6 +29,18 @@
         "sameAs": [
           "https://instagram.com/xiaobima__"
         ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://ignitrondev.github.io/org/#router",
+        "name": "IgnitronDev Router",
+        "url": "https://app.ignitrondev.space",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web",
+        "description": "A unified AI gateway for routing requests to leading models through one API key, with usage metering, billing, and spend controls.",
+        "creator": {
+          "@id": "https://ignitrondev.github.io/org/#organization"
+        }
       },
       {
         "@type": "SoftwareApplication",
