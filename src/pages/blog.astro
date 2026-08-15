@@ -24,7 +24,8 @@ const posts = allBlogPosts
         slug: post.slug,
         dateFormatted: post.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
     }))
-    .sort((a, b) => b.date.valueOf() - a.date.valueOf());
+    .sort((a, b) => b.date.valueOf() - a.date.valueOf())
+    .map((post, i) => ({ ...post, index: String(i + 1).padStart(2, '0') }));
 ---
 
 <BaseLayout
@@ -37,20 +38,20 @@ const posts = allBlogPosts
     <main class="main-content">
 
         <!-- Hero -->
-        <section class="blog-page-hero">
+        <section class="blog-hero">
             <div class="container">
-                <span class="blog-page-badge">Blog</span>
-                <h1 class="blog-page-title">Insights & Stories</h1>
-                <p class="blog-page-subtitle">Technology, innovation, and the journey behind IgnitronDev.</p>
+                <span class="section-badge">Blog</span>
+                <h1 class="blog-title">Insights & <span class="text-gradient">Stories</span></h1>
+                <p class="blog-subtitle">Technology, innovation, and the journey behind IgnitronDev.</p>
             </div>
         </section>
 
         <!-- Posts -->
-        <section class="blog-page-content">
+        <section class="blog-section">
             <div class="container">
 
                 <!-- Filters -->
-                <div class="blog-page-filters" id="blogFilters">
+                <div class="blog-filters" id="blogFilters">
                     <button class="bp-filter active" data-filter="all">All</button>
                     <button class="bp-filter" data-filter="story">Story</button>
                     <button class="bp-filter" data-filter="personal">Music</button>
@@ -61,28 +62,30 @@ const posts = allBlogPosts
                 <!-- Grid -->
                 <div class="bp-grid" id="blogGrid">
                     {posts.map(post => (
-                        <article class={`bp-card${post.featured ? ' bp-card-featured' : ''}`} data-category={post.category}>
-                            <a href={`${base}blog/${post.slug}`} style="text-decoration: none; color: inherit; display: block; height: 100%;">
-                                <div class="bp-card-top" style={`border-color: ${post.color};`}>
+                        <article class={`bp-card${post.featured ? ' is-featured' : ''}`} data-category={post.category}>
+                            <a href={`${base}blog/${post.slug}`} class="bp-card-link">
+                                <div class="bp-card-top">
+                                    <span class="bp-card-index">{post.index}</span>
                                     <span class="bp-card-label" style={`color: ${post.color};`}>{post.label}</span>
+                                    {post.featured && <span class="bp-card-flag">Featured</span>}
                                     <time class="bp-card-date">{post.dateFormatted}</time>
                                 </div>
                                 <h2 class="bp-card-title">{post.title}</h2>
                                 <p class="bp-card-excerpt">{post.excerpt}</p>
-                                {post.featured && <span class="bp-card-badge">Featured</span>}
+                                <span class="bp-card-more">Read <span>↗</span></span>
                             </a>
                         </article>
                     ))}
                 </div>
 
                 <!-- Spotify -->
-                <div class="bp-spotify">
-                    <div class="bp-spotify-header">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color: #1DB954;"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-                        <h3>Bima's Playlist</h3>
-                    </div>
-                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2noGfli9DsoQpf81dD5H7R?utm_source=generator&theme=0" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </div>
+                <aside class="bp-spotify">
+                    <header>
+                        <span>MUSIC / BIMAS PLAYLIST</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#1DB954" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                    </header>
+                    <iframe src="https://open.spotify.com/embed/playlist/2noGfli9DsoQpf81dD5H7R?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Bima's Playlist on Spotify"></iframe>
+                </aside>
 
             </div>
         </section>
@@ -106,185 +109,214 @@ const posts = allBlogPosts
 </BaseLayout>
 
 <style>
-/* Blog Page — Clean Professional Layout */
-.blog-page-hero {
-    padding: 140px 24px 60px;
+/* Blog — studio layout, consistent with the IgnitronDev index/foundry pages */
+
+.blog-hero {
+    padding: 190px 24px 90px;
     text-align: center;
+    background: radial-gradient(circle at 50% -20%, rgba(255, 255, 255, 0.08), transparent 55%);
 }
 
-.blog-page-badge {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--cyber-cyan);
-    margin-bottom: 16px;
+.blog-title {
+    font-size: clamp(52px, 8vw, 96px);
+    line-height: 0.98;
+    letter-spacing: -0.06em;
+    margin: 26px 0;
 }
 
-.blog-page-title {
-    font-size: clamp(32px, 5vw, 48px);
-    font-weight: 800;
-    margin-bottom: 12px;
-    letter-spacing: -0.02em;
-}
-
-.blog-page-subtitle {
+.blog-subtitle {
+    color: #a1a1aa;
     font-size: 18px;
-    color: var(--steel-silver);
-    max-width: 500px;
+    line-height: 1.7;
+    max-width: 640px;
     margin: 0 auto;
 }
 
-.blog-page-content {
-    padding: 0 24px 80px;
+.blog-section {
+    padding: 10px 0 130px;
 }
 
 /* Filters */
-.blog-page-filters {
+.blog-filters {
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
     margin-bottom: 40px;
-    flex-wrap: wrap;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #27272a;
 }
 
 .bp-filter {
     padding: 8px 16px;
     background: transparent;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    color: var(--steel-silver);
-    font-size: 13px;
-    font-weight: 500;
-    font-family: var(--font-family);
+    border: 1px solid #3f3f46;
+    color: #a1a1aa;
+    font: 600 11px var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.15s ease;
+    transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
 .bp-filter:hover {
-    border-color: var(--cyber-cyan);
-    color: var(--white);
+    border-color: #a1a1aa;
+    color: #fff;
 }
 
 .bp-filter.active {
-    background: var(--cyber-cyan);
-    border-color: var(--cyber-cyan);
-    color: var(--black);
-    font-weight: 600;
+    background: #f4f4f5;
+    border-color: #f4f4f5;
+    color: #09090b;
 }
 
-/* Grid */
+/* Grid — hairline separated, like the clinical catalog */
 .bp-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    margin-bottom: 60px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: #27272a;
+    border: 1px solid #27272a;
+    margin-bottom: 56px;
 }
 
-/* Card */
 .bp-card {
-    background: var(--black);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 24px;
-    transition: border-color 0.2s, transform 0.2s;
     position: relative;
+    min-width: 0;
+    background: #0c0c0f;
+    transition: background 0.25s ease;
+}
+
+.bp-card.is-featured {
+    border-top: 2px solid #f4f4f5;
 }
 
 .bp-card:hover {
-    border-color: var(--cyber-cyan-dark);
-    transform: translateY(-2px);
+    background: #18181b;
 }
 
-.bp-card-featured {
-    grid-column: 1 / -1;
-    background: var(--deep-space-light);
-    border-color: var(--border-color);
+.bp-card-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 28px;
+}
+
+.bp-card-link:focus-visible {
+    outline: 1px solid #d4d4d8;
+    outline-offset: -3px;
 }
 
 .bp-card-top {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 12px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border-color);
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.bp-card-index {
+    color: #52525b;
+    font: 11px var(--font-mono);
 }
 
 .bp-card-label {
-    font-size: 11px;
-    font-weight: 700;
+    font: 700 10px var(--font-mono);
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    letter-spacing: 1px;
+}
+
+.bp-card-flag {
+    padding: 2px 7px;
+    border: 1px solid #52525b;
+    color: #a1a1aa;
+    font: 700 8px var(--font-mono);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
 }
 
 .bp-card-date {
-    font-size: 12px;
-    color: var(--steel-silver);
-    font-family: var(--mono-font);
+    margin-left: auto;
+    color: #71717a;
+    font: 10px var(--font-mono);
+    white-space: nowrap;
 }
 
 .bp-card-title {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
-    line-height: 1.4;
-    margin-bottom: 8px;
-    color: var(--white);
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+    color: #fff;
 }
 
 .bp-card-excerpt {
+    color: #71717a;
     font-size: 14px;
-    color: var(--steel-silver);
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
-.bp-card-badge {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    font-size: 10px;
-    font-weight: 700;
+.bp-card-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 24px;
+    color: #a1a1aa;
+    font: 600 11px var(--font-mono);
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 3px 8px;
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--cyber-cyan-dark);
-    border-radius: 4px;
+}
+
+.bp-card-more span {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.bp-card-link:hover .bp-card-more span {
+    transform: translate(3px, -3px);
 }
 
 /* Spotify */
 .bp-spotify {
-    margin-bottom: 60px;
-    padding: 24px;
-    background: var(--black);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
+    border: 1px solid #3f3f46;
+    background: #0c0c0f;
 }
 
-.bp-spotify-header {
+.bp-spotify header {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 16px;
-}
-
-.bp-spotify-header h3 {
-    font-size: 16px;
-    font-weight: 600;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-bottom: 1px solid #27272a;
+    color: #71717a;
+    font: 10px var(--font-mono);
+    letter-spacing: 0.1em;
 }
 
 .bp-spotify iframe {
-    border-radius: 8px;
     display: block;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
+    .bp-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 760px) {
+    .blog-hero {
+        padding-top: 150px;
+    }
+}
+
+@media (max-width: 640px) {
     .bp-grid {
         grid-template-columns: 1fr;
     }
 
-    .bp-card-featured {
-        grid-column: 1;
+    .bp-card-link {
+        padding: 22px;
     }
 }
 </style>
