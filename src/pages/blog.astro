@@ -55,7 +55,6 @@ const posts = allBlogPosts
                     <button class="bp-filter" data-filter="story">Story</button>
                     <button class="bp-filter" data-filter="personal">Music</button>
                     <button class="bp-filter" data-filter="technology">Tech</button>
-                    <button class="bp-filter" data-filter="innovation">Innovation</button>
                     <button class="bp-filter" data-filter="company">Company</button>
                 </div>
 
@@ -85,16 +84,6 @@ const posts = allBlogPosts
                     <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2noGfli9DsoQpf81dD5H7R?utm_source=generator&theme=0" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
 
-                <!-- Newsletter -->
-                <div class="bp-newsletter">
-                    <h3>Stay Updated</h3>
-                    <p>Get the latest posts delivered to your inbox.</p>
-                    <form class="bp-newsletter-form" id="newsletterForm">
-                        <input type="email" placeholder="your@email.com" required />
-                        <button type="submit" class="btn btn-primary">Subscribe</button>
-                    </form>
-                </div>
-
             </div>
         </section>
 
@@ -112,14 +101,6 @@ const posts = allBlogPosts
                     (c as HTMLElement).style.display = (f === 'all' || c.getAttribute('data-category') === f) ? '' : 'none';
                 });
             });
-        });
-        // Newsletter
-        document.getElementById('newsletterForm')?.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const btn = (this as HTMLFormElement).querySelector('button') as HTMLButtonElement;
-            btn.textContent = '✓ Subscribed';
-            btn.disabled = true;
-            setTimeout(() => { btn.textContent = 'Subscribe'; btn.disabled = false; (this as HTMLFormElement).reset(); }, 3000);
         });
     </script>
 </BaseLayout>
@@ -297,54 +278,6 @@ const posts = allBlogPosts
     display: block;
 }
 
-/* Newsletter */
-.bp-newsletter {
-    max-width: 480px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 40px 24px;
-    background: var(--black);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-}
-
-.bp-newsletter h3 {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-
-.bp-newsletter p {
-    font-size: 14px;
-    color: var(--steel-silver);
-    margin-bottom: 20px;
-}
-
-.bp-newsletter-form {
-    display: flex;
-    gap: 8px;
-}
-
-.bp-newsletter-form input {
-    flex: 1;
-    padding: 10px 14px;
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    color: var(--white);
-    font-family: var(--font-family);
-    font-size: 14px;
-}
-
-.bp-newsletter-form input::placeholder {
-    color: var(--steel-silver);
-}
-
-.bp-newsletter-form input:focus {
-    outline: none;
-    border-color: var(--cyber-cyan);
-}
-
 @media (max-width: 768px) {
     .bp-grid {
         grid-template-columns: 1fr;
@@ -352,10 +285,6 @@ const posts = allBlogPosts
 
     .bp-card-featured {
         grid-column: 1;
-    }
-
-    .bp-newsletter-form {
-        flex-direction: column;
     }
 }
 </style>

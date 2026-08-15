@@ -29,6 +29,6 @@ By making deployments boring and rollbacks instant, we gave our team the psychol
 
 ### The Result
 
-This culture has directly led to some of our best features. It’s how we transitioned from monolithic architectures to agile, scalable microservices. It’s how we continuously refine our White-label Foundry to be the best in the market.
+This culture has directly led to some of our best features. It’s how we transitioned from monolithic architectures to agile, scalable microservices. It’s how we continuously refine the products we ship — from the routing core of IgnitronDev Router to the clinical components of Ignitron Clinical UI.
 
 Innovation isn’t about never failing; it’s about failing fast, learning, and iterating safely.

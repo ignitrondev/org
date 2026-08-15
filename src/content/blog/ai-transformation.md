@@ -26,6 +26,6 @@ We started small: integrating simple predictive models to estimate patient wait 
 
 ## What’s Next?
 
-As we move deeper into 2025, our focus at IgnitronDev is on expanding these AI capabilities across our entire White-label Platform Foundry. The goal is simple: empower our reseller partners with software that not only manages data but actively helps their clients make smarter decisions.
+As we move deeper into 2025, we're applying these lessons to our own products — routing intelligence in IgnitronDev Router, decision support in Ignitron Clinical UI, and operational insight in ShipRadar. The goal is simple: software that doesn't just manage data, but actively helps its users make smarter decisions.
 
 > "The true power of AI in enterprise software isn’t replacing humans; it’s removing the friction from their daily tasks."
