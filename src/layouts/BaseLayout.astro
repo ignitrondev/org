@@ -12,7 +12,7 @@ export interface Props {
 const {
     title,
     description,
-    keywords = 'IgnitronDev, independent software products, ShipRadar, open source developer tools',
+    keywords = 'IgnitronDev, Bima Adam Nugraha, Founder CEO, independent technology products, software engineering solutions',
     canonical,
     schema = [],
 } = Astro.props;
@@ -30,7 +30,7 @@ const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
 
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
-    <meta name="author" content="Bima Adam Nugraha" />
+    <meta name="author" content="Bima Adam Nugraha, Founder & CEO of IgnitronDev" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#89b4fa" />
     <link rel="canonical" href={canonicalURL} />
@@ -40,7 +40,7 @@ const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={`${base}images/ignitron.png`} />
+    <meta property="og:image" content={new URL(`${base}images/ignitron.png`, Astro.site).href} />
     <meta property="og:site_name" content="IgnitronDev" />
     <meta property="og:locale" content="en_US" />
 
@@ -48,7 +48,7 @@ const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={`${base}images/ignitron.png`} />
+    <meta name="twitter:image" content={new URL(`${base}images/ignitron.png`, Astro.site).href} />
     <meta name="twitter:creator" content="@xiaobima__" />
 
     <!-- Favicon -->

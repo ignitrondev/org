@@ -4,10 +4,10 @@
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://ignitrondev.github.io/org/#organization",
+        "@id": "https://ignitrondev.space/#organization",
         "name": "IgnitronDev",
-        "url": "https://ignitrondev.github.io/org/",
-        "logo": "https://ignitrondev.github.io/org/images/ignitron.png",
+        "url": "https://ignitrondev.space/",
+        "logo": "https://ignitrondev.space/images/ignitron.png",
         "description": "IgnitronDev builds independent technology products and delivers software, infrastructure, and intelligent systems for real-world problems.",
         "sameAs": [
           "https://github.com/ignitrondev",
@@ -15,16 +15,19 @@
         ],
         "foundingDate": "2019",
         "founder": {
-          "@id": "https://ignitrondev.github.io/org/#bima"
+          "@id": "https://ignitrondev.space/#bima"
+        },
+        "ceo": {
+          "@id": "https://ignitrondev.space/#bima"
         }
       },
       {
         "@type": "Person",
-        "@id": "https://ignitrondev.github.io/org/#bima",
+        "@id": "https://ignitrondev.space/#bima",
         "name": "Bima Adam Nugraha",
-        "jobTitle": "Founder & Fullstack Software Engineer",
+        "jobTitle": "Founder & CEO",
         "worksFor": {
-          "@id": "https://ignitrondev.github.io/org/#organization"
+          "@id": "https://ignitrondev.space/#organization"
         },
         "sameAs": [
           "https://instagram.com/xiaobima__"
@@ -32,38 +35,38 @@
       },
       {
         "@type": "SoftwareApplication",
-        "@id": "https://ignitrondev.github.io/org/#router",
+        "@id": "https://ignitrondev.space/#router",
         "name": "IgnitronDev Router",
         "url": "https://app.ignitrondev.space",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Web",
         "description": "A unified AI gateway for routing requests to leading models through one API key, with usage metering, billing, and spend controls.",
         "creator": {
-          "@id": "https://ignitrondev.github.io/org/#organization"
+          "@id": "https://ignitrondev.space/#organization"
         }
       },
       {
         "@type": "SoftwareApplication",
-        "@id": "https://ignitrondev.github.io/org/#shipradar",
+        "@id": "https://ignitrondev.space/#shipradar",
         "name": "ShipRadar",
         "url": "https://shipradar.my.id",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
         "description": "A maritime vessel-tracking platform for monitoring ships, routes, and fleet activity.",
         "creator": {
-          "@id": "https://ignitrondev.github.io/org/#organization"
+          "@id": "https://ignitrondev.space/#organization"
         }
       },
       {
         "@type": "SoftwareSourceCode",
-        "@id": "https://ignitrondev.github.io/org/#clinical-ui",
+        "@id": "https://ignitrondev.space/#clinical-ui",
         "name": "Ignitron Clinical UI",
         "codeRepository": "https://github.com/ignitrondev/ignitron-medic-ui",
         "runtimePlatform": "React",
         "programmingLanguage": "TypeScript",
         "description": "Reusable clinical UI components with clear data contracts, configurable workflows, accessible interactions, and no hidden backend dependency.",
         "creator": {
-          "@id": "https://ignitrondev.github.io/org/#organization"
+          "@id": "https://ignitrondev.space/#organization"
         }
       }
     ]
