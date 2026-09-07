@@ -13,9 +13,9 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
 ---
 
 <BaseLayout
-    title="IgnitronDev — Independent Technology Products & Solutions"
-    description="IgnitronDev builds independent technology products and delivers software, infrastructure, and intelligent systems for real-world problems."
-    keywords="IgnitronDev, independent technology products, software engineering solutions, AI gateway, AI router, ShipRadar, clinical UI"
+    title="IgnitronDev — Engineering Systems for the Real World"
+    description="IgnitronDev is an independent engineering studio for software architecture, backend systems, cloud infrastructure, data platforms, and AI systems."
+    keywords="IgnitronDev, software architecture, backend systems, cloud infrastructure, DevOps, observability, data infrastructure, AI infrastructure"
     schema={schema}
 >
     <Navbar />
@@ -24,17 +24,17 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
             <div class="hero-grid-bg" aria-hidden="true"></div>
             <div class="container studio-hero-grid">
                 <div class="studio-hero-copy">
-                    <div class="hero-badge"><span class="status-dot"></span><C en="Independent products &amp; solutions" id="Produk &amp; solusi independen" zh="独立产品与解决方案" /></div>
-                    <h1><C en="Products for real work." id="Produk untuk pekerjaan nyata." zh="为真实工作而生的产品。" /><br /><span class="text-gradient"><C en="Tools for builders." id="Tools untuk para builder." zh="为构建者而生的工具。" /></span></h1>
-                    <p class="studio-hero-subtitle"><C en="IgnitronDev builds independent products and delivers software, infrastructure, and intelligent systems for real-world problems." id="IgnitronDev membangun produk independen dan menghadirkan software, infrastruktur, serta sistem cerdas untuk masalah nyata." zh="IgnitronDev 构建独立产品，并为真实问题提供软件、基础设施与智能系统。" /></p>
+                    <div class="hero-badge"><span class="status-dot"></span><C en="Independent engineering studio" id="Studio engineering independen" zh="独立工程工作室" /></div>
+                    <h1><C en="Systems that" id="Sistem yang" zh="经得起考验的" /><br /><span class="text-gradient"><C en="hold up." id="tahan uji." zh="系统。" /></span></h1>
+                    <p class="studio-hero-subtitle"><C en="IgnitronDev designs and builds the technical foundations behind useful software: architecture, backend systems, cloud infrastructure, data flows, and AI systems that can be understood and operated." id="IgnitronDev merancang dan membangun fondasi teknis di balik software yang berguna: arsitektur, sistem backend, infrastruktur cloud, aliran data, dan sistem AI yang dapat dipahami serta dioperasikan." zh="IgnitronDev 设计并构建实用软件背后的技术基础：架构、后端系统、云基础设施、数据流和可理解、可运营的 AI 系统。" /></p>
                     <div class="hero-cta">
-                        <a href="#work" class="btn btn-primary btn-lg"><C en="Explore our work" id="Lihat karya kami" zh="浏览我们的作品" /></a>
+                        <a href="#systems" class="btn btn-primary btn-lg"><C en="Explore the practice" id="Jelajahi praktik kami" zh="了解我们的实践" /></a>
                         <a href="https://github.com/ignitrondev" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">GitHub ↗</a>
                     </div>
                 </div>
 
                 <aside class="studio-index" aria-label="Current IgnitronDev work">
-                    <header><span>CURRENT WORK</span><span>4 ACTIVE BUILDS</span></header>
+                    <header><span>ENGINEERING FOCUS</span><span>SYSTEMS / OPERATIONS</span></header>
                     <a href="https://shipradar.my.id" target="_blank" rel="noopener noreferrer" class="index-row">
                         <span class="index-number">01</span>
                         <span><b>ShipRadar</b><small><C en="Maritime software product" id="Produk software maritim" zh="海事软件产品" /></small></span>
@@ -55,14 +55,29 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
                         <span><b>IGN Volcano</b><small><C en="Volcano observatory &amp; activity map" id="Observatorium gunung api &amp; peta aktivitas" zh="火山观测站与活动地图" /></small></span>
                         <span class="index-state live"><i></i> LIVE</span>
                     </a>
-                    <footer><span>PRODUCTS</span><span>+</span><span>OPEN SOURCE</span></footer>
+                    <footer><span>MAKE IT EXPLICIT</span><span>+</span><span>OPERATE WITH CLARITY</span></footer>
                 </aside>
             </div>
         </section>
 
         <section class="signal-strip" aria-label="IgnitronDev capabilities">
             <div class="container signal-grid">
-                <span>PRODUCT ENGINEERING</span><span>AI INFRASTRUCTURE</span><span>OPEN SOURCE</span><span>WEB SOFTWARE</span>
+                <span>SOFTWARE ARCHITECTURE</span><span>BACKEND SYSTEMS</span><span>CLOUD &amp; DEVOPS</span><span>DATA &amp; AI INFRASTRUCTURE</span>
+            </div>
+        </section>
+
+        <section class="section engineering-section" id="systems">
+            <div class="container">
+                <div class="engineering-heading">
+                    <div><span class="section-badge">ENGINEERING PRACTICE</span><h2 class="section-title">Technical depth is<br /><span class="text-gradient">the product.</span></h2></div>
+                    <p>We work from the inside out: clarify constraints, make the system legible, then create the path from code to dependable operation.</p>
+                </div>
+                <div class="engineering-grid">
+                    <article><span>01 / ARCHITECTURE</span><h3>Software architecture</h3><p>Clear domains, dependable interfaces, and systems designed for change.</p><small>Service design · API boundaries · technical discovery</small></article>
+                    <article><span>02 / BACKEND</span><h3>Backend systems</h3><p>Application cores where data, workflows, and business rules stay explicit.</p><small>Distributed services · identity · async processing</small></article>
+                    <article><span>03 / PLATFORM</span><h3>Cloud &amp; delivery</h3><p>Infrastructure that makes delivery repeatable and runtime behavior visible.</p><small>Containers · Kubernetes · CI/CD · networking</small></article>
+                    <article><span>04 / SIGNAL</span><h3>Data &amp; AI infrastructure</h3><p>Practical systems for moving, governing, and using data and model capabilities.</p><small>Pipelines · observability · model gateways</small></article>
+                </div>
             </div>
         </section>
 
@@ -70,10 +85,10 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
             <div class="container">
                 <div class="section-header work-header">
                     <div>
-                        <span class="section-badge"><C en="Selected work" id="Karya pilihan" zh="精选作品" /></span>
-                        <h2 class="section-title"><C en="Different users." id="Pengguna berbeda." zh="不同的用户。" /> <span class="text-gradient"><C en="Focused products." id="Produk yang fokus." zh="专注的产品。" /></span></h2>
+                        <span class="section-badge"><C en="Products and public work" id="Produk dan karya publik" zh="产品与公开作品" /></span>
+                        <h2 class="section-title"><C en="Proof lives in" id="Buktinya ada pada" zh="证据存在于" /> <span class="text-gradient"><C en="what we run." id="apa yang kami jalankan." zh="我们运行的事物中。" /></span></h2>
                     </div>
-                    <p class="section-subtitle"><C en="IgnitronDev Router unifies access to leading AI models. ShipRadar follows vessel movements. Ignitron Clinical UI gives healthcare developers stronger building blocks." id="IgnitronDev Router menyatukan akses ke berbagai model AI terdepan. ShipRadar mengikuti pergerakan kapal. Ignitron Clinical UI memberi developer healthcare building block yang lebih kuat." zh="IgnitronDev Router 统一接入领先 AI 模型，ShipRadar 追踪船舶动态，Ignitron Clinical UI 为医疗软件开发者提供更强的构建基础。" /></p>
+                    <p class="section-subtitle"><C en="Independent products and open-source building blocks provide a concrete place to test ideas about interfaces, operations, data, and technical systems." id="Produk independen dan building block open-source menjadi tempat konkret untuk menguji ide tentang interface, operasi, data, dan sistem teknis." zh="独立产品与开源构件为测试接口、运营、数据与技术系统的想法提供了具体场所。" /></p>
                 </div>
 
                 <div class="work-grid">
@@ -208,14 +223,14 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
         <section class="section studio-section" id="approach">
             <div class="container studio-grid">
                 <div class="studio-statement">
-                    <span class="section-badge"><C en="Product approach" id="Pendekatan produk" zh="产品方法" /></span>
-                    <h2><C en="Each product" id="Setiap produk" zh="每个产品" /><br /><span class="text-gradient"><C en="stands on its own." id="berdiri sendiri." zh="独立存在。" /></span></h2>
-                    <p><C en="IgnitronDev Router, ShipRadar, and Ignitron Clinical UI are built for different people and different workflows. We give each product its own identity, roadmap, and measure of success." id="IgnitronDev Router, ShipRadar, dan Ignitron Clinical UI dibangun untuk pengguna dan workflow yang berbeda. Setiap produk memiliki identitas, roadmap, dan ukuran keberhasilannya sendiri." zh="IgnitronDev Router、ShipRadar 与 Ignitron Clinical UI 面向不同用户与工作流。每个产品都有自己的身份、路线图与成功标准。" /></p>
+                    <span class="section-badge"><C en="Engineering approach" id="Pendekatan engineering" zh="工程方法" /></span>
+                    <h2><C en="Take the system" id="Perlakukan sistem" zh="认真对待" /><br /><span class="text-gradient"><C en="seriously." id="dengan serius." zh="系统。" /></span></h2>
+                    <p><C en="A system is not complete at deployment. It should be understandable when it changes, observable when it fails, and practical for the people who operate it." id="Sistem tidak selesai saat deployment. Sistem harus dapat dipahami ketika berubah, dapat diobservasi ketika gagal, dan praktis bagi orang yang mengoperasikannya." zh="系统不会在部署时完成；它应在变化时可理解、失败时可观测，并对运营它的人切实可用。" /></p>
                 </div>
                 <div class="studio-principles">
-                    <article><span>01</span><div><h3><C en="Start with the workflow" id="Mulai dari workflow" zh="从工作流开始" /></h3><p><C en="Understand the real job before choosing the interface or stack." id="Pahami pekerjaan nyata sebelum memilih interface atau stack." zh="在选择界面或技术栈前，先理解真实任务。" /></p></div></article>
-                    <article><span>02</span><div><h3><C en="Build clear boundaries" id="Bangun batas yang jelas" zh="建立清晰边界" /></h3><p><C en="Products should be explicit about what they own and what stays with the user." id="Produk harus jelas tentang apa yang dikelola dan apa yang tetap dimiliki pengguna." zh="产品应明确自身职责，以及哪些内容始终归用户所有。" /></p></div></article>
-                    <article><span>03</span><div><h3><C en="Ship, learn, improve" id="Rilis, belajar, perbaiki" zh="发布、学习、改进" /></h3><p><C en="Useful software grows through real usage, not a long list of speculative features." id="Software yang berguna tumbuh lewat penggunaan nyata, bukan daftar panjang fitur spekulatif." zh="有用的软件源于真实使用，而不是冗长的假设功能清单。" /></p></div></article>
+                    <article><span>01</span><div><h3><C en="Start with constraints" id="Mulai dari batasan" zh="从约束开始" /></h3><p><C en="Architecture follows the operational, technical, and human realities of the work." id="Arsitektur mengikuti realitas operasional, teknis, dan manusia dari pekerjaan tersebut." zh="架构应遵循工作的运营、技术与人的现实。" /></p></div></article>
+                    <article><span>02</span><div><h3><C en="Prefer explicitness" id="Utamakan kejelasan" zh="偏向明确性" /></h3><p><C en="Interfaces, ownership, deployment paths, and trade-offs should be visible to the people who maintain them." id="Interface, kepemilikan, jalur deployment, dan trade-off harus terlihat bagi orang yang memeliharanya." zh="接口、所有权、部署路径与权衡应对维护它们的人可见。" /></p></div></article>
+                    <article><span>03</span><div><h3><C en="Leave behind capability" id="Tinggalkan kemampuan" zh="留下能力" /></h3><p><C en="Good engineering makes future change safer and gives teams a clearer system to operate." id="Engineering yang baik membuat perubahan di masa depan lebih aman dan memberi tim sistem yang lebih jelas untuk dioperasikan." zh="好的工程让未来变化更安全，并为团队留下更清晰的可运营系统。" /></p></div></article>
                 </div>
             </div>
         </section>
@@ -253,6 +268,8 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
     .signal-strip { border-block: 1px solid #27272a; background: #0c0c0f; }
     .signal-grid { min-height: 70px; display: grid; grid-template-columns: repeat(4, 1fr); align-items: center; text-align: center; color: #71717a; font: 10px var(--font-mono); letter-spacing: .12em; }
     .signal-grid span + span { border-left: 1px solid #27272a; }
+    .engineering-section { background:#0c0c0f; border-bottom:1px solid #27272a; }
+    .engineering-heading { display:grid; grid-template-columns:1fr .7fr; gap:80px; align-items:end; margin-bottom:54px; }.engineering-heading h2{margin-top:20px}.engineering-heading>p{margin:0;color:#a1a1aa;font-size:16px;line-height:1.75}.engineering-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #3f3f46;border-left:1px solid #27272a}.engineering-grid article{min-height:330px;padding:25px;border-right:1px solid #27272a;border-bottom:1px solid #27272a;transition:background .25s ease}.engineering-grid article:hover{background:#151519}.engineering-grid article>span,.engineering-grid small{color:#71717a;font:10px var(--font-mono);letter-spacing:.07em}.engineering-grid h3{margin:76px 0 12px;font-size:24px;line-height:1.08;letter-spacing:-.04em}.engineering-grid p{color:#a1a1aa;font-size:14px;line-height:1.7;margin-bottom:22px}.engineering-grid small{display:block;line-height:1.75}
     .work-section { background: #09090b; }
     .work-header { display: grid; grid-template-columns: 1fr .72fr; gap: 80px; align-items: end; }
     .work-grid { display: grid; gap: 22px; }
@@ -329,8 +346,8 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
     .studio-grid { display:grid;grid-template-columns:.9fr 1.1fr;gap:100px;align-items:start; }
     .studio-statement h2 { font-size:clamp(38px,5vw,66px);line-height:1.04;letter-spacing:-.05em;margin:26px 0; }.studio-statement p{color:#a1a1aa;font-size:17px;line-height:1.8;max-width:620px}
     .studio-principles { border-top:1px solid #3f3f46; }.studio-principles article{display:grid;grid-template-columns:45px 1fr;gap:20px;padding:30px 0;border-bottom:1px solid #27272a}.studio-principles article>span{color:#52525b;font:11px var(--font-mono)}.studio-principles h3{font-size:22px;margin-bottom:8px}.studio-principles p{color:#71717a;line-height:1.7}
-    @media(max-width:1000px){.studio-hero-grid,.work-card,.studio-grid{grid-template-columns:1fr}.studio-hero-copy{text-align:center}.hero-badge,.studio-hero-subtitle{margin-inline:auto}.hero-cta{justify-content:center}.studio-index{max-width:720px;margin:0 auto;width:100%}.work-header{grid-template-columns:1fr;gap:22px}.radar-visual,.router-visual,.volcano-visual{border-left:0;border-top:1px solid #27272a;min-height:450px}.package-visual{width:calc(100% - 72px)}.studio-grid{gap:60px}}
-    @media(max-width:760px){.studio-hero{padding-top:140px}.studio-hero-grid{gap:50px}.studio-hero h1{font-size:clamp(43px,14vw,64px)}.signal-grid{grid-template-columns:1fr 1fr;padding-block:14px;gap:14px}.signal-grid span+span{border:0}.index-row{grid-template-columns:28px 1fr}.index-state{grid-column:2}.work-card{min-height:0}.work-card-copy{padding:24px}.radar-visual,.router-visual,.volcano-visual{min-height:360px}.router-visual{padding:24px}.volcano-console{inset:32px 24px}.ring-three{width:360px;height:360px}.package-visual{margin:24px;width:calc(100% - 48px)}.package-name{padding:40px 20px 30px}.package-command{margin:0 20px 20px}.package-stats span{padding:14px 10px}.client-projects{margin-top:52px}.client-projects-heading{display:block}.client-projects-heading p{margin-top:14px}.client-project-card{grid-template-columns:56px 1fr;gap:16px;padding:20px}.client-project-logo{width:52px;height:52px}.client-project-logo img{width:42px;height:42px}.client-project-arrow{position:absolute;top:22px;right:20px}.studio-grid{gap:45px}}
+    @media(max-width:1000px){.studio-hero-grid,.work-card,.studio-grid{grid-template-columns:1fr}.studio-hero-copy{text-align:center}.hero-badge,.studio-hero-subtitle{margin-inline:auto}.hero-cta{justify-content:center}.studio-index{max-width:720px;margin:0 auto;width:100%}.work-header,.engineering-heading{grid-template-columns:1fr;gap:22px}.engineering-grid{grid-template-columns:1fr 1fr}.radar-visual,.router-visual,.volcano-visual{border-left:0;border-top:1px solid #27272a;min-height:450px}.package-visual{width:calc(100% - 72px)}.studio-grid{gap:60px}}
+    @media(max-width:760px){.studio-hero{padding-top:140px}.studio-hero-grid{gap:50px}.studio-hero h1{font-size:clamp(43px,14vw,64px)}.signal-grid{grid-template-columns:1fr 1fr;padding-block:14px;gap:14px}.signal-grid span+span{border:0}.engineering-grid{grid-template-columns:1fr}.engineering-grid article{min-height:0}.engineering-grid h3{margin-top:44px}.index-row{grid-template-columns:28px 1fr}.index-state{grid-column:2}.work-card{min-height:0}.work-card-copy{padding:24px}.radar-visual,.router-visual,.volcano-visual{min-height:360px}.router-visual{padding:24px}.volcano-console{inset:32px 24px}.ring-three{width:360px;height:360px}.package-visual{margin:24px;width:calc(100% - 48px)}.package-name{padding:40px 20px 30px}.package-command{margin:0 20px 20px}.package-stats span{padding:14px 10px}.client-projects{margin-top:52px}.client-projects-heading{display:block}.client-projects-heading p{margin-top:14px}.client-project-card{grid-template-columns:56px 1fr;gap:16px;padding:20px}.client-project-logo{width:52px;height:52px}.client-project-logo img{width:42px;height:42px}.client-project-arrow{position:absolute;top:22px;right:20px}.studio-grid{gap:45px}}
     @media(max-width:480px){html,body{width:100%;overflow-x:hidden}.studio-hero{padding-top:132px}.studio-hero h1{font-size:clamp(36px,11.5vw,46px)}.work-card{scroll-margin-top:96px;min-height:0}.work-card-copy{padding:16px;gap:24px}.work-meta{gap:8px;flex-wrap:wrap;font-size:9px}.work-card h3{font-size:clamp(29px,9.5vw,38px);overflow-wrap:anywhere}.work-card p{font-size:14px;line-height:1.6}.work-tags{gap:6px}.work-tags span{padding:5px 8px;font-size:9px}.work-actions{gap:12px}.radar-visual{min-height:280px}.router-visual{min-height:300px;padding:10px}.router-console header{padding:11px 12px;font-size:8px}.router-request{margin:10px;padding:10px 11px;font-size:9px}.router-request small{display:none}.router-flow{grid-template-columns:1fr 16px 1.2fr 16px 1fr;padding:16px 9px 20px}.router-source,.router-core{padding:10px 3px}.router-source small,.router-core small{font-size:6px}.router-source strong,.router-core strong{font-size:8px}.router-core span{font-size:5px}.router-models{gap:5px}.router-models span{padding:5px 2px;font-size:5px}.router-console footer span{padding:9px 3px}.router-console footer b{font-size:12px}.router-console footer small{font-size:7px}.ring-two{width:250px;height:250px}.ring-three{width:300px;height:300px}.package-visual{margin:10px;width:calc(100% - 20px)}.package-name{padding:28px 14px 20px}.package-name small{font-size:11px}.package-command{margin:0 10px 14px;padding:10px}.package-command code{font-size:10px;overflow-wrap:anywhere}.package-stats span{padding:10px 5px}.package-stats b{font-size:11px}.client-projects{margin-top:44px}.client-project-card{padding:16px;gap:12px}.client-project-copy h3{font-size:28px}.client-project-copy p{font-size:13px}.client-project-logo{width:48px;height:48px}.client-project-logo img{width:38px;height:38px}.client-marquee-item{min-width:240px;padding:13px 20px;font-size:9px}.client-marquee-item img{width:36px;height:36px}}
     @media(prefers-reduced-motion:reduce){.studio-hero-copy>*{opacity:1;transform:none;animation:none}.studio-index{opacity:1;transform:none;animation:none}.studio-index::before,.studio-index::after{display:none}.studio-index>header,.studio-index>footer,.index-row{opacity:1;transform:none;animation:none}.studio-index>header span:first-child::before,.index-state i,.radar-sweep-line,.radar-ring,.router-live i,.router-path i,.client-marquee-track{animation:none}}
 </style>
