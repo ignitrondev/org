@@ -70,5 +70,8 @@ const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
 <body>
     <LanguageToggle />
     <slot />
+    <script>
+        import '../scripts/scroll-animations';
+    </script>
 </body>
 </html>
