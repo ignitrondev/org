@@ -1,0 +1,105 @@
+---
+import C from '../C.astro';
+import HeroLogo3D from '../HeroLogo3D';
+---
+
+<section class="studio-hero" id="hero">
+    <div class="hero-grid-bg" aria-hidden="true"></div>
+    <div class="container studio-hero-grid">
+        <div class="studio-hero-copy">
+            <div class="hero-badge"><span class="status-dot"></span><C en="Independent engineering studio" id="Studio engineering independen" zh="独立工程工作室" /></div>
+            <h1><C en="Systems that" id="Sistem yang" zh="经得起考验的" /><br /><span class="text-gradient"><C en="hold up." id="tahan uji." zh="系统。" /></span></h1>
+            <p class="studio-hero-subtitle"><C en="IgnitronDev designs and builds the technical foundations behind useful software: architecture, backend systems, cloud infrastructure, data flows, and AI systems that can be understood and operated." id="IgnitronDev merancang dan membangun fondasi teknis di balik software yang berguna: arsitektur, sistem backend, infrastruktur cloud, aliran data, dan sistem AI yang dapat dipahami serta dioperasikan." zh="IgnitronDev 设计并构建实用软件背后的技术基础：架构、后端系统、云基础设施、数据流和可理解、可运营的 AI 系统。" /></p>
+            <div class="hero-cta">
+                <a href="#systems" class="btn btn-primary btn-lg"><C en="Explore the practice" id="Jelajahi praktik kami" zh="了解我们的实践" /></a>
+                <a href="https://github.com/ignitrondev" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">GitHub ↗</a>
+            </div>
+        </div>
+
+        <div class="studio-hero-right">
+            <div class="hero-logo-3d" aria-hidden="true">
+                <HeroLogo3D client:visible />
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .studio-hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 150px 0 90px; }
+    .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(to bottom, black, transparent 90%); }
+    .studio-hero::before { content: ''; position: absolute; width: 620px; height: 620px; border-radius: 50%; background: rgba(255,255,255,.055); filter: blur(150px); top: -310px; left: 8%; }
+    .studio-hero-grid { position: relative; display: grid; grid-template-columns: 1.08fr .92fr; gap: 80px; align-items: center; }
+    .hero-badge { width: fit-content; display: flex; align-items: center; gap: 9px; padding: 7px 13px; border: 1px solid var(--border-color); background: rgba(24,24,27,.75); color: var(--cyber-cyan-dark); font: 600 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 26px; }
+    .status-dot {
+        position: relative;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #4ade80;
+        box-shadow: 0 0 10px rgba(74, 222, 128, 0.7);
+        display: inline-block;
+        animation: dot-pulse 2s ease-in-out infinite;
+    }
+    .status-dot::after {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        border-radius: 50%;
+        border: 1px solid #4ade80;
+        opacity: 0.6;
+        animation: dot-ripple 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    }
+    @keyframes dot-pulse {
+        0%, 100% { transform: scale(0.9); opacity: 0.7; box-shadow: 0 0 6px rgba(74, 222, 128, 0.5); }
+        50% { transform: scale(1.15); opacity: 1; box-shadow: 0 0 14px rgba(74, 222, 128, 0.9); }
+    }
+    @keyframes dot-ripple {
+        0% { transform: scale(0.8); opacity: 0.8; }
+        100% { transform: scale(2.2); opacity: 0; }
+    }
+    .studio-hero h1 {
+        font-size: clamp(50px, 6.3vw, 84px);
+        line-height: .98;
+        letter-spacing: -.055em;
+        max-width: 860px;
+        opacity: 0;
+        transform: translateY(-28px);
+        animation: hero-title-drop 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+    }
+    @keyframes hero-title-drop {
+        from {
+            opacity: 0;
+            transform: translateY(-28px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .studio-hero-copy { text-align: left; }
+    .studio-hero-subtitle { color: #a1a1aa; font-size: clamp(17px, 1.7vw, 20px); line-height: 1.7; max-width: 720px; margin: 24px 0 28px; padding: 0; }
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; justify-content: flex-start; align-items: center; margin: 0; padding: 0; }
+    .studio-hero-right { position: relative; z-index: 1; min-width: 0; min-height: 560px; }
+    .hero-logo-3d { position: absolute; inset: 0; touch-action: pan-y; }
+    .hero-logo-3d canvas { display: block; width: 100% !important; height: 100% !important; }
+    @media (prefers-reduced-motion: reduce) {
+        .hero-logo-3d { display: none; }
+        .studio-hero h1 { opacity: 1; transform: none; animation: none; }
+    }
+
+    @media(max-width:1000px){
+        .studio-hero-grid { grid-template-columns: 1fr; }
+        .studio-hero-right { min-height: 420px; }
+    }
+    @media(max-width:760px){
+        .studio-hero { padding-top: 140px; }
+        .studio-hero-grid { gap: 40px; }
+        .studio-hero h1 { font-size: clamp(43px, 14vw, 64px); }
+        .studio-hero-right { min-height: 340px; }
+    }
+    @media(max-width:480px){
+        .studio-hero { padding-top: 132px; }
+        .studio-hero h1 { font-size: clamp(36px, 11.5vw, 46px); }
+        .studio-hero-right { min-height: 280px; }
+    }
+</style>

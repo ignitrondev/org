@@ -1,0 +1,19 @@
+---
+---
+
+<section class="signal-strip" aria-label="IgnitronDev capabilities">
+    <div class="container signal-grid">
+        <span>SOFTWARE ARCHITECTURE</span><span>BACKEND SYSTEMS</span><span>CLOUD &amp; DEVOPS</span><span>DATA &amp; AI INFRASTRUCTURE</span>
+    </div>
+</section>
+
+<style>
+    .signal-strip { border-block: 1px solid #27272a; background: #0c0c0f; }
+    .signal-grid { min-height: 70px; display: grid; grid-template-columns: repeat(4, 1fr); align-items: center; text-align: center; color: #71717a; font: 10px var(--font-mono); letter-spacing: .12em; }
+    .signal-grid span + span { border-left: 1px solid #27272a; }
+
+    @media(max-width:760px){
+        .signal-grid { grid-template-columns: 1fr 1fr; padding-block: 14px; gap: 14px; }
+        .signal-grid span + span { border: 0; }
+    }
+</style>

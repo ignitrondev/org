@@ -374,9 +374,10 @@ img {
 .hero-cta {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
-    justify-content: center;
-    margin-bottom: 48px;
+    gap: 14px;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
 }
 
 /* ============================================
