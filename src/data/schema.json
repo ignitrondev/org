@@ -35,12 +35,12 @@
       },
       {
         "@type": "SoftwareApplication",
-        "@id": "https://ignitrondev.space/#router",
-        "name": "IgnitronDev Router",
-        "url": "https://app.ignitrondev.space",
-        "applicationCategory": "DeveloperApplication",
+        "@id": "https://ignitrondev.space/#volcano",
+        "name": "IGN Volcano",
+        "url": "https://magma.ignitrondev.space",
+        "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
-        "description": "A unified AI gateway for routing requests to leading models through one API key, with usage metering, billing, and spend controls.",
+        "description": "A focused observatory for tracking volcanic activity across Indonesia, with an interactive map, current alert levels, and weather at each volcano location.",
         "creator": {
           "@id": "https://ignitrondev.space/#organization"
         }
