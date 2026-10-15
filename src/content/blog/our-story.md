@@ -8,8 +8,6 @@ color: "var(--matrix-green)"
 featured: true
 ---
 
-# The IgnitronDev Story
-
 Every product starts with a realization. For **IgnitronDev**, it was that software works best when it is built for a specific job, by people who understand the workflow it serves.
 
 ## The Early Days

@@ -1,65 +1,226 @@
 ---
 import C from './C.astro';
+import LanguageToggle from './LanguageToggle.astro';
 
 const base = import.meta.env.BASE_URL;
 ---
 
-<nav class="nav" id="nav" aria-label="Primary navigation">
-    <div class="nav-container">
+<header class="nav" id="nav">
+    <nav class="container nav-inner" aria-label="Primary navigation">
         <a href={base} class="nav-logo" aria-label="IgnitronDev home">
-            <div class="nav-logo-icon">
-                <img src={`${base}images/ignitron.png`} alt="" width="40" height="40" />
-            </div>
-            <div class="nav-logo-text">
-                <span class="nav-logo-name">Ignitron<span>Dev</span></span>
-                <span class="nav-logo-tagline">ENGINEERING SYSTEMS</span>
-            </div>
+            <span class="nav-logo-mark"><img src={`${base}images/ignitron-mark.png`} alt="" width="28" height="28" /></span>
+            <span class="nav-logo-name">Ignitron<span>Dev</span></span>
         </a>
 
-        <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Toggle navigation" aria-expanded="false">
-            <span></span><span></span><span></span>
-        </button>
-
-        <div class="nav-links">
-            <a href={`${base}#systems`}>Systems</a>
-            <a href={`${base}#products`}><C en="Products" id="Produk" zh="产品" /></a>
-            <a href={`${base}#open-source`}>Open Source</a>
+        <div class="nav-links" id="navLinks">
+            <a href={`${base}#systems`}><C en="Practice" id="Praktik" zh="实践" /></a>
+            <a href={`${base}#work`}><C en="Work" id="Karya" zh="作品" /></a>
+            <a href={`${base}#clients`}><C en="Clients" id="Klien" zh="客户" /></a>
             <a href={`${base}#approach`}><C en="About" id="Tentang" zh="关于" /></a>
             <a href={`${base}blog/`}><C en="Blog" id="Blog" zh="博客" /></a>
+            <a href={`${base}foundry/`} class="nav-links-mobile-only"><C en="Clinical UI" id="Clinical UI" zh="临床 UI" /></a>
         </div>
 
-        <a href="https://github.com/ignitrondev" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta">
-            <C en="View GitHub" id="Buka GitHub" zh="查看 GitHub" />
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-        </a>
-    </div>
-</nav>
+        <div class="nav-actions">
+            <LanguageToggle />
+            <a href="https://github.com/ignitrondev" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm nav-cta">
+                GitHub
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+                <span></span><span></span>
+            </button>
+        </div>
+    </nav>
+</header>
 
 <script>
     const nav = document.getElementById('nav');
-    const toggle = document.getElementById('mobileToggle');
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
 
     function checkScroll() {
-        nav?.classList.toggle('scrolled', window.scrollY > 10);
+        nav?.classList.toggle('scrolled', window.scrollY > 8);
+    }
+
+    function setOpen(open: boolean) {
+        links?.classList.toggle('open', open);
+        nav?.classList.toggle('menu-open', open);
+        toggle?.setAttribute('aria-expanded', String(open));
     }
 
     window.addEventListener('scroll', checkScroll, { passive: true });
     checkScroll();
 
-    toggle?.addEventListener('click', () => {
-        const links = document.querySelector('.nav-links');
-        const expanded = links?.classList.toggle('active') ?? false;
-        toggle.classList.toggle('active', expanded);
-        toggle.setAttribute('aria-expanded', String(expanded));
-    });
-
-    document.querySelectorAll('.nav-links a').forEach((link) => {
-        link.addEventListener('click', () => {
-            document.querySelector('.nav-links')?.classList.remove('active');
-            toggle?.classList.remove('active');
-            toggle?.setAttribute('aria-expanded', 'false');
-        });
+    toggle?.addEventListener('click', () => setOpen(!links?.classList.contains('open')));
+    links?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') setOpen(false);
     });
 </script>
+
+<style>
+    .nav {
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 1000;
+        height: var(--nav-height);
+        border-bottom: 1px solid transparent;
+        transition: background-color var(--transition-base), border-color var(--transition-base);
+    }
+
+    .nav.scrolled,
+    .nav.menu-open {
+        background: rgba(8, 8, 10, 0.78);
+        border-bottom-color: var(--line);
+        backdrop-filter: blur(14px) saturate(140%);
+        -webkit-backdrop-filter: blur(14px) saturate(140%);
+    }
+
+    .nav-inner {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        gap: 32px;
+    }
+
+    .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex: none;
+    }
+
+    .nav-logo-mark {
+        width: 28px;
+        height: 28px;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        background: #fff;
+    }
+
+    .nav-logo-mark img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .nav-logo-name {
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: -0.03em;
+    }
+
+    .nav-logo-name span {
+        color: var(--text-3);
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        margin-right: auto;
+    }
+
+    .nav-links a {
+        padding: 6px 10px;
+        color: var(--text-2);
+        font-size: 13.5px;
+        transition: color var(--transition-fast);
+    }
+
+    .nav-links a:hover {
+        color: var(--text);
+    }
+
+    .nav-links .nav-links-mobile-only {
+        display: none;
+    }
+
+    .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-left: auto;
+    }
+
+    .nav-toggle {
+        display: none;
+        width: 34px;
+        height: 30px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        background: none;
+        border: 1px solid var(--line-strong);
+        cursor: pointer;
+    }
+
+    .nav-toggle span {
+        width: 14px;
+        height: 1px;
+        background: var(--text);
+        transition: transform var(--transition-fast);
+    }
+
+    .nav.menu-open .nav-toggle span:first-child {
+        transform: translateY(3px) rotate(45deg);
+    }
+
+    .nav.menu-open .nav-toggle span:last-child {
+        transform: translateY(-3px) rotate(-45deg);
+    }
+
+    @media (max-width: 860px) {
+        .nav-inner {
+            gap: 12px;
+        }
+
+        .nav-cta {
+            display: none;
+        }
+
+        .nav-toggle {
+            display: flex;
+        }
+
+        .nav-links {
+            position: absolute;
+            top: var(--nav-height);
+            left: 0;
+            right: 0;
+            display: none;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0;
+            margin: 0;
+            padding: 8px var(--gutter) 20px;
+            background: rgba(8, 8, 10, 0.96);
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        .nav-links.open {
+            display: flex;
+        }
+
+        .nav-links a {
+            padding: 14px 0;
+            border-bottom: 1px solid var(--line);
+            font-size: 16px;
+            color: var(--text);
+        }
+
+        .nav-links .nav-links-mobile-only {
+            display: block;
+        }
+    }
+
+    @media (max-width: 380px) {
+        .nav-logo-name {
+            font-size: 15px;
+        }
+    }
+</style>

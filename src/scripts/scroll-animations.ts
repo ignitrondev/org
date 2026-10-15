@@ -7,12 +7,34 @@ gsap.registerPlugin(ScrollTrigger);
 const REDUCED_MOTION = '(prefers-reduced-motion: reduce)';
 const DESKTOP = '(min-width: 768px)';
 const STAGGER_CONTAINERS = [
-    '.engineering-grid',
+    '.practice-grid',
     '.work-grid',
+    '.engage-grid',
     '.focus-grid',
+    '.process',
     '.catalog-list',
     '.bp-grid',
 ].join(',');
+
+// Homepage hero intro: copy slides in from the right, the 3D logo eases in beside it.
+// The `hero-intro` class (set inline in <head>) keeps these hidden until GSAP takes over,
+// so there is no flash of the final state before the animation starts.
+function animateHomeHero(hero: Element) {
+    const copy = Array.from(hero.querySelectorAll('.hero-copy > *'));
+    const visual = hero.querySelector('.hero-visual');
+    const stats = Array.from(hero.querySelectorAll('.hero-stats > div'));
+    const clearProps = 'opacity,visibility,transform';
+
+    gsap.set(copy, { autoAlpha: 0, x: 64 });
+    if (visual) gsap.set(visual, { autoAlpha: 0, scale: 0.96 });
+    gsap.set(stats, { autoAlpha: 0, y: 16 });
+    document.documentElement.classList.remove('hero-intro');
+
+    const timeline = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    timeline.to(copy, { autoAlpha: 1, x: 0, duration: 1.1, stagger: 0.12, clearProps });
+    if (visual) timeline.to(visual, { autoAlpha: 1, scale: 1, duration: 1.4, clearProps }, 0.3);
+    timeline.to(stats, { autoAlpha: 1, y: 0, duration: 0.8, stagger: 0.08, clearProps }, 0.7);
+}
 
 function initAnimations() {
     const reducedMotion = window.matchMedia(REDUCED_MOTION);
@@ -22,7 +44,9 @@ function initAnimations() {
     const cleanups: Array<() => void> = [];
     const context = gsap.context(() => {
         const hero = document.querySelector('main > section:first-child');
-        if (hero) {
+        if (hero?.classList.contains('hero')) {
+            animateHomeHero(hero);
+        } else if (hero) {
             const heroContent = hero.querySelector('.container') ?? hero;
             gsap.from(Array.from(heroContent.children), {
                 autoAlpha: 0,

@@ -1,41 +1,184 @@
 ---
+import C from '../C.astro';
+
+const practices = [
+    {
+        index: '01',
+        label: 'ARCHITECTURE',
+        title: { en: 'Software architecture', id: 'Arsitektur software', zh: '软件架构' },
+        body: {
+            en: 'Clear domains, dependable interfaces, and systems designed for change.',
+            id: 'Domain yang jelas, interface yang andal, dan sistem yang dirancang untuk berubah.',
+            zh: '清晰的领域、可靠的接口，以及为变化而设计的系统。',
+        },
+        items: ['Service design', 'API boundaries', 'Technical discovery'],
+    },
+    {
+        index: '02',
+        label: 'BACKEND',
+        title: { en: 'Backend systems', id: 'Sistem backend', zh: '后端系统' },
+        body: {
+            en: 'Application cores where data, workflows, and business rules stay explicit.',
+            id: 'Inti aplikasi tempat data, workflow, dan aturan bisnis tetap eksplisit.',
+            zh: '让数据、工作流与业务规则保持明确的应用核心。',
+        },
+        items: ['Distributed services', 'Identity', 'Async processing'],
+    },
+    {
+        index: '03',
+        label: 'PLATFORM',
+        title: { en: 'Cloud & delivery', id: 'Cloud & delivery', zh: '云与交付' },
+        body: {
+            en: 'Infrastructure that makes delivery repeatable and runtime behavior visible.',
+            id: 'Infrastruktur yang membuat delivery bisa diulang dan perilaku runtime terlihat.',
+            zh: '让交付可重复、运行时行为可见的基础设施。',
+        },
+        items: ['Containers', 'Kubernetes', 'CI/CD', 'Networking'],
+    },
+    {
+        index: '04',
+        label: 'SIGNAL',
+        title: { en: 'Data & AI infrastructure', id: 'Infrastruktur data & AI', zh: '数据与 AI 基础设施' },
+        body: {
+            en: 'Practical systems for moving, governing, and using data and model capabilities.',
+            id: 'Sistem praktis untuk memindahkan, mengelola, dan memakai data serta kemampuan model.',
+            zh: '用于迁移、治理和使用数据与模型能力的实用系统。',
+        },
+        items: ['Pipelines', 'Observability', 'Model gateways'],
+    },
+];
 ---
 
-<section class="section engineering-section" id="systems">
+<section class="section practice" id="systems">
     <div class="container">
-        <div class="engineering-heading">
-            <div><span class="section-badge">ENGINEERING PRACTICE</span><h2 class="section-title">Technical depth is<br /><span class="text-gradient">the product.</span></h2></div>
-            <p>We work from the inside out: clarify constraints, make the system legible, then create the path from code to dependable operation.</p>
+        <div class="sec-head">
+            <div>
+                <p class="sec-kicker"><b>[01]</b><C en="Engineering practice" id="Praktik engineering" zh="工程实践" /></p>
+                <h2 class="sec-title"><C en="Technical depth is" id="Kedalaman teknis adalah" zh="技术深度" /><br /><span class="text-gradient"><C en="the product." id="produknya." zh="就是产品。" /></span></h2>
+            </div>
+            <p class="sec-lede"><C en="We work from the inside out: clarify constraints, make the system legible, then create the path from code to dependable operation." id="Kami bekerja dari dalam ke luar: memperjelas batasan, membuat sistem mudah dipahami, lalu membangun jalur dari kode sampai operasi yang andal." zh="我们由内而外地工作：厘清约束，让系统清晰易懂，再打通从代码到可靠运行的路径。" /></p>
         </div>
-        <div class="engineering-grid">
-            <article><span>01 / ARCHITECTURE</span><h3>Software architecture</h3><p>Clear domains, dependable interfaces, and systems designed for change.</p><small>Service design · API boundaries · technical discovery</small></article>
-            <article><span>02 / BACKEND</span><h3>Backend systems</h3><p>Application cores where data, workflows, and business rules stay explicit.</p><small>Distributed services · identity · async processing</small></article>
-            <article><span>03 / PLATFORM</span><h3>Cloud &amp; delivery</h3><p>Infrastructure that makes delivery repeatable and runtime behavior visible.</p><small>Containers · Kubernetes · CI/CD · networking</small></article>
-            <article><span>04 / SIGNAL</span><h3>Data &amp; AI infrastructure</h3><p>Practical systems for moving, governing, and using data and model capabilities.</p><small>Pipelines · observability · model gateways</small></article>
+
+        <div class="practice-grid">
+            {practices.map((practice) => (
+                <article class="practice-card">
+                    <header><span class="practice-index">{practice.index}</span><span>{practice.label}</span></header>
+                    <h3><C en={practice.title.en} id={practice.title.id} zh={practice.title.zh} /></h3>
+                    <p><C en={practice.body.en} id={practice.body.id} zh={practice.body.zh} /></p>
+                    <ul>
+                        {practice.items.map((item) => <li>{item}</li>)}
+                    </ul>
+                </article>
+            ))}
         </div>
     </div>
 </section>
 
 <style>
-    .engineering-section { background: #0c0c0f; border-bottom: 1px solid #27272a; }
-    .engineering-heading { display: grid; grid-template-columns: 1fr .7fr; gap: 80px; align-items: end; margin-bottom: 54px; }
-    .engineering-heading h2 { margin-top: 20px; }
-    .engineering-heading > p { margin: 0; color: #a1a1aa; font-size: 16px; line-height: 1.75; }
-    .engineering-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid #3f3f46; border-left: 1px solid #27272a; }
-    .engineering-grid article { min-height: 330px; padding: 25px; border-right: 1px solid #27272a; border-bottom: 1px solid #27272a; transition: background .25s ease; }
-    .engineering-grid article:hover { background: #151519; }
-    .engineering-grid article > span, .engineering-grid small { color: #71717a; font: 10px var(--font-mono); letter-spacing: .07em; }
-    .engineering-grid h3 { margin: 76px 0 12px; font-size: 24px; line-height: 1.08; letter-spacing: -.04em; }
-    .engineering-grid p { color: #a1a1aa; font-size: 14px; line-height: 1.7; margin-bottom: 22px; }
-    .engineering-grid small { display: block; line-height: 1.75; }
-
-    @media(max-width:1000px){
-        .engineering-heading { grid-template-columns: 1fr; gap: 22px; }
-        .engineering-grid { grid-template-columns: 1fr 1fr; }
+    .practice-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border-top: 1px solid var(--line-strong);
+        border-left: 1px solid var(--line);
     }
-    @media(max-width:760px){
-        .engineering-grid { grid-template-columns: 1fr; }
-        .engineering-grid article { min-height: 0; }
-        .engineering-grid h3 { margin-top: 44px; }
+
+    .practice-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-height: 360px;
+        padding: 24px;
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        transition: background-color var(--transition-base);
+    }
+
+    .practice-card::before {
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: var(--accent);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.5s var(--ease);
+    }
+
+    .practice-card:hover {
+        background: var(--bg-raised);
+    }
+
+    .practice-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .practice-card header {
+        display: flex;
+        justify-content: space-between;
+        color: var(--text-3);
+        font: 500 10px/1 var(--font-mono);
+        letter-spacing: 0.12em;
+    }
+
+    .practice-index {
+        color: var(--text-4);
+        transition: color var(--transition-base);
+    }
+
+    .practice-card:hover .practice-index {
+        color: var(--accent);
+    }
+
+    .practice-card h3 {
+        margin: auto 0 12px;
+        padding-top: 72px;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 1.1;
+        letter-spacing: -0.035em;
+    }
+
+    .practice-card p {
+        margin-bottom: 24px;
+        color: var(--text-2);
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    .practice-card ul {
+        border-top: 1px solid var(--line);
+        padding-top: 14px;
+    }
+
+    .practice-card li {
+        color: var(--text-3);
+        font: 400 11px/2 var(--font-mono);
+    }
+
+    .practice-card li::before {
+        content: '— ';
+        color: var(--text-4);
+    }
+
+    @media (max-width: 1000px) {
+        .practice-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .practice-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .practice-card {
+            min-height: 0;
+        }
+
+        .practice-card h3 {
+            padding-top: 40px;
+        }
     }
 </style>

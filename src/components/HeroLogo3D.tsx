@@ -1,14 +1,19 @@
-import { Suspense, useEffect, useRef, useState } from 'react';
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Center, Environment, Float, OrbitControls, useGLTF } from '@react-three/drei';
+import { Center, ContactShadows, Environment, Float, OrbitControls, useGLTF } from '@react-three/drei';
 import { Bloom, EffectComposer } from '@react-three/postprocessing';
 import type { Group } from 'three';
-import { MathUtils, MeshStandardMaterial, TOUCH } from 'three';
+import { Box3, MathUtils, MeshStandardMaterial, TOUCH, Vector3 } from 'three';
 
-function Logo() {
+function Logo({ onReady }: { onReady: () => void }) {
     const { scene } = useGLTF('/base_basic_pbr.glb', '/draco/');
     const [scale, setScale] = useState(1.95);
     const rigRef = useRef<Group>(null);
+    const intro = useRef(0);
+    const modelHeight = useMemo(() => new Box3().setFromObject(scene).getSize(new Vector3()).y, [scene]);
+
+    // Suspense only mounts this once the model has loaded, so this is the moment to reveal it.
+    useEffect(() => onReady(), [onReady]);
 
     useEffect(() => {
         const updateScale = () => {
@@ -49,38 +54,56 @@ function Logo() {
     // Interactive mouse parallax tilt with smooth damping
     useFrame((state, delta) => {
         if (!rigRef.current) return;
+        intro.current = MathUtils.damp(intro.current, 1, 2.4, delta);
+        rigRef.current.scale.setScalar(0.8 + 0.2 * intro.current);
         const targetY = state.pointer.x * 0.4;
         const targetX = -state.pointer.y * 0.3;
         rigRef.current.rotation.y = MathUtils.damp(rigRef.current.rotation.y, targetY, 3.2, delta);
         rigRef.current.rotation.x = MathUtils.damp(rigRef.current.rotation.x, targetX, 3.2, delta);
     });
 
+    // Ground the floating mark with a soft contact shadow just below its lowest point.
+    const shadowY = -(modelHeight * scale) / 2 - 0.35;
+
     return (
-        <group ref={rigRef}>
-            <Float
-                speed={2.2}
-                rotationIntensity={0.35}
-                floatIntensity={0.6}
-                floatingRange={[-0.08, 0.08]}
-            >
-                <Center>
-                    <primitive object={scene} scale={scale} />
-                </Center>
-            </Float>
-        </group>
+        <>
+            <group ref={rigRef}>
+                <Float
+                    speed={2.2}
+                    rotationIntensity={0.35}
+                    floatIntensity={0.6}
+                    floatingRange={[-0.08, 0.08]}
+                >
+                    <Center>
+                        <primitive object={scene} scale={scale} />
+                    </Center>
+                </Float>
+            </group>
+            <ContactShadows position={[0, shadowY, 0]} opacity={0.75} scale={6} blur={2.8} far={3} resolution={512} color="#000000" />
+        </>
     );
 }
 
 export default function HeroLogo3D() {
+    const [ready, setReady] = useState(false);
+    const handleReady = useCallback(() => setReady(true), []);
+
     return (
-        <div style={{ width: '100%', height: '100%' }}>
+        <div
+            style={{
+                width: '100%',
+                height: '100%',
+                opacity: ready ? 1 : 0,
+                transition: 'opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1)',
+            }}
+        >
             <Canvas camera={{ position: [0, 0, 6.4], fov: 45 }} dpr={[1, 1.75]} gl={{ antialias: true, alpha: true }}>
                 <ambientLight intensity={0.9} />
                 <directionalLight position={[0, 6, 2]} intensity={1.8} />
                 <directionalLight position={[3, 4, 3]} intensity={0.7} />
                 <directionalLight position={[-3, -2, -3]} intensity={0.3} />
                 <Suspense fallback={null}>
-                    <Logo />
+                    <Logo onReady={handleReady} />
                     <Environment preset="city" environmentIntensity={0.8} />
                 </Suspense>
                 <OrbitControls

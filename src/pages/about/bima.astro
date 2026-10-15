@@ -1,0 +1,363 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import '../../styles.css';
+
+const base = import.meta.env.BASE_URL;
+const site = 'https://ignitrondev.space';
+const pageURL = `${site}/about/bima/`;
+const playlistURL = 'https://open.spotify.com/playlist/2noGfli9DsoQpf81dD5H7R';
+
+const facts = [
+    { label: 'Name', value: 'Bima Adam Nugraha' },
+    { label: 'Also known as', value: 'Beatz Bimz (music producer name)' },
+    { label: 'Role', value: 'Founder & CEO, IgnitronDev' },
+    { label: 'Company founded', value: '2019' },
+    { label: 'Music years', value: 'Beatz Bimz, 2017–2021' },
+    { label: 'Music genres', value: 'Atmospheric phonk, phonk wave, nightdrive' },
+    { label: 'Engineering focus', value: 'Software architecture, backend systems, cloud infrastructure, Kubernetes' },
+];
+
+const work = [
+    {
+        name: 'Gladiool EMR',
+        kind: 'Client engagement',
+        body: 'Enterprise electronic medical record platform for RSIA Gladiool, delivered through Gantha Studio. Bima handles backend, frontend, and the production infrastructure on Kubernetes and Argo CD.',
+        href: `${base}#clients`,
+    },
+    {
+        name: 'Konter HQ',
+        kind: 'Client engagement',
+        body: 'Multi-branch point-of-sale and operations system for Hamstore Cell & Service, built as a NestJS modular monolith with a React frontend and PostgreSQL.',
+        href: `${base}#clients`,
+    },
+    {
+        name: 'ShipRadar',
+        kind: 'Product',
+        body: 'A maritime vessel-tracking platform for monitoring ships, routes, and fleet activity.',
+        href: 'https://shipradar.my.id',
+    },
+    {
+        name: 'IGN Volcano',
+        kind: 'Product',
+        body: 'An observatory for tracking volcanic activity across Indonesia, with an interactive map, alert levels, and local weather.',
+        href: 'https://magma.ignitrondev.space',
+    },
+    {
+        name: 'Ignitron Clinical UI',
+        kind: 'Open source',
+        body: 'Reusable React components for difficult clinical workflows, starting with the @ignitrondev/odontogram package.',
+        href: `${base}foundry/`,
+    },
+];
+
+const schema = [
+    {
+        '@context': 'https://schema.org',
+        '@graph': [
+            {
+                '@type': 'ProfilePage',
+                '@id': `${pageURL}#page`,
+                url: pageURL,
+                name: 'Bima Adam Nugraha — Founder of IgnitronDev & Beatz Bimz',
+                dateModified: '2026-10-15',
+                mainEntity: { '@id': `${site}/#bima` },
+            },
+            {
+                '@type': 'Person',
+                '@id': `${site}/#bima`,
+                name: 'Bima Adam Nugraha',
+                alternateName: 'Beatz Bimz',
+                url: pageURL,
+                description: 'Founder & CEO of IgnitronDev, software engineer, and former atmospheric phonk producer known as Beatz Bimz (2017–2021).',
+                jobTitle: 'Founder & CEO',
+                worksFor: { '@id': `${site}/#organization` },
+                knowsAbout: [
+                    'Software architecture',
+                    'Backend systems',
+                    'Cloud infrastructure',
+                    'Kubernetes',
+                    'Electronic medical records',
+                    'Atmospheric phonk',
+                    'Phonk wave',
+                    'Music production',
+                ],
+                sameAs: ['https://instagram.com/xiaobima__'],
+            },
+            {
+                '@type': 'Organization',
+                '@id': `${site}/#organization`,
+                name: 'IgnitronDev',
+                url: `${site}/`,
+                logo: `${site}/images/ignitron.png`,
+                foundingDate: '2019',
+                founder: { '@id': `${site}/#bima` },
+            },
+            {
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                    { '@type': 'ListItem', position: 1, name: 'Home', item: `${site}/` },
+                    { '@type': 'ListItem', position: 2, name: 'Bima Adam Nugraha', item: pageURL },
+                ],
+            },
+        ],
+    },
+];
+---
+
+<BaseLayout
+    title="Bima Adam Nugraha — Founder of IgnitronDev & Beatz Bimz"
+    description="Bima Adam Nugraha is the founder and CEO of IgnitronDev, a software engineer working on backend systems and Kubernetes, and a former atmospheric phonk producer known as Beatz Bimz."
+    keywords="Bima Adam Nugraha, Beatz Bimz, IgnitronDev founder, atmospheric phonk producer, phonk wave, software engineer"
+    canonical={pageURL}
+    ogImageAlt="Bima Adam Nugraha"
+    schema={schema}
+>
+    <Navbar />
+    <main class="main-content">
+        <section class="page-hero">
+            <div class="container">
+                <p class="sec-kicker"><b>[PROFILE]</b>Founder</p>
+                <h1>Bima Adam <span class="text-gradient">Nugraha.</span></h1>
+                <p>Founder &amp; CEO of IgnitronDev, software engineer, and former atmospheric phonk producer known as <strong>Beatz Bimz</strong>.</p>
+            </div>
+        </section>
+
+        <section class="profile">
+            <div class="container profile-grid">
+                <div class="profile-main">
+                    <section class="profile-block" aria-labelledby="profile-summary">
+                        <h2 id="profile-summary">Summary</h2>
+                        <p><strong>Bima Adam Nugraha</strong> is the founder and CEO of <a href={base}>IgnitronDev</a>, an independent engineering studio founded in 2019 that builds software systems, cloud infrastructure, and focused technical products.</p>
+                        <p>Before software, Bima produced atmospheric phonk and instrumental music from 2017 to 2021 under the name <strong>Beatz Bimz</strong>. He is still a devoted listener of atmospheric phonk, phonk wave, and nightdrive music, and credits music production for the patience and attention to detail he brings to engineering.</p>
+                    </section>
+
+                    <section class="profile-block" aria-labelledby="profile-engineering">
+                        <h2 id="profile-engineering">Engineering work</h2>
+                        <p>Bima works across backend systems, frontend applications, and production infrastructure. His work includes healthcare software, maritime tracking, and operations systems for retail businesses.</p>
+                        <ul class="profile-work">
+                            {work.map((item) => (
+                                <li>
+                                    <a href={item.href} {...(item.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
+                                        <span class="profile-work-kind">{item.kind}</span>
+                                        <strong>{item.name}</strong>
+                                        <span class="profile-work-body">{item.body}</span>
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </section>
+
+                    <section class="profile-block" aria-labelledby="profile-music">
+                        <h2 id="profile-music">Music: Beatz Bimz</h2>
+                        <p>As Beatz Bimz, Bima produced atmospheric phonk — a dark, cinematic style of phonk built on heavy 808s, dusty drums, and long reverb. Today his listening centres on atmospheric phonk, phonk wave, and nightdrive music, which he uses as a working soundtrack while building software.</p>
+                        <div class="profile-links">
+                            <a href={`${base}blog/music-and-life/`} class="btn btn-outline">Read: why he loves atmospheric phonk<span class="btn-arrow" aria-hidden="true">→</span></a>
+                            <a href={playlistURL} target="_blank" rel="noopener noreferrer" class="btn btn-outline">Playlist on Spotify<span class="btn-arrow" aria-hidden="true">↗</span></a>
+                        </div>
+                    </section>
+                </div>
+
+                <aside class="profile-facts corners" aria-labelledby="profile-facts">
+                    <h2 id="profile-facts">Quick facts</h2>
+                    <dl>
+                        {facts.map((fact) => (
+                            <div><dt>{fact.label}</dt><dd>{fact.value}</dd></div>
+                        ))}
+                    </dl>
+                    <h3>Elsewhere</h3>
+                    <ul class="profile-elsewhere">
+                        <li><a href="https://instagram.com/xiaobima__" target="_blank" rel="noopener noreferrer me">Instagram · @xiaobima__</a></li>
+                        <li><a href="https://github.com/ignitrondev" target="_blank" rel="noopener noreferrer">GitHub · ignitrondev</a></li>
+                        <li><a href="mailto:info@ignitrondev.space">info@ignitrondev.space</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</BaseLayout>
+
+<style>
+    .page-hero strong {
+        color: var(--text);
+        font-weight: 600;
+    }
+
+    .profile {
+        padding: 72px 0 var(--section-padding);
+        border-bottom: 1px solid var(--line);
+    }
+
+    .profile-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 360px;
+        gap: 72px;
+        align-items: start;
+    }
+
+    .profile-block + .profile-block {
+        margin-top: 64px;
+        padding-top: 40px;
+        border-top: 1px solid var(--line);
+    }
+
+    .profile-block h2 {
+        margin-bottom: 18px;
+        font-size: 28px;
+        font-weight: 600;
+        letter-spacing: -0.035em;
+    }
+
+    .profile-block p {
+        max-width: 680px;
+        color: var(--text-2);
+        font-size: 17px;
+        line-height: 1.75;
+    }
+
+    .profile-block p + p {
+        margin-top: 16px;
+    }
+
+    .profile-block strong {
+        color: var(--text);
+        font-weight: 600;
+    }
+
+    .profile-block p a {
+        color: var(--text);
+        border-bottom: 1px solid var(--accent-line);
+    }
+
+    .profile-block p a:hover {
+        color: var(--accent);
+    }
+
+    .profile-work {
+        display: grid;
+        gap: 1px;
+        margin-top: 28px;
+        background: var(--line-strong);
+        border: 1px solid var(--line-strong);
+    }
+
+    .profile-work a {
+        display: grid;
+        grid-template-columns: 140px minmax(0, 1fr);
+        gap: 6px 20px;
+        padding: 20px;
+        background: var(--bg);
+        transition: background-color var(--transition-fast);
+    }
+
+    .profile-work a:hover {
+        background: var(--bg-raised);
+    }
+
+    .profile-work-kind {
+        grid-row: span 2;
+        color: var(--text-3);
+        font: 500 10px/1.8 var(--font-mono);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+    }
+
+    .profile-work strong {
+        font-size: 17px;
+    }
+
+    .profile-work-body {
+        color: var(--text-2);
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .profile-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+    }
+
+    .profile-facts {
+        position: sticky;
+        top: calc(var(--nav-height) + 24px);
+        padding: 24px;
+        border: 1px solid var(--line-strong);
+        background: var(--bg-raised);
+    }
+
+    .profile-facts h2,
+    .profile-facts h3 {
+        color: var(--text-3);
+        font: 500 10px/1 var(--font-mono);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+    }
+
+    .profile-facts dl {
+        margin: 16px 0 28px;
+    }
+
+    .profile-facts dl div {
+        padding: 12px 0;
+        border-top: 1px solid var(--line);
+    }
+
+    .profile-facts dt {
+        color: var(--text-3);
+        font-size: 12px;
+    }
+
+    .profile-facts dd {
+        margin-top: 4px;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .profile-elsewhere {
+        margin-top: 14px;
+    }
+
+    .profile-elsewhere li + li {
+        margin-top: 10px;
+    }
+
+    .profile-elsewhere a {
+        color: var(--text-2);
+        font-size: 14px;
+        transition: color var(--transition-fast);
+    }
+
+    .profile-elsewhere a:hover {
+        color: var(--accent);
+    }
+
+    @media (max-width: 960px) {
+        .profile-grid {
+            grid-template-columns: 1fr;
+            gap: 56px;
+        }
+
+        .profile-facts {
+            position: static;
+            order: -1;
+        }
+    }
+
+    @media (max-width: 560px) {
+        .profile-work a {
+            grid-template-columns: 1fr;
+        }
+
+        .profile-work-kind {
+            grid-row: auto;
+        }
+
+        .profile-links .btn {
+            width: 100%;
+        }
+    }
+</style>

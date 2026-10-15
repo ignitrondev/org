@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import ErrorPage from '../components/ErrorPage.astro';
+import '../styles.css';
+---
+
+<BaseLayout
+    title="503 — Under maintenance · IgnitronDev"
+    description="Under maintenance. IgnitronDev — engineering systems for the real world."
+    robots="noindex, follow"
+>
+    <Navbar />
+    <main class="main-content">
+        <ErrorPage code={503} />
+    </main>
+</BaseLayout>

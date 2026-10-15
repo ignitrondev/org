@@ -8,8 +8,6 @@ color: "var(--cyber-cyan)"
 featured: false
 ---
 
-# Cybersecurity in the Age of IoT
-
 The internet of things promised connected everything. What it also delivered is a dramatically larger attack surface — and most of it runs unattended, on hardware we do not control.
 
 ## The attack surface keeps growing
