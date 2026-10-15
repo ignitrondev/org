@@ -1,0 +1,467 @@
+---
+import C from './C.astro';
+
+type ErrorKind = 404 | 403 | 500 | 503;
+
+interface Props {
+    code: ErrorKind;
+}
+
+const { code } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+const copy: Record<ErrorKind, {
+    status: string;
+    title: { en: string; id: string; zh: string };
+    body: { en: string; id: string; zh: string };
+}> = {
+    404: {
+        status: 'NOT_FOUND',
+        title: { en: "This route doesn't exist.", id: 'Rute ini tidak ada.', zh: '该路径不存在。' },
+        body: {
+            en: "The page you're looking for was moved, renamed, or never shipped.",
+            id: 'Halaman yang kamu cari sudah dipindah, diganti nama, atau memang belum pernah dirilis.',
+            zh: '你要找的页面已被移动、重命名，或从未发布。',
+        },
+    },
+    403: {
+        status: 'FORBIDDEN',
+        title: { en: "You don't have access here.", id: 'Kamu tidak punya akses ke sini.', zh: '你无权访问此处。' },
+        body: {
+            en: "This area is restricted. If you think that's a mistake, get in touch.",
+            id: 'Area ini dibatasi. Kalau menurutmu ini keliru, hubungi kami.',
+            zh: '此区域受限。如果你认为这是误会，请联系我们。',
+        },
+    },
+    500: {
+        status: 'INTERNAL_ERROR',
+        title: { en: 'Something broke on our side.', id: 'Ada yang rusak di sisi kami.', zh: '我们这边出了问题。' },
+        body: {
+            en: 'The request reached us, but a system failed to answer. Try again in a moment.',
+            id: 'Permintaan sampai ke kami, tapi sistem gagal merespons. Coba lagi sebentar lagi.',
+            zh: '请求已到达，但系统未能响应。请稍后再试。',
+        },
+    },
+    503: {
+        status: 'SERVICE_UNAVAILABLE',
+        title: { en: 'Down for maintenance.', id: 'Sedang dalam pemeliharaan.', zh: '正在维护中。' },
+        body: {
+            en: "We're shipping an update. The site will be back shortly.",
+            id: 'Kami sedang merilis pembaruan. Situs akan kembali sebentar lagi.',
+            zh: '我们正在发布更新，网站很快恢复。',
+        },
+    },
+};
+
+const { status, title, body } = copy[code];
+
+// Faint registration marks behind every illustration
+const marks: string[] = [];
+for (let x = 40; x <= 440; x += 40) {
+    for (let y = 40; y <= 280; y += 40) marks.push(`M${x - 3} ${y}h6M${x} ${y - 3}v6`);
+}
+const markPath = marks.join('');
+
+const gear = 'M45.3 -7.8 L57.6 -6.4 L57.6 6.4 L45.3 7.8 L37.6 26.6 L45.3 36.3 L36.3 45.3 L26.6 37.6 L7.8 45.3 L6.4 57.6 L-6.4 57.6 L-7.8 45.3 L-26.6 37.6 L-36.3 45.3 L-45.3 36.3 L-37.6 26.6 L-45.3 7.8 L-57.6 6.4 L-57.6 -6.4 L-45.3 -7.8 L-37.6 -26.6 L-45.3 -36.3 L-36.3 -45.3 L-26.6 -37.6 L-7.8 -45.3 L-6.4 -57.6 L6.4 -57.6 L7.8 -45.3 L26.6 -37.6 L36.3 -45.3 L45.3 -36.3 L37.6 -26.6 Z';
+const progress = Array.from({ length: 12 }, (_, i) => i);
+---
+
+<section class="error-page">
+    <div class="error-bg" aria-hidden="true"></div>
+    <div class="container error-grid">
+        <div class="error-copy">
+            <p class="sec-kicker"><b>[ERROR {code}]</b>{status}</p>
+            <p class="error-code" aria-hidden="true">{code}</p>
+            <C tag="h1" en={title.en} id={title.id} zh={title.zh} />
+            <p class="error-body"><C en={body.en} id={body.id} zh={body.zh} /></p>
+            <div class="error-actions">
+                <a href={base} class="btn btn-primary"><C en="Back to home" id="Kembali ke beranda" zh="返回首页" /><span class="btn-arrow" aria-hidden="true">→</span></a>
+                <button type="button" class="btn btn-outline" data-error-back><C en="Go back" id="Kembali" zh="返回上一页" /></button>
+            </div>
+            <p class="error-trace"><span>GET</span> <code data-error-path>/</code> <span class="error-trace-arrow">→</span> <span class="error-trace-status">{code} {status}</span></p>
+            <a class="error-report" href={`mailto:info@ignitrondev.space?subject=${encodeURIComponent(`Error ${code} on ignitrondev.space`)}`}><C en="Report this problem" id="Laporkan masalah ini" zh="报告此问题" /> ↗</a>
+        </div>
+
+        <div class="error-visual" aria-hidden="true">
+            <svg viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="e-mark" d={markPath} />
+
+                {code === 404 && (
+                    <g>
+                        <text class="e-label" x="48" y="44">ROUTE TRACE</text>
+                        <rect class="e-line" x="48" y="148" width="40" height="40" />
+                        <rect class="e-fill" x="62" y="162" width="12" height="12" />
+                        <text class="e-label" x="48" y="210">ORIGIN</text>
+                        <path class="e-line" d="M88 168H168V96H248" />
+                        <text class="e-label" x="176" y="86">HOP 01</text>
+                        <path class="e-acc e-flow" d="M248 96H290" />
+                        <path class="e-acc" d="M292 88v16M334 88v16M306 90l12 12M318 90l-12 12" />
+                        <path class="e-dim e-dash" d="M336 96H372V168H392" />
+                        <circle class="e-dim e-dash" cx="420" cy="168" r="28" />
+                        <circle class="e-acc e-spin" cx="420" cy="168" r="40" stroke-dasharray="3 12" />
+                        <path class="e-line" d="M420 116v12M420 208v12M460 168h12" />
+                        <text class="e-q" x="420" y="175" text-anchor="middle">?</text>
+                        <text class="e-label" x="372" y="240">TARGET · UNRESOLVED</text>
+                        <text class="e-label e-label-acc" x="48" y="280">404 · NO ROUTE</text>
+                    </g>
+                )}
+
+                {code === 500 && (
+                    <g>
+                        <text class="e-label" x="40" y="44">SERVICE GRAPH</text>
+                        <rect class="e-line" x="40" y="64" width="88" height="40" />
+                        <text class="e-node" x="84" y="88" text-anchor="middle">API</text>
+                        <rect class="e-acc e-pulse" x="196" y="64" width="88" height="40" />
+                        <path class="e-acc" d="M236 64l7 9-6 8 8 9-4 14" />
+                        <text class="e-node e-node-acc" x="262" y="88" text-anchor="middle">!</text>
+                        <rect class="e-dim" x="352" y="64" width="88" height="40" />
+                        <text class="e-node e-node-dim" x="396" y="88" text-anchor="middle">DB</text>
+                        <path class="e-line" d="M128 84H196" />
+                        <path class="e-dim e-dash" d="M284 84H352" />
+                        <text class="e-label" x="40" y="126">200 OK</text>
+                        <text class="e-label e-label-acc" x="196" y="126">FAULT</text>
+                        <text class="e-label" x="352" y="126">NO RESPONSE</text>
+                        <text class="e-label" x="40" y="196">HEALTH CHECK</text>
+                        <path class="e-dim" d="M40 240H440" />
+                        <path class="e-line" d="M40 240H150l8-8 8 16 8-8h20" />
+                        <path class="e-acc e-trace" d="M194 240l10-56 12 96 10-62 8 22h28" />
+                        <path class="e-dim e-dash" d="M262 240H440" />
+                        <text class="e-label" x="440" y="280" text-anchor="end">t+0.00s · SIGNAL LOST</text>
+                    </g>
+                )}
+
+                {code === 403 && (
+                    <g>
+                        <defs>
+                            <pattern id="e-stripes" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                                <rect width="6" height="12" fill="var(--accent)" fill-opacity="0.85" />
+                            </pattern>
+                        </defs>
+                        <text class="e-label" x="48" y="44">AUTH · REQUIRED</text>
+                        <path class="e-line" d="M216 120V100a24 24 0 0 1 48 0v20" />
+                        <rect class="e-line" x="200" y="120" width="80" height="60" />
+                        <circle class="e-acc" cx="240" cy="144" r="7" />
+                        <path class="e-acc" d="M240 151v13" />
+                        <circle class="e-dim e-dash e-spin" cx="240" cy="140" r="70" />
+                        <text class="e-label e-label-acc" x="240" y="206" text-anchor="middle">ACCESS · DENIED</text>
+                        <rect class="e-line" x="56" y="222" width="12" height="58" />
+                        <rect class="e-line" x="412" y="222" width="12" height="58" />
+                        <rect x="68" y="232" width="344" height="14" fill="url(#e-stripes)" />
+                        <rect class="e-line" x="68" y="232" width="344" height="14" />
+                        <text class="e-label" x="56" y="300">GATE 01</text>
+                        <text class="e-label" x="424" y="300" text-anchor="end">403</text>
+                    </g>
+                )}
+
+                {code === 503 && (
+                    <g>
+                        <text class="e-label" x="60" y="44">MAINTENANCE WINDOW</text>
+                        <g transform="translate(190 140)">
+                            <path class="e-line e-spin" d={gear} />
+                            <circle class="e-line" r="18" />
+                            <circle class="e-fill" r="4" />
+                        </g>
+                        <g transform="translate(276 86) scale(0.55)">
+                            <path class="e-acc e-spin e-spin-reverse" d={gear} stroke-width="1.8" />
+                            <circle class="e-acc" r="18" stroke-width="1.8" />
+                        </g>
+                        <text class="e-label" x="60" y="236">DEPLOYING · v.next</text>
+                        <text class="e-label" x="420" y="236" text-anchor="end">ETA · SHORTLY</text>
+                        {progress.map((i) => (
+                            <rect
+                                x={60 + i * 30.4}
+                                y="248"
+                                width="26"
+                                height="10"
+                                class={i < 7 ? 'e-bar-on' : i === 7 ? 'e-bar-next' : 'e-dim'}
+                            />
+                        ))}
+                    </g>
+                )}
+            </svg>
+        </div>
+    </div>
+</section>
+
+<script>
+    const pathEl = document.querySelector('[data-error-path]');
+    if (pathEl) pathEl.textContent = window.location.pathname;
+
+    document.querySelector('[data-error-back]')?.addEventListener('click', () => {
+        if (window.history.length > 1) window.history.back();
+        else window.location.href = '/';
+    });
+</script>
+
+<style>
+    .error-page {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: calc(var(--nav-height) + 64px) 0 80px;
+        border-bottom: 1px solid var(--line);
+        overflow: hidden;
+    }
+
+    .error-bg {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+            linear-gradient(var(--line) 1px, transparent 1px) center top / 56px 56px,
+            linear-gradient(90deg, var(--line) 1px, transparent 1px) center top / 56px 56px;
+        mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, #000 20%, transparent 80%);
+        opacity: 0.6;
+    }
+
+    .error-grid {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 64px;
+        align-items: center;
+    }
+
+    .error-code {
+        margin: 28px 0 8px;
+        color: var(--text-4);
+        font: 500 clamp(88px, 12vw, 152px)/0.85 var(--font-mono);
+        letter-spacing: -0.06em;
+    }
+
+    .error-copy :global(h1) {
+        font-size: clamp(36px, 4.6vw, 60px);
+        font-weight: 600;
+        line-height: 1.02;
+        letter-spacing: -0.045em;
+    }
+
+    .error-body {
+        max-width: 480px;
+        margin: 20px 0 32px;
+        color: var(--text-2);
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+    .error-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .error-trace {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+        width: fit-content;
+        max-width: 100%;
+        margin-top: 40px;
+        padding: 10px 14px;
+        border: 1px solid var(--line);
+        background: var(--bg-raised);
+        color: var(--text-3);
+        font: 400 12px/1.5 var(--font-mono);
+    }
+
+    .error-trace code {
+        color: var(--text);
+        font: inherit;
+        overflow-wrap: anywhere;
+    }
+
+    .error-trace-arrow {
+        color: var(--text-4);
+    }
+
+    .error-trace-status {
+        color: var(--accent);
+    }
+
+    .error-report {
+        display: inline-block;
+        margin-top: 18px;
+        color: var(--text-3);
+        font: 500 11px/1 var(--font-mono);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        transition: color var(--transition-fast);
+    }
+
+    .error-report:hover {
+        color: var(--accent);
+    }
+
+    /* Illustration */
+    .error-visual svg {
+        display: block;
+        width: 100%;
+        height: auto;
+        overflow: visible;
+    }
+
+    .e-mark {
+        stroke: var(--line-strong);
+        stroke-width: 1;
+    }
+
+    .e-line {
+        stroke: var(--text-2);
+        stroke-width: 1.2;
+    }
+
+    .e-dim {
+        stroke: var(--text-4);
+        stroke-width: 1.2;
+    }
+
+    .e-acc {
+        stroke: var(--accent);
+        stroke-width: 1.4;
+    }
+
+    .e-fill {
+        fill: var(--text-2);
+    }
+
+    .e-dash {
+        stroke-dasharray: 4 6;
+    }
+
+    .e-label {
+        fill: var(--text-3);
+        font: 500 10px var(--font-mono);
+        letter-spacing: 0.12em;
+    }
+
+    .e-label-acc {
+        fill: var(--accent);
+    }
+
+    .e-node {
+        fill: var(--text-2);
+        font: 500 12px var(--font-mono);
+        letter-spacing: 0.1em;
+    }
+
+    .e-node-acc {
+        fill: var(--accent);
+        font-size: 14px;
+    }
+
+    .e-node-dim {
+        fill: var(--text-4);
+    }
+
+    .e-q {
+        fill: var(--accent);
+        font: 500 22px var(--font-mono);
+    }
+
+    .e-bar-on {
+        fill: var(--accent);
+        fill-opacity: 0.85;
+    }
+
+    .e-bar-next {
+        fill: var(--accent);
+        animation: e-blink 1.2s steps(2, jump-none) infinite;
+    }
+
+    .e-bar-next,
+    .e-bar-on {
+        stroke: none;
+    }
+
+    rect.e-dim:not(.e-dash) {
+        stroke-width: 1;
+    }
+
+    /* Motion */
+    .e-spin {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: e-spin 16s linear infinite;
+    }
+
+    .e-spin-reverse {
+        animation-direction: reverse;
+        animation-duration: 9s;
+    }
+
+    .e-flow {
+        stroke-dasharray: 6 5;
+        animation: e-flow 0.9s linear infinite;
+    }
+
+    .e-pulse {
+        animation: e-pulse 1.6s ease-in-out infinite;
+    }
+
+    .e-trace {
+        stroke-dasharray: 300;
+        stroke-dashoffset: 300;
+        animation: e-draw 2.4s var(--ease) infinite;
+    }
+
+    @keyframes e-spin {
+        to { transform: rotate(360deg); }
+    }
+
+    @keyframes e-flow {
+        to { stroke-dashoffset: -11; }
+    }
+
+    @keyframes e-pulse {
+        0%, 100% { stroke-opacity: 1; }
+        50% { stroke-opacity: 0.35; }
+    }
+
+    @keyframes e-draw {
+        0% { stroke-dashoffset: 300; }
+        60%, 100% { stroke-dashoffset: 0; }
+    }
+
+    @keyframes e-blink {
+        0% { fill-opacity: 0.2; }
+        100% { fill-opacity: 0.9; }
+    }
+
+    @media (max-width: 900px) {
+        .error-grid {
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
+
+        .error-visual {
+            order: -1;
+            max-width: 460px;
+        }
+
+        .error-page {
+            align-items: flex-start;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .error-actions .btn {
+            flex: 1;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .e-spin,
+        .e-flow,
+        .e-pulse,
+        .e-bar-next {
+            animation: none;
+        }
+
+        .e-trace {
+            animation: none;
+            stroke-dashoffset: 0;
+        }
+    }
+</style>

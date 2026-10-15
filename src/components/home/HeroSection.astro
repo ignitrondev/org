@@ -3,103 +3,241 @@ import C from '../C.astro';
 import HeroLogo3D from '../HeroLogo3D';
 ---
 
-<section class="studio-hero" id="hero">
-    <div class="hero-grid-bg" aria-hidden="true"></div>
-    <div class="container studio-hero-grid">
-        <div class="studio-hero-copy">
-            <div class="hero-badge"><span class="status-dot"></span><C en="Independent engineering studio" id="Studio engineering independen" zh="独立工程工作室" /></div>
-            <h1><C en="Systems that" id="Sistem yang" zh="经得起考验的" /><br /><span class="text-gradient"><C en="hold up." id="tahan uji." zh="系统。" /></span></h1>
-            <p class="studio-hero-subtitle"><C en="IgnitronDev designs and builds the technical foundations behind useful software: architecture, backend systems, cloud infrastructure, data flows, and AI systems that can be understood and operated." id="IgnitronDev merancang dan membangun fondasi teknis di balik software yang berguna: arsitektur, sistem backend, infrastruktur cloud, aliran data, dan sistem AI yang dapat dipahami serta dioperasikan." zh="IgnitronDev 设计并构建实用软件背后的技术基础：架构、后端系统、云基础设施、数据流和可理解、可运营的 AI 系统。" /></p>
+<section class="hero" id="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container hero-grid">
+        <div class="hero-copy">
+            <p class="hero-kicker"><span class="status-dot"></span><C en="Independent engineering studio" id="Studio engineering independen" zh="独立工程工作室" /><span class="hero-kicker-sep">/</span><span>EST. 2019</span></p>
+            <h1><C en="Systems that" id="Sistem yang" zh="经得起考验的" /><br /><span class="hero-title-quiet"><C en="hold up." id="tahan uji." zh="系统。" /></span></h1>
+            <p class="hero-sub"><C en="IgnitronDev designs and builds the technical foundations behind useful software: architecture, backend systems, cloud infrastructure, data flows, and AI systems that can be understood and operated." id="IgnitronDev merancang dan membangun fondasi teknis di balik software yang berguna: arsitektur, sistem backend, infrastruktur cloud, aliran data, dan sistem AI yang dapat dipahami serta dioperasikan." zh="IgnitronDev 设计并构建实用软件背后的技术基础：架构、后端系统、云基础设施、数据流和可理解、可运营的 AI 系统。" /></p>
             <div class="hero-cta">
-                <a href="#systems" class="btn btn-primary btn-lg"><C en="Explore the practice" id="Jelajahi praktik kami" zh="了解我们的实践" /></a>
-                <a href="https://github.com/ignitrondev" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">GitHub ↗</a>
+                <a href="#work" class="btn btn-primary btn-lg"><C en="See the work" id="Lihat karya kami" zh="查看作品" /><span class="btn-arrow" aria-hidden="true">→</span></a>
+                <a href="mailto:info@ignitrondev.space?subject=Hello%20IgnitronDev" class="btn btn-outline btn-lg"><C en="Start a conversation" id="Mulai percakapan" zh="开始交流" /></a>
             </div>
         </div>
 
-        <div class="studio-hero-right">
-            <div class="hero-logo-3d" aria-hidden="true">
+        <div class="hero-visual" aria-hidden="true">
+            <img class="hero-visual-fallback" src="/images/ignitron-mark.png" alt="" width="160" height="160" />
+            <div class="hero-logo-3d">
                 <HeroLogo3D client:visible />
             </div>
         </div>
     </div>
+
+    <div class="container">
+        <dl class="hero-stats">
+            <div><dt><C en="Founded" id="Berdiri" zh="成立" /></dt><dd>2019</dd></div>
+            <div><dt><C en="Live products" id="Produk aktif" zh="上线产品" /></dt><dd>02</dd></div>
+            <div><dt><C en="Client systems" id="Sistem klien" zh="客户系统" /></dt><dd>07</dd></div>
+            <div><dt><C en="Open-source packages" id="Paket open-source" zh="开源包" /></dt><dd>01</dd></div>
+        </dl>
+    </div>
 </section>
 
 <style>
-    .studio-hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 150px 0 90px; }
-    .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(to bottom, black, transparent 90%); }
-    .studio-hero::before { content: ''; position: absolute; width: 620px; height: 620px; border-radius: 50%; background: rgba(255,255,255,.055); filter: blur(150px); top: -310px; left: 8%; }
-    .studio-hero-grid { position: relative; display: grid; grid-template-columns: 1.08fr .92fr; gap: 80px; align-items: center; }
-    .hero-badge { width: fit-content; display: flex; align-items: center; gap: 9px; padding: 7px 13px; border: 1px solid var(--border-color); background: rgba(24,24,27,.75); color: var(--cyber-cyan-dark); font: 600 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 26px; }
-    .status-dot {
+    .hero {
         position: relative;
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: #4ade80;
-        box-shadow: 0 0 10px rgba(74, 222, 128, 0.7);
-        display: inline-block;
-        animation: dot-pulse 2s ease-in-out infinite;
-    }
-    .status-dot::after {
-        content: '';
-        position: absolute;
-        inset: -2px;
-        border-radius: 50%;
-        border: 1px solid #4ade80;
-        opacity: 0.6;
-        animation: dot-ripple 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
-    }
-    @keyframes dot-pulse {
-        0%, 100% { transform: scale(0.9); opacity: 0.7; box-shadow: 0 0 6px rgba(74, 222, 128, 0.5); }
-        50% { transform: scale(1.15); opacity: 1; box-shadow: 0 0 14px rgba(74, 222, 128, 0.9); }
-    }
-    @keyframes dot-ripple {
-        0% { transform: scale(0.8); opacity: 0.8; }
-        100% { transform: scale(2.2); opacity: 0; }
-    }
-    .studio-hero h1 {
-        font-size: clamp(50px, 6.3vw, 84px);
-        line-height: .98;
-        letter-spacing: -.055em;
-        max-width: 860px;
-        opacity: 0;
-        transform: translateY(-28px);
-        animation: hero-title-drop 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
-    }
-    @keyframes hero-title-drop {
-        from {
-            opacity: 0;
-            transform: translateY(-28px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    .studio-hero-copy { text-align: left; }
-    .studio-hero-subtitle { color: #a1a1aa; font-size: clamp(17px, 1.7vw, 20px); line-height: 1.7; max-width: 720px; margin: 24px 0 28px; padding: 0; }
-    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; justify-content: flex-start; align-items: center; margin: 0; padding: 0; }
-    .studio-hero-right { position: relative; z-index: 1; min-width: 0; min-height: 560px; }
-    .hero-logo-3d { position: absolute; inset: 0; touch-action: pan-y; }
-    .hero-logo-3d canvas { display: block; width: 100% !important; height: 100% !important; }
-    @media (prefers-reduced-motion: reduce) {
-        .hero-logo-3d { display: none; }
-        .studio-hero h1 { opacity: 1; transform: none; animation: none; }
+        padding: calc(var(--nav-height) + 88px) 0 0;
+        border-bottom: 1px solid var(--line);
+        overflow: hidden;
     }
 
-    @media(max-width:1000px){
-        .studio-hero-grid { grid-template-columns: 1fr; }
-        .studio-hero-right { min-height: 420px; }
+    .hero-bg {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+            linear-gradient(var(--line) 1px, transparent 1px) center top / 56px 56px,
+            linear-gradient(90deg, var(--line) 1px, transparent 1px) center top / 56px 56px;
+        mask-image: linear-gradient(to bottom, #000 30%, transparent 92%);
     }
-    @media(max-width:760px){
-        .studio-hero { padding-top: 140px; }
-        .studio-hero-grid { gap: 40px; }
-        .studio-hero h1 { font-size: clamp(43px, 14vw, 64px); }
-        .studio-hero-right { min-height: 340px; }
+
+    :global(.hero-intro) .hero-copy > *,
+    :global(.hero-intro) .hero-visual,
+    :global(.hero-intro) .hero-stats > div {
+        opacity: 0;
     }
-    @media(max-width:480px){
-        .studio-hero { padding-top: 132px; }
-        .studio-hero h1 { font-size: clamp(36px, 11.5vw, 46px); }
-        .studio-hero-right { min-height: 280px; }
+
+    .hero-grid {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        gap: 64px;
+        align-items: center;
+    }
+
+    .hero-kicker {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+        color: var(--text-2);
+        font: 500 11px/1.4 var(--font-mono);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
+
+    .hero-kicker-sep {
+        color: var(--text-4);
+    }
+
+    .hero h1 {
+        margin: 28px 0 0;
+        font-size: clamp(52px, 7vw, 96px);
+        font-weight: 600;
+        line-height: 0.95;
+        letter-spacing: -0.06em;
+    }
+
+    .hero-title-quiet {
+        color: var(--text-3);
+    }
+
+    .hero-sub {
+        max-width: 560px;
+        margin: 28px 0 36px;
+        color: var(--text-2);
+        font-size: clamp(16px, 1.45vw, 18px);
+        line-height: 1.7;
+    }
+
+    .hero-cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    /* 3D logo: no frame, just the mark and its contact shadow */
+    .hero-visual {
+        position: relative;
+        height: 520px;
+    }
+
+    .hero-visual-fallback {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 120px;
+        height: 120px;
+        transform: translate(-50%, -50%);
+        padding: 10px;
+        background: #fff;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-logo-3d {
+        position: absolute;
+        inset: 0;
+        touch-action: pan-y;
+    }
+
+    .hero-logo-3d :global(canvas) {
+        display: block;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    /* Stats */
+    .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin-top: 88px;
+        border-top: 1px solid var(--line);
+    }
+
+    .hero-stats div {
+        padding: 28px 24px 32px;
+        border-left: 1px solid var(--line);
+    }
+
+    .hero-stats div:last-child {
+        border-right: 1px solid var(--line);
+    }
+
+    .hero-stats dt {
+        color: var(--text-3);
+        font: 500 10px/1.4 var(--font-mono);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+    }
+
+    .hero-stats dd {
+        margin-top: 14px;
+        font-size: 40px;
+        font-weight: 500;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        font-variant-numeric: tabular-nums;
+    }
+
+    @media (max-width: 1000px) {
+        .hero-grid {
+            grid-template-columns: 1fr;
+            gap: 56px;
+        }
+
+        .hero-visual {
+            height: 400px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero {
+            padding-top: calc(var(--nav-height) + 56px);
+        }
+
+        .hero h1 {
+            font-size: clamp(46px, 13vw, 64px);
+        }
+
+        .hero-visual {
+            height: 340px;
+        }
+
+        .hero-stats {
+            grid-template-columns: 1fr 1fr;
+            margin-top: 64px;
+        }
+
+        .hero-stats div {
+            padding: 22px 16px 24px;
+        }
+
+        .hero-stats div:nth-child(2n) {
+            border-right: 1px solid var(--line);
+        }
+
+        .hero-stats div:nth-child(-n + 2) {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .hero-stats dd {
+            font-size: 32px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero h1 {
+            font-size: clamp(40px, 12.5vw, 52px);
+        }
+
+        .hero-cta .btn {
+            width: 100%;
+        }
+
+        .hero-visual {
+            height: 300px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .hero-logo-3d {
+            display: none;
+        }
+
+        .hero-visual-fallback {
+            display: block;
+        }
     }
 </style>

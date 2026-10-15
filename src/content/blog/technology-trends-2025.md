@@ -8,8 +8,6 @@ color: "var(--cyber-cyan)"
 featured: false
 ---
 
-# Top Technology Trends Shaping 2025
-
 Every year brings a new list of technologies. The ones that matter are the ones that survive contact with real workloads. Here is what we are watching, and what we are building against, for 2025.
 
 ## AI moves from demos to production

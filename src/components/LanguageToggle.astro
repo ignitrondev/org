@@ -1,10 +1,12 @@
 ---
-import { langLabels, type Lang } from '../i18n/index';
+import { langLabels } from '../i18n/index';
+
+const shortLabels: Record<string, string> = { en: 'EN', id: 'ID', zh: '中文' };
 ---
 
-<div class="lang-toggle" id="langToggle">
+<div class="lang-toggle" role="group" aria-label="Language">
     {Object.entries(langLabels).map(([code, label]) => (
-        <button class={`lang-btn ${code === 'en' ? 'active' : ''}`} data-lang={code}>{label}</button>
+        <button type="button" class={`lang-btn ${code === 'en' ? 'active' : ''}`} data-lang={code} aria-label={label}>{shortLabels[code] ?? code.toUpperCase()}</button>
     ))}
 </div>
 
@@ -93,56 +95,42 @@ import { langLabels, type Lang } from '../i18n/index';
 
 <style>
 .lang-toggle {
-    position: fixed;
-    top: 20px;
-    right: 24px;
-    z-index: 1001;
-    display: flex;
-    gap: 4px;
-    padding: 4px;
-    background: rgba(17, 17, 27, 0.9);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--border-color);
-    border-radius: 100px;
+    display: inline-flex;
+    align-items: stretch;
+    height: 30px;
+    border: 1px solid var(--line-strong);
 }
 
 .lang-btn {
-    padding: 6px 12px;
+    min-width: 34px;
+    padding: 0 9px;
     background: transparent;
-    border: none;
-    border-radius: 100px;
-    color: var(--steel-silver);
-    font-size: 12px;
-    font-weight: 600;
-    font-family: var(--font-family);
+    border: 0;
+    color: var(--text-3);
+    font: 500 11px/1 var(--font-mono);
+    letter-spacing: 0.06em;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: color var(--transition-fast), background-color var(--transition-fast);
     white-space: nowrap;
 }
 
+.lang-btn + .lang-btn {
+    border-left: 1px solid var(--line-strong);
+}
+
 .lang-btn:hover {
-    color: var(--cyber-cyan);
+    color: var(--text);
 }
 
 .lang-btn.active {
-    background: var(--cyber-cyan);
-    color: var(--black);
-}
-
-@media (max-width: 768px) {
-    .lang-toggle {
-        position: absolute;
-        top: 88px;
-        bottom: auto;
-        right: 50%;
-        transform: translateX(50%);
-    }
+    background: var(--text);
+    color: var(--bg);
 }
 
 @media (max-width: 360px) {
     .lang-btn {
-        padding-inline: 9px;
-        font-size: 11px;
+        min-width: 30px;
+        padding-inline: 6px;
     }
 }
 </style>

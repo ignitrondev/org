@@ -13,16 +13,22 @@ import '../styles.css';
 >
     <Navbar />
     <main class="main-content">
-        <section class="catalog-hero">
+        <section class="page-hero">
             <div class="container">
-                <span class="section-badge">IGNITRON CLINICAL UI</span>
+                <p class="sec-kicker"><b>[FOUNDRY]</b>Ignitron Clinical UI</p>
                 <h1><C en="Clinical component" id="Katalog komponen" zh="临床组件" /><br /><span class="text-gradient"><C en="catalog & roadmap" id="klinis & roadmap" zh="目录与路线图" /></span></h1>
                 <p><C en="A focused library of difficult clinical interfaces. Availability labels are intentional: we publish what is real and show what is still being validated." id="Library terfokus untuk interface klinis yang sulit. Label ketersediaan dibuat secara sengaja: kami mempublikasikan yang nyata dan menunjukkan yang masih divalidasi." zh="专注于复杂临床界面的组件库。可用性标签保持透明：真实发布已完成内容，并明确标注仍在验证的部分。" /></p>
+                <div class="catalog-legend">
+                    <span><i class="legend-active"></i><C en="In development" id="Dalam pengembangan" zh="开发中" /></span>
+                    <span><i class="legend-research"></i><C en="Research" id="Riset" zh="研究中" /></span>
+                    <span><i class="legend-planned"></i><C en="Planned" id="Direncanakan" zh="已规划" /></span>
+                </div>
             </div>
         </section>
 
         <section class="catalog-section">
-            <div class="container catalog-list">
+            <div class="container">
+            <div class="catalog-list">
                 <article class="catalog-item focus">
                     <div class="item-meta"><span>01 · DENTISTRY</span><span class="availability active"><C en="In development" id="Dalam pengembangan" zh="开发中" /></span></div>
                     <div class="item-main"><div><h2>Ignitron Odontogram</h2><p><C en="The first release: a configurable, controlled dental chart for clinical findings at tooth and surface level." id="Rilis pertama: dental chart configurable dan controlled untuk temuan klinis pada tingkat gigi maupun permukaan." zh="首个版本：可配置、受控的牙科图表，支持牙齿与牙面级临床发现。" /></p></div><div class="item-tags"><span>FDI</span><span>Universal</span><span>Palmer</span><span>Primary</span><span>Permanent</span><span>Mixed</span></div></div>
@@ -35,11 +41,12 @@ import '../styles.css';
                 <article class="catalog-item"><div class="item-meta"><span>05 · CLINICAL MONITORING</span><span class="availability planned"><C en="Planned" id="Direncanakan" zh="已规划" /></span></div><div class="item-main"><div><h2>Vitals & Early Warning Score</h2><p><C en="Fast vital-sign entry and warning presentation while leaving scoring policy under application control." id="Input tanda vital dan penyajian peringatan yang cepat, sementara kebijakan scoring tetap dikendalikan aplikasi." zh="快速生命体征录入与预警展示，评分策略仍由应用控制。" /></p></div><div class="item-tags"><span>Keyboard</span><span>Validation</span><span>Read-only</span></div></div></article>
                 <article class="catalog-item"><div class="item-meta"><span>06 · MEDICATION</span><span class="availability planned"><C en="Planned" id="Direncanakan" zh="已规划" /></span></div><div class="item-main"><div><h2>Medication Timeline</h2><p><C en="A timeline for scheduled, administered, delayed, omitted, and corrected medication events." id="Timeline untuk event obat terjadwal, diberikan, terlambat, tidak diberikan, dan dikoreksi." zh="用于计划、已给药、延迟、遗漏与更正用药事件的时间线。" /></p></div><div class="item-tags"><span>Events</span><span>History</span><span>Print</span></div></div></article>
             </div>
+            </div>
         </section>
 
         <section class="catalog-note">
             <div class="container note-grid">
-                <div><span class="section-badge"><C en="How we prioritize" id="Cara kami menentukan prioritas" zh="我们的优先级方法" /></span><h2><C en="Clinical evidence before component count." id="Bukti klinis sebelum jumlah komponen." zh="临床证据优先于组件数量。" /></h2></div>
+                <div><p class="sec-kicker"><b>[NOTE]</b><C en="How we prioritize" id="Cara kami menentukan prioritas" zh="我们的优先级方法" /></p><h2><C en="Clinical evidence before component count." id="Bukti klinis sebelum jumlah komponen." zh="临床证据优先于组件数量。" /></h2></div>
                 <div><p><C en="A roadmap item moves into development only after workflow observation, a written data contract, and access to domain reviewers. We would rather ship one trustworthy component than ten decorative mockups." id="Item roadmap masuk pengembangan hanya setelah observasi workflow, kontrak data tertulis, dan tersedia reviewer domain. Kami lebih memilih merilis satu komponen tepercaya daripada sepuluh mockup dekoratif." zh="路线图项目只有在完成工作流观察、书面数据契约并获得领域评审后才进入开发。我们宁愿发布一个可信组件，也不发布十个装饰性原型。" /></p><a href="mailto:info@ignitrondev.space?subject=Ignitron%20Clinical%20UI%20Pilot" class="btn btn-primary"><C en="Propose a pilot" id="Ajukan pilot" zh="提议试点" /></a></div>
             </div>
         </section>
@@ -48,16 +55,52 @@ import '../styles.css';
 </BaseLayout>
 
 <style>
-    .catalog-hero { padding: 190px 0 100px; text-align: center; background: radial-gradient(circle at 50% -20%, rgba(255,255,255,.08), transparent 55%); }
-    .catalog-hero h1 { font-size: clamp(52px, 8vw, 96px); line-height: .98; letter-spacing: -.06em; margin: 26px 0; }
-    .catalog-hero p { color: #a1a1aa; font-size: 18px; line-height: 1.7; max-width: 720px; margin: 0 auto; }
-    .catalog-section { padding: 20px 0 130px; }.catalog-list { display: grid; gap: 18px; }
-    .catalog-item { border: 1px solid #27272a; background: #0c0c0f; padding: 32px; }.catalog-item.focus { background: linear-gradient(135deg,#18181b,#0c0c0f 65%); border-color: #52525b; }
-    .item-meta { display: flex; justify-content: space-between; color: #71717a; font: 10px var(--font-mono); letter-spacing: .12em; }
-    .availability { border: 1px solid #3f3f46; padding: 5px 9px; }.availability.active { color: #e4e4e7; }.availability.research { border-style: dashed; }.availability.planned { opacity: .65; }
-    .item-main { display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: end; margin-top: 70px; }.item-main h2 { font-size: clamp(30px, 4vw, 52px); letter-spacing: -.045em; }.item-main p { color: #a1a1aa; max-width: 720px; line-height: 1.7; margin-top: 12px; }
-    .item-tags { display: flex; gap: 7px; flex-wrap: wrap; justify-content: flex-end; max-width: 330px; }.item-tags span { border: 1px solid #3f3f46; padding: 5px 8px; color: #71717a; font: 9px var(--font-mono); }
-    .item-scope { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: #27272a; border: 1px solid #27272a; margin-top: 32px; }.item-scope div { background: #0c0c0f; padding: 20px; }.item-scope b { display: block; font: 11px var(--font-mono); margin-bottom: 8px; }.item-scope span { color: #71717a; font-size: 12px; line-height: 1.55; }
-    .catalog-note { background: #0c0c0f; border-block: 1px solid #27272a; padding: 110px 0; }.note-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }.note-grid h2 { font-size: clamp(34px,4vw,58px); line-height: 1.05; letter-spacing: -.045em; margin-top: 25px; }.note-grid p { color: #a1a1aa; font-size: 17px; line-height: 1.8; margin-bottom: 28px; }
-    @media(max-width:760px){.catalog-hero{padding-top:150px}.item-main,.note-grid{grid-template-columns:1fr}.item-main{margin-top:45px}.item-tags{justify-content:flex-start}.item-scope{grid-template-columns:1fr}.note-grid{gap:40px}}
+    .catalog-legend { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 36px; color: var(--text-3); font: 500 10px/1 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
+    .catalog-legend span { display: inline-flex; align-items: center; gap: 8px; }
+    .catalog-legend i { width: 8px; height: 8px; display: inline-block; }
+    .legend-active { background: var(--accent); }
+    .legend-research { border: 1px dashed var(--text-2); }
+    .legend-planned { border: 1px solid var(--text-4); }
+
+    .catalog-section { padding: 56px 0 128px; border-bottom: 1px solid var(--line); }
+    .catalog-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line-strong); border: 1px solid var(--line-strong); }
+    .catalog-item { display: flex; flex-direction: column; min-width: 0; background: var(--bg); padding: 28px; transition: background-color var(--transition-base); }
+    .catalog-item:hover { background: var(--bg-raised); }
+    .catalog-item:last-child:nth-child(even) { grid-column: 1 / -1; }
+    .catalog-item.focus { grid-column: 1 / -1; background: radial-gradient(ellipse 50% 90% at 100% 0%, var(--accent-soft), transparent 70%), var(--bg-raised); box-shadow: inset 0 1px 0 var(--accent); }
+    .item-meta { display: flex; justify-content: space-between; gap: 12px; color: var(--text-3); font: 500 10px/1 var(--font-mono); letter-spacing: .12em; }
+    .availability { display: inline-flex; align-items: center; gap: 7px; padding: 5px 9px; border: 1px solid var(--line-strong); text-transform: uppercase; white-space: nowrap; }
+    .availability.active { color: var(--accent); border-color: var(--accent-line); }
+    .availability.research { border-style: dashed; color: var(--text-2); }
+    .availability.planned { color: var(--text-3); }
+    .item-main { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 56px; }
+    .catalog-item.focus .item-main { grid-template-columns: 1fr auto; align-items: end; margin-top: 72px; }
+    .item-main h2 { font-size: clamp(28px, 3vw, 40px); font-weight: 600; letter-spacing: -.045em; line-height: 1.05; }
+    .catalog-item.focus .item-main h2 { font-size: clamp(36px, 4.6vw, 60px); }
+    .item-main p { color: var(--text-2); max-width: 640px; font-size: 15px; line-height: 1.7; margin-top: 12px; }
+    .item-tags { display: flex; gap: 6px; flex-wrap: wrap; max-width: 340px; }
+    .catalog-item.focus .item-tags { justify-content: flex-end; }
+    .item-tags span { border: 1px solid var(--line-strong); padding: 5px 9px; color: var(--text-3); font: 500 10px/1.2 var(--font-mono); }
+    .item-scope { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 32px; }
+    .item-scope div { background: var(--bg); padding: 20px; }
+    .item-scope b { display: block; color: var(--accent); font: 500 11px/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
+    .item-scope span { color: var(--text-2); font-size: 13px; line-height: 1.55; }
+
+    .catalog-note { padding: var(--section-padding) 0; border-bottom: 1px solid var(--line); }
+    .note-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; }
+    .note-grid h2 { font-size: clamp(34px, 4.2vw, 54px); font-weight: 600; line-height: 1.04; letter-spacing: -.045em; margin-top: 24px; }
+    .note-grid p { color: var(--text-2); font-size: 17px; line-height: 1.75; margin-bottom: 28px; }
+
+    @media (max-width: 860px) {
+        .catalog-list { grid-template-columns: 1fr; }
+        .catalog-item.focus .item-main, .note-grid { grid-template-columns: 1fr; }
+        .catalog-item.focus .item-tags { justify-content: flex-start; }
+        .item-scope { grid-template-columns: 1fr; }
+        .note-grid { gap: 32px; }
+    }
+
+    @media (max-width: 480px) {
+        .catalog-item { padding: 20px; }
+        .item-main, .catalog-item.focus .item-main { margin-top: 40px; }
+    }
 </style>

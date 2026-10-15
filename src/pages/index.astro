@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import HeroSection from '../components/home/HeroSection.astro';
-import SignalStrip from '../components/home/SignalStrip.astro';
 import EngineeringPractice from '../components/home/EngineeringPractice.astro';
 import SelectedWork from '../components/home/SelectedWork.astro';
 import ClientProjects from '../components/home/ClientProjects.astro';
@@ -25,21 +24,14 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
     <Navbar />
     <main class="main-content">
         <HeroSection />
-        <SignalStrip />
         <EngineeringPractice />
         <section class="section work-section" id="work">
             <div class="container">
                 <SelectedWork />
-                <ClientProjects />
             </div>
         </section>
+        <ClientProjects />
         <AboutStudio />
     </main>
     <Footer />
 </BaseLayout>
-
-<style>
-    .work-section {
-        background: #09090b;
-    }
-</style>

@@ -6,7 +6,7 @@ export default defineConfig({
     site: 'https://ignitrondev.space',
     base: '/',
     output: 'static',
-    trailingSlash: 'always',
+    trailingSlash: 'ignore',
     integrations: [react()],
     vite: {
         plugins: [tailwindcss()],
