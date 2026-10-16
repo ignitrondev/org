@@ -52,6 +52,11 @@ const work = [
     },
 ];
 
+// Google expects ISO 8601 DateTime values here. dateModified should only
+// change when the profile content itself is edited.
+const profileCreated = '2026-10-15T00:00:00+07:00';
+const profileModified = '2026-10-15T00:00:00+07:00';
+
 const schema = [
     {
         '@context': 'https://schema.org',
@@ -61,29 +66,33 @@ const schema = [
                 '@id': `${pageURL}#page`,
                 url: pageURL,
                 name: 'Bima Adam Nugraha — Founder of IgnitronDev & Beatz Bimz',
-                dateModified: '2026-10-15',
-                mainEntity: { '@id': `${site}/#bima` },
-            },
-            {
-                '@type': 'Person',
-                '@id': `${site}/#bima`,
-                name: 'Bima Adam Nugraha',
-                alternateName: 'Beatz Bimz',
-                url: pageURL,
-                description: 'Founder & CEO of IgnitronDev, software engineer, and former atmospheric phonk producer known as Beatz Bimz (2017–2021).',
-                jobTitle: 'Founder & CEO',
-                worksFor: { '@id': `${site}/#organization` },
-                knowsAbout: [
-                    'Software architecture',
-                    'Backend systems',
-                    'Cloud infrastructure',
-                    'Kubernetes',
-                    'Electronic medical records',
-                    'Atmospheric phonk',
-                    'Phonk wave',
-                    'Music production',
-                ],
-                sameAs: ['https://instagram.com/xiaobima__'],
+                dateCreated: profileCreated,
+                dateModified: profileModified,
+                // Nested (not just an @id reference) to match Google's
+                // ProfilePage examples; the @id keeps the Organization's
+                // `founder` reference pointing at the same node.
+                mainEntity: {
+                    '@type': 'Person',
+                    '@id': `${site}/#bima`,
+                    name: 'Bima Adam Nugraha',
+                    alternateName: 'Beatz Bimz',
+                    identifier: 'bima',
+                    url: pageURL,
+                    description: 'Founder & CEO of IgnitronDev, software engineer, and former atmospheric phonk producer known as Beatz Bimz (2017–2021).',
+                    jobTitle: 'Founder & CEO',
+                    worksFor: { '@id': `${site}/#organization` },
+                    knowsAbout: [
+                        'Software architecture',
+                        'Backend systems',
+                        'Cloud infrastructure',
+                        'Kubernetes',
+                        'Electronic medical records',
+                        'Atmospheric phonk',
+                        'Phonk wave',
+                        'Music production',
+                    ],
+                    sameAs: ['https://instagram.com/xiaobima__'],
+                },
             },
             {
                 '@type': 'Organization',
