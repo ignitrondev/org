@@ -15,7 +15,7 @@ export const GET: APIRoute = async ({ site }) => {
         { loc: url('foundry/'), lastmod: buildDate, priority: '0.8' },
         { loc: url('about/bima/'), lastmod: buildDate, priority: '0.8' },
         ...posts.map((post) => ({
-            loc: url(`blog/${post.slug}/`),
+            loc: url(`blog/${post.id}/`),
             lastmod: post.data.updated ?? post.data.date,
             priority: '0.7',
         })),
