@@ -104,7 +104,15 @@ export default function HeroLogo3D() {
                 <directionalLight position={[-3, -2, -3]} intensity={0.3} />
                 <Suspense fallback={null}>
                     <Logo onReady={handleReady} />
-                    <Environment preset="city" environmentIntensity={0.8} />
+                    {/* Self-hosted copy of drei's "city" preset
+                        (potsdamer_platz_1k), downscaled to 512x256. Using the
+                        `preset` prop instead would fetch 1.5 MB from
+                        raw.githack.com on every visit, putting the hero's
+                        lighting behind a third-party CDN. */}
+                    <Environment
+                        files="/hdr/potsdamer-platz-512.hdr"
+                        environmentIntensity={0.8}
+                    />
                 </Suspense>
                 {/* An empty `touches` map binds no touch gesture, so page
                     scrolling stays usable on touch devices while mouse-drag

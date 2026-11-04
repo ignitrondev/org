@@ -131,11 +131,46 @@ artifact.
 `bun run deploy` runs the build and pushes `dist/` to the `gh-pages` branch.
 The domain is fronted by Cloudflare, so there is deliberately no `public/CNAME`.
 
+## The 3D hero's weight
+
+The hero island is by far the heaviest thing the site serves. It is mounted
+with `client:visible`, so none of this blocks first paint, and
+`prefers-reduced-motion: reduce` hides `.hero-logo-3d`, which also stops the
+island hydrating (an `IntersectionObserver` never fires for a `display: none`
+element). It does load on phones.
+
+| Asset | Size |
+| --- | --- |
+| `base_basic_pbr.glb` | 10.5 MB |
+| `HeroLogo3D.*.js` | 1.09 MB (286 kB gzipped) |
+| `hdr/potsdamer-platz-512.hdr` | 302 kB |
+
+**The model dominates, and it is far larger than this hero needs.** Inside the
+10.5 MB GLB:
+
+- 1,000,000 triangles, Draco-compressed to 2.6 MB
+- three 2048x2048 RGB PNG textures (normal, diffuse, metallic/roughness)
+  totalling 7.9 MB
+
+That is for a logo rendered in a box no taller than 520 px. Re-exporting the
+mesh decimated to a few tens of thousands of triangles, with textures at
+1024x1024 or smaller in WebP or KTX2, should take the GLB to a small fraction
+of its current size. Fixing it at the source export is better than
+post-processing the current file; `@gltf-transform/cli` can measure the
+headroom first:
+
+```bash
+bunx @gltf-transform/cli inspect public/base_basic_pbr.glb
+bunx @gltf-transform/cli optimize public/base_basic_pbr.glb /tmp/out.glb \
+  --texture-compress webp --texture-size 1024 --compress draco
+```
+
+The environment map used to come from drei's `preset="city"`, which fetches
+1.5 MB from `raw.githack.com` on every visit. It is now a self-hosted 512x256
+downscale, so the hero's lighting no longer depends on a third-party CDN.
+
 ## Known issues
 
-- The 3D hero chunk is ~1.1 MB in a single bundle. It is loaded with
-  `client:visible`, so it does not block first paint, but it is the main weight
-  on the page.
-- `npm audit` reports vulnerabilities that can only be cleared by upgrading to
-  Astro 7, a breaking change from the current Astro 4. The site is fully static
-  with no server runtime, so the practical exposure is low.
+- `bun audit` is clean for production dependencies. Three advisories remain in
+  the dev-only tree, all reached through `shadcn`, which is kept solely for its
+  `shadcn/tailwind.css` stylesheet.
