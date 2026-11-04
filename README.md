@@ -19,8 +19,8 @@ Static site built with [Astro](https://astro.build), deployed to
 ## Getting started
 
 This project uses [Bun](https://bun.sh) as its package manager; `bun.lock` is
-the committed lockfile. Node 18+ is still required to run Astro itself
-(developed on Node 24).
+the committed lockfile. Node 22.23+ is still required to run Astro 7 itself
+(developed on Node 24; see `.node-version`).
 
 ```bash
 bun install
@@ -128,8 +128,15 @@ artifact.
 
 ## Deployment
 
-`bun run deploy` runs the build and pushes `dist/` to the `gh-pages` branch.
-The domain is fronted by Cloudflare, so there is deliberately no `public/CNAME`.
+Cloudflare Pages builds the `astro-clean` branch and publishes `dist/`, so
+merging into `astro-clean` is a production deploy. The domain is served by
+Cloudflare, which is why there is no `public/CNAME`.
+
+`.node-version` pins Node 24 for that build: Astro 7 requires Node 22.23 or
+newer, and without the pin the Pages build image may pick an older default.
+
+The `deploy` script (publish `dist/` to the `gh-pages` branch) predates the
+Cloudflare setup and is not what serves the live site.
 
 ## The 3D hero's weight
 
