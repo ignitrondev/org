@@ -29,7 +29,7 @@ Key facts:
 
 ## Blog posts
 
-${posts.map((post) => `- [${post.data.title}](${url(`blog/${post.slug}/`)}): ${post.data.seoDescription ?? post.data.excerpt}`).join('\n')}
+${posts.map((post) => `- [${post.data.title}](${url(`blog/${post.id}/`)}): ${post.data.seoDescription ?? post.data.excerpt}`).join('\n')}
 
 ## Elsewhere
 

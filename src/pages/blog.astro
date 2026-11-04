@@ -21,7 +21,7 @@ const allBlogPosts = await getCollection('blog');
 const posts = allBlogPosts
     .map(post => ({
         ...post.data,
-        slug: post.slug,
+        slug: post.id,
         dateFormatted: post.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
     }))
     .sort((a, b) => b.date.valueOf() - a.date.valueOf())
