@@ -141,28 +141,32 @@ element). It does load on phones.
 
 | Asset | Size |
 | --- | --- |
-| `base_basic_pbr.glb` | 10.5 MB |
 | `HeroLogo3D.*.js` | 1.09 MB (286 kB gzipped) |
+| `base_basic_pbr.glb` | 1.13 MB |
 | `hdr/potsdamer-platz-512.hdr` | 302 kB |
 
-**The model dominates, and it is far larger than this hero needs.** Inside the
-10.5 MB GLB:
+The GLB was optimised from a 10.5 MB original that carried 1,000,000
+triangles and three 2048x2048 PNG textures (~93 MB of VRAM) for a logo
+rendered at most 520 px tall. It is now 50,000 triangles and 1024x1024 WebP
+textures, ~18 MB of VRAM. Bounding box moved by at most 0.0004 units.
 
-- 1,000,000 triangles, Draco-compressed to 2.6 MB
-- three 2048x2048 RGB PNG textures (normal, diffuse, metallic/roughness)
-  totalling 7.9 MB
+Normal and metallic/roughness maps use near-lossless WebP on purpose. Lossy
+WebP always applies 4:2:0 chroma subsampling, and on a normal map those
+channels are surface directions: at quality 95 the normal map measured a
+0.83 deg mean angular error with outliers up to 68 deg, against 0.10 deg mean
+and 1.7 deg max for near-lossless. Only the base colour map is lossy (q85).
 
-That is for a logo rendered in a box no taller than 520 px. Re-exporting the
-mesh decimated to a few tens of thousands of triangles, with textures at
-1024x1024 or smaller in WebP or KTX2, should take the GLB to a small fraction
-of its current size. Fixing it at the source export is better than
-post-processing the current file; `@gltf-transform/cli` can measure the
-headroom first:
+To reproduce from a source export (each step decodes Draco and writes the
+geometry back uncompressed, so Draco must be re-applied last):
 
 ```bash
-bunx @gltf-transform/cli inspect public/base_basic_pbr.glb
-bunx @gltf-transform/cli optimize public/base_basic_pbr.glb /tmp/out.glb \
-  --texture-compress webp --texture-size 1024 --compress draco
+G="bunx @gltf-transform/cli"
+$G optimize source.glb s1.glb --texture-compress false \
+  --simplify --simplify-ratio 0.05 --simplify-error 0.001 --compress draco
+$G resize s1.glb s2.glb --width 1024 --height 1024   # PNG/JPEG only: before WebP
+$G webp s2.glb s3.glb --slots baseColorTexture --quality 85
+$G webp s3.glb s4.glb --slots "{normalTexture,metallicRoughnessTexture}" --near-lossless true
+$G draco s4.glb public/base_basic_pbr.glb
 ```
 
 The environment map used to come from drei's `preset="city"`, which fetches
