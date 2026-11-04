@@ -3,7 +3,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Center, ContactShadows, Environment, Float, OrbitControls, useGLTF } from '@react-three/drei';
 import { Bloom, EffectComposer } from '@react-three/postprocessing';
 import type { Group } from 'three';
-import { Box3, MathUtils, MeshStandardMaterial, TOUCH, Vector3 } from 'three';
+import { Box3, MathUtils, MeshStandardMaterial, Vector3 } from 'three';
 
 function Logo({ onReady }: { onReady: () => void }) {
     const { scene } = useGLTF('/base_basic_pbr.glb', '/draco/');
@@ -106,11 +106,17 @@ export default function HeroLogo3D() {
                     <Logo onReady={handleReady} />
                     <Environment preset="city" environmentIntensity={0.8} />
                 </Suspense>
+                {/* An empty `touches` map binds no touch gesture, so page
+                    scrolling stays usable on touch devices while mouse-drag
+                    rotation still works. This previously read
+                    `{ ONE: TOUCH.NONE, TWO: TOUCH.NONE }`, but three's TOUCH
+                    enum has no NONE member, so both values were silently
+                    undefined -- the same no-op, by accident. */}
                 <OrbitControls
                     target={[0, 0, 0]}
                     enablePan={false}
                     enableZoom={false}
-                    touches={{ ONE: TOUCH.NONE, TWO: TOUCH.NONE }}
+                    touches={{}}
                     autoRotate
                     autoRotateSpeed={1.2}
                 />

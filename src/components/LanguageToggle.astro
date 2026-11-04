@@ -85,8 +85,8 @@ const shortLabels: Record<string, string> = { en: 'EN', id: 'ID', zh: '中文' }
         updateUI(savedLang);
 
         document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const lang = this.getAttribute('data-lang');
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
                 if (lang) setLang(lang);
             });
         });
