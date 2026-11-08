@@ -76,6 +76,34 @@ import C from '../C.astro';
             </div>
         </div>
     </article>
+
+    <article class="work-card focus-card" id="focusflow">
+        <div class="work-card-copy">
+            <div class="work-meta"><span>OPEN SOURCE / 02</span><span class="work-status live"><i></i> STABLE</span></div>
+            <div>
+                <p class="work-eyebrow">POMODORO TIMER · ANDROID</p>
+                <h3>FocusFlow</h3>
+                <p><C en="A minimalist Pomodoro timer that keeps time with the app closed or the phone restarted. Weekly statistics, 13 achievement badges, and a story card to share your week. No account, no ads, no internet permission." id="Timer Pomodoro minimalis yang tetap akurat walau aplikasi ditutup atau HP di-restart. Statistik mingguan, 13 badge achievement, dan kartu story untuk membagikan minggumu. Tanpa akun, tanpa iklan, tanpa izin internet." zh="一款极简番茄钟，即使关闭应用或重启手机也能准确计时。提供每周统计、13 枚成就徽章，以及可分享一周专注成果的快拍卡片。无需账户，无广告，不申请联网权限。" /></p>
+            </div>
+            <div class="tag-list"><span>Kotlin Multiplatform</span><span>Compose</span><span>Offline-first</span><span>Apache-2.0</span></div>
+            <div class="work-actions">
+                <a href="https://github.com/ignitrondev/FocusFlow/releases/latest" target="_blank" rel="noopener noreferrer" class="work-link"><C en="Download for Android" id="Unduh untuk Android" zh="下载 Android 版" /> <span>↗</span></a>
+                <a href="https://github.com/ignitrondev/FocusFlow" target="_blank" rel="noopener noreferrer" class="work-link muted">GitHub ↗</a>
+            </div>
+        </div>
+        <div class="focus-visual" aria-hidden="true">
+            <div class="focus-grid"></div>
+            <div class="focus-console">
+                <header><span>FOCUSFLOW / TIMER</span><span class="focus-live"><i></i> FOCUS</span></header>
+                <div class="focus-dial">
+                    <div class="focus-ring"></div>
+                    <div class="focus-time"><b>17:42</b><small>SESSION 1 OF 4</small></div>
+                </div>
+                <div class="focus-week"><i style="--h:62%"></i><i style="--h:50%"></i><i style="--h:100%"></i><i class="today" style="--h:42%"></i><i class="empty"></i><i class="empty"></i><i class="empty"></i></div>
+                <footer><span><b>0</b><small>accounts</small></span><span><b>0</b><small>telemetry</small></span><span><b>13</b><small>badges</small></span></footer>
+            </div>
+        </div>
+    </article>
 </div>
 
 <style>
@@ -125,20 +153,45 @@ import C from '../C.astro';
     .volcano-map-lines { position:absolute;inset:65px 0 45px;opacity:.58;background:linear-gradient(154deg,transparent 42%,#563733 42.3%,transparent 42.7%),linear-gradient(31deg,transparent 47%,#563733 47.3%,transparent 47.7%),linear-gradient(118deg,transparent 53%,#563733 53.3%,transparent 53.7%); }.volcano-map-lines i { position:absolute;width:180%;height:1px;background:#563733;transform:rotate(var(--r));left:-35%;top:var(--t); }.volcano-map-lines i:nth-child(1){--r:12deg;--t:20%}.volcano-map-lines i:nth-child(2){--r:-16deg;--t:43%}.volcano-map-lines i:nth-child(3){--r:8deg;--t:66%}.volcano-map-lines i:nth-child(4){--r:-9deg;--t:81%}
     .volcano-peak { position:absolute;z-index:2;bottom:44px;left:50%;width:220px;height:190px;transform:translateX(-50%);clip-path:polygon(50% 0,100% 100%,0 100%);background:linear-gradient(120deg,#241918,#6d3328 56%,#2b1a18); }.volcano-peak::after { content:'';position:absolute;top:21px;left:40%;width:42px;height:14px;border-radius:50%;background:#110c0b;box-shadow:0 0 20px 7px rgba(251,109,71,.35); }.volcano-glow { position:absolute;left:50%;top:14px;width:16px;height:16px;border-radius:50%;background:#ffb05b;box-shadow:0 0 45px 19px rgba(251,109,71,.55);transform:translateX(-50%);animation:volcano-glow 2.8s ease-in-out infinite; }.volcano-plume { position:absolute;left:50%;bottom:145px;width:66px;height:114px;border-radius:50% 50% 35% 35%;background:radial-gradient(ellipse at bottom,rgba(255,161,105,.34),rgba(98,58,53,.12) 52%,transparent 72%);transform:translateX(-50%);filter:blur(5px);animation:plume-rise 4s ease-in-out infinite; }
     .volcano-markers i { position:absolute;z-index:2;width:8px;height:8px;border:1px solid #ffd4bd;border-radius:50%;background:#fb6d47;box-shadow:0 0 10px rgba(251,109,71,.8); }.volcano-markers i:nth-child(1){left:20%;top:36%}.volcano-markers i:nth-child(2){left:72%;top:29%}.volcano-markers i:nth-child(3){left:67%;top:61%}.volcano-markers i:nth-child(4){left:28%;top:70%}.volcano-markers i:nth-child(5){left:45%;top:45%}
+    /* FocusFlow visualizer: the app's indigo and lavender */
+    @property --focus-left { syntax: '<number>'; inherits: false; initial-value: .71; }
+    .focus-visual { position:relative;min-width:0;min-height:520px;overflow:hidden;border-left:1px solid var(--line);background:#0b0b12; }
+    .focus-grid { position:absolute;inset:0;background-image:linear-gradient(rgba(191,194,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(191,194,255,.05) 1px,transparent 1px);background-size:32px 32px;mask-image:radial-gradient(circle at 50% 45%,#000 30%,transparent 85%); }
+    .focus-console { position:absolute;inset:50px 36px;padding:56px 16px 72px;border:1px solid #2e3150;background:rgba(12,12,20,.9);box-shadow:0 30px 70px rgba(0,0,0,.48);font-family:var(--font-mono);overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px; }
+    .focus-console header { position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;gap:10px;padding:14px 16px;border-bottom:1px solid #23253d;color:#8d90c4;font-size:10px;letter-spacing:.08em; }
+    .focus-live { color:#bfc2ff; }.focus-live i { display:inline-block;width:6px;height:6px;margin-right:5px;border-radius:50%;background:#bfc2ff;box-shadow:0 0 8px rgba(191,194,255,.7);animation:status-pulse 2.4s ease-in-out infinite; }
+    .focus-dial { position:relative;width:196px;height:196px;flex:none; }
+    .focus-ring { position:absolute;inset:0;border-radius:50%;background:conic-gradient(#bfc2ff calc(var(--focus-left) * 1turn),#23253d 0);-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 9px),#000 calc(100% - 8px));mask:radial-gradient(farthest-side,transparent calc(100% - 9px),#000 calc(100% - 8px));animation:focus-countdown 24s linear infinite alternate; }
+    .focus-time { position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px; }
+    .focus-time b { color:#f4f4f5;font-size:42px;font-weight:400;letter-spacing:-.02em; }.focus-time small { color:#8d90c4;font-size:9px;letter-spacing:.12em; }
+    .focus-week { display:flex;align-items:flex-end;gap:10px;height:64px;flex:none; }
+    .focus-week i { width:12px;height:var(--h);border-radius:6px;background:rgba(191,194,255,.4); }
+    .focus-week i.today { background:#bfc2ff;box-shadow:0 0 14px rgba(191,194,255,.55); }
+    .focus-week i.empty { height:4px;background:#2e3150; }
+    .focus-console footer { position:absolute;bottom:0;left:0;right:0;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #23253d; }
+    .focus-console footer span { padding:12px 16px;border-right:1px solid #23253d; }.focus-console footer span:last-child { border:0; }
+    .focus-console footer b,.focus-console footer small { display:block; }.focus-console footer b { color:#e4e5ff;font-size:14px;font-weight:500; }.focus-console footer small { color:#71739c;font-size:10px;margin-top:4px; }
+    @keyframes focus-countdown { to { --focus-left: .58; } }
+
     @keyframes status-pulse { 0%,100% { transform: scale(.85); opacity: .55; } 50% { transform: scale(1.25); opacity: 1; } }
     @keyframes volcano-glow { 0%,100%{opacity:.65;transform:translateX(-50%) scale(.8)}50%{opacity:1;transform:translateX(-50%) scale(1.25)} }
     @keyframes plume-rise { 0%,100%{transform:translate(-50%,8px) scale(.8);opacity:.45}50%{transform:translate(-50%,-12px) scale(1.15);opacity:.9} }
 
     @media(max-width:1000px){
         .work-card { grid-template-columns: 1fr; }
-        .radar-visual, .volcano-visual { border-left: 0; border-top: 1px solid var(--line); min-height: 420px; }
+        .radar-visual, .volcano-visual, .focus-visual { border-left: 0; border-top: 1px solid var(--line); min-height: 420px; }
         .package-visual { width: calc(100% - 72px); }
     }
     @media(max-width:760px){
         .work-card { min-height: 0; }
         .work-card-copy { padding: 24px; }
-        .radar-visual, .volcano-visual { min-height: 360px; }
-        .volcano-console { inset: 32px 24px; }
+        .radar-visual, .volcano-visual, .focus-visual { min-height: 360px; }
+        .volcano-console, .focus-console { inset: 32px 24px; }
+        .focus-visual { min-height: 480px; }
+        .focus-console { gap: 22px; }
+        .focus-dial { width: 160px; height: 160px; }
+        .focus-time b { font-size: 34px; }
+        .focus-week { height: 48px; }
         .ring-three { width: 360px; height: 360px; }
         .package-visual { margin: 24px; width: calc(100% - 48px); }
         .package-name { padding: 40px 20px 30px; }
@@ -153,6 +206,9 @@ import C from '../C.astro';
         .work-card p { font-size: 14px; line-height: 1.6; }
         .work-actions { gap: 12px; }
         .radar-visual { min-height: 280px; }
+        .focus-visual { min-height: 440px; }
+        .focus-dial { width: 140px; height: 140px; }
+        .focus-time b { font-size: 30px; }
         .ring-two { width: 250px; height: 250px; }
         .ring-three { width: 300px; height: 300px; }
         .package-visual { margin: 10px; width: calc(100% - 20px); }
@@ -164,6 +220,6 @@ import C from '../C.astro';
         .package-stats b { font-size: 11px; }
     }
     @media(prefers-reduced-motion:reduce){
-        .radar-sweep-line, .radar-ring, .volcano-live i { animation: none; }
+        .radar-sweep-line, .radar-ring, .volcano-live i, .focus-ring, .focus-live i { animation: none; }
     }
 </style>

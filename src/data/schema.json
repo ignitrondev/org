@@ -70,6 +70,21 @@
         }
       },
       {
+        "@type": "SoftwareApplication",
+        "@id": "https://ignitrondev.space/#focusflow",
+        "name": "FocusFlow",
+        "url": "https://github.com/ignitrondev/FocusFlow",
+        "downloadUrl": "https://github.com/ignitrondev/FocusFlow/releases/latest",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Android 8.0+",
+        "isAccessibleForFree": true,
+        "license": "https://www.apache.org/licenses/LICENSE-2.0",
+        "description": "A minimalist, offline-first Pomodoro timer that keeps time with the app closed or the phone restarted, with weekly statistics, achievement badges, and a shareable story card. No account, no ads, no internet permission.",
+        "creator": {
+          "@id": "https://ignitrondev.space/#organization"
+        }
+      },
+      {
         "@type": "SoftwareSourceCode",
         "@id": "https://ignitrondev.space/#clinical-ui",
         "name": "Ignitron Clinical UI",

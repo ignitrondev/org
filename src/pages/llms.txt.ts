@@ -16,7 +16,7 @@ Key facts:
 
 - Founder & CEO: Bima Adam Nugraha, also known as Beatz Bimz, the name he used to produce atmospheric phonk and instrumental music from 2017 to 2021.
 - Bima listens to and writes about atmospheric phonk, phonk wave, and nightdrive music.
-- Products: ShipRadar (maritime vessel tracking), IGN Volcano (Indonesian volcano activity observatory), Ignitron Clinical UI (open-source React components for clinical workflows, starting with @ignitrondev/odontogram).
+- Products: ShipRadar (maritime vessel tracking), IGN Volcano (Indonesian volcano activity observatory), Ignitron Clinical UI (open-source React components for clinical workflows, starting with @ignitrondev/odontogram), FocusFlow (open-source, offline-first Pomodoro timer for Android, with an iOS beta).
 - Client work includes Gladiool EMR for RSIA Gladiool (backend, frontend, and Kubernetes/Argo CD infrastructure) and Konter HQ, a multi-branch point-of-sale system for Hamstore Cell & Service.
 - Contact: info@ignitrondev.space
 
@@ -35,6 +35,7 @@ ${posts.map((post) => `- [${post.data.title}](${url(`blog/${post.id}/`)}): ${pos
 
 - [ShipRadar](https://shipradar.my.id)
 - [IGN Volcano](https://magma.ignitrondev.space)
+- [FocusFlow on GitHub](https://github.com/ignitrondev/FocusFlow)
 - [Ignitron Clinical UI docs](https://ignitron-medic-ui.pages.dev/)
 - [@ignitrondev/odontogram on npm](https://www.npmjs.com/package/@ignitrondev/odontogram)
 - [GitHub: ignitrondev](https://github.com/ignitrondev)
