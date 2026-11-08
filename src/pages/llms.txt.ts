@@ -33,7 +33,7 @@ ${posts.map((post) => `- [${post.data.title}](${url(`blog/${post.id}/`)}): ${pos
 
 ## Elsewhere
 
-- [ShipRadar](https://shipradar.my.id)
+- [ShipRadar](https://radarship.ignitrondev.space)
 - [IGN Volcano](https://magma.ignitrondev.space)
 - [FocusFlow on GitHub](https://github.com/ignitrondev/FocusFlow)
 - [Ignitron Clinical UI docs](https://ignitron-medic-ui.pages.dev/)

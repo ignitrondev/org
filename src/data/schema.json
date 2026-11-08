@@ -61,7 +61,7 @@
         "@type": "SoftwareApplication",
         "@id": "https://ignitrondev.space/#shipradar",
         "name": "ShipRadar",
-        "url": "https://shipradar.my.id",
+        "url": "https://radarship.ignitrondev.space",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
         "description": "A maritime vessel-tracking platform for monitoring ships, routes, and fleet activity.",
