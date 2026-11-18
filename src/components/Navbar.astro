@@ -18,7 +18,7 @@ const base = import.meta.env.BASE_URL;
             <a href={`${base}#clients`}><C en="Clients" id="Klien" zh="客户" /></a>
             <a href={`${base}#approach`}><C en="About" id="Tentang" zh="关于" /></a>
             <a href={`${base}blog/`}><C en="Blog" id="Blog" zh="博客" /></a>
-            <a href={`${base}foundry/`} class="nav-links-mobile-only"><C en="Clinical UI" id="Clinical UI" zh="临床 UI" /></a>
+            <a href={`${base}foundry/`}><C en="Clinical UI" id="Clinical UI" zh="临床 UI" /></a>
         </div>
 
         <div class="nav-actions">
@@ -27,8 +27,8 @@ const base = import.meta.env.BASE_URL;
                 GitHub
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
             </a>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
-                <span></span><span></span>
+            <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+                <span></span><span></span><span></span>
             </button>
         </div>
     </nav>
@@ -38,25 +38,67 @@ const base = import.meta.env.BASE_URL;
     const nav = document.getElementById('nav');
     const toggle = document.getElementById('navToggle');
     const links = document.getElementById('navLinks');
+    const mobileNav = window.matchMedia('(max-width: 980px)');
+    const sectionIds = ['systems', 'work', 'clients', 'approach'];
 
-    function checkScroll() {
-        nav?.classList.toggle('scrolled', window.scrollY > 8);
+    function isHome() {
+        const path = location.pathname.replace(/\/+$/, '') || '/';
+        return path === '/';
     }
 
     function setOpen(open: boolean) {
-        links?.classList.toggle('open', open);
-        nav?.classList.toggle('menu-open', open);
-        toggle?.setAttribute('aria-expanded', String(open));
+        const next = open && mobileNav.matches;
+        links?.classList.toggle('open', next);
+        nav?.classList.toggle('menu-open', next);
+        toggle?.setAttribute('aria-expanded', String(next));
+        document.body.style.overflow = next ? 'hidden' : '';
     }
 
-    window.addEventListener('scroll', checkScroll, { passive: true });
-    checkScroll();
+    function currentSection() {
+        if (!isHome()) return '';
+        const line = (nav?.offsetHeight ?? 64) + 24;
+        let current = '';
+        for (const id of sectionIds) {
+            const section = document.getElementById(id);
+            if (section && section.getBoundingClientRect().top <= line) current = id;
+        }
+        return current;
+    }
+
+    function markCurrent() {
+        const path = location.pathname.replace(/\/+$/, '') || '/';
+        const section = currentSection();
+        links?.querySelectorAll('a').forEach((link) => {
+            const url = new URL(link.href, location.origin);
+            const linkPath = url.pathname.replace(/\/+$/, '') || '/';
+            const active = url.hash
+                ? isHome() && url.hash === `#${section}`
+                : linkPath !== '/' && (path === linkPath || path.startsWith(`${linkPath}/`));
+            link.classList.toggle('is-current', active);
+            if (active) link.setAttribute('aria-current', 'true');
+            else link.removeAttribute('aria-current');
+        });
+    }
+
+    function onScroll() {
+        nav?.classList.toggle('scrolled', window.scrollY > 8);
+        markCurrent();
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
 
     toggle?.addEventListener('click', () => setOpen(!links?.classList.contains('open')));
     links?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setOpen(false)));
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') setOpen(false);
     });
+    document.addEventListener('click', (event) => {
+        if (!nav?.classList.contains('menu-open')) return;
+        if (event.target instanceof Node && nav.contains(event.target)) return;
+        setOpen(false);
+    });
+    mobileNav.addEventListener('change', () => setOpen(false));
 </script>
 
 <style>
@@ -65,6 +107,7 @@ const base = import.meta.env.BASE_URL;
         inset: 0 0 auto;
         z-index: 1000;
         height: var(--nav-height);
+        overflow: visible;
         border-bottom: 1px solid transparent;
         transition: background-color var(--transition-base), border-color var(--transition-base);
     }
@@ -88,7 +131,8 @@ const base = import.meta.env.BASE_URL;
         display: flex;
         align-items: center;
         gap: 10px;
-        flex: none;
+        min-width: 0;
+        flex: 0 1 auto;
     }
 
     .nav-logo-mark {
@@ -106,9 +150,12 @@ const base = import.meta.env.BASE_URL;
     }
 
     .nav-logo-name {
+        overflow: hidden;
         font-size: 16px;
         font-weight: 600;
         letter-spacing: -0.03em;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     .nav-logo-name span {
@@ -129,12 +176,34 @@ const base = import.meta.env.BASE_URL;
         transition: color var(--transition-fast);
     }
 
-    .nav-links a:hover {
+    .nav-links a:hover,
+    .nav-links a.is-current {
         color: var(--text);
     }
 
-    .nav-links .nav-links-mobile-only {
-        display: none;
+    @media (min-width: 981px) {
+        .nav-links a {
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            bottom: 0;
+            height: 1px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: left center;
+            transition: transform var(--transition-fast);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a:focus-visible::after,
+        .nav-links a.is-current::after {
+            transform: scaleX(1);
+        }
     }
 
     .nav-actions {
@@ -142,37 +211,45 @@ const base = import.meta.env.BASE_URL;
         align-items: center;
         gap: 10px;
         margin-left: auto;
+        flex: none;
     }
 
     .nav-toggle {
         display: none;
-        width: 34px;
-        height: 30px;
+        width: 42px;
+        height: 42px;
+        flex: none;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 5px;
+        padding: 0;
         background: none;
         border: 1px solid var(--line-strong);
         cursor: pointer;
     }
 
     .nav-toggle span {
-        width: 14px;
-        height: 1px;
+        display: block;
+        width: 16px;
+        height: 1.5px;
         background: var(--text);
-        transition: transform var(--transition-fast);
+        transition: transform var(--transition-fast), opacity var(--transition-fast);
     }
 
-    .nav.menu-open .nav-toggle span:first-child {
-        transform: translateY(3px) rotate(45deg);
+    .nav.menu-open .nav-toggle span:nth-child(1) {
+        transform: translateY(6.5px) rotate(45deg);
     }
 
-    .nav.menu-open .nav-toggle span:last-child {
-        transform: translateY(-3px) rotate(-45deg);
+    .nav.menu-open .nav-toggle span:nth-child(2) {
+        opacity: 0;
     }
 
-    @media (max-width: 860px) {
+    .nav.menu-open .nav-toggle span:nth-child(3) {
+        transform: translateY(-6.5px) rotate(-45deg);
+    }
+
+    @media (max-width: 980px) {
         .nav-inner {
             gap: 12px;
         }
@@ -196,10 +273,8 @@ const base = import.meta.env.BASE_URL;
             gap: 0;
             margin: 0;
             padding: 8px var(--gutter) 20px;
-            background: rgba(8, 8, 10, 0.96);
+            background: var(--bg);
             border-bottom: 1px solid var(--line);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
         }
 
         .nav-links.open {
@@ -213,8 +288,13 @@ const base = import.meta.env.BASE_URL;
             color: var(--text);
         }
 
-        .nav-links .nav-links-mobile-only {
-            display: block;
+        .nav-links a:hover,
+        .nav-links a.is-current {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: none;
         }
     }
 
