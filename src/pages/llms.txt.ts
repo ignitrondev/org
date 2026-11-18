@@ -17,12 +17,17 @@ Key facts:
 - Founder & CEO: Bima Adam Nugraha, also known as Beatz Bimz, the name he used to produce atmospheric phonk and instrumental music from 2017 to 2021.
 - Bima listens to and writes about atmospheric phonk, phonk wave, and nightdrive music.
 - Products: ShipRadar (maritime vessel tracking), IGN Volcano (Indonesian volcano activity observatory), Ignitron Clinical UI (open-source React components for clinical workflows, starting with @ignitrondev/odontogram), FocusFlow (open-source, offline-first Pomodoro timer for Android, with an iOS beta).
-- Client work includes Gladiool EMR for RSIA Gladiool (backend, frontend, and Kubernetes/Argo CD infrastructure) and Konter HQ, a multi-branch point-of-sale system for Hamstore Cell & Service.
+- Client work includes Gladiool EMR for RSIA Gladiool, delivered through Gantha Studio. Bima installed the on-premises Debian server at the hospital and still operates it, and leads the EMR work across backend, frontend, Kubernetes, and Argo CD. Konter HQ is a multi-branch point-of-sale system for Hamstore Cell & Service.
 - Contact: info@ignitrondev.space
 
 ## Pages
 
 - [Home](${url('')}): What IgnitronDev does, its products, client projects, and approach
+- [Products](${url('products/')}): ShipRadar, Ignitron Clinical UI, IGN Volcano, and FocusFlow
+- [ShipRadar](${url('products/shipradar/')}): Maritime vessel-tracking product page. The live app is at https://radarship.ignitrondev.space
+- [IGN Volcano](${url('products/ign-volcano/')}): Indonesian volcano observatory product page. The live app is at https://magma.ignitrondev.space
+- [FocusFlow](${url('products/focusflow/')}): Offline-first Pomodoro timer for Android
+- [Ignitron Clinical UI](${url('products/clinical-ui/')}): Open-source React components for clinical workflows
 - [About Bima Adam Nugraha](${url('about/bima/')}): Profile of the founder, his engineering work, and his music as Beatz Bimz
 - [Clinical UI catalog](${url('foundry/')}): Roadmap and status of Ignitron Clinical UI components
 - [Blog](${url('blog/')}): Notes on engineering, products, and music

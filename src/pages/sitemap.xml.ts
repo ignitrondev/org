@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
+import { products } from '../data/products';
 
 // Generated at build time so every blog post is listed under the live domain.
 export const GET: APIRoute = async ({ site }) => {
@@ -12,6 +13,8 @@ export const GET: APIRoute = async ({ site }) => {
     const entries = [
         { loc: url(''), lastmod: buildDate, priority: '1.0' },
         { loc: url('blog/'), lastmod: latestPost, priority: '0.9' },
+        { loc: url('products/'), lastmod: buildDate, priority: '0.9' },
+        ...products.map((product) => ({ loc: url(`products/${product.slug}/`), lastmod: buildDate, priority: '0.8' })),
         { loc: url('foundry/'), lastmod: buildDate, priority: '0.8' },
         { loc: url('about/bima/'), lastmod: buildDate, priority: '0.8' },
         ...posts.map((post) => ({

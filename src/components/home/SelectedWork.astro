@@ -1,5 +1,7 @@
 ---
 import C from '../C.astro';
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <div class="sec-head">
@@ -20,7 +22,10 @@ import C from '../C.astro';
                 <p><C en="A maritime vessel-tracking platform for monitoring ships, routes, and fleet activity through a focused operational interface." id="Platform pelacakan kapal untuk memantau kapal, rute, dan aktivitas armada melalui interface operasional yang terfokus." zh="面向船舶、航线与船队活动监控的海事追踪平台，提供专注的运营界面。" /></p>
             </div>
             <div class="tag-list"><span>Vessel tracking</span><span>AIS data</span><span>Fleet operations</span></div>
-            <a href="https://radarship.ignitrondev.space" target="_blank" rel="noopener noreferrer" class="work-link"><C en="Visit ShipRadar" id="Kunjungi ShipRadar" zh="访问 ShipRadar" /> <span>↗</span></a>
+            <div class="work-actions">
+                <a href={`${base}products/shipradar/`} class="work-link"><C en="Product page" id="Halaman produk" zh="产品页面" /> <span>→</span></a>
+                <a href="https://radarship.ignitrondev.space" target="_blank" rel="noopener noreferrer" class="work-link"><C en="Visit ShipRadar" id="Kunjungi ShipRadar" zh="访问 ShipRadar" /> <span>↗</span></a>
+            </div>
         </div>
         <div class="radar-visual" aria-hidden="true">
             <div class="radar-grid"></div>
@@ -42,6 +47,7 @@ import C from '../C.astro';
             </div>
             <div class="tag-list"><span>React</span><span>TypeScript</span><span>Clinical data</span><span>Apache-2.0</span></div>
             <div class="work-actions">
+                <a href={`${base}products/clinical-ui/`} class="work-link"><C en="Product page" id="Halaman produk" zh="产品页面" /> <span>→</span></a>
                 <a href="https://ignitron-medic-ui.pages.dev/" target="_blank" rel="noopener noreferrer" class="work-link"><C en="Read the docs" id="Buka dokumentasi" zh="阅读文档" /> <span>↗</span></a>
                 <a href="https://www.npmjs.com/package/@ignitrondev/odontogram" target="_blank" rel="noopener noreferrer" class="work-link muted">npm ↗</a>
             </div>
@@ -63,7 +69,10 @@ import C from '../C.astro';
                 <p><C en="A focused observatory for tracking volcanic activity across Indonesia, with an interactive map, current alert levels, and weather at each volcano location." id="Observatorium terfokus untuk memantau aktivitas gunung api di Indonesia, dengan peta interaktif, level status terkini, dan cuaca di tiap lokasi gunung." zh="一个专注于追踪印度尼西亚火山活动的观测平台，提供交互地图、当前警戒等级与各火山位置天气。" /></p>
             </div>
             <div class="tag-list"><span>Volcano monitoring</span><span>Interactive map</span><span>Activity status</span><span>Indonesia</span></div>
-            <a href="https://magma.ignitrondev.space" target="_blank" rel="noopener noreferrer" class="work-link"><C en="Open IGN Volcano" id="Buka IGN Volcano" zh="打开 IGN Volcano" /> <span>↗</span></a>
+            <div class="work-actions">
+                <a href={`${base}products/ign-volcano/`} class="work-link"><C en="Product page" id="Halaman produk" zh="产品页面" /> <span>→</span></a>
+                <a href="https://magma.ignitrondev.space" target="_blank" rel="noopener noreferrer" class="work-link"><C en="Open IGN Volcano" id="Buka IGN Volcano" zh="打开 IGN Volcano" /> <span>↗</span></a>
+            </div>
         </div>
         <div class="volcano-visual" aria-hidden="true">
             <div class="volcano-grid"></div>
@@ -87,6 +96,7 @@ import C from '../C.astro';
             </div>
             <div class="tag-list"><span>Kotlin Multiplatform</span><span>Compose</span><span>Offline-first</span><span>Apache-2.0</span></div>
             <div class="work-actions">
+                <a href={`${base}products/focusflow/`} class="work-link"><C en="Product page" id="Halaman produk" zh="产品页面" /> <span>→</span></a>
                 <a href="https://github.com/ignitrondev/FocusFlow/releases/latest" target="_blank" rel="noopener noreferrer" class="work-link"><C en="Download for Android" id="Unduh untuk Android" zh="下载 Android 版" /> <span>↗</span></a>
                 <a href="https://github.com/ignitrondev/FocusFlow" target="_blank" rel="noopener noreferrer" class="work-link muted">GitHub ↗</a>
             </div>
