@@ -4,7 +4,6 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import HeroSection from '../components/home/HeroSection.astro';
 import EngineeringPractice from '../components/home/EngineeringPractice.astro';
-import SelectedWork from '../components/home/SelectedWork.astro';
 import ClientProjects from '../components/home/ClientProjects.astro';
 import AboutStudio from '../components/home/AboutStudio.astro';
 import '../styles.css';
@@ -25,11 +24,6 @@ const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf-8'));
     <main class="main-content">
         <HeroSection />
         <EngineeringPractice />
-        <section class="section work-section" id="work">
-            <div class="container">
-                <SelectedWork />
-            </div>
-        </section>
         <ClientProjects />
         <AboutStudio />
     </main>

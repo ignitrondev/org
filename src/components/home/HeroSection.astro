@@ -1,6 +1,8 @@
 ---
 import C from '../C.astro';
 import HeroLogo3D from '../HeroLogo3D';
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <section class="hero" id="hero">
@@ -11,7 +13,7 @@ import HeroLogo3D from '../HeroLogo3D';
             <h1><C en="Systems that" id="Sistem yang" zh="经得起考验的" /><br /><span class="hero-title-quiet"><C en="hold up." id="tahan uji." zh="系统。" /></span></h1>
             <p class="hero-sub"><C en="IgnitronDev designs and builds the technical foundations behind useful software: architecture, backend systems, cloud infrastructure, data flows, and AI systems that can be understood and operated." id="IgnitronDev merancang dan membangun fondasi teknis di balik software yang berguna: arsitektur, sistem backend, infrastruktur cloud, aliran data, dan sistem AI yang dapat dipahami serta dioperasikan." zh="IgnitronDev 设计并构建实用软件背后的技术基础：架构、后端系统、云基础设施、数据流和可理解、可运营的 AI 系统。" /></p>
             <div class="hero-cta">
-                <a href="#work" class="btn btn-primary btn-lg"><C en="See the work" id="Lihat karya kami" zh="查看作品" /><span class="btn-arrow" aria-hidden="true">→</span></a>
+                <a href={`${base}products/`} class="btn btn-primary btn-lg"><C en="See the work" id="Lihat karya kami" zh="查看作品" /><span class="btn-arrow" aria-hidden="true">→</span></a>
                 <a href="mailto:info@ignitrondev.space?subject=Hello%20IgnitronDev" class="btn btn-outline btn-lg"><C en="Start a conversation" id="Mulai percakapan" zh="开始交流" /></a>
             </div>
         </div>
