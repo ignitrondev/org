@@ -14,17 +14,17 @@ Every product starts with a realization. For **IgnitronDev**, it was that softwa
 
 I started IgnitronDev with a background in music production, producing atmospheric phonk and instrumental music under the name **Beatz Bimz** from 2017 to 2021. The discipline, creativity, and technical meticulousness required in music production translated directly into software engineering.
 
-We began by taking on custom web development projects, but the real turning point came when we were tasked with building an **Electronic Medical Record (EMR) system for RSIA Gladiool**.
+We began by taking on custom web development projects, but the real turning point came when I worked on an **Electronic Medical Record (EMR) system for RSIA Gladiool**, delivered through Gantha Studio.
 
 ## The RSIA Gladiool Project
 
 Building an EMR demands absolute data security, high availability, and an interface that healthcare professionals can use under real pressure.
 
-I led the infrastructure setup from scratch, on a modern, highly scalable stack:
+I installed the on-premises server at the hospital from bare metal, still operate it, and lead the EMR work across the stack:
 - **Backend:** Java Spring Boot
-- **Frontend:** React / Next.js
+- **Frontend:** React with Vite
 - **Database:** PostgreSQL
-- **Infrastructure:** Kubernetes, Docker, and ArgoCD on Debian servers
+- **Infrastructure:** a single-node Kubernetes cluster (kubeadm) with Argo CD GitOps, on an on-premises Debian 13 server with LVM storage
 
 The project proved we could build enterprise-grade software. It also taught us something important: different users need different tools, and no single platform can serve all of them well.
 
