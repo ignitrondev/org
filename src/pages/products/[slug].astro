@@ -22,7 +22,7 @@ const base = import.meta.env.BASE_URL;
 const pageURL = new URL(`${base}products/${product.slug}/`, Astro.site).href;
 const others = products.filter((item) => item.slug !== product.slug);
 
-const schema = [
+const schema: object[] = [
     {
         '@context': 'https://schema.org',
         '@type': 'WebPage',
@@ -33,14 +33,31 @@ const schema = [
         about: { '@id': product.schemaId },
         isPartOf: { '@id': 'https://ignitrondev.space/#organization' },
     },
+    ...(product.faqs?.length
+        ? [
+              {
+                  '@context': 'https://schema.org',
+                  '@type': 'FAQPage',
+                  '@id': `${pageURL}#faq`,
+                  mainEntity: product.faqs.map((faq) => ({
+                      '@type': 'Question',
+                      name: faq.question.id,
+                      acceptedAnswer: {
+                          '@type': 'Answer',
+                          text: faq.answer.id,
+                      },
+                  })),
+              },
+          ]
+        : []),
 ];
 ---
 
 <BaseLayout
     title={`${product.name} — IgnitronDev`}
     description={product.summary.en}
-    keywords={`${product.name}, IgnitronDev, ${product.tags.join(', ')}`}
-    schema={[schema]}
+    keywords={product.seoKeywords ?? `${product.name}, IgnitronDev, ${product.tags.join(', ')}`}
+    schema={schema}
 >
     <Navbar />
     <main class="main-content">
@@ -70,6 +87,22 @@ const schema = [
                 </div>
             </div>
         </section>
+
+        {product.faqs && product.faqs.length > 0 && (
+            <section class="product-faq" aria-labelledby="product-faq-title">
+                <div class="container">
+                    <h2 id="product-faq-title"><C en="Frequently asked questions" id="Pertanyaan umum" zh="常见问题" /></h2>
+                    <dl class="faq-list">
+                        {product.faqs.map((faq) => (
+                            <div class="faq-item">
+                                <dt><C en={faq.question.en} id={faq.question.id} zh={faq.question.zh} /></dt>
+                                <dd><C en={faq.answer.en} id={faq.answer.id} zh={faq.answer.zh} /></dd>
+                            </div>
+                        ))}
+                    </dl>
+                </div>
+            </section>
+        )}
 
         <section class="product-more">
             <div class="container">
@@ -141,6 +174,44 @@ const schema = [
 
     .tag-list {
         margin-top: 28px;
+    }
+
+    .product-faq {
+        padding: var(--section-padding) 0;
+        border-top: 1px solid var(--line);
+    }
+
+    .product-faq h2 {
+        margin-bottom: 16px;
+        color: var(--text-3);
+        font: 500 11px/1 var(--font-mono);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+    }
+
+    .faq-list {
+        display: grid;
+        gap: 20px;
+        max-width: 720px;
+    }
+
+    .faq-item {
+        padding-top: 16px;
+        border-top: 1px solid var(--line);
+    }
+
+    .faq-item dt {
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: -0.025em;
+        color: var(--text);
+    }
+
+    .faq-item dd {
+        margin-top: 8px;
+        color: var(--text-2);
+        font-size: 15px;
+        line-height: 1.7;
     }
 
     .product-more {

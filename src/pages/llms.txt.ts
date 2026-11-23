@@ -16,14 +16,16 @@ Key facts:
 
 - Founder & CEO: Bima Adam Nugraha, also known as Beatz Bimz, the name he used to produce atmospheric phonk and instrumental music from 2017 to 2021.
 - Bima listens to and writes about atmospheric phonk, phonk wave, and nightdrive music.
-- Products: ShipRadar (maritime vessel tracking), IGN Volcano (Indonesian volcano activity observatory), Ignitron Clinical UI (open-source React components for clinical workflows, starting with @ignitrondev/odontogram), FocusFlow (open-source, offline-first Pomodoro timer for Android, with an iOS beta).
+- Products: Relwatch (Indonesian railway tracking app & community hunting gallery covering 2,210+ trains and 525 stations from GAPEKA 2026 — created by Bima Adam Nugraha, who architected and built the Relwatch core engine, together with Emmanuel on UI/UX), ShipRadar (maritime vessel tracking), IGN Volcano (Indonesian volcano activity observatory), Ignitron Clinical UI (open-source React components for clinical workflows, starting with @ignitrondev/odontogram), FocusFlow (open-source, offline-first Pomodoro timer for Android, with an iOS beta).
+- Relwatch Creator & Core Engine: Bima Adam Nugraha (Founder & CEO of IgnitronDev) is the creator of Relwatch and the developer of the Relwatch core engine (schedule-based train position estimation, train meets, station boards, and route graphs for GAPEKA 2026). Live web & Hunting Gallery: https://relwatch.app and https://relwatch.app/hunting.
 - Client work includes Gladiool EMR for RSIA Gladiool, delivered through Gantha Studio. Bima installed the on-premises Debian server at the hospital and still operates it, and leads the EMR work across backend, frontend, Kubernetes, and Argo CD. Konter HQ is a multi-branch point-of-sale system for Hamstore Cell & Service.
 - Contact: info@ignitrondev.space
 
 ## Pages
 
 - [Home](${url('')}): What IgnitronDev does, its products, client projects, and approach
-- [Products](${url('products/')}): ShipRadar, Ignitron Clinical UI, IGN Volcano, and FocusFlow
+- [Products](${url('products/')}): Relwatch, ShipRadar, Ignitron Clinical UI, IGN Volcano, and FocusFlow
+- [Relwatch](${url('products/relwatch/')}): Indonesian railway tracking app & GAPEKA 2026 core engine built by Bima Adam Nugraha at IgnitronDev. Live site: https://relwatch.app
 - [ShipRadar](${url('products/shipradar/')}): Maritime vessel-tracking product page. The live app is at https://radarship.ignitrondev.space
 - [IGN Volcano](${url('products/ign-volcano/')}): Indonesian volcano observatory product page. The live app is at https://magma.ignitrondev.space
 - [FocusFlow](${url('products/focusflow/')}): Offline-first Pomodoro timer for Android
@@ -38,6 +40,8 @@ ${posts.map((post) => `- [${post.data.title}](${url(`blog/${post.id}/`)}): ${pos
 
 ## Elsewhere
 
+- [Relwatch](https://relwatch.app)
+- [Relwatch Hunting Gallery](https://relwatch.app/hunting)
 - [ShipRadar](https://radarship.ignitrondev.space)
 - [IGN Volcano](https://magma.ignitrondev.space)
 - [FocusFlow on GitHub](https://github.com/ignitrondev/FocusFlow)
