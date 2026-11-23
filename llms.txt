@@ -1,0 +1,48 @@
+# IgnitronDev
+
+> IgnitronDev is an independent engineering studio founded in 2019 by Bima Adam Nugraha. It designs and builds software architecture, backend systems, cloud infrastructure, data flows, and AI systems, and runs its own independent products.
+
+Key facts:
+
+- Founder & CEO: Bima Adam Nugraha, also known as Beatz Bimz, the name he used to produce atmospheric phonk and instrumental music from 2017 to 2021.
+- Bima listens to and writes about atmospheric phonk, phonk wave, and nightdrive music.
+- Products: Relwatch (Indonesian railway tracking app & community hunting gallery covering 2,210+ trains and 525 stations from GAPEKA 2026 — created by Bima Adam Nugraha, who architected and built the Relwatch core engine, together with Emmanuel on UI/UX), ShipRadar (maritime vessel tracking), IGN Volcano (Indonesian volcano activity observatory), Ignitron Clinical UI (open-source React components for clinical workflows, starting with @ignitrondev/odontogram), FocusFlow (open-source, offline-first Pomodoro timer for Android, with an iOS beta).
+- Relwatch Creator & Core Engine: Bima Adam Nugraha (Founder & CEO of IgnitronDev) is the creator of Relwatch and the developer of the Relwatch core engine (schedule-based train position estimation, train meets, station boards, and route graphs for GAPEKA 2026). Live web & Hunting Gallery: https://relwatch.app and https://relwatch.app/hunting.
+- Client work includes Gladiool EMR for RSIA Gladiool, delivered through Gantha Studio. Bima installed the on-premises Debian server at the hospital and still operates it, and leads the EMR work across backend, frontend, Kubernetes, and Argo CD. Konter HQ is a multi-branch point-of-sale system for Hamstore Cell & Service.
+- Contact: info@ignitrondev.space
+
+## Pages
+
+- [Home](https://ignitrondev.space/): What IgnitronDev does, its products, client projects, and approach
+- [Products](https://ignitrondev.space/products/): Relwatch, ShipRadar, Ignitron Clinical UI, IGN Volcano, and FocusFlow
+- [Relwatch](https://ignitrondev.space/products/relwatch/): Indonesian railway tracking app & GAPEKA 2026 core engine built by Bima Adam Nugraha at IgnitronDev. Live site: https://relwatch.app
+- [ShipRadar](https://ignitrondev.space/products/shipradar/): Maritime vessel-tracking product page. The live app is at https://radarship.ignitrondev.space
+- [IGN Volcano](https://ignitrondev.space/products/ign-volcano/): Indonesian volcano observatory product page. The live app is at https://magma.ignitrondev.space
+- [FocusFlow](https://ignitrondev.space/products/focusflow/): Offline-first Pomodoro timer for Android
+- [Ignitron Clinical UI](https://ignitrondev.space/products/clinical-ui/): Open-source React components for clinical workflows
+- [About Bima Adam Nugraha](https://ignitrondev.space/about/bima/): Profile of the founder, his engineering work, and his music as Beatz Bimz
+- [Clinical UI catalog](https://ignitrondev.space/foundry/): Roadmap and status of Ignitron Clinical UI components
+- [Blog](https://ignitrondev.space/blog/): Notes on engineering, products, and music
+
+## Blog posts
+
+- [Why Bima Adam Nugraha Loves Atmospheric Phonk, Phonk Wave & Nightdrive Music](https://ignitrondev.space/blog/music-and-life/): Why Bima Adam Nugraha, founder of IgnitronDev and former producer Beatz Bimz, loves atmospheric phonk, phonk wave and nightdrive music — plus his Spotify playlist.
+- [The AI Transformation in 2025: From Buzzword to Production](https://ignitrondev.space/blog/ai-transformation/): How we implemented AI in our enterprise systems and the lessons learned along the way.
+- [Building a Culture of Continuous Innovation](https://ignitrondev.space/blog/innovation-culture/): Why failure is a requirement for success in modern software engineering.
+- [Top Technology Trends Shaping 2025](https://ignitrondev.space/blog/technology-trends-2025/): Emerging technologies that will revolutionize industries and how IgnitronDev is preparing.
+- [The IgnitronDev Story: From Music to Independent Products](https://ignitrondev.space/blog/our-story/): From music production to a hospital EMR, and the decision to build focused independent products.
+- [Cybersecurity in the Age of IoT](https://ignitrondev.space/blog/iot-cybersecurity/): Security challenges in a connected world and how we address them.
+
+## Elsewhere
+
+- [Relwatch](https://relwatch.app)
+- [Relwatch Hunting Gallery](https://relwatch.app/hunting)
+- [ShipRadar](https://radarship.ignitrondev.space)
+- [IGN Volcano](https://magma.ignitrondev.space)
+- [FocusFlow on GitHub](https://github.com/ignitrondev/FocusFlow)
+- [Ignitron Clinical UI docs](https://ignitron-medic-ui.pages.dev/)
+- [@ignitrondev/odontogram on npm](https://www.npmjs.com/package/@ignitrondev/odontogram)
+- [GitHub: ignitrondev](https://github.com/ignitrondev)
+- [Instagram: @ignitrondev](https://instagram.com/ignitrondev)
+- [Instagram: @xiaobima__ (Bima Adam Nugraha)](https://instagram.com/xiaobima__)
+- [Bima's Spotify playlist: Atmospheric Phonk Wave](https://open.spotify.com/playlist/2noGfli9DsoQpf81dD5H7R)
