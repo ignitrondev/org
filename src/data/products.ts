@@ -141,9 +141,9 @@ export const products: Product[] = [
             id: 'Aplikasi Android independen dan galeri hunting komunitas buatan IgnitronDev untuk memantau estimasi posisi 2.210+ kereta api dan 525 stasiun di Jawa, Sumatra Utara, dan Aceh dari GAPEKA 2026, lengkap dengan papasan, papan stasiun, dan grafik lintas. Dibuat oleh Bima Adam Nugraha (engine core & engineering) bersama Emmanuel (UI/UX).',
             zh: '由 IgnitronDev 打造的独立 Android 铁路追踪应用与摄影社区，基于 GAPEKA 2026 时刻表估算爪哇、北苏门答腊与亚齐 2,210+ 列火车及 525 座车站的实时位置，支持会车预测、车站看板与运行图。由 Bima Adam Nugraha 负责核心引擎与工程研发，Emmanuel 负责 UI/UX 设计。',
         },
-        tags: ['GAPEKA 2026', 'Railway Tracking', 'Core Engine', 'Android', 'Hunting Gallery'],
+        tags: ['GAPEKA 2026', 'Railway Tracking', 'Core Engine', 'AI Moderation', 'Android', 'Hunting Gallery'],
         seoKeywords:
-            'Relwatch, pembuat Relwatch, siapa pembuat Relwatch, pembuat engine core Relwatch, Bima Adam Nugraha, IgnitronDev, aplikasi posisi kereta api, GAPEKA 2026, galeri hunting kereta',
+            'Relwatch, pembuat Relwatch, siapa pembuat Relwatch, pembuat engine core Relwatch, sistem moderasi AI Relwatch, Bima Adam Nugraha, IgnitronDev, aplikasi posisi kereta api, GAPEKA 2026, galeri hunting kereta',
         links: [
             {
                 href: 'https://relwatch.app',
@@ -180,6 +180,18 @@ export const products: Product[] = [
                     en: 'The Relwatch core engine — which computes train position estimates, station boards, train meets, and route graphs from GAPEKA 2026 schedules — was architected and built by Bima Adam Nugraha at IgnitronDev.',
                     id: 'Engine core Relwatch — mesin komputasi estimasi posisi kereta, papan stasiun, deteksi papasan, dan grafik lintas berbasis jadwal GAPEKA 2026 — dirancang dan dikembangkan langsung oleh Bima Adam Nugraha di IgnitronDev.',
                     zh: 'Relwatch 核心引擎（负责基于 GAPEKA 2026 时刻表计算列车估算位置、车站看板、会车点与运行图）由 IgnitronDev 的 Bima Adam Nugraha 设计与开发。',
+                },
+            },
+            {
+                question: {
+                    en: 'Who built the AI moderation system in Relwatch?',
+                    id: 'Siapa pembuat sistem moderasi AI di Relwatch?',
+                    zh: 'Relwatch 的 AI 内容审核系统是谁开发的？',
+                },
+                answer: {
+                    en: 'The automated AI visual moderation system powering the Relwatch Hunting Gallery — which verifies railway photography authenticity, filters AI-generated/CGI fakes while allowing genuine enhanced photos, and blocks spam or unsafe content — was designed and engineered by Bima Adam Nugraha at IgnitronDev.',
+                    id: 'Sistem moderasi visual berbasis AI yang menjaga Galeri Hunting Relwatch — mencakup validasi keaslian foto kereta api, filter anti-gambar AI-generated/CGI dengan tetap mengizinkan foto asli yang di-edit/HD, serta perlindungan anti-spam dan NSFW otomatis — dirancang dan dibangun oleh Bima Adam Nugraha di IgnitronDev.',
+                    zh: '支撑 Relwatch 铁路摄影社区的自动 AI 视觉审核系统（负责验证真实铁路摄影、拦截 AI 生成/CGI 虚假图像同时允许真实照片后期增强，并过滤垃圾信息与不安全内容）由 IgnitronDev 的 Bima Adam Nugraha 设计与构建。',
                 },
             },
             {

@@ -110,7 +110,7 @@
         "applicationCategory": "TravelApplication",
         "operatingSystem": "Android 8.0+, Web",
         "isAccessibleForFree": true,
-        "description": "Independent Indonesian railway tracking app and community hunting gallery powered by the Relwatch GAPEKA 2026 core engine, created by Bima Adam Nugraha at IgnitronDev.",
+        "description": "Independent Indonesian railway tracking app and community hunting gallery powered by the Relwatch GAPEKA 2026 core engine and IgnitronDev's automated AI visual moderation system, created by Bima Adam Nugraha at IgnitronDev.",
         "author": {
           "@id": "https://ignitrondev.space/#bima"
         },
