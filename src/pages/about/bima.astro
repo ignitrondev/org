@@ -8,6 +8,8 @@ const base = import.meta.env.BASE_URL;
 const site = 'https://ignitrondev.space';
 const pageURL = `${site}/about/bima/`;
 const playlistURL = 'https://open.spotify.com/playlist/2noGfli9DsoQpf81dD5H7R';
+const youtubePlaylistURL = 'https://music.youtube.com/playlist?list=PL1iO-6XxwzsI_Kg4v9yfC3PfsVa77fpte';
+const youtubePlaylistId = 'PL1iO-6XxwzsI_Kg4v9yfC3PfsVa77fpte';
 
 const facts = [
     { label: 'Name', value: 'Bima Adam Nugraha' },
@@ -67,7 +69,7 @@ const work = [
 // Google expects ISO 8601 DateTime values here. dateModified should only
 // change when the profile content itself is edited.
 const profileCreated = '2026-10-15T00:00:00+07:00';
-const profileModified = '2026-11-23T00:00:00+07:00';
+const profileModified = '2026-11-25T00:00:00+07:00';
 
 const schema = [
     {
@@ -103,6 +105,10 @@ const schema = [
                         'Phonk wave',
                         'Music production',
                     ],
+                    subjectOf: [
+                        { '@id': `${pageURL}#youtube-playlist` },
+                        { '@id': `${pageURL}#spotify-playlist` },
+                    ],
                     sameAs: ['https://instagram.com/xiaobima__'],
                 },
             },
@@ -114,6 +120,20 @@ const schema = [
                 logo: `${site}/images/ignitron.png`,
                 foundingDate: '2019',
                 founder: { '@id': `${site}/#bima` },
+            },
+            {
+                '@type': 'MusicPlaylist',
+                '@id': `${pageURL}#youtube-playlist`,
+                name: 'Atmospheric Phonk Wave — 夜のドリフト',
+                url: youtubePlaylistURL,
+                creator: { '@id': `${site}/#bima` },
+            },
+            {
+                '@type': 'MusicPlaylist',
+                '@id': `${pageURL}#spotify-playlist`,
+                name: 'Atmospheric Phonk Wave — 夜のドリフト',
+                url: playlistURL,
+                creator: { '@id': `${site}/#bima` },
             },
             {
                 '@type': 'BreadcrumbList',
@@ -130,7 +150,7 @@ const schema = [
 <BaseLayout
     title="Bima Adam Nugraha — Founder of IgnitronDev, Creator of Relwatch & Beatz Bimz"
     description="Bima Adam Nugraha is the founder and CEO of IgnitronDev, creator of Relwatch and its GAPEKA 2026 core engine, software engineer, and former atmospheric phonk producer known as Beatz Bimz."
-    keywords="Bima Adam Nugraha, pembuat Relwatch, pembuat engine core Relwatch, Beatz Bimz, IgnitronDev founder, Relwatch, software engineer"
+    keywords="Bima Adam Nugraha, pembuat Relwatch, pembuat engine core Relwatch, Beatz Bimz, IgnitronDev founder, Relwatch, software engineer, atmospheric phonk playlist, YouTube Music"
     canonical={pageURL}
     ogImageAlt="Bima Adam Nugraha"
     schema={schema}
@@ -172,11 +192,25 @@ const schema = [
 
                     <section class="profile-block" aria-labelledby="profile-music">
                         <h2 id="profile-music">Music: Beatz Bimz</h2>
-                        <p>As Beatz Bimz, Bima produced atmospheric phonk — a dark, cinematic style of phonk built on heavy 808s, dusty drums, and long reverb. Today his listening centres on atmospheric phonk, phonk wave, and nightdrive music, which he uses as a working soundtrack while building software.</p>
+                        <p>As Beatz Bimz, Bima produced atmospheric phonk — a dark, cinematic style of phonk built on heavy 808s, dusty drums, and long reverb. Today his listening centres on atmospheric phonk, phonk wave, and nightdrive music, which he uses as a working soundtrack while building software. That soundtrack is the playlist <a href={youtubePlaylistURL} target="_blank" rel="noopener noreferrer"><strong>Atmospheric Phonk Wave — 夜のドリフト</strong></a> on <a href={youtubePlaylistURL} target="_blank" rel="noopener noreferrer">YouTube Music</a> and <a href={playlistURL} target="_blank" rel="noopener noreferrer">Spotify</a>.</p>
                         <div class="profile-links">
-                            <a href={`${base}blog/music-and-life/`} class="btn btn-outline">Read: why he loves atmospheric phonk<span class="btn-arrow" aria-hidden="true">→</span></a>
+                            <a href={youtubePlaylistURL} target="_blank" rel="noopener noreferrer" class="btn btn-primary">Playlist on YouTube Music<span class="btn-arrow" aria-hidden="true">↗</span></a>
                             <a href={playlistURL} target="_blank" rel="noopener noreferrer" class="btn btn-outline">Playlist on Spotify<span class="btn-arrow" aria-hidden="true">↗</span></a>
+                            <a href={`${base}blog/music-and-life/`} class="btn btn-outline">Read: why he loves atmospheric phonk<span class="btn-arrow" aria-hidden="true">→</span></a>
                         </div>
+                        <aside class="profile-playlist" aria-label="YouTube Music playlist">
+                            <iframe
+                                src={`https://www.youtube-nocookie.com/embed/videoseries?list=${youtubePlaylistId}`}
+                                width="100%"
+                                height="352"
+                                style="border:0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen
+                                loading="lazy"
+                                title="Atmospheric Phonk Wave by Bima Adam Nugraha on YouTube Music"
+                            ></iframe>
+                        </aside>
                     </section>
                 </div>
 
@@ -300,6 +334,17 @@ const schema = [
         flex-wrap: wrap;
         gap: 12px;
         margin-top: 28px;
+    }
+
+    .profile-playlist {
+        margin-top: 20px;
+        border: 1px solid var(--line-strong);
+        background: var(--bg-raised);
+    }
+
+    .profile-playlist iframe {
+        display: block;
+        width: 100%;
     }
 
     .profile-facts {

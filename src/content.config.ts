@@ -19,9 +19,10 @@ const blogCollection = defineCollection({
     keywords: z.array(z.string()).optional(),
     updated: z.date().optional(),
     ogImage: z.string().optional(),
-    // Spotify playlist ID rendered as an embed under the article
+    // Playlist IDs rendered as embeds under the article
     spotifyPlaylist: z.string().optional(),
     spotifyPlaylistName: z.string().optional(),
+    youtubePlaylist: z.string().optional(),
   })
 });
 

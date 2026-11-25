@@ -29,6 +29,12 @@ const ogImageURL = new URL(`${base}${ogImage.replace(/^\//, '')}`, Astro.site).h
 const pageTitle = data.seoTitle ?? `${data.title} - IgnitronDev Blog`;
 const pageDescription = data.seoDescription ?? data.excerpt;
 const playlistURL = data.spotifyPlaylist ? `https://open.spotify.com/playlist/${data.spotifyPlaylist}` : undefined;
+const youtubePlaylistURL = data.youtubePlaylist ? `https://music.youtube.com/playlist?list=${data.youtubePlaylist}` : undefined;
+const playlistName = data.spotifyPlaylistName ?? `${data.title} — playlist`;
+const playlists = [
+    ...(youtubePlaylistURL ? [{ id: `${postURL}#youtube-playlist`, name: playlistName, url: youtubePlaylistURL }] : []),
+    ...(playlistURL ? [{ id: `${postURL}#playlist`, name: playlistName, url: playlistURL }] : []),
+];
 
 const schema = [
     {
@@ -51,7 +57,7 @@ const schema = [
                 author: { '@id': `${site}/#bima` },
                 publisher: { '@id': `${site}/#organization` },
                 isPartOf: { '@id': `${site}/blog#blog` },
-                ...(playlistURL && { associatedMedia: { '@id': `${postURL}#playlist` } }),
+                ...(playlists.length > 0 && { associatedMedia: playlists.map((playlist) => ({ '@id': playlist.id })) }),
             },
             {
                 '@type': 'Person',
@@ -69,15 +75,13 @@ const schema = [
                 url: `${site}/`,
                 logo: `${site}/images/ignitron.png`,
             },
-            ...(playlistURL
-                ? [{
-                    '@type': 'MusicPlaylist',
-                    '@id': `${postURL}#playlist`,
-                    name: data.spotifyPlaylistName ?? `${data.title} — playlist`,
-                    url: playlistURL,
-                    creator: { '@id': `${site}/#bima` },
-                }]
-                : []),
+            ...playlists.map((playlist) => ({
+                '@type': 'MusicPlaylist',
+                '@id': playlist.id,
+                name: playlist.name,
+                url: playlist.url,
+                creator: { '@id': `${site}/#bima` },
+            })),
             {
                 '@type': 'BreadcrumbList',
                 itemListElement: [
@@ -129,10 +133,29 @@ const schema = [
                 <div class="prose">
                     <Content />
                 </div>
+                {youtubePlaylistURL && data.youtubePlaylist && (
+                    <aside class="post-playlist" aria-label="YouTube Music playlist">
+                        <header>
+                            <span>LISTEN / {playlistName}</span>
+                            <a href={youtubePlaylistURL} target="_blank" rel="noopener noreferrer">Open in YouTube Music ↗</a>
+                        </header>
+                        <iframe
+                            src={`https://www.youtube-nocookie.com/embed/videoseries?list=${data.youtubePlaylist}`}
+                            width="100%"
+                            height="352"
+                            style="border:0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen
+                            loading="lazy"
+                            title={`${playlistName} by Bima Adam Nugraha on YouTube Music`}
+                        ></iframe>
+                    </aside>
+                )}
                 {playlistURL && (
                     <aside class="post-playlist" aria-label="Spotify playlist">
                         <header>
-                            <span>LISTEN / {data.spotifyPlaylistName ?? 'PLAYLIST'}</span>
+                            <span>LISTEN / {playlistName}</span>
                             <a href={playlistURL} target="_blank" rel="noopener noreferrer">Open in Spotify ↗</a>
                         </header>
                         <iframe
@@ -142,7 +165,7 @@ const schema = [
                             style="border:0"
                             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                             loading="lazy"
-                            title={`${data.spotifyPlaylistName ?? 'Playlist'} by Bima Adam Nugraha on Spotify`}
+                            title={`${playlistName} by Bima Adam Nugraha on Spotify`}
                         ></iframe>
                     </aside>
                 )}
@@ -235,6 +258,7 @@ const schema = [
 .post-playlist header {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     gap: 12px;
     padding: 14px 18px;
     border-bottom: 1px solid var(--line);
@@ -251,6 +275,10 @@ const schema = [
 
 .post-playlist header a:hover {
     color: var(--accent);
+}
+
+.post-playlist + .post-playlist {
+    margin-top: 16px;
 }
 
 .post-playlist iframe {

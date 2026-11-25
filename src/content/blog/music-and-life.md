@@ -1,19 +1,24 @@
 ---
 title: "Why Bima Adam Nugraha Loves Atmospheric Phonk, Phonk Wave & Nightdrive Music"
-seoTitle: "Atmospheric Phonk & Phonk Wave — Bima Adam Nugraha's Music"
+seoTitle: "Atmospheric Phonk Playlist — Phonk Wave & Nightdrive | Beatz Bimz"
 excerpt: "From Beatz Bimz (2017–2021) to IgnitronDev. Why I still live in atmospheric phonk, phonk wave and nightdrive — and what it taught me about building software."
-seoDescription: "Why Bima Adam Nugraha, founder of IgnitronDev and former producer Beatz Bimz, loves atmospheric phonk, phonk wave and nightdrive music — plus his Spotify playlist."
+seoDescription: "Atmospheric phonk, phonk wave and nightdrive playlist by Bima Adam Nugraha (Beatz Bimz). Listen on YouTube Music or Spotify."
 keywords:
   - "atmospheric phonk"
+  - "atmospheric phonk playlist"
   - "phonk wave"
+  - "phonk wave playlist"
   - "nightdrive music"
+  - "nightdrive playlist"
   - "drift phonk"
   - "phonk"
   - "Beatz Bimz"
+  - "Beatz Bimz playlist"
   - "Bima Adam Nugraha"
   - "music for coding"
+  - "youtube music phonk"
 date: 2026-05-15
-updated: 2026-10-15
+updated: 2026-11-25
 category: "personal"
 label: "Music & Life"
 color: "var(--cyber-cyan-dark)"
@@ -21,6 +26,7 @@ featured: false
 ogImage: "images/og-music-phonk.png"
 spotifyPlaylist: "2noGfli9DsoQpf81dD5H7R"
 spotifyPlaylistName: "Atmospheric Phonk Wave — 夜のドリフト"
+youtubePlaylist: "PL1iO-6XxwzsI_Kg4v9yfC3PfsVa77fpte"
 ---
 
 People who know me from IgnitronDev, from the EMR work or the Kubernetes clusters, are sometimes surprised that my headphones are almost always playing **atmospheric phonk** and **phonk wave**. It is not a phase. Before any of the software, I made this music.
@@ -70,7 +76,9 @@ Atmospheric phonk and phonk wave are mostly instrumental, steady in tempo, and b
 
 ## The playlist
 
-I keep a playlist — **Atmospheric Phonk Wave — 夜のドリフト** ("night drift") — full of the atmospheric phonk, phonk wave and nightdrive tracks I keep coming back to. It is not background noise; it is a working soundtrack. You can play it right below this article.
+I keep a playlist — **[Atmospheric Phonk Wave — 夜のドリフト](https://music.youtube.com/playlist?list=PL1iO-6XxwzsI_Kg4v9yfC3PfsVa77fpte)** ("night drift") — full of the atmospheric phonk, phonk wave and nightdrive tracks I keep coming back to. It is not background noise; it is a working soundtrack.
+
+Listen on [YouTube Music](https://music.youtube.com/playlist?list=PL1iO-6XxwzsI_Kg4v9yfC3PfsVa77fpte) or [Spotify](https://open.spotify.com/playlist/2noGfli9DsoQpf81dD5H7R). Both players are below this article. The same playlist is also on the [IgnitronDev blog](/blog/) and on [my profile](/about/bima/).
 
 > Music is not just entertainment. It is identity, memory, and a way home.
 
@@ -92,4 +100,4 @@ For me, yes. Atmospheric phonk and phonk wave are mostly instrumental with a ste
 
 ### Where can I listen to your playlist?
 
-The full playlist is embedded below this article and on the [IgnitronDev blog](/blog/), or you can open it directly in Spotify.
+Open the playlist on [YouTube Music](https://music.youtube.com/playlist?list=PL1iO-6XxwzsI_Kg4v9yfC3PfsVa77fpte) or [Spotify](https://open.spotify.com/playlist/2noGfli9DsoQpf81dD5H7R). Both players are embedded below this article, and the same links are on the [IgnitronDev blog](/blog/) and on [my profile](/about/bima/).
