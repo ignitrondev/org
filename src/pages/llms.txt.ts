@@ -30,7 +30,7 @@ Key facts:
 - [IGN Volcano](${url('products/ign-volcano/')}): Indonesian volcano observatory product page. The live app is at https://magma.ignitrondev.space
 - [FocusFlow](${url('products/focusflow/')}): Offline-first Pomodoro timer for Android
 - [Ignitron Clinical UI](${url('products/clinical-ui/')}): Open-source React components for clinical workflows
-- [Ignitron UI](${url('products/ignitron-ui/')}): React components for the IgnitronDev interface. npm: https://www.npmjs.com/package/@ignitrondev/ui
+- [Ignitron UI](${url('products/ignitron-ui/')}): React components for the IgnitronDev interface. Docs: https://ignitrondev.github.io/ignitrondev-ui/ npm: https://www.npmjs.com/package/@ignitrondev/ui
 - [About Bima Adam Nugraha](${url('about/bima/')}): Profile of the founder, his engineering work, his music as Beatz Bimz, and his atmospheric phonk playlist on YouTube Music
 - [Clinical UI catalog](${url('foundry/')}): Roadmap and status of Ignitron Clinical UI components
 - [Blog](${url('blog/')}): Notes on engineering, products, and music
@@ -48,6 +48,7 @@ ${posts.map((post) => `- [${post.data.title}](${url(`blog/${post.id}/`)}): ${pos
 - [FocusFlow on GitHub](https://github.com/ignitrondev/FocusFlow)
 - [Ignitron Clinical UI docs](https://ignitron-medic-ui.pages.dev/)
 - [@ignitrondev/odontogram on npm](https://www.npmjs.com/package/@ignitrondev/odontogram)
+- [Ignitron UI docs](https://ignitrondev.github.io/ignitrondev-ui/)
 - [@ignitrondev/ui on npm](https://www.npmjs.com/package/@ignitrondev/ui)
 - [GitHub: ignitrondev](https://github.com/ignitrondev)
 - [Instagram: @ignitrondev](https://instagram.com/ignitrondev)

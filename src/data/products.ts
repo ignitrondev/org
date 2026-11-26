@@ -223,6 +223,11 @@ export const products: Product[] = [
         tags: ['React', 'Tailwind CSS', 'Radix', 'TypeScript'],
         links: [
             {
+                href: 'https://ignitrondev.github.io/ignitrondev-ui/',
+                external: true,
+                label: { en: 'Component docs', id: 'Dokumentasi komponen', zh: '组件文档' },
+            },
+            {
                 href: 'https://www.npmjs.com/package/@ignitrondev/ui',
                 external: true,
                 label: { en: 'npm package', id: 'Paket npm', zh: 'npm 包' },
