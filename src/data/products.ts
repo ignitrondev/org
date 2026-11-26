@@ -208,6 +208,29 @@ export const products: Product[] = [
             },
         ],
     },
+    {
+        slug: 'ignitron-ui',
+        name: 'Ignitron UI',
+        index: '06',
+        eyebrow: 'React components',
+        status: 'alpha',
+        statusLabel: 'Alpha',
+        summary: {
+            en: 'React components for the IgnitronDev interface: square controls, hairline borders, mono labels, and one amber accent. The package is @ignitrondev/ui.',
+            id: 'Komponen React untuk interface IgnitronDev: kontrol kotak, garis rambut, label mono, dan satu aksen amber. Nama paketnya @ignitrondev/ui.',
+            zh: '面向 IgnitronDev 界面的 React 组件：方形控件、发丝分割线、等宽标注，以及单一琥珀色强调色。包名为 @ignitrondev/ui。',
+        },
+        tags: ['React', 'Tailwind CSS', 'Radix', 'TypeScript'],
+        links: [
+            {
+                href: 'https://www.npmjs.com/package/@ignitrondev/ui',
+                external: true,
+                label: { en: 'npm package', id: 'Paket npm', zh: 'npm 包' },
+            },
+        ],
+        schemaId: 'https://ignitrondev.space/#ignitron-ui',
+        seoKeywords: 'Ignitron UI, @ignitrondev/ui, React component library, Tailwind, Radix',
+    },
 ];
 
 export function productPath(slug: string) {

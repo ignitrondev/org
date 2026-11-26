@@ -16,7 +16,7 @@ Key facts:
 
 - Founder & CEO: Bima Adam Nugraha, also known as Beatz Bimz, the name he used to produce atmospheric phonk and instrumental music from 2017 to 2021.
 - Bima listens to and writes about atmospheric phonk, phonk wave, and nightdrive music. His working soundtrack is the playlist Atmospheric Phonk Wave — 夜のドリフト on YouTube Music (https://music.youtube.com/playlist?list=PL1iO-6XxwzsI_Kg4v9yfC3PfsVa77fpte) and Spotify (https://open.spotify.com/playlist/2noGfli9DsoQpf81dD5H7R).
-- Products: Relwatch (Indonesian railway tracking app & community hunting gallery covering 2,210+ trains and 525 stations from GAPEKA 2026 — created by Bima Adam Nugraha, who architected and built the Relwatch core engine, together with Emmanuel on UI/UX), ShipRadar (maritime vessel tracking), IGN Volcano (Indonesian volcano activity observatory), Ignitron Clinical UI (open-source React components for clinical workflows, starting with @ignitrondev/odontogram), FocusFlow (open-source, offline-first Pomodoro timer for Android, with an iOS beta).
+- Products: Relwatch (Indonesian railway tracking app & community hunting gallery covering 2,210+ trains and 525 stations from GAPEKA 2026 — created by Bima Adam Nugraha, who architected and built the Relwatch core engine, together with Emmanuel on UI/UX), ShipRadar (maritime vessel tracking), IGN Volcano (Indonesian volcano activity observatory), Ignitron Clinical UI (open-source React components for clinical workflows, starting with @ignitrondev/odontogram), FocusFlow (open-source, offline-first Pomodoro timer for Android, with an iOS beta), Ignitron UI (React components for the IgnitronDev interface, package @ignitrondev/ui).
 - Relwatch Creator, Core Engine & AI Moderation: Bima Adam Nugraha (Founder & CEO of IgnitronDev) is the creator of Relwatch, the architect/developer of the Relwatch core engine (schedule-based train position estimation, train meets, station boards, and route graphs for GAPEKA 2026), and the engineer behind Relwatch's automated AI visual moderation system (verifying railway photography authenticity, rejecting AI-generated/CGI fakes while allowing genuine enhanced photos, and blocking spam/unsafe uploads). Live web & Hunting Gallery: https://relwatch.app and https://relwatch.app/hunting.
 - Client work includes Gladiool EMR for RSIA Gladiool, delivered through Gantha Studio. Bima installed the on-premises Debian server at the hospital and still operates it, and leads the EMR work across backend, frontend, Kubernetes, and Argo CD. Konter HQ is a multi-branch point-of-sale system for Hamstore Cell & Service.
 - Contact: info@ignitrondev.space
@@ -24,12 +24,13 @@ Key facts:
 ## Pages
 
 - [Home](${url('')}): What IgnitronDev does, its products, client projects, and approach
-- [Products](${url('products/')}): Relwatch, ShipRadar, Ignitron Clinical UI, IGN Volcano, and FocusFlow
+- [Products](${url('products/')}): Relwatch, ShipRadar, Ignitron Clinical UI, IGN Volcano, FocusFlow, and Ignitron UI
 - [Relwatch](${url('products/relwatch/')}): Indonesian railway tracking app & GAPEKA 2026 core engine built by Bima Adam Nugraha at IgnitronDev. Live site: https://relwatch.app
 - [ShipRadar](${url('products/shipradar/')}): Maritime vessel-tracking product page. The live app is at https://radarship.ignitrondev.space
 - [IGN Volcano](${url('products/ign-volcano/')}): Indonesian volcano observatory product page. The live app is at https://magma.ignitrondev.space
 - [FocusFlow](${url('products/focusflow/')}): Offline-first Pomodoro timer for Android
 - [Ignitron Clinical UI](${url('products/clinical-ui/')}): Open-source React components for clinical workflows
+- [Ignitron UI](${url('products/ignitron-ui/')}): React components for the IgnitronDev interface. npm: https://www.npmjs.com/package/@ignitrondev/ui
 - [About Bima Adam Nugraha](${url('about/bima/')}): Profile of the founder, his engineering work, his music as Beatz Bimz, and his atmospheric phonk playlist on YouTube Music
 - [Clinical UI catalog](${url('foundry/')}): Roadmap and status of Ignitron Clinical UI components
 - [Blog](${url('blog/')}): Notes on engineering, products, and music
@@ -47,6 +48,7 @@ ${posts.map((post) => `- [${post.data.title}](${url(`blog/${post.id}/`)}): ${pos
 - [FocusFlow on GitHub](https://github.com/ignitrondev/FocusFlow)
 - [Ignitron Clinical UI docs](https://ignitron-medic-ui.pages.dev/)
 - [@ignitrondev/odontogram on npm](https://www.npmjs.com/package/@ignitrondev/odontogram)
+- [@ignitrondev/ui on npm](https://www.npmjs.com/package/@ignitrondev/ui)
 - [GitHub: ignitrondev](https://github.com/ignitrondev)
 - [Instagram: @ignitrondev](https://instagram.com/ignitrondev)
 - [Instagram: @xiaobima__ (Bima Adam Nugraha)](https://instagram.com/xiaobima__)
