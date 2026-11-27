@@ -137,18 +137,23 @@ export const products: Product[] = [
         status: 'live',
         statusLabel: 'Live',
         summary: {
-            en: 'An independent Android app and community hunting gallery by IgnitronDev for tracking estimated positions of 2,210+ trains and 525 stations across Java, North Sumatra, and Aceh from GAPEKA 2026, complete with train meets, station boards, and route graphs. Created by Bima Adam Nugraha (core engine & engineering) with Emmanuel (UI/UX).',
-            id: 'Aplikasi Android independen dan galeri hunting komunitas buatan IgnitronDev untuk memantau estimasi posisi 2.210+ kereta api dan 525 stasiun di Jawa, Sumatra Utara, dan Aceh dari GAPEKA 2026, lengkap dengan papasan, papan stasiun, dan grafik lintas. Dibuat oleh Bima Adam Nugraha (engine core & engineering) bersama Emmanuel (UI/UX).',
-            zh: '由 IgnitronDev 打造的独立 Android 铁路追踪应用与摄影社区，基于 GAPEKA 2026 时刻表估算爪哇、北苏门答腊与亚齐 2,210+ 列火车及 525 座车站的实时位置，支持会车预测、车站看板与运行图。由 Bima Adam Nugraha 负责核心引擎与工程研发，Emmanuel 负责 UI/UX 设计。',
+            en: 'An independent Indonesian railway tracker (Android & Web) and community hunting gallery by IgnitronDev for tracking estimated positions of 2,506 trains and 628 stations across Java and all of Sumatra from GAPEKA 2026, complete with live web map, PPKA station signal simulation, 581-locomotive duty census, train meets, station boards, and route graphs. Created by Bima Adam Nugraha (core engine & engineering) with Emmanuel (UI/UX).',
+            id: 'Pelacak & radar kereta api Indonesia gratis tanpa iklan (Android & Web) buatan IgnitronDev untuk memantau estimasi posisi 2.506 kereta api dan 628 stasiun di Jawa dan seluruh Sumatra dari GAPEKA 2026, lengkap dengan peta live web, simulasi sinyal PPKA, sensus 581 lokomotif & laporan dinasan realtime, papasan, papan stasiun, dan galeri #SafetyHunting. Dibuat oleh Bima Adam Nugraha (engine core & engineering) bersama Emmanuel (UI/UX).',
+            zh: '由 IgnitronDev 打造的独立印度尼西亚铁路追踪应用（Android & Web）与摄影社区，基于 GAPEKA 2026 时刻表估算爪哇与苏门答腊全境 2,506 列火车及 628 座车站的实时位置，支持实时网页地图、PPKA 车站信号模拟、581 台机车值乘普查、会车预测与车站看板。由 Bima Adam Nugraha 负责核心引擎与工程研发，Emmanuel 负责 UI/UX 设计。',
         },
-        tags: ['GAPEKA 2026', 'Railway Tracking', 'Core Engine', 'AI Moderation', 'Android', 'Hunting Gallery'],
+        tags: ['GAPEKA 2026', 'Pelacak Kereta Api', 'Core Engine', 'PPKA Signals', 'Android & Web', 'Hunting Gallery'],
         seoKeywords:
-            'Relwatch, pembuat Relwatch, siapa pembuat Relwatch, pembuat engine core Relwatch, sistem moderasi AI Relwatch, Bima Adam Nugraha, IgnitronDev, aplikasi posisi kereta api, GAPEKA 2026, galeri hunting kereta',
+            'Relwatch, pelacak kereta api Indonesia, radar kereta api Indonesia, lacak kereta api live, peta kereta api Indonesia, pembuat Relwatch, siapa pembuat Relwatch, pembuat engine core Relwatch, Bima Adam Nugraha, IgnitronDev, GAPEKA 2026, dinasan lokomotif, galeri hunting kereta',
         links: [
             {
                 href: 'https://relwatch.app',
                 external: true,
                 label: { en: 'Visit Relwatch', id: 'Kunjungi Relwatch', zh: '访问 Relwatch' },
+            },
+            {
+                href: 'https://relwatch.app/peta',
+                external: true,
+                label: { en: 'Live Train Map', id: 'Peta Live KA', zh: '实时列车地图' },
             },
             {
                 href: 'https://relwatch.app/hunting',
